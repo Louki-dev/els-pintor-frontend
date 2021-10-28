@@ -3,7 +3,6 @@
     $(document).ready(function() {
         loadEmployee();
 
-
         $('#edit_emp_modal').on('show.bs.modal', function(e) {
             var data = $(e.relatedTarget).attr('data-info');
             
@@ -12,7 +11,7 @@
             $("#update-lastName").val($('#tlname_' + data).html());
             $("#update-mobileNumber").val($('#tnumber_'+ data).html());
             $("#update-inputEmail").val($('#temail_'+ data).html());
-            $('#AddEmployee').html('Update');
+            $('#UpdateEmployee').html('Update');
             
         });
 
@@ -40,16 +39,10 @@
             }
         });
     });
-
-    $(document).on('click','#AddEmployee',function() {
-        
-
-        if ($("#update-emp_id").val() != '') {
-
-            var data = $("#update-emp_id").val();
-
+    
+    $(document).on('click', '#UpdateEmployee', function () {
             var payload = {
-                emp_id: data,
+                emp_id: $("#update-emp_id").val(),
                 fname: $("#update-firstName").val(),
                 lname: $("#update-lastName").val(),
                 mobile: $("#update-mobileNumber").val(),
@@ -65,9 +58,11 @@
                     updateEmployee(payload);        
                 }
             });
+    });
 
-        } else {
-
+    
+    $(document).on('click','#AddEmployee',function() {
+        
             var data = {
                 fname : $('#firstName').val(),
                 lname : $('#lastName').val(),
@@ -76,7 +71,6 @@
             };
 
             addEmployee(data);   
-        }
 
     });
 

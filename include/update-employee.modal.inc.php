@@ -3,7 +3,7 @@
         <div class="modal-content rounded-6 shadow">
         <div class="modal-header pending_header2">
             <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Employee Information</h5>
-                <button type="button" class="btn-close rounded-circle bg-light btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close rounded-circle bg-light btn-light" id="closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
     <form>
         <div class="modal-body">
@@ -28,7 +28,7 @@
                         <span></span>
                         <label>Email Address</label></div>
             <div class=" d-grid gap-2 mb-4 mt-5">
-                <button type="button" class="btn btn-outline-primary" id="AddEmployee">Update</button>
+                <button type="button" class="btn btn-outline-primary" id="UpdateEmployee">Update</button>
                 <button type="button" class="btn btn-outline-secondary" id="deleteEmployee">Delete</button> 
             </div>
         </div>

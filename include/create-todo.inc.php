@@ -1,8 +1,8 @@
 <div class="modal fade" id="todo" tabindex="-1" aria-labelledby="todo" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header pending_header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-6 shadow">
+      <div class="modal-header pending_header2">
+        <h5 class="modal-title  text-white fw-normal" id="exampleModalLabel">Create Project</h5>
         <button type="button" class="btn-close bg-light rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -28,10 +28,11 @@
             <textarea class="form-control" id="project-description" rows="5"></textarea>
           </div>
           
+        </div>
         </form>
-      </div>
       <div class="container d-grid gap-2 mb-4">
         <button type="button" class="btn btn-outline-primary" id="createTodo">Submit</button>
+        <button type="button" class="btn btn-outline-secondary" id="">Reset</button>
       </div>
     </div>
   </div>

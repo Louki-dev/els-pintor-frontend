@@ -142,7 +142,8 @@ function generateRequestTemplate($elemId, $elementValue,num)
                         (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn"><small class="opacity-50 text-nowrap"><span class="material-icons">archive</span></small></button>' : ''),
                         (num == 2 ? '<button type="button" id="approved" data-id="'+$elementValue[el].customer_id+'" class="btn"><small class="opacity-50 text-nowrap"><span class="material-icons">thumb_up_off_alt</span></small></button>' : ''),
                     '</div>',
-                '</div>'];
+                   '</div>'];
+           
             $($elemId).append($items.join(""));
         }
     }
@@ -175,6 +176,7 @@ function copyDataApprovedRequest()
     'Date Created: '+ $("#request_modal-1 #dateCreated").html() + '\r\n' +
     "Request Details: " + $("#request_modal-1 #requestDetails").html();
     
+    console.log(text)
 
     navigator.clipboard.writeText(text)
     .then(() => {
@@ -262,7 +264,7 @@ $(document).on('click', "#copyTodo", function (e) {
     copyTodoData();
 });
 
-function copyTodoData()
+function copyTodoData(ccc)
 {
 
     var text = 'Project: '+ $("#update_todo #td_title").html() + '\r\n' +
@@ -272,17 +274,18 @@ function copyTodoData()
     "PROJECT DETAILS "+ '\r\n' + $("#update_todo #td_description").html();
     
 
-    navigator.clipboard.writeText(text)
-    .then(() => {
+    navigator.clipboard.writeText("text")
+    .then(function () {
         // Success!
         console.log(" ");
     })
-    .catch(err => {
+    .catch(function (err) {
         console.log('Something went wrong', err);
     });
 
     Swal.fire('Copied!', '', 'success');
 }
+
 
 
 
@@ -298,6 +301,7 @@ function generateEmptyTemplate($elem)
 
     $($elem).html($html.join(""));
 }
+
 
 function getDayDescription(dateString)
 {
@@ -434,9 +438,9 @@ function generateTemplateEmployee($elem, $content, $num)
            '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].emp_id+'" data-bs-target="#edit_emp_modal">',
                 '<td data-label="Employee Information">',
                 '<span class="material-icons '+ ($content[el].emp_status == 1 ? "approved": "") +'">'+ ($content[el].emp_status == 1 ? "person": "person_off") +'</span></td>',
-                '<td data-label="Employee Name">',
-                    '<span class="fcapital" id="tfname_'+$content[el].emp_id+'">'+$content[el].emp_last_name +', </span>', 
-                    '<span class="fcapital" id="tlname_'+$content[el].emp_id+'">'+ $content[el].emp_first_name +'</span>',
+                '<td data-label="Employee Name"><span class="fcapital">',
+                    '<span id="tfname_'+$content[el].emp_id+'">'+$content[el].emp_first_name +'</span> ', 
+                    '<span id="tlname_'+$content[el].emp_id+'">'+ $content[el].emp_last_name +'</span></span>',
                 '</td>',
                 '<td id="tnumber_'+$content[el].emp_id+'" data-label="Email Address">'+ $content[el].emp_mobile_number +'</td>',
                 '<td id="temail_'+$content[el].emp_id+'" data-label="Mobile Number">'+$content[el].emp_email+'</td>',
@@ -468,7 +472,7 @@ function generateTemplateSentMessage($elem, $content)
                     '<span class="pt-1 form-checked-content">',
                         '<strong><a href="" class="text-decoration-none text-dark" data-bs-toggle="modal" data-info="'+$content[el].sent_message_id+'" data-bs-target="#view-message">'+ $content[el].emp_first_name + " " + $content[el].emp_last_name +' <small class="opacity-50 text-secondary">'+time_ago(new Date($content[el].sent_created_at))+'</small></a></strong>',
                         '<small class="d-block text-muted mt-1">',
-                            $content[el].message_content,
+                        textLimit($content[el].message_content, 30),
                         '</small>',
                     '</span>',
                 '</div>', 
@@ -562,6 +566,54 @@ $(document).ready(function(e){
         }
     });
 })
+
+
+function generateTemplateService($elem, $content)
+{
+    $($elem).empty();
+
+    for (var el = 0; el<$content.length; el++) {
+
+        id = "stitle'+$content[el].service_id+'"
+    
+        $html = [
+            '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].service_id+'" data-bs-target="#editService">',
+                '<td><span class="fcapital">',
+                    '<span id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</span> ', 
+                '</td>',
+                '<td id="sdesc'+$content[el].service_id+'">'+ $content[el].service_description +'</td>',
+                '<td>PHP <span id="sprice'+$content[el].service_id+'">'+$content[el].service_price+'</span></td>',
+            '</tr>'
+        ];
+
+        $($elem).append($html.join(""));
+        
+    }
+
+}
+
+function generateTemplateProduct($elem, $content)
+{
+    $($elem).empty();
+
+    for (var el = 0; el<$content.length; el++) {
+
+        id = "ptitle'+$content[el].product_id+'"
+    
+        $html = [
+            '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].product_id+'" data-bs-target="">',
+                '<td><span class="fcapital">',
+                    '<span id="ptitle'+$content[el].product_id+'">'+$content[el].product_name +'</span> ', 
+                '</td>',
+            '<td>PHP <span id="pprice'+$content[el].product_id+'">'+$content[el].product_price+'</span></td>',
+            '</tr>'
+        ];
+
+        $($elem).append($html.join(""));
+        
+    }
+
+}
 
 
 

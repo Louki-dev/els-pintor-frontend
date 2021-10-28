@@ -123,4 +123,5 @@ require_once __DIR__ . "/include/view-message.modal.inc.php";
 require_once __DIR__ . "/include/script.inc.php";
 require_once __DIR__ . "/include/create-message.modal.inc.php";
 ?>
+</body>
 </html>

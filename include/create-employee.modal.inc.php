@@ -30,6 +30,7 @@
                         <label>Email Address</label></div>
             <div class=" d-grid gap-2 mb-4 mt-5">
                 <button type="button" class="btn btn-outline-primary " id="AddEmployee">Submit</button>
+                <button type="button" class="btn btn-outline-secondary " id="resetEmployee">Reset</button>
             </div>
         </div>
     </form>

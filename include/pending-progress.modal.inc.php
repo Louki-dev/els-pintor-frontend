@@ -34,8 +34,8 @@
                 </p>
             </div>
             <div class="container d-grid gap-2 mb-4 mt-2">
-                <button type="button" class="btn btn-outline-success" id="approved" name="approve">Approve</button>
-                <button type="button" class="btn btn-outline-danger" id="turndown" name="turndown">Turndown</button>
+                <button type="button" class="btn btn-outline-primary" id="approved">Approve</button>
+                <button type="button" class="btn btn-outline-secondary" id="turndown">Turndown</button>
             </div>
             </div>
         </form>

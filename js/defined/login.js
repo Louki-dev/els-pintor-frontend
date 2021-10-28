@@ -4,13 +4,13 @@
         $(document).on("click", "#login", function(e) { 
 
             var data = {
-                username: $('#email').val(),
+                username: $('#username').val(),
                 password: $('#password').val()
             };
 
 
-            if (data.email == '') {
-                Swal.fire('Something went wrong!', 'Email must not be empty!', 'error');
+            if (data.username == '') {
+                Swal.fire('Something went wrong!', 'Username must not be empty!', 'error');
                 return;
             }
 
