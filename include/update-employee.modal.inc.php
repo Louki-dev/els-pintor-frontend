@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-6 shadow">
         <div class="modal-header pending_header2">
-            <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Employee Information</h5>
+            <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Edit Employee</h5>
                 <button type="button" class="btn-close rounded-circle bg-light btn-light" id="closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
     <form>

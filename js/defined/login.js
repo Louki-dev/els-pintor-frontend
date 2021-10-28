@@ -10,12 +10,12 @@
 
 
             if (data.username == '') {
-                Swal.fire('Something went wrong!', 'Username must not be empty!', 'error');
+                Swal.fire('Something went wrong', 'Username must not be empty', 'error');
                 return;
             }
 
             if (data.password == '') {
-                Swal.fire('Something went wrong!', 'Password must not be empty!', 'error');
+                Swal.fire('Something went wrong', 'Password must not be empty', 'error');
                 return;
             }
             login(data);
@@ -38,7 +38,7 @@
                         window.location.replace(redirect_dashboard);
                     });
                 } else {
-                    Swal.fire('Something went wrong', 'Invalid username/password!', 'error');
+                    Swal.fire('Something went wrong', 'Invalid username or password', 'error');
                 }
             }
         );
@@ -46,7 +46,7 @@
 
     $(document).on("click", '#logout', function() {
         unsetLocalStorage(["user_id", "token"], function() {
-            window.location.replace(redirect_dashboard);
+            window.location.replace(redirect_login);
         });
     });
 })();

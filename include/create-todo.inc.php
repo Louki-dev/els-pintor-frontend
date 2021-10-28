@@ -32,7 +32,7 @@
         </form>
       <div class="container d-grid gap-2 mb-4">
         <button type="button" class="btn btn-outline-primary" id="createTodo">Submit</button>
-        <button type="button" class="btn btn-outline-secondary" id="">Reset</button>
+        <button type="button" class="btn btn-outline-secondary" id="resetTodo">Reset</button>
       </div>
     </div>
   </div>

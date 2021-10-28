@@ -235,7 +235,7 @@ function getTodoModalTemplate($elem, $content, $num)
             '</div>',
             '<div class="col">',
                 '<p>Created At: <span class="opacity-75 ms-2" id="td_created">'+humanReadableDate($content.todo_created_at)+'</span></p>',
-                '<p>Due: <span class="opacity-75 ms-2" id="td_due">'+humanReadableDate($content.todo_deadline) + " (" + getDayDescription($content.todo_deadline) + ")" + '</span></p>',
+                ($content.todo_status == 0 ? '<p>Due: <span class="opacity-75 ms-2" id="td_due">'+humanReadableDate($content.todo_deadline) + " (" + getDayDescription($content.todo_deadline) + ")" + '</span></p>' : '<p>Completed At: <span class="opacity-75 ms-2" id="td_due">'+humanReadableDate($content.todo_updated_at) + " (" + getDayDescription($content.todo_updated_at) + ")" + '</span></p>'),
             '</div>',
         '</div><hr>',
         '<h6>Details:</h6>',
@@ -601,7 +601,7 @@ function generateTemplateProduct($elem, $content)
         id = "ptitle'+$content[el].product_id+'"
     
         $html = [
-            '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].product_id+'" data-bs-target="">',
+            '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].product_id+'" data-bs-target="#editProduct">',
                 '<td><span class="fcapital">',
                     '<span id="ptitle'+$content[el].product_id+'">'+$content[el].product_name +'</span> ', 
                 '</td>',

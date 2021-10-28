@@ -41,6 +41,7 @@
                 title: 'Are you sure you want to delete these item(s) ('+selected.length+')?',
                 showCancelButton: true,
                 confirmButtonText: 'Delete',
+                confirmButtonColor: '#2691d9',
             }).then(function (result){
                 if (result.isConfirmed) { 
                     deleteProject({
@@ -48,6 +49,8 @@
                     });
                 } 
             });
+        }else {
+            Swal.fire('Cannot delete the project.', 'Please select atleast 1 project!', 'error');
         }
 
     });
@@ -64,6 +67,7 @@
                 title: 'Are you sure you want to delete these item(s) ('+selected.length+')?',
                 showCancelButton: true,
                 confirmButtonText: 'Delete',
+                confirmButtonColor: '#2691d9',
             }).then(function (result) {
                 if (result.isConfirmed) { 
                     deleteProject({
@@ -71,6 +75,8 @@
                     });
                 } 
             });
+        }else {
+            Swal.fire('Cannot delete the project.', 'Please select atleast 1 project!', 'error');
         }
 
     });
@@ -115,7 +121,18 @@
                 title: 'Oops...',
                 text: 'Due date must not be empty!',
             });
-
+            return;
+        }
+        if (data.title == '') {
+            Swal.fire('Something went wrong', 'Project name must not be empty', 'error');
+            return;
+        }
+        if (data.address == '') {
+            Swal.fire('Something went wrong', 'Address must not be empty', 'error');
+            return;
+        }
+        if (data.description == '') {
+            Swal.fire('Something went wrong', 'Description must not be empty', 'error');
             return;
         }
 
@@ -129,17 +146,17 @@
             },
             function (response_data) {
                 if (response_data.status == true) {
+                    loadTodoList();
+                    $('.modal').modal('hide');
                     Swal.fire('Todo is successfully added!', '', 'success')
                     .then(function (result) {
-                        $('.modal').modal('hide');
-                        loadTodoList();
                         $('#project-name').val("");
                         $('#project-address').val("");
                         $('#project-description').val("");
                         $('#project-date').val("");
                     });
                 } else {
-                    Swal.fire('Somethin went wrong', response_data.error.error, 'error');
+                    Swal.fire('Somethin went wrong', 'Unable to complete process. Select another date', 'error');
                 }
             }
         );
@@ -185,13 +202,12 @@
             },
             function (response_data) {
                 if (response_data.status == true) {
-                    Swal.fire('Project successfully completed!', '', 'success')
-                    .then(function (result) {
-                        $('.modal').modal('hide');
-                        loadTodoList();
-                    });
+                    loadTodoList();
+                    $('.modal').modal('hide');
+                    Swal.fire('Project successfully completed!', '', 'success');
+                
                 } else {
-                    Swal.fire('Somethin went wrong', response_data.error.error, 'error');
+                    Swal.fire('Somethin went wrong', 'Required input must not be empty', 'error');
                 }
             }
         );
@@ -210,16 +226,21 @@
             },
             function (response_data) {
                 if (response_data.status == true) {
-                    Swal.fire('Project successfully deleted!', '', 'success')
-                    .then(function (result) {
-                        $('.modal').modal('hide');
-                        loadTodoList();
-                    });
+                    loadTodoList();
+                    $('.modal').modal('hide');
+                    Swal.fire('Project successfully deleted!', '', 'success');
+                  
                 } else {
-                    Swal.fire('Cannot delete the project. Please check the data!', '', 'error');
+                    Swal.fire('Cannot delete the project.', 'Please check the data!', 'error');
                 }
             }
         );
     }
 
+    $(document).on('click','#resetTodo',function (){
+        $('#project-name').val("");
+        $('#project-date').val("");
+        $('#project-address').val("");
+        $('#project-description').val("");
+    });
 })();

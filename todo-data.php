@@ -69,7 +69,7 @@
                                         <input class="form-check-input" type="checkbox" id="selectall-completed">
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Select All</label>
                                         </div></li>
-                                        <li><input class="dropdown-item" type="button" id="delete-todoList-completed" name='but_delete' value="Remove"></li> 
+                                        <li><input class="dropdown-item" type="submit" id="delete-todoList-completed" name='but_delete' value="Remove"></li> 
                                     </ul>
                                     </div>
                                 </div>

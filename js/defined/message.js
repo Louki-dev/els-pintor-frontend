@@ -68,6 +68,7 @@
                 title: 'Are you sure you want to delete these Message(s) ('+selected.length+')?',
                 showCancelButton: true,
                 confirmButtonText: 'Delete',
+                confirmButtonColor: '#2691d9',
             }).then(function (result) {
                 if (result.isConfirmed) { 
                     deleteSentMessage({
@@ -75,6 +76,8 @@
                     });
                 } 
             });
+        } else {
+            Swal.fire('Cannot delete the message.', 'Please select atleast 1 message!', 'error');
         }
     });
 
@@ -133,10 +136,10 @@
             },
             function (response_data) {
                 if (response_data.status == true) {
-                    Swal.fire('Message is successfully removed!', '', 'success');
                     loadSentMessage();
+                    Swal.fire('Message is successfully removed!', '', 'success');
                 } else {
-                    Swal.fire('Something went wrong', response_data.error.error, 'error');
+                    Swal.fire('Cannot delete the message.', ' Please check the data!', 'error');
                 }
             });
     }
@@ -172,9 +175,9 @@
             },
         function (response_data) {
             if (response_data.status == true) {
-                Swal.fire('Message is successfully sent!', '', 'success');
                 loadSentMessage();
                 $('.modal').modal('hide');
+                Swal.fire('Message is successfully sent!', '', 'success');
             }
         });
     }

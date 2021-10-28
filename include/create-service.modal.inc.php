@@ -29,7 +29,7 @@
                 </div>     
             <div class=" d-grid gap-2 mb-3 mt-5">
                 <button type="button" class="btn btn-outline-primary" id="AddService">Submit</button>
-                <button type="button" class="btn btn-outline-secondary" id="">Reset</button>
+                <button type="button" class="btn btn-outline-secondary" id="resetService">Reset</button>
             </div>
         </div>
     </form>

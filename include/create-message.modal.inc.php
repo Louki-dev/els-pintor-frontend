@@ -8,7 +8,7 @@
     <form>
         <div class="modal-body">
             <textarea class="form-control" id="messageArea" rows="6" name="message" placeholder="Input text here"></textarea>     
-            <div class=" d-grid gap-2 mb-4 mt-5">
+            <div class=" d-grid gap-2 mb-2 mt-4">
                 <button type="button" class="btn btn-outline-primary " id="createMessage">Submit</button>
             </div>
         </div>

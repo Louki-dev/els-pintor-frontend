@@ -39,8 +39,8 @@
       </div>
     </div> -->
     
-    <div class="login-form">
-      <h2><i class="fas fa-brush login_icon"></i> LOGIN</h2>
+    <div class="login-form shadow">
+      <h2 class="p-3 mb-4"><i class="fas fa-brush login_icon fs-5"></i><span class="opacity-75 fs-4">LOGIN</span></h2>
       <form>
         <div class="txt_field2">
           <input type="text" id="username" required>

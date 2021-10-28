@@ -31,6 +31,7 @@
             title: 'Are you sure you want to delete this employee ?',
             showCancelButton: true,
             confirmButtonText: 'Delete',
+            confirmButtonColor: '#2691d9',
         }).then(function (result) {
             if (result.isConfirmed) { 
                 deleteEmployee({
@@ -53,6 +54,7 @@
                 title: 'Are you sure you want to update this employee?',
                 showCancelButton: true,
                 confirmButtonText: 'Update',
+                confirmButtonColor: '#2691d9',
             }).then(function (result) {
                 if (result.isConfirmed) {  
                     updateEmployee(payload);        
@@ -105,19 +107,19 @@
         },
         function (response_data) {
             if (response_data.status == true) {
+                loadEmployee();
+                $('.modal').modal('hide');
                 Swal.fire('Employee is successfully added!', '', 'success')
-                .then(function (result) {
-                    loadEmployee();
+                .then(function (result) {   
                     $('#firstName').val("");
                     $('#lastName').val("");
                     $('#inputEmail').val("");
                     $('#mobileNumber').val("");
-                    $("#emp_id").val(""); 
-                    $('.modal').modal('hide');
+                    $("#emp_id").val("");          
                 });
 
             } else {
-                Swal.fire('Something went wrong', response_data.error.error, 'error');
+                Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
             }
         });
     }
@@ -134,18 +136,18 @@
         },
         function (response_data) {
             if (response_data.status == true) {
+                loadEmployee();
+                $(".modal").modal('hide');
                 Swal.fire('Employee is successfully deleted!', '', 'success')
                 .then(function (result) {
-                    loadEmployee();
                     $('#update-firstName').val("");
                     $('#update-lastName').val("");
                     $('#update-inputEmail').val("");
                     $('#update-mobileNumber').val("");
-                    $("#update-emp_id").val(""); 
-                    $(".modal").modal('hide');
+                    $("#update-emp_id").val("");          
                 });
             } else {
-                Swal.fire('Something went wrong',response_data.error.error, 'error');
+                Swal.fire('Cannot delete the employee.','Please check the data!', 'error');
             }
         });
     }
@@ -161,17 +163,17 @@
             },
         function (response_data) {
             if (response_data.status == true) {
-                Swal.fire('Employee is successfully updated!', '', 'success');
                 loadEmployee();
+                $(".modal").modal('hide');
+                Swal.fire('Employee is successfully updated!', '', 'success');
                 $('#AddEmployee').html('Submit');
                 $('#update-firstName').val("");
                 $('#update-lastName').val("");
                 $('#update-inputEmail').val("");
                 $('#update-mobileNumber').val("");
-                $("#update-emp_id").val(""); 
-                $(".modal").modal('hide');
+                $("#update-emp_id").val("");      
             } else {
-                Swal.fire('Something went wrong',response_data.error.error, 'error');
+                Swal.fire('Something went wrong','Required input must not be empty!', 'error');
             }
         });
     }

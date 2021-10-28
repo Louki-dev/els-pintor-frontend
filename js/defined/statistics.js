@@ -136,6 +136,7 @@
             title: 'Are you sure you want to delete this item?',
             showCancelButton: true,
             confirmButtonText: 'Delete',
+            confirmButtonColor: '#2691d9',
         }).then(function (result) {
             if (result.isConfirmed) { 
                 ajaxRequest(
@@ -150,11 +151,13 @@
                     },
                     function (response_data) {
                         if (response_data.status == true) {
-                            /* Read more about isConfirmed, isDenied below */
-                                Swal.fire('Deleted!', '', 'success');
-                                loadDashboard();
-                                requestApiList();
-                                $('.modal').modal('hide');
+                            loadDashboard();
+                            requestApiList();
+                            $('.modal').modal('hide');
+                            Swal.fire('Deleted!', '', 'success');
+                                
+                        }else {
+                            Swal.fire('Cannot delete the item.', 'Please check the data!', 'error');
                         }
                     }
                 );
@@ -181,6 +184,7 @@
             title: 'Are you sure you want to '+$description+' this item?',
             showCancelButton: true,
             confirmButtonText: $desc,
+            confirmButtonColor: '#2691d9',
         }).then(function (result) {
             if (result.isConfirmed) {
                 ajaxRequest(
@@ -196,13 +200,11 @@
                     },
                     function (response_data) {
                         if (response_data.status == true) {
-                            /* Read more about isConfirmed, isDenied below */
-                                Swal.fire($desc + '!', '', 'success')
-                                .then(function (result) {
-                                    loadDashboard();
-                                    requestApiList();
-                                    $('.modal').modal('hide');
-                                });
+                            loadDashboard();
+                            requestApiList();
+                            $('.modal').modal('hide');
+                            Swal.fire($desc + '!', '', 'success');
+    
                         }
                     }
                 );

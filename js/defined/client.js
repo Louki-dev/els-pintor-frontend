@@ -10,6 +10,26 @@
                 customer_inquiry_details : $('#cinq').val()
             };
 
+            if (data.customer_first_name == '') {
+                Swal.fire('Something went wrong', 'First name must not be empty', 'error');
+                return;
+            }
+            if (data.customer_last_name == '') {
+                Swal.fire('Something went wrong', 'Last name must not be empty', 'error');
+                return;
+            }
+            if (data.customer_mobile_number == '') {
+                Swal.fire('Something went wrong', 'Mobile number must not be empty', 'error');
+                return;
+            }
+            if (data.customer_email == '') {
+                Swal.fire('Something went wrong', 'Email must not be empty', 'error');
+                return;
+            }
+            if (data.customer_inquiry_details == '') {
+                Swal.fire('Something went wrong', 'Inquiry details must not be empty', 'error');
+                return;
+            }
             createInquiry(data);
         });
 
@@ -23,14 +43,14 @@
                 },
             function (response_data) {
                 if (response_data.status == true) {
-                    Swal.fire('Inquiry sent!', '', 'success');
+                    Swal.fire('Inquiry sent!', 'Wait for the response via call or email. Thank you', 'success');
                     $('#cfname').val(''),
                     $('#clname').val(''),
                     $('#cemail').val(''),
                     $('#cnumber').val(''),
                     $('#cinq').val('')
                 } else {
-                    Swal.fire('Something went wrong!', 'Required input must not be empty', 'error');   
+                    Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');   
                 }
             });
         }
