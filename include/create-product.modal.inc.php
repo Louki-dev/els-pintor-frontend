@@ -2,14 +2,14 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-6 shadow">
         <div class="modal-header pending_header2">
-            <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Add Service</h5>
+            <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Add Product</h5>
                 <button type="button" class="btn-close rounded-circle bg-light btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
     <form>
         <div class="modal-body">
             <div class="row g-2 mb-3">
                 <div class="col-md">
-                    <label for="serv_name" class="form-label">Name of Service:</label>
+                    <label for="serv_name" class="form-label">Product Name:</label>
                     <input type="text" class="form-control" id="prod_name">
                 </div>
                 <div class="col-md">

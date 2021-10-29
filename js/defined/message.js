@@ -22,12 +22,26 @@
             });
 
             if ($selected.length == 0) {
-                Swal.fire('Something went wrong', 'Please Select atleast 1 number.', 'error');
+                // Swal.fire('Something went wrong', 'Please Select atleast 1 number.', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Please select atleast 1 number',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
                 return;
             }
 
             if ($("#messageArea").val() == '') {
-                Swal.fire('Something went wrong', '', 'error');
+                // Swal.fire('Something went wrong', '', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Message must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
                 return;
             }
 
@@ -77,7 +91,14 @@
                 } 
             });
         } else {
-            Swal.fire('Cannot delete the message.', 'Please select atleast 1 message!', 'error');
+            // Swal.fire('Cannot delete the message.', 'Please select atleast 1 message!', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Please select atleast 1 message',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
         }
     });
 
@@ -137,9 +158,23 @@
             function (response_data) {
                 if (response_data.status == true) {
                     loadSentMessage();
-                    Swal.fire('Message is successfully removed!', '', 'success');
+                    // Swal.fire('Message is successfully removed!', '', 'success');
+                    Swal.fire({
+                        title: 'Message is successfully removed!',
+                        text: '',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
                 } else {
-                    Swal.fire('Cannot delete the message.', ' Please check the data!', 'error');
+                    // Swal.fire('Cannot delete the message.', ' Please check the data!', 'error');
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: 'Cannot delete the message. Please check the data',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
                 }
             });
     }
@@ -177,7 +212,14 @@
             if (response_data.status == true) {
                 loadSentMessage();
                 $('.modal').modal('hide');
-                Swal.fire('Message is successfully sent!', '', 'success');
+                // Swal.fire('Message is successfully sent!', '', 'success');
+                Swal.fire({
+                    title: 'Message is successfully sent!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }

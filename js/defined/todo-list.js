@@ -50,7 +50,14 @@
                 } 
             });
         }else {
-            Swal.fire('Cannot delete the project.', 'Please select atleast 1 project!', 'error');
+            // Swal.fire('Cannot delete the project.', 'Please select atleast 1 project!', 'error');
+            Swal.fire({
+                title: 'Oh no!',
+                text: 'Cannot delete the project. Select atleast 1 project',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
         }
 
     });
@@ -76,7 +83,14 @@
                 } 
             });
         }else {
-            Swal.fire('Cannot delete the project.', 'Please select atleast 1 project!', 'error');
+            // Swal.fire('Cannot delete the project.', 'Please select atleast 1 project!', 'error');
+            Swal.fire({
+                title: 'Oh no!',
+                text: 'Cannot delete the project. Select atleast 1 project',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
         }
 
     });
@@ -115,24 +129,47 @@
             deadline: $('#project-date').val(),
         };
 
-        if (data.deadline == '') {
+        if (data.title == '') {
+            // Swal.fire('Something went wrong', 'Project name must not be empty', 'error');
             Swal.fire({
-                icon: 'error',
                 title: 'Oops...',
-                text: 'Due date must not be empty!',
+                text: 'Project name must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
             });
             return;
         }
-        if (data.title == '') {
-            Swal.fire('Something went wrong', 'Project name must not be empty', 'error');
+        if (data.deadline == '') {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Due date must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
         if (data.address == '') {
-            Swal.fire('Something went wrong', 'Address must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Address must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Address must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
         if (data.description == '') {
-            Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Description must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
 
@@ -148,7 +185,14 @@
                 if (response_data.status == true) {
                     loadTodoList();
                     $('.modal').modal('hide');
-                    Swal.fire('Todo is successfully added!', '', 'success')
+                    // Swal.fire('Todo is successfully added!', '', 'success')
+                    Swal.fire({
+                        title: 'Todo is successfully added!',
+                        text: '',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    })
                     .then(function (result) {
                         $('#project-name').val("");
                         $('#project-address').val("");
@@ -156,7 +200,14 @@
                         $('#project-date').val("");
                     });
                 } else {
-                    Swal.fire('Somethin went wrong', 'Unable to complete process. Select another date', 'error');
+                    // Swal.fire('Somethin went wrong', 'Unable to complete process. Select another date', 'error');
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: 'Unable to complete process. Please check the data',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
                 }
             }
         );
@@ -204,10 +255,24 @@
                 if (response_data.status == true) {
                     loadTodoList();
                     $('.modal').modal('hide');
-                    Swal.fire('Project successfully completed!', '', 'success');
+                    // Swal.fire('Project successfully completed!', '', 'success');
+                    Swal.fire({
+                        title: 'Project successfully completed!',
+                        text: '',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
                 
                 } else {
-                    Swal.fire('Somethin went wrong', 'Required input must not be empty', 'error');
+                    // Swal.fire('Somethin went wrong', 'Required input must not be empty', 'error');
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: 'Something went wrong. Please check the data',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
                 }
             }
         );
@@ -228,10 +293,24 @@
                 if (response_data.status == true) {
                     loadTodoList();
                     $('.modal').modal('hide');
-                    Swal.fire('Project successfully deleted!', '', 'success');
+                    // Swal.fire('Project successfully deleted!', '', 'success');
+                    Swal.fire({
+                        title: 'Project successfully deleted!',
+                        text: '',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
                   
                 } else {
-                    Swal.fire('Cannot delete the project.', 'Please check the data!', 'error');
+                    // Swal.fire('Cannot delete the project.', 'Please check the data!', 'error');
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: 'Cannot delete the project. Please check the data',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
                 }
             }
         );

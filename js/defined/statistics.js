@@ -154,10 +154,23 @@
                             loadDashboard();
                             requestApiList();
                             $('.modal').modal('hide');
-                            Swal.fire('Deleted!', '', 'success');
-                                
+                            // Swal.fire('Deleted!', '', 'success');
+                            Swal.fire({
+                                title: 'Deleted!',
+                                text: '',
+                                icon: 'success',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#2691d9',
+                            });
                         }else {
-                            Swal.fire('Cannot delete the item.', 'Please check the data!', 'error');
+                            // Swal.fire('Cannot delete the item.', 'Please check the data!', 'error');
+                            Swal.fire({
+                                title: 'Oh no!',
+                                text: 'Cannot delete the item. Please check the data',
+                                icon: 'error',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#2691d9',
+                            });
                         }
                     }
                 );
@@ -203,8 +216,14 @@
                             loadDashboard();
                             requestApiList();
                             $('.modal').modal('hide');
-                            Swal.fire($desc + '!', '', 'success');
-    
+                            // Swal.fire($desc + '!', '', 'success');
+                            Swal.fire({
+                                title: $desc + '!',
+                                text: '',
+                                icon: 'success',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#2691d9',
+                            });
                         }
                     }
                 );

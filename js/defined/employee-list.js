@@ -49,7 +49,46 @@
                 mobile: $("#update-mobileNumber").val(),
                 email: $("#update-inputEmail").val()
             };
-
+            if (payload.fname == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'First name must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (payload.lname == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Last name must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (payload.mobile == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Mobile number must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (payload.email == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Email must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
             Swal.fire({
                 title: 'Are you sure you want to update this employee?',
                 showCancelButton: true,
@@ -67,11 +106,53 @@
         
             var data = {
                 fname : $('#firstName').val(),
-                lname : $('#lastName').val(),
+                lname: $('#lastName').val(),
                 email : $('#inputEmail').val(),
                 mobile : $('#mobileNumber').val()
+ 
             };
-
+            
+            if (data.fname == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'First name must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (data.lname == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Last name must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (data.mobile == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Mobile number must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (data.email == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Email must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            
             addEmployee(data);   
 
     });
@@ -106,20 +187,32 @@
             dataType: "json",
         },
         function (response_data) {
-            if (response_data.status == true) {
-                loadEmployee();
+            if (response_data.status == true) {    
                 $('.modal').modal('hide');
-                Swal.fire('Employee is successfully added!', '', 'success')
-                .then(function (result) {   
+                Swal.fire({
+                    title: 'Employee successfully added!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
+                .then(function (result) {
+                    loadEmployee();
                     $('#firstName').val("");
                     $('#lastName').val("");
                     $('#inputEmail').val("");
                     $('#mobileNumber').val("");
-                    $("#emp_id").val("");          
+                    $("#emp_id").val("");
                 });
 
             } else {
-                Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: response_data.error.error,
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }
@@ -138,7 +231,13 @@
             if (response_data.status == true) {
                 loadEmployee();
                 $(".modal").modal('hide');
-                Swal.fire('Employee is successfully deleted!', '', 'success')
+                Swal.fire({
+                    title: 'Employee successfully deleted!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
                 .then(function (result) {
                     $('#update-firstName').val("");
                     $('#update-lastName').val("");
@@ -147,7 +246,13 @@
                     $("#update-emp_id").val("");          
                 });
             } else {
-                Swal.fire('Cannot delete the employee.','Please check the data!', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Cannot find the employee. Please check the data',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }
@@ -165,15 +270,28 @@
             if (response_data.status == true) {
                 loadEmployee();
                 $(".modal").modal('hide');
-                Swal.fire('Employee is successfully updated!', '', 'success');
-                $('#AddEmployee').html('Submit');
-                $('#update-firstName').val("");
-                $('#update-lastName').val("");
-                $('#update-inputEmail').val("");
-                $('#update-mobileNumber').val("");
-                $("#update-emp_id").val("");      
+                Swal.fire({
+                    title: 'Employee successfully updated!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
+                .then(function (result) {
+                    $('#update-firstName').val("");
+                    $('#update-lastName').val("");
+                    $('#update-inputEmail').val("");
+                    $('#update-mobileNumber').val("");
+                    $("#update-emp_id").val("");
+                });    
             } else {
-                Swal.fire('Something went wrong','Required input must not be empty!', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'E-mail/Mobile Number already in use or Employee is already Active. Unable to complete process.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }

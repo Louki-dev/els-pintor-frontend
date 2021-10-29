@@ -13,15 +13,36 @@
         };
 
         if (data.serv_name == '') {
-            Swal.fire('Something went wrong', 'Service name must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Service name must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Service name must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
         if (data.serv_price == '') {
-            Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Price rate must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
         if (data.serv_description == '') {
-            Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Description must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
     
@@ -36,11 +57,25 @@
             // serv_image : $('#serv_image').val(),         
         };
         if (data.prod_name == '') {
-            Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Product name must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
         if (data.prod_price == '') {
-            Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Product price must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
         
@@ -83,15 +118,36 @@
             serviceDescription: $('#eserv_description').val(),
         };
         if (payload.serviceName == '') {
-            Swal.fire('Something went wrong', 'Service name must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Service name must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Service name must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
         if (payload.servicePrice == '') {
-            Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Price rate must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
         if (payload.serviceDescription == '') {
-            Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Description must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
             Swal.fire({
@@ -115,11 +171,25 @@
             // pImage : $('#eprod_image').val(),
         };
         if (payload.pName == '') {
-            Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Product name must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
         if (payload.pPrice == '') {
-            Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
+            // Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Product price must not be empty',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
             return;
         }
     
@@ -178,8 +248,13 @@
         },
         function (response_data) {
             if (response_data.status == true) {
-                if (response_data.content.count != 0) {
-                    generateTemplateService("#service-list-data", response_data.content);
+                // if (response_data.content) {
+                //     generateTemplateService("#service-list-data", response_data.content);
+                // }
+                if (response_data.content != null) {
+                    if (response_data.content.length > 0) {
+                        generateTemplateService('#service-list-data', response_data.content);
+                    }
                 }
             }
         });
@@ -196,8 +271,13 @@
         },
         function (response_data) {
             if (response_data.status == true) {
-                if (response_data.content.count != 0) {
-                    generateTemplateProduct("#product-list-data", response_data.content);
+                // if (response_data.content) {
+                //     generateTemplateProduct("#product-list-data", response_data.content);
+                // }
+                if (response_data.content != null) {
+                    if (response_data.content.length > 0) {
+                        generateTemplateProduct('#product-list-data', response_data.content);
+                    }
                 }
             }
         });
@@ -217,7 +297,14 @@
             if (response_data.status == true) {
                 loadService();
                 $('.modal').modal('hide');
-                Swal.fire('Service successfully added!', '', 'success')
+                // Swal.fire('Service successfully added!', '', 'success')
+                Swal.fire({
+                    title: 'Service successfully added!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
                 .then(function (result) {
                     $('#serv_name').val("");
                     $('#serv_price').val("");
@@ -226,7 +313,14 @@
                 });
 
             } else {
-                Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
+                // Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Something went wrong. Please try again',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }
@@ -244,7 +338,14 @@
             if (response_data.status == true) {
                 loadProduct();
                 $('.modal').modal('hide');
-                Swal.fire('Product successfully added!', '', 'success')
+                // Swal.fire('Product successfully added!', '', 'success')
+                Swal.fire({
+                    title: 'Product successfully added!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
                 .then(function (result) {  
                     $('#prod_name').val("");
                     $('#prod_price').val("");
@@ -252,7 +353,14 @@
                 });
 
             } else {
-                Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
+                // Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Something went wrong. Please try again',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }
@@ -270,14 +378,28 @@
             if (response_data.status == true) {
                 loadService();
                 $(".modal").modal('hide'),
-                Swal.fire('Service successfully updated!', '', 'success');
+                // Swal.fire('Service successfully updated!', '', 'success');
+                Swal.fire({
+                    title: 'Service successfully updated!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
                 $('#eserv_id').val(),
                 $('#eserv_name').val(),
                 $('#eserv_price').val(),
                 // $('#eserv_image').val(),
                 $('#eserv_description').val();
             } else {
-                Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
+                // Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Something went wrong. Please try again',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }
@@ -295,7 +417,14 @@
             if (response_data.status == true) {
                 loadService();
                 $(".modal").modal('hide'),
-                Swal.fire('Service successfully deleted!', '', 'success')
+                // Swal.fire('Service successfully deleted!', '', 'success')
+                Swal.fire({
+                    title: 'Service successfully deleted!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
                 .then(function (result) {
                     $('#eserv_id').val(),
                     $('#eserv_name').val(),
@@ -304,7 +433,14 @@
                     $('#eserv_description').val();
                 });
             } else {
-                Swal.fire('Cannot delete the item.','Please check the data!', 'error');
+                // Swal.fire('Cannot delete the item.','Please check the data!', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Cannot delete the item. Please check the data',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }
@@ -322,14 +458,28 @@
             if (response_data.status == true) {
                 loadProduct();
                 $(".modal").modal('hide'),
-                Swal.fire('Product successfully updated!', '', 'success');
+                // Swal.fire('Product successfully updated!', '', 'success');
+                Swal.fire({
+                    title: 'Product successfully updated!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
                 $('#eprod_id').val(),
                 $('#eprod_name').val(),
                 // $('#eprod_image').val(),
                 $('#eprod_price').val();
                 
             } else {
-                Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
+                // Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Something went wrong. Please try again',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }
@@ -347,7 +497,14 @@
             if (response_data.status == true) {
                 loadProduct();
                 $(".modal").modal('hide'),
-                Swal.fire('Product successfully deleted!', '', 'success')
+                // Swal.fire('Product successfully deleted!', '', 'success')
+                Swal.fire({
+                    title: 'Product successfully deleted!',
+                    text: '',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
                 .then(function (result) {
                     $('#eprod_id').val(),
                     $('#eprod_name').val(),
@@ -355,7 +512,14 @@
                     $('#eprod_price').val();
                 });
             } else {
-                Swal.fire('Cannot delete the item.','Please check the data!', 'error');
+                // Swal.fire('Cannot delete the item.','Please check the data!', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Cannot delete the item. Please check the data',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
     }

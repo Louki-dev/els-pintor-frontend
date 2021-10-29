@@ -10,12 +10,24 @@
 
 
             if (data.username == '') {
-                Swal.fire('Something went wrong', 'Username must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Username must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
                 return;
             }
 
             if (data.password == '') {
-                Swal.fire('Something went wrong', 'Password must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Password must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
                 return;
             }
             login(data);
@@ -38,7 +50,13 @@
                         window.location.replace(redirect_dashboard);
                     });
                 } else {
-                    Swal.fire('Something went wrong', 'Invalid username or password', 'error');
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: 'Invalid username or password',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
                 }
             }
         );
