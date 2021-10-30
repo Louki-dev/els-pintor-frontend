@@ -16,7 +16,7 @@
     outline: none; border:none;
     text-decoration: none;
     text-transform: capitalize;
-    transition: .2s linear;
+    transition: .2s ease-in-out;
 }
 
 html{
@@ -28,9 +28,6 @@ html{
 
 html::-webkit-scrollbar{
     width:1rem;
-}
-
-html::-webkit-scrollbar-track{
 }
 
 html::-webkit-scrollbar-thumb{
@@ -508,8 +505,7 @@ section{
     color:var(--text-color-1);
     font-size: 25px;
 }
-.paint .box-container .box label {
-}
+
 
 .paint .box-container .box .colors-palette .colors{
     display: flex;
@@ -896,3 +892,12 @@ section{
         padding:2rem;
     }
 }
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    overflow: visible;
+    background: #FAFAFA url('../img/paintbrush.gif') no-repeat center center;
+  }

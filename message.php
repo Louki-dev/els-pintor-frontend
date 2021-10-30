@@ -1,25 +1,7 @@
 <?php require_once __DIR__ ."/include/header.inc.php";?>
 </head>
     <body id="message_page">
-        <div class="navigation">
-            <nav class="navbar navbar-light navbar-expand-lg pending_header">
-                <div class="container-fluid">
-                  <a class="navbar-brand" class="text-white" href="#">DASHBOARD</a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <button class="nav-link btn btn-sm text-white" id="logout">
-                                <span class="material-icons material-icons-outlined">
-                                    logout
-                                </span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-              </nav>
-        </div>
-
+<?php require_once __DIR__ . "/include/top-navigation.inc.php";?>
 
 <div class="message-section custom-m">
 <div class="container-md">

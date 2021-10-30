@@ -15,30 +15,15 @@
       <script src="<?php echo Utilities::domain();?>/frontend/js/apis/list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <script src="<?php echo Utilities::domain();?>/frontend/js/script.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <script src="<?php echo Utilities::domain();?>/frontend/js/defined/login.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+      <script src="<?php echo Utilities::domain();?>/frontend//js/preload.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <title>Else Pintor</title>
   </head>
   
   <body>
-    <!-- <div class="jumbotron text-center vertical-center">
-      <div class="container">
-          <main>
-            <div>
-              <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-              <div class="form-floating">
-                <input type="text" id="username" class="form-control" id="floatingInput" placeholder="username">
-                <label for="floatingInput">Username</label>
-              </div>
-              <div class="form-floating">
-                <input type="password" id="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-              </div>
-              <button class="w-100 btn btn-lg btn-primary" id="login" type="button">Sign in</button>
-            </div>
-          </main>
-      </div>
-    </div> -->
-    
+<div id="loader"></div>
+<div id="content">
+
     <div class="login-form shadow">
       <h2 class="p-3 mb-4"><i class="fas fa-brush login_icon fs-5"></i><span class="opacity-75 fs-4">LOGIN</span></h2>
       <form>
@@ -55,5 +40,7 @@
         <input type="button" id="login" value="Login">
       </form>
     </div>
-  </body>
+
+</div>
+</body>
 </html>

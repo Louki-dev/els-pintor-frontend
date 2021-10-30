@@ -114,13 +114,7 @@
         searchForm.classList.remove('active');
         colorsPalette.classList.remove('active');
         }
-    
-        searchBtn.onclick = function (){
-        searchForm.classList.toggle('active');
-        navbar.classList.remove('active');
-        colorsPalette.classList.remove('active');
-        }
-    
+        
         window.onscroll = function (){
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
@@ -133,7 +127,8 @@
             document.querySelector(':root').style.setProperty('--main-color',color);
         }
         });
-    
-        
+            
     })
+
+    
 })();

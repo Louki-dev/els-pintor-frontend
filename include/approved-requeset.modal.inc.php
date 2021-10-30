@@ -32,7 +32,7 @@
                     <textarea class="opacity-75 form-control bg-white textarea" id="requestDetails" disabled></textarea>
                     </div>
                 </p>
-                <button type="button" class="btn copy float-end opacity-50 icon" id="copyApprovedRequest"><i class="material-icons">copy_all</i></button>
+                <button type="button" class="btn float-end opacity-50 icon" id="copyApprovedRequest"><i class="material-icons">copy_all</i></button>
             </div>
             <div class="container d-grid gap-2 mb-4 mt-2">
                 <!-- <button type="button" id="turndown" class="btn btn-outline-success">Turndown</button> -->

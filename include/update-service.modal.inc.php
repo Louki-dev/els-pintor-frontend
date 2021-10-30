@@ -5,7 +5,7 @@
             <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Edit Service</h5>
                 <button type="button" class="btn-close rounded-circle bg-light btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-    <form>
+ 
         <div class="modal-body">
             <div class="row g-2 mb-3">
                 <input type="hidden" id="eserv_id">
@@ -33,7 +33,7 @@
                 <button type="button" class="btn btn-outline-secondary" id="DeleteService">Delete</button>
             </div>
         </div>
-    </form>
+
     </div>
 </div>
 </div>

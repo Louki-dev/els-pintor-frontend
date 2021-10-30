@@ -1,25 +1,7 @@
 <?php require_once __DIR__ ."/include/header.inc.php";?>
 </head>
     <body id="todo_page">
-        <div class="navigation">
-            <nav class="navbar navbar-light navbar-expand-lg pending_header">
-                <div class="container-fluid">
-                  <a class="navbar-brand" class="text-white" href="#">DASHBOARD</a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <button class="nav-link btn btn-sm text-white" id="logout">
-                                <span class="material-icons material-icons-outlined">
-                                    logout
-                                </span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-              </nav>
-        </div>
-        
+<?php require_once __DIR__ . "/include/top-navigation.inc.php";?>
 
         <div class="content-section custom-m mt-5">
             <div class="container-md">
@@ -43,7 +25,7 @@
                                         </div></li>
                                         <li><input class="dropdown-item" type="submit" id="delete-todoList-inprogress" name='but_delete' value="Remove"></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><input class="dropdown-item" type="submit" data-bs-toggle="modal" data-bs-target="#todo" value="New Project"></li>   
+                                        <li><input class="dropdown-item" type="submit" data-bs-toggle="modal" data-bs-target="#todo" value="New project..."></li>   
                                     </ul>
                                     </div>
                                 </div>

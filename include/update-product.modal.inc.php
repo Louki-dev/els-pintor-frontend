@@ -5,7 +5,7 @@
             <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Edit Product</h5>
                 <button type="button" class="btn-close rounded-circle bg-light btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-    <form>
+
         <div class="modal-body">
             <input type="hidden" id="eprod_id">
             <div class="row g-2 mb-3">
@@ -28,7 +28,7 @@
                 <button type="button" class="btn btn-outline-secondary" id="DeleteProduct">Delete</button>
             </div>
         </div>
-    </form>
+
     </div>
 </div>
 </div>

@@ -163,6 +163,7 @@ function generateModelTemplateDashboard($elemId, $content)
     }
 }
 
+
 $(document).on('click', "#copyApprovedRequest", function (e) {
     copyDataApprovedRequest();
 });
@@ -175,19 +176,29 @@ function copyDataApprovedRequest()
     'Mobile Number: ' + $("#request_modal-1 #mobileNumber").html() + '\r\n' +
     'Date Created: '+ $("#request_modal-1 #dateCreated").html() + '\r\n' +
     "Request Details: " + $("#request_modal-1 #requestDetails").html();
-    
-    console.log(text)
+  
 
     navigator.clipboard.writeText(text)
-    .then(() => {
+    .then(function (){
         // Success!
-        console.log(" ");
+        Swal.fire({
+            title: 'Copied!',
+            text: '',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#2691d9',
+        });
     })
-    .catch(err => {
-        console.log('Something went wrong', err);
+    .catch(function () {
+        Swal.fire({
+            title: 'Oh no!',
+            text: 'Something went wrong',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#2691d9',
+        });
     });
 
-    Swal.fire('Copied!', '', 'success');
 }
 
 function generateTodoTemplate($elem, $content, num)
@@ -264,7 +275,7 @@ $(document).on('click', "#copyTodo", function (e) {
     copyTodoData();
 });
 
-function copyTodoData(ccc)
+function copyTodoData()
 {
 
     var text = 'Project: '+ $("#update_todo #td_title").html() + '\r\n' +
@@ -274,16 +285,26 @@ function copyTodoData(ccc)
     "PROJECT DETAILS "+ '\r\n' + $("#update_todo #td_description").html();
     
 
-    navigator.clipboard.writeText("text")
-    .then(function () {
+    navigator.clipboard.writeText(text)
+    .then(function (){
         // Success!
-        console.log(" ");
+        Swal.fire({
+            title: 'Copied!',
+            text: '',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#2691d9',
+        });
     })
-    .catch(function (err) {
-        console.log('Something went wrong', err);
+    .catch(function () {
+        Swal.fire({
+            title: 'Oh no!',
+            text: 'Something went wrong',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#2691d9',
+        });
     });
-
-    Swal.fire('Copied!', '', 'success');
 }
 
 
@@ -297,6 +318,18 @@ function generateEmptyTemplate($elem)
             '<h1 class="material-icons opacity-25 fs-1">subtitles_off</h1>',
             '<p class="opacity-25">Empty</p>',
         '</div>'
+    ];
+
+    $($elem).html($html.join(""));
+}
+
+function generateEmptyTableTemplate($elem)
+{
+    $($elem).empty();
+    $html = [
+        '<div class="text-center mt-2 p-5">',   
+            '<p class="opacity-25">No data</p>',
+        '</div>',
     ];
 
     $($elem).html($html.join(""));
@@ -556,6 +589,42 @@ function generateModelTemplateEmployee(elem, $content, $num)
 
     
 }
+
+$(document).ready(function (e) {
+
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+    
+    function showTime(){
+        var date = new Date();
+        var h = date.getHours(); 
+        var m = date.getMinutes(); 
+        var s = date.getSeconds(); 
+        var session = "AM";
+        
+        if(h == 0){
+            h = 12;
+        }
+        
+        if(h > 12){
+            h = h - 12;
+            session = "PM";
+        }
+        
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+        
+        var time = h + ":" + m + ":" + s + " " + session;
+        document.getElementById("DigitalCLOCK").innerText = time;
+        document.getElementById("DigitalCLOCK").textContent = time;
+        
+        setTimeout(showTime, 1000);
+        
+    }
+    
+    showTime();
+})
 $(document).ready(function(e){
     
     var currentpage= ($('body').attr('id'))
@@ -565,8 +634,20 @@ $(document).ready(function(e){
             $(this).addClass("footer__link--active");
         }
     });
+
 })
 
+$(document).ready(function(e){
+    
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+    $(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+})
 
 function generateTemplateService($elem, $content)
 {

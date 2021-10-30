@@ -1,155 +1,157 @@
 (function () {
 
-  
-    $(document).ready(function () { loadService(); loadProduct();});
-    
-    $(document).on('click', '#AddService', function () {
-        var data = {
-            serv_name : $('#serv_name').val(),
-            serv_price: $('#serv_price').val(),
-            // serv_image : $('#serv_image').val(),
-            serv_description: $('#serv_description').val(),
-            
-        };
-
-        if (data.serv_name == '') {
-            // Swal.fire('Something went wrong', 'Service name must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Service name must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
-        if (data.serv_price == '') {
-            // Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Price rate must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
-        if (data.serv_description == '') {
-            // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Description must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
-    
-
-        addService(data);  
-    });
-
-    $(document).on('click', '#AddProduct', function () {
-        var data = {
-            prod_name : $('#prod_name').val(),
-            prod_price: $('#prod_price').val(),
-            // serv_image : $('#serv_image').val(),         
-        };
-        if (data.prod_name == '') {
-            // Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Product name must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
-        if (data.prod_price == '') {
-            // Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Product price must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
-        
-        addProduct(data);  
-    });
-
-    $(document).ready(function() {
+    $(document).ready(function () {
         loadService();
-        $('#editService').on('show.bs.modal', function (e) {
-            var data = $(e.relatedTarget).attr('data-info');
-
-            $("#eserv_id").val(data);
-            $("#eserv_name").val($('#stitle' + data).html());
-            $("#eserv_description").val($('#sdesc'+ data).html());
-            $("#eserv_price").val($('#sprice' + data).html());
-            // $("#eserv_image").val($('#tnumber_' + data).html());
-            $('#UpdateService').html('Update');
-        });
-    });
-
-    $(document).ready(function() {
         loadProduct();
-        $('#editProduct').on('show.bs.modal', function (e) {
-            var data = $(e.relatedTarget).attr('data-info');
-
-            $("#eprod_id").val(data);
-            $("#eprod_name").val($('#ptitle' + data).html());
-            $("#eprod_price").val($('#pprice' + data).html());
-            // $("#eprod_image").val($('#tnumber_' + data).html());
-            $('#UpdateProduct').html('Update');
+        $(document).on('click', '#AddService', function () {
+            var data = {
+                serv_name : $('#serv_name').val(),
+                serv_price: $('#serv_price').val(),
+                // serv_image : $('#serv_image').val(),
+                serv_description: $('#serv_description').val(),
+                
+            };
+    
+            if (data.serv_name == '') {
+                // Swal.fire('Something went wrong', 'Service name must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Service name must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (data.serv_price == '') {
+                // Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Price rate must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (data.serv_description == '') {
+                // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Description must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+        
+    
+            addService(data);  
         });
-    });
-
-    $(document).on('click', '#UpdateService', function () {
-        var payload = {
-            serviceId: $('#eserv_id').val(),
-            serviceName: $('#eserv_name').val(),
-            servicePrice: $('#eserv_price').val(),
-            // serviceImage : $('#eserv_image').val(),
-            serviceDescription: $('#eserv_description').val(),
-        };
-        if (payload.serviceName == '') {
-            // Swal.fire('Something went wrong', 'Service name must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Service name must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
+    
+        $(document).on('click', '#AddProduct', function () {
+            var data = {
+                prod_name : $('#prod_name').val(),
+                prod_price: $('#prod_price').val(),
+                // serv_image : $('#serv_image').val(),         
+            };
+            if (data.prod_name == '') {
+                // Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Product name must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (data.prod_price == '') {
+                // Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Product price must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            
+            addProduct(data);  
+        });
+    
+        $(document).ready(function() {
+            loadService();
+            $('#editService').on('show.bs.modal', function (e) {
+                var data = $(e.relatedTarget).attr('data-info');
+    
+                $("#eserv_id").val(data);
+                $("#eserv_name").val($('#stitle' + data).html());
+                $("#eserv_description").val($('#sdesc'+ data).html());
+                $("#eserv_price").val($('#sprice' + data).html());
+                // $("#eserv_image").val($('#tnumber_' + data).html());
+                $('#UpdateService').html('Update');
             });
-            return;
-        }
-        if (payload.servicePrice == '') {
-            // Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Price rate must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
+        });
+    
+        $(document).ready(function() {
+            loadProduct();
+            $('#editProduct').on('show.bs.modal', function (e) {
+                var data = $(e.relatedTarget).attr('data-info');
+    
+                $("#eprod_id").val(data);
+                $("#eprod_name").val($('#ptitle' + data).html());
+                $("#eprod_price").val($('#pprice' + data).html());
+                // $("#eprod_image").val($('#tnumber_' + data).html());
+                $('#UpdateProduct').html('Update');
             });
-            return;
-        }
-        if (payload.serviceDescription == '') {
-            // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Description must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
+        });
+    
+        $(document).on('click', '#UpdateService', function () {
+            var payload = {
+                serviceId: $('#eserv_id').val(),
+                serviceName: $('#eserv_name').val(),
+                servicePrice: $('#eserv_price').val(),
+                // serviceImage : $('#eserv_image').val(),
+                serviceDescription: $('#eserv_description').val(),
+            };
+    
+            if (payload.serviceName == '') {
+                // Swal.fire('Something went wrong', 'Service name must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Service name must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (payload.servicePrice == '') {
+                // Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Price rate must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (payload.serviceDescription == '') {
+                // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Description must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+    
             Swal.fire({
                 title: 'Are you sure you want to update this service?',
                 showCancelButton: true,
@@ -160,39 +162,39 @@
                     updateService(payload);        
                 }
             });
-     
-    });
-
-    $(document).on('click', '#UpdateProduct', function () {
-        var payload = {
-            pId: $('#eprod_id').val(),
-            pName: $('#eprod_name').val(),
-            pPrice: $('#eprod_price').val(),
-            // pImage : $('#eprod_image').val(),
-        };
-        if (payload.pName == '') {
-            // Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Product name must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
-        if (payload.pPrice == '') {
-            // Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Product price must not be empty',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
+         
+        });
     
+        $(document).on('click', '#UpdateProduct', function () {
+            var payload = {
+                pId: $('#eprod_id').val(),
+                pName: $('#eprod_name').val(),
+                pPrice: $('#eprod_price').val(),
+                // pImage : $('#eprod_image').val(),
+            };
+            if (payload.pName == '') {
+                // Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Product name must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (payload.pPrice == '') {
+                // Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Product price must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+        
             Swal.fire({
                 title: 'Are you sure you want to update this product?',
                 showCancelButton: true,
@@ -203,10 +205,12 @@
                     updateProduct(payload);        
                 }
             });
-     
+         
+        });
+
     });
 
-    $(document).on('click','#DeleteService',function (e) {
+    $(document).on('click','#DeleteService', function (e) {
         Swal.fire({
             title: 'Are you sure you want to delete this service?',
             showCancelButton: true,
@@ -221,7 +225,7 @@
         });
     });
 
-    $(document).on('click','#DeleteProduct',function (e) {
+    $(document).on('click','#DeleteProduct', function (e) {
         Swal.fire({
             title: 'Are you sure you want to delete this product?',
             showCancelButton: true,
@@ -232,13 +236,15 @@
                 deleteProduct({
                     pId: $("#eprod_id").val()
                 });
+                loadProduct();
             }
         });
     });
     
-
+    
     function loadService()
     {
+        generateEmptyTableTemplate('#service-list-data');
         ajaxRequest(null,
             {
             url: get_service_list,
@@ -248,9 +254,6 @@
         },
         function (response_data) {
             if (response_data.status == true) {
-                // if (response_data.content) {
-                //     generateTemplateService("#service-list-data", response_data.content);
-                // }
                 if (response_data.content != null) {
                     if (response_data.content.length > 0) {
                         generateTemplateService('#service-list-data', response_data.content);
@@ -262,6 +265,7 @@
 
     function loadProduct()
     {
+        generateEmptyTableTemplate('#product-list-data');
         ajaxRequest(null,
             {
             url: get_product_list,
@@ -271,9 +275,6 @@
         },
         function (response_data) {
             if (response_data.status == true) {
-                // if (response_data.content) {
-                //     generateTemplateProduct("#product-list-data", response_data.content);
-                // }
                 if (response_data.content != null) {
                     if (response_data.content.length > 0) {
                         generateTemplateProduct('#product-list-data', response_data.content);
@@ -297,7 +298,6 @@
             if (response_data.status == true) {
                 loadService();
                 $('.modal').modal('hide');
-                // Swal.fire('Service successfully added!', '', 'success')
                 Swal.fire({
                     title: 'Service successfully added!',
                     text: '',
@@ -377,7 +377,7 @@
         function (response_data) {
             if (response_data.status == true) {
                 loadService();
-                $(".modal").modal('hide'),
+                $(".modal").modal('hide');
                 // Swal.fire('Service successfully updated!', '', 'success');
                 Swal.fire({
                     title: 'Service successfully updated!',
@@ -386,10 +386,10 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 })
-                $('#eserv_id').val(),
-                $('#eserv_name').val(),
-                $('#eserv_price').val(),
-                // $('#eserv_image').val(),
+                $('#eserv_id').val();
+                $('#eserv_name').val();
+                $('#eserv_price').val();
+                // $('#eserv_image').val();
                 $('#eserv_description').val();
             } else {
                 // Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
@@ -411,12 +411,10 @@
             url: delete_service,
             type: "POST",
             headers: assignAuthHeader(),
-            dataType: "json"
+            dataType: "json",
         },
         function (response_data) {
             if (response_data.status == true) {
-                loadService();
-                $(".modal").modal('hide'),
                 // Swal.fire('Service successfully deleted!', '', 'success')
                 Swal.fire({
                     title: 'Service successfully deleted!',
@@ -425,18 +423,20 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 })
-                .then(function (result) {
-                    $('#eserv_id').val(),
-                    $('#eserv_name').val(),
-                    $('#eserv_price').val(),
-                    // $('#eserv_image').val(),
-                    $('#eserv_description').val();
-                });
+                
+                loadService();
+                $(".modal").modal('hide');
+                $('#eserv_id').val();
+                $('#eserv_name').val();
+                $('#eserv_price').val();
+                // $('#eserv_image').val();
+                $('#eserv_description').val();
+              
             } else {
                 // Swal.fire('Cannot delete the item.','Please check the data!', 'error');
                 Swal.fire({
                     title: 'Oh no!',
-                    text: 'Cannot delete the item. Please check the data',
+                    text: 'Cannot delete the item. Refresh the page',
                     icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -456,8 +456,7 @@
             },
         function (response_data) {
             if (response_data.status == true) {
-                loadProduct();
-                $(".modal").modal('hide'),
+                
                 // Swal.fire('Product successfully updated!', '', 'success');
                 Swal.fire({
                     title: 'Product successfully updated!',
@@ -466,9 +465,11 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 })
-                $('#eprod_id').val(),
-                $('#eprod_name').val(),
-                // $('#eprod_image').val(),
+                loadProduct();
+                $(".modal").modal('hide');
+                $('#eprod_id').val();
+                $('#eprod_name').val();
+                // $('#eprod_image').val();
                 $('#eprod_price').val();
                 
             } else {
@@ -495,8 +496,6 @@
         },
         function (response_data) {
             if (response_data.status == true) {
-                loadProduct();
-                $(".modal").modal('hide'),
                 // Swal.fire('Product successfully deleted!', '', 'success')
                 Swal.fire({
                     title: 'Product successfully deleted!',
@@ -505,17 +504,18 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 })
-                .then(function (result) {
-                    $('#eprod_id').val(),
-                    $('#eprod_name').val(),
-                    // $('#eprod_image').val(),
-                    $('#eprod_price').val();
-                });
+                loadProduct();
+                $(".modal").modal('hide');
+                $('#eprod_id').val();
+                $('#eprod_name').val();
+                // $('#eprod_image').val();
+                $('#eprod_price').val();
+               
             } else {
                 // Swal.fire('Cannot delete the item.','Please check the data!', 'error');
                 Swal.fire({
                     title: 'Oh no!',
-                    text: 'Cannot delete the item. Please check the data',
+                    text: 'Cannot delete the item. Refresh the page',
                     icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',

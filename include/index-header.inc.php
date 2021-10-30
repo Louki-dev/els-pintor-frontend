@@ -8,10 +8,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet " href="<?php echo Utilities::domain();?>/frontend/css/style2.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="<?php echo Utilities::domain();?>/frontend//js/sweetalert2.all.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <script src="<?php echo Utilities::domain();?>/frontend//js/apis/list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/script.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend//js/preload.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <script src="<?php echo Utilities::domain();?>/frontend//js/defined/client.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <title>Else Pintor</title>

@@ -654,12 +654,12 @@ input::-webkit-inner-spin-button {
 }
 
 .table_d {
-  border: 1px solid #ccc;
   border-collapse: collapse;
   margin: 0;
   padding: 0;
   width: 100%;
   table-layout: fixed;
+  background-color: #fff;
   }
 
   .table_d tr {
@@ -885,4 +885,57 @@ input[type="button"]:hover{
 
 .form-check-input{
   box-shadow: none !important;
+}
+
+
+
+
+
+.tooltip-inner {
+  font-size: 15px;
+  background: #2980b9;
+  color: rgb(255, 255, 255);
+  text-align: left;
+}
+
+.tooltip.show {
+  opacity: 1;
+}
+
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #2980b9;
+}
+
+.tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+  border-bottom-color: #2980b9;
+}
+
+.tooltip.bs-tooltip-start .tooltip-arrow::before {
+  border-left-color: #2980b9;
+}
+
+.tooltip.bs-tooltip-end .tooltip-arrow::before {
+  border-right-color: #2980b9;
+}
+
+
+.top_nav {
+  background-color: #2980b9;
+  color: #ffffff;
+}
+
+.top_nav .logo {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color:var(--text-color-1);
+  text-decoration: none;
+}
+
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  overflow: visible;
+  background: #FAFAFA url('../img/paintbrush.gif') no-repeat center center;
 }

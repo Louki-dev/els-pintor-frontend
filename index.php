@@ -2,6 +2,9 @@
 </head>
     <body>
 
+<div id="loader"></div>
+<div id="content">
+
 <!-- header section starts  -->
 
 <header class="header">
@@ -11,7 +14,7 @@
     <div class="icons">
        <!--  <div class="fas fa-moon" id="theme-btn"></div> -->
         <!-- <div class="fas fa-palette" id="color-btn"></div> -->
-        <div class="fas fa-search" id="search-btn"></div>
+        <!-- <div class="fas fa-search" id="search-btn"></div> -->
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
@@ -280,7 +283,7 @@
  <div class="box">
      <h3>contact Us</h3>
 
-    <section class="contact">
+    <section class="contact" id="contact">
     <!-- 
         <h1 class="heading"> <span>contact</span> us </h1> -->
        
@@ -316,7 +319,7 @@
 
 
 
-
+</div>
 <?php 
 
 ?>

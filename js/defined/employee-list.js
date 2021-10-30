@@ -159,6 +159,7 @@
 
     function loadEmployee()
     {
+        generateEmptyTableTemplate('#employee-list-data');
         ajaxRequest(null,
             {
             url: get_employee_list,
