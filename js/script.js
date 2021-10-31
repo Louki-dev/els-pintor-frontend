@@ -181,6 +181,7 @@ function copyDataApprovedRequest()
     navigator.clipboard.writeText(text)
     .then(function (){
         // Success!
+        $('.modal').modal('hide');
         Swal.fire({
             title: 'Copied!',
             text: '',
@@ -288,6 +289,7 @@ function copyTodoData()
     navigator.clipboard.writeText(text)
     .then(function (){
         // Success!
+        $('.modal').modal('hide');
         Swal.fire({
             title: 'Copied!',
             text: '',
