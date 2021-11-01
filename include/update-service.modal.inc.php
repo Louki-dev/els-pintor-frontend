@@ -26,7 +26,7 @@
             
                 <div class="mb-3">
                     <label for="serv_description" class="form-label">Description:</label> 
-                    <textarea class="form-control"  id="eserv_description" rows="3"></textarea>
+                    <textarea class="form-control textarea"  id="eserv_description" rows="3"></textarea>
                 </div>     
             <div class=" d-grid gap-2 mb-3 mt-5">
                 <button type="button" class="btn btn-outline-primary" id="UpdateService">Update</button>

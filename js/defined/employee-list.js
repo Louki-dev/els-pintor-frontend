@@ -152,10 +152,26 @@
                 });
                 return;
             }
-            
-            addEmployee(data);   
+            ValidateEmail(data);
 
     });
+
+    function ValidateEmail(data) 
+    {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.e_email.value))
+    {
+        addEmployee(data);  
+        return;
+    }
+        Swal.fire({
+            title: 'Oops...',
+            text: 'You have entered invalid email',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#2691d9',
+        });
+        return;
+    }
 
     function loadEmployee()
     {

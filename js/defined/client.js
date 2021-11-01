@@ -1,12 +1,54 @@
 (function () {
+    function ajaxRequest (payload = null, options = null, callback, errocallback = null)
+    {
+        try {
+            var defaults = {
+                type: "POST",
+                cache: false,
+                async: true,
+                processData: true,
+            }
+
+            var object = {
+                data: payload,
+                dataType:"json",
+                success: function (response) {
+                    if (response.error != null) {
+                        if (response.error.error == "401! Unauthorized Access.") {
+                            window.location.replace(redirect_login);//("/")
+                        }
+                    }
+
+                    callback(response);
+                },
+
+                error: function (response) { 
+                    if (errocallback) {
+                        errocallback(response);
+                    }
+                }
+            };
+
+            var ajaxRequest = Object.assign({}, object, defaults, options);
+            
+            return $.ajax(ajaxRequest);
+
+        } catch (e) {
+            alert(e);
+        }
+
+        return true;
+    }
+
+    
     $(document).ready(function(e){
 
         $(document).on("click", "#csubmit", function(e) { 
             var data = {
                 customer_first_name : $('#cfname').val(),
                 customer_last_name : $('#clname').val(),
-                customer_mobile_number : $('#cemail').val(),
-                customer_email : $('#cnumber').val(),
+                customer_mobile_number : $('#cnumber').val(),
+                customer_email : $('#cemail').val(),
                 customer_inquiry_details : $('#cinq').val()
             };
 
@@ -30,20 +72,22 @@
                 });
                 return;
             }
-            if (data.customer_mobile_number == '') {
+            
+            if (data.customer_email == '') {
                 Swal.fire({
                     title: 'Oops...',
-                    text: 'Mobile number must not be empty',
+                    text: 'Email must not be empty',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
                 return;
             }
-            if (data.customer_email == '') {
+    
+            if (data.customer_mobile_number == '') {
                 Swal.fire({
                     title: 'Oops...',
-                    text: 'Email must not be empty',
+                    text: 'Mobile number must not be empty',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -60,8 +104,9 @@
                 });
                 return;
             }
-            createInquiry(data);
+            ValidateEmail(data);
         });
+    });
 
         function createInquiry(data)
         {
@@ -79,7 +124,7 @@
                         icon: 'success',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',
-                    });
+                    })
                     $('#cfname').val(''),
                     $('#clname').val(''),
                     $('#cemail').val(''),
@@ -97,8 +142,22 @@
             });
         }
 
-    });
-
+        function ValidateEmail(data) 
+        {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.cemail.value))
+        {
+            createInquiry(data);
+            return;
+        }
+            Swal.fire({
+                title: 'Oops...',
+                text: 'You have entered invalid email',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
 
     $(document).ready(function(){
         var menuBtn = document.querySelector('#menu-btn');

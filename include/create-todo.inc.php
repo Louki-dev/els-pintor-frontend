@@ -25,7 +25,7 @@
           
           <div class="mb-3">
             <label for="project-description" class="col-form-label">Project Description:</label>
-            <textarea class="form-control" id="project-description" rows="5"></textarea>
+            <textarea class="form-control _txtarea" id="project-description" rows="1"></textarea>
           </div>
           
         </div>

@@ -19,14 +19,14 @@
     </div>
 
     <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#services">services</a>
-        <a href="#gallery">products</a>
-        <a href="#paint">paint color</a><!-- 
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Products</a>
+        <a href="#paint">Paint Color</a><!-- 
         <a href="#pricing">pricing</a> --><!-- 
         <a href="#review">review</a> -->
-        <a href="#about">about</a>
-        <a href="#contact">contact</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <form action="" class="search-form">
@@ -260,7 +260,7 @@
     <div class="box-container">
 
         <div class="box">
-            <h3>contact info</h3>
+            <h3>Contact Info</h3>
             <!-- <a href="#home"> <i class="fas fa-chevron-right"></i> home </a>
             <a href="#services"> <i class="fas fa-chevron-right"></i> services </a>
             <a href="#gallery"> <i class="fas fa-chevron-right"></i> products </a>
@@ -281,25 +281,25 @@
         </div>
 
  <div class="box">
-     <h3>contact Us</h3>
+     <h3>Contact Us</h3>
 
     <section class="contact" id="contact">
     <!-- 
         <h1 class="heading"> <span>contact</span> us </h1> -->
        
 
-        <form>
+        <form name="form">
             <div class="inputBox">
                 <input type="text" placeholder="First Name" id="cfname">
                 <input type="text" placeholder="Last Name" id="clname">
             </div>
             <div class="inputBox">
-                <input type="email" placeholder="Email" id="cemail">
+                <input type="email" placeholder="Email" id="cemail" name="cemail">
                 <input type="number" placeholder="Number" id="cnumber">
             </div>
-            <textarea name="" placeholder="Inquiry here and input color number or code for chosen colors." id="cinq" cols="30" rows="10"></textarea>
-            <input type="button" value="send inquiry" class="btn" id="csubmit">
-            <input type="reset" value="reset" class="btn">
+            <textarea name="" placeholder="Inquiry here and input color number or code for chosen colors." id="cinq" cols="30" rows="10" required></textarea>
+            <input type="button" value="Send Inquiry" class="btn" id="csubmit">
+            <input type="reset" value="Reset" class="btn">
         </form>
 
     </section>

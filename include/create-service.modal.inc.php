@@ -25,7 +25,7 @@
             
                 <div class="mb-3">
                     <label for="serv_description" class="form-label">Description:</label> 
-                    <textarea class="form-control"  id="serv_description" rows="3"></textarea>
+                    <textarea class="form-control _txtarea"  id="serv_description" rows="1"></textarea>
                 </div>     
             <div class=" d-grid gap-2 mb-3 mt-5">
                 <button type="button" class="btn btn-outline-primary" id="AddService">Submit</button>
