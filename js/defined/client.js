@@ -163,10 +163,10 @@
         var menuBtn = document.querySelector('#menu-btn');
         var searchBtn = document.querySelector('#search-btn');
         var themeBtn = document.querySelector('#theme-btn');
-    
+
         var navbar = document.querySelector('.navbar');
         var searchForm = document.querySelector('.search-form');
-        var colorsPalette = document.querySelector('.colors-palette');
+        // var colorsPalette = document.querySelector('.colors-palette');
     
         menuBtn.onclick = function (){
         navbar.classList.toggle('active');
@@ -180,14 +180,11 @@
         colorsPalette.classList.remove('active');
         }
     
-        document.querySelectorAll('.colors-palette .color').forEach(function (btn){
-        btn.onclick = function (){
-            let color = btn.style.background;
-            document.querySelector(':root').style.setProperty('--main-color',color);
-        }
-        });
-            
+        // document.querySelectorAll('.colors-palette .color').forEach(function (btn){
+        // btn.onclick = function (){
+        //     let color = btn.style.background;
+        //     document.querySelector(':root').style.setProperty('--main-color',color);
+        // }
+        // });
     })
-
-    
 })();

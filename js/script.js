@@ -661,7 +661,8 @@ function generateTemplateService($elem, $content)
     
         $html = [
             '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].service_id+'" data-bs-target="#editService">',
-                '<td><span class="fcapital">',
+            '<td><span class="fcapital">',
+                    // '<span id="simage'+$content[el].service_id+'">'+$content[el].service_imageData +'</span> ',
                     '<span id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</span> ', 
                 '</td>',
                 '<td id="sdesc'+$content[el].service_id+'">'+ $content[el].service_description +'</td>',
@@ -685,7 +686,8 @@ function generateTemplateProduct($elem, $content)
     
         $html = [
             '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].product_id+'" data-bs-target="#editProduct">',
-                '<td><span class="fcapital">',
+            '<td><span class="fcapital">',
+                    // '<span id="pimage'+$content[el].product_id+'">'+$content[el].product_imageData +'</span> ', 
                     '<span id="ptitle'+$content[el].product_id+'">'+$content[el].product_name +'</span> ', 
                 '</td>',
             '<td>PHP <span id="pprice'+$content[el].product_id+'">'+$content[el].product_price+'</span></td>',

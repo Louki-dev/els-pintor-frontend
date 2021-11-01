@@ -203,28 +203,49 @@
       <div class="box">
             <div class="colors-palette">
                 <div class="colors">
-                    <div class="color" style="background: #0000FF;"><label>1</label></div>
-                    <div class="color" style="background: #FF0000;"><label>2</label></div>
-                    <div class="color" style="background: #FFFF00;"><label>3</label></div>
-                    <div class="color" style="background: #FF6600;"><label>4</label></div>
-                    <div class="color" style="background: #2980b9;"><label>5</label></div>
-                    <div class="color" style="background: #27ae60;"><label>6</label></div>
-                    <div class="color" style="background: #e74c3c;"><label>7</label></div>
-                    <div class="color" style="background: #8e44ad;"><label>8</label></div>
-                    <div class="color" style="background: #B33771;"><label>9</label></div>
-                    <div class="color" style="background: #0fb9b1;"><label>10</label></div>
-                    <div class="color" style="background: #ff9f1a;"><label>11</label></div>
-                    <div class="color" style="background: #e84393;"><label>12</label></div>
+                    <div class="color" style="background: #FF6600;"><label>1</label></div>
+                    <div class="color" style="background: #2980b9;"><label>2</label></div>
+                    <div class="color" style="background: #27ae60;"><label>3</label></div>
+                    <div class="color" style="background: #e74c3c;"><label>4</label></div>
+                    <div class="color" style="background: #8e44ad;"><label>5</label></div>
+                    <div class="color" style="background: #B33771;"><label>6</label></div>
+                    <div class="color" style="background: #0fb9b1;"><label>7</label></div>
+                    <div class="color" style="background: #ff9f1a;"><label>8</label></div>
+                    <div class="color" style="background: #e84393;"><label>9</label></div>
                 </div>
             </div>
         </div>
 <div class="box">
-        <span class="tooltiptext">
-            <label for="colorPicker">
-                <span class="tooltiptext">Click to choose color</span>
-                <input type="color" value="#2980b9" id="colorPicker"><br><p>Color code:</p><b></b>
-            </label>
-    </span>
+    <form>
+    <div class="colors-palette">
+        <div class="colors">
+            <div class="color" data-color="1p" id="color_1"><label>1</label></div>
+            <div class="color" data-color="2p" id="color_2"><label>2</label></div>
+        <select id="1stpick">
+            <option value="">none</option>
+            <option value="blue">blue</option>
+            <option value="red">red</option>
+            <option value="yellow">yellow</option>
+            <option value="GhostWhite">white</option>
+            <option value="black">black</option>
+        </select>
+
+        <select  id="2ndpick">
+            <option value="">none</option>
+            <option value="blue">blue</option>
+            <option value="red">red</option>
+            <option value="yellow">yellow</option>
+            <option value="GhostWhite">white</option>
+            <option value="black">black</option>
+        </select>
+
+            <button type="reset" id="color_reset"class="btn">Reset</button>
+            <input type="text" id="color_result" style="background: #eee;">
+            <input type="text" id="color_price" style="background: #eee;">
+            <div class="color" data-color="3p" id="color_3"><label>3</label></div>
+        </div>
+    </div>
+    </form>
 </div>
 
 </div>
