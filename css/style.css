@@ -608,6 +608,10 @@ input::-webkit-inner-spin-button {
   border-color: Transparent; 
   overflow: auto; 
 }
+.textarea2 {
+  height: 150px;
+  overflow: auto; 
+}
 
 .scrollarea {
   overflow-y: auto;

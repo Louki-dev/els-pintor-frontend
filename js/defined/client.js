@@ -120,7 +120,7 @@
                 if (response_data.status == true) {
                     Swal.fire({
                         title: 'Inquiry sent!',
-                        text: 'Wait for the response via call or email. Thank you',
+                        text: 'We will contact you as soon as possible. Thank you',
                         icon: 'success',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',

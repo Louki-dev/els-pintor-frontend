@@ -305,7 +305,7 @@
             } else {
                 Swal.fire({
                     title: 'Oh no!',
-                    text: 'E-mail/Mobile Number already in use or Employee is already Active. Unable to complete process.',
+                    text: response_data.error.error,
                     icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
