@@ -15,7 +15,7 @@
                 success: function (response) {
                     if (response.error != null) {
                         if (response.error.error == "401! Unauthorized Access.") {
-                            window.location.replace(redirect_login);//("/")
+                            window.location.replace("/");//("/")
                         }
                     }
 
@@ -144,19 +144,19 @@
 
         function ValidateEmail(data) 
         {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.cemail.value))
-        {
-            createInquiry(data);
-            return;
-        }
-            Swal.fire({
-                title: 'Oops...',
-                text: 'You have entered invalid email',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.cemail.value))
+            {
+                createInquiry(data);
+                return;
+            }
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'You have entered invalid email',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
         }
 
     $(document).ready(function(){
@@ -177,7 +177,7 @@
         window.onscroll = function (){
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
-        colorsPalette.classList.remove('active');
+        // colorsPalette.classList.remove('active');
         }
     
         // document.querySelectorAll('.colors-palette .color').forEach(function (btn){
