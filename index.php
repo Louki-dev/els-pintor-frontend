@@ -225,7 +225,7 @@
                 <option value="blue">blue</option>
                 <option value="red">red</option>
                 <option value="yellow">yellow</option>
-                <option value="GhostWhite">white</option>
+                <option value="ghostwhite">white</option>
                 <option value="black">black</option>
             </select>
 
@@ -234,7 +234,7 @@
                 <option value="blue">blue</option>
                 <option value="red">red</option>
                 <option value="yellow">yellow</option>
-                <option value="GhostWhite">white</option>
+                <option value="ghostwhite">white</option>
                 <option value="black">black</option>
             </select>
 
