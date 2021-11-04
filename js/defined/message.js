@@ -1,5 +1,6 @@
 (function () {
-    $(document).ready(function(e){
+    $(document).ready(function (e) {
+         
         loadEmployee();
         loadSentMessage();
 

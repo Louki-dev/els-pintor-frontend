@@ -11,65 +11,67 @@
             generateEmptyTemplate('#type-request-0');
             generateEmptyTemplate('#type-request-1');
             generateEmptyTemplate('#type-request-2');
-
-            ajaxRequest(null,
-                {
-                url: statistics_api,
-                type: "GET",
-                headers: assignAuthHeader(),
-                dataType: "json",
-            },
-            function (response_data) {
-                if (response_data.status == true) {
-    
-                    // Employee status
-                    if (typeof response_data.content.employee.length == "undefined") {
-                        for (key in response_data.content.employee) {
-                            genCountTemplate("#"+ key, response_data.content.employee[key]);
+            setInterval(function () {
+                ajaxRequest(null,
+                    {
+                    url: statistics_api,
+                    type: "GET",
+                    headers: assignAuthHeader(),
+                    dataType: "json",
+                },
+                function (response_data) {
+                    if (response_data.status == true) {
+        
+                        // Employee status
+                        if (typeof response_data.content.employee.length == "undefined") {
+                            for (key in response_data.content.employee) {
+                                genCountTemplate("#"+ key, response_data.content.employee[key]);
+                            }
                         }
-                    }
-    
-                    // todo
-                    if (typeof response_data.content.todo.length == "undefined") {
-                        for (key in response_data.content.todo) {
-                            genCountTemplate("#"+ key, response_data.content.todo[key]);
+        
+                        // todo
+                        if (typeof response_data.content.todo.length == "undefined") {
+                            for (key in response_data.content.todo) {
+                                genCountTemplate("#"+ key, response_data.content.todo[key]);
+                            }
                         }
-                    }
-    
-                    // Request
-                    if (typeof response_data.content.customer.length == "undefined") {
-                        for (key in response_data.content.customer) {
-                            genCountTemplate("#"+ key, response_data.content.customer[key]);
+        
+                        // Request
+                        if (typeof response_data.content.customer.length == "undefined") {
+                            for (key in response_data.content.customer) {
+                                genCountTemplate("#"+ key, response_data.content.customer[key]);
+                            }
                         }
+        
                     }
-    
-    
-                }
-            }
-        );
+                }   
+                );
+            }, 5000);
+            
     }
 
     function requestApiList()
     {
-        // Request API
-        ajaxRequest(null,
-            {
-                url: dashboard_api,
-                type: "GET",
-                headers: assignAuthHeader(),
-                dataType: "json",
-            },
-            function (response_data) {
-                if (response_data.status == true) {
-                    if (typeof response_data.content.length == "undefined") {
-                        for (key in response_data.content) {
-                            generateRequestTemplate("#type-request-"+key, response_data.content[key], key);
+        setInterval(function () {
+            ajaxRequest(null,
+                {
+                    url: dashboard_api,
+                    type: "GET",
+                    headers: assignAuthHeader(),
+                    dataType: "json",
+                },
+                function (response_data) {
+                    if (response_data.status == true) {
+                        if (typeof response_data.content.length == "undefined") {
+                            for (key in response_data.content) {
+                                generateRequestTemplate("#type-request-"+key, response_data.content[key], key);
+                            }
                         }
                     }
                 }
-            }
-        );
-
+            );
+        }, 5000);
+        
     }
 
     $('#request_modal-0').on('show.bs.modal', function(e) { 

@@ -7,7 +7,7 @@
             var data = {
                 serv_name : $('#serv_name').val(),
                 serv_price: $('#serv_price').val(),
-                // serv_image : $('#serv_image').val(),
+                serv_image : $('#serv_image').val(),
                 serv_description: $('#serv_description').val(),
                 
             };
@@ -34,6 +34,17 @@
                 });
                 return;
             }
+            if (data.serv_image == '') {
+                // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Upload image must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
             if (data.serv_description == '') {
                 // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
                 Swal.fire({
@@ -46,15 +57,16 @@
                 return;
             }
         
-    
-            addService(data);  
+            validateImageServices(data);
+            // addService(data);  
+            
         });
     
         $(document).on('click', '#AddProduct', function () {
             var data = {
                 prod_name : $('#prod_name').val(),
                 prod_price: $('#prod_price').val(),
-                // serv_image : $('#serv_image').val(),         
+                prod_image : $('#prod_image').val(),         
             };
             if (data.prod_name == '') {
                 // Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
@@ -78,8 +90,19 @@
                 });
                 return;
             }
-            
-            addProduct(data);  
+            if (data.prod_image == '') {
+                // Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Upload image must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            validateImageProduct(data);
+            // addProduct(data);  
         });
     
         $(document).ready(function() {
@@ -523,7 +546,47 @@
             }
         });
     }
+    function validateImageServices(data) {
+        var formData = new FormData();
+        var file = document.getElementById("serv_image").files[0];
+        formData.append("Filedata", file);
+        var t = file.type.split('/').pop().toLowerCase();
+        if (t != "jpeg" && t != "jpg" && t != "png" && t != "bmp" && t != "gif") {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Please select a valid image',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            document.getElementById("serv_image").value = '';
+            return false;
+        } else {
+            addService(data);  
+        }
+        return true;
+    }
 
+    function validateImageProduct(data) {
+        var formData = new FormData();
+        var file = document.getElementById("prod_image").files[0];
+        formData.append("Filedata", file);
+        var t = file.type.split('/').pop().toLowerCase();
+        if (t != "jpeg" && t != "jpg" && t != "png" && t != "bmp" && t != "gif") {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Please select a valid image',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            document.getElementById("prod_image").value = '';
+            return false;
+        } else {
+            addProduct(data);  
+        }
+        return true;
+    }
     $(document).on('click','#resetService',function (){
         $('#serv_name').val("");
         $('#serv_price').val("");

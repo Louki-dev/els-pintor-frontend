@@ -20,11 +20,6 @@
             </div>
             
                 <div class="mb-3">
-                    <label for="serv_image" class="form-label">Upload Image File:</label> 
-                    <input class="form-control" type="file"  id="eserv_image">
-                </div>
-            
-                <div class="mb-3">
                     <label for="serv_description" class="form-label">Description:</label> 
                     <textarea class="form-control textarea2"  id="eserv_description" rows="3"></textarea>
                 </div>     

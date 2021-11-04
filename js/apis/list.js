@@ -1,4 +1,4 @@
-var base1_url = "http://localhost/backend";
+var base1_url = "http://3c3c-2001-4454-66b-9200-cde3-d6bf-f323-2237.ngrok.io/backend";
 var login_api = base1_url + "/api/v1/auth/login";
 var statistics_api = base1_url + "/api/v1/dashboard/statistics";
 var dashboard_api = base1_url + "/api/v1/dashboard/dashboard";

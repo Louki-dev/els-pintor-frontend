@@ -375,7 +375,7 @@ function generateContactMessage($elem, $content)
 {
     $($elem).empty();
 
-    for (var el =0; el<$content.length; el++) { 
+    for (var el = 0; el < $content.length; el++) {
         var html = [
             '<label class="list-group-item d-flex gap-3">',
                 '<input class="form-check-input class="selectContacts" flex-shrink-0" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
@@ -387,7 +387,6 @@ function generateContactMessage($elem, $content)
                 '</span>',
             '</label>'
         ];
-
         $($elem).append(html.join(""));
     }
 }

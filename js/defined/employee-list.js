@@ -177,20 +177,22 @@
     function loadEmployee()
     {
         generateEmptyTableTemplate('#employee-list-data');
-        ajaxRequest(null,
-            {
-            url: get_employee_list,
-            type: "GET",
-            headers: assignAuthHeader(),
-            dataType: "json",
-        },
-        function (response_data) {
-            if (response_data.status == true) {
-                if (response_data.content.count != 0) {
-                    generateTemplateEmployee("#employee-list-data", response_data.content.employees);
+        setInterval(function () {
+            ajaxRequest(null,
+                {
+                url: get_employee_list,
+                type: "GET",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    if (response_data.content.count != 0) {
+                        generateTemplateEmployee("#employee-list-data", response_data.content.employees);
+                    }
                 }
-            }
-        });
+            });
+        }, 5000);  
     }
 
 

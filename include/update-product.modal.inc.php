@@ -18,11 +18,7 @@
                     <input class="form-control" type="number" id="eprod_price">
                 </div>
             </div>
-            
-            <div class="mb-3">
-                <label for="serv_image" class="form-label">Upload Image File:</label> 
-                <input class="form-control" type="file"  id="eprod_image">
-            </div>     
+                
             <div class=" d-grid gap-2 mb-3 mt-5">
                 <button type="button" class="btn btn-outline-primary" id="UpdateProduct">Update</button>
                 <button type="button" class="btn btn-outline-secondary" id="DeleteProduct">Delete</button>

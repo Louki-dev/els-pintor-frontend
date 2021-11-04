@@ -20,7 +20,7 @@
             
                 <div class="mb-3">
                     <label for="serv_image" class="form-label">Upload Image File:</label> 
-                    <input class="form-control" type="file" id="prod_image">
+                    <input class="form-control" type="file" accept="image/jpeg, image/png"  id="prod_image">
                 </div> 
             <div class=" d-grid gap-2 mb-3 mt-5">
                 <button type="button" class="btn btn-outline-primary" id="AddProduct">Submit</button>

@@ -5,7 +5,7 @@
             <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Add Service</h5>
                 <button type="button" class="btn-close rounded-circle bg-light btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-    <form>
+    <form enctype="multipart/form-data">
         <div class="modal-body">
             <div class="row g-2 mb-3">
                 <div class="col-md">
@@ -20,7 +20,7 @@
             
                 <div class="mb-3">
                     <label for="serv_image" class="form-label">Upload Image File:</label> 
-                    <input class="form-control" type="file"  id="serv_image">
+                    <input class="form-control" type="file" accept="image/jpeg, image/png" id="serv_image">
                 </div>
             
                 <div class="mb-3">
