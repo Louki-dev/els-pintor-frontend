@@ -9,13 +9,13 @@
         <div class="modal-body">
             <div class="txt_field mt-3">
                 <input type="hidden" id="emp_id" value="">
-                        <input type="text" name="e_fname" value="" id="firstName" aria-describedby="help" required>
+                        <input type="text" class="fcapital" name="e_fname" value="" id="firstName" aria-describedby="help" required>
                     <span></span>
                         <label>First Name</label>
             </div>
                 
                         <div class="txt_field">
-                    <input type="text" name="e_lname" value="" id="lastName" aria-describedby="help" required>
+                    <input type="text" class="fcapital" name="e_lname" value="" id="lastName" aria-describedby="help" required>
                 <span></span>
                         <label>Last Name</label></div>
                     

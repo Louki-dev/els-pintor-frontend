@@ -105,19 +105,32 @@
             // addProduct(data);  
         });
     
-        $(document).ready(function() {
-            loadService();
-            $('#editService').on('show.bs.modal', function (e) {
-                var data = $(e.relatedTarget).attr('data-info');
-    
-                $("#eserv_id").val(data);
-                $("#eserv_name").val($('#stitle' + data).html());
-                $("#eserv_description").val($('#sdesc'+ data).html());
-                $("#eserv_price").val($('#sprice' + data).html());
-                // $("#eserv_image").val($('#tnumber_' + data).html());
-                $('#UpdateService').html('Update');
+
+        $('#editService').on('show.bs.modal', function(e) { 
+            getServiceDetail({
+                service_id: $(e.relatedTarget).attr("data-info")
             });
         });
+        
+        function getServiceDetail(data)
+        {
+
+            ajaxRequest(data,
+                {
+                    url: service_detail,
+                    type: "GET",
+                    headers: assignAuthHeader(),
+                    dataType: "json",
+                },
+            function (response_data) {
+                if (response_data.status == true) {
+                    if (response_data.content.length > 0) {
+                        generateModalService("#view-service-detail", response_data.content);
+                    }
+                }
+            });
+        }
+        
     
         $(document).ready(function() {
             loadProduct();

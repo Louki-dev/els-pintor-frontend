@@ -3,15 +3,16 @@
     $(document).ready(function() {
         loadDashboard();
         requestApiList();
+        
 
        
 
-        function loadDashboard () {
+        function loadDashboard() {
 
             generateEmptyTemplate('#type-request-0');
             generateEmptyTemplate('#type-request-1');
             generateEmptyTemplate('#type-request-2');
-            setInterval(function () {
+            
                 ajaxRequest(null,
                     {
                     url: statistics_api,
@@ -46,13 +47,12 @@
                     }
                 }   
                 );
-            }, 5000);
             
     }
 
     function requestApiList()
     {
-        setInterval(function () {
+
             ajaxRequest(null,
                 {
                     url: dashboard_api,
@@ -62,7 +62,7 @@
                 },
                 function (response_data) {
                     if (response_data.status == true) {
-                        if (typeof response_data.content.length == "undefined") {
+                        if (response_data.content.length > 0 || typeof response_data.content.length == 'undefined') {
                             for (key in response_data.content) {
                                 generateRequestTemplate("#type-request-"+key, response_data.content[key], key);
                             }
@@ -70,8 +70,7 @@
                     }
                 }
             );
-        }, 5000);
-        
+        // setTimeout(requestApiList, 1000);
     }
 
     $('#request_modal-0').on('show.bs.modal', function(e) { 

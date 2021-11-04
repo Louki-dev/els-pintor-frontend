@@ -1,4 +1,4 @@
-var base1_url = "http://3c3c-2001-4454-66b-9200-cde3-d6bf-f323-2237.ngrok.io/backend";
+var base1_url = "http://localhost/backend";
 var login_api = base1_url + "/api/v1/auth/login";
 var statistics_api = base1_url + "/api/v1/dashboard/statistics";
 var dashboard_api = base1_url + "/api/v1/dashboard/dashboard";
@@ -29,6 +29,8 @@ var create_service_api = base1_url + '/api/v1/dashboard/create-service';
 var get_service_list = base1_url + '/api/v1/dashboard/get-service-list';
 var update_service_api = base1_url + '/api/v1/dashboard/update-service';
 var delete_service = base1_url + '/api/v1/dashboard/delete-service';
+var service_detail = base1_url + '/api/v1/dashboard/service-detail';
+
 var create_product_api = base1_url + '/api/v1/dashboard/create-product';
 var get_product_list = base1_url + '/api/v1/dashboard/get-product-list';
 var update_product_api = base1_url + '/api/v1/dashboard/update-product';

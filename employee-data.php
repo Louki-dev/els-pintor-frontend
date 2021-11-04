@@ -7,8 +7,8 @@
     <div class="container">
         <div class="button-pos mt-5 float-end">
             <button type="add" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#emp_create">Create New +</button>
-            </div>
-        
+        </div>
+	
         <div class="col">
         <table class="table_d shadow">
             <thead>
@@ -23,6 +23,7 @@
             <tbody id="employee-list-data"></tbody>
         </table>
         </div>
+
     </div>
 </div>
 

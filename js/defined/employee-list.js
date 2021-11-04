@@ -103,10 +103,17 @@
 
     
     $(document).on('click','#AddEmployee',function() {
+            const capitalize = function(str) {
+                if(typeof str === 'string') {
+                    return str.replace(/^\w/, c => c.toUpperCase());
+                } else {
+                    return '';
+                }
+            };
         
             var data = {
-                fname : $('#firstName').val(),
-                lname: $('#lastName').val(),
+                fname : capitalize($('#firstName').val()),
+                lname: capitalize($('#lastName').val()),
                 email : $('#inputEmail').val(),
                 mobile : $('#mobileNumber').val()
  
@@ -177,7 +184,7 @@
     function loadEmployee()
     {
         generateEmptyTableTemplate('#employee-list-data');
-        setInterval(function () {
+       
             ajaxRequest(null,
                 {
                 url: get_employee_list,
@@ -192,7 +199,6 @@
                     }
                 }
             });
-        }, 5000);  
     }
 
 

@@ -7,26 +7,8 @@
             </div>
  
         <div class="modal-body">
-            <div class="row g-2 mb-3">
-                <input type="hidden" id="eserv_id">
-                <div class="col-md">
-                    <label for="serv_name" class="form-label">Name of Service:</label>
-                    <input type="text" class="form-control" id="eserv_name">
-                </div>
-                <div class="col-md">
-                    <label for="serv_price" class="form-label">Price Rate:</label><span> 
-                    <input class="form-control" type="number" id="eserv_price">
-                </div>
-            </div>
-            
-                <div class="mb-3">
-                    <label for="serv_description" class="form-label">Description:</label> 
-                    <textarea class="form-control textarea2"  id="eserv_description" rows="3"></textarea>
-                </div>     
-            <div class=" d-grid gap-2 mb-3 mt-5">
-                <button type="button" class="btn btn-outline-primary" id="UpdateService">Update</button>
-                <button type="button" class="btn btn-outline-secondary" id="DeleteService">Delete</button>
-            </div>
+            <div class="mb-3 container" id="view-service-detail">
+            </div> 
         </div>
 
     </div>

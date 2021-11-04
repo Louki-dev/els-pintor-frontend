@@ -132,7 +132,7 @@ function generateRequestTemplate($elemId, $elementValue,num)
                     '<div class="d-flex gap-2 w-100 justify-content-between">',
                         '<a href="" class="text-decoration-none text-black" aria-current="true" data-bs-toggle="modal" data-info="'+$elementValue[el].customer_id+'" data-bs-target="#request_modal-'+num+'" id="dataTarget">',
                                 '<div class="endtext">',
-                                    '<h6 class="mb-0 fcapital" id="emp_name">' +$elementValue[el].customer_first_name+ " " + $elementValue[el].customer_last_name +' ',
+                                    '<h6 class="mb-0 fcapital" id="emp_name">' + $elementValue[el].customer_last_name +' ',
                                     (num == 0 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_created_at)))+'</small></h6>' : '' ),
                                     (num == 1 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_updated_at)))+'</small></h6>' : '' ),
                                     (num == 2 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_updated_at)))+'</small></h6>' : '' ),
@@ -146,6 +146,7 @@ function generateRequestTemplate($elemId, $elementValue,num)
            
             $($elemId).append($items.join(""));
         }
+        
     }
 }
 
@@ -475,7 +476,7 @@ function generateTemplateEmployee($elem, $content, $num)
         $html = [
            '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].emp_id+'" data-bs-target="#edit_emp_modal">',
                 '<td data-label="Employee Information">',
-                '<span class="material-icons '+ ($content[el].emp_status == 1 ? "approved": "") +'">'+ ($content[el].emp_status == 1 ? "person": "person_off") +'</span></td>',
+                '<span class="material-icons '+ ($content[el].emp_status == 1 ? "approved": "offline") +'">'+ ($content[el].emp_status == 1 ? "person": "person") +'</span></td>',
                 '<td data-label="Employee Name""><span class="fcapital">',
                     '<span id="tfname_'+$content[el].emp_id+'">'+$content[el].emp_first_name +'</span> ', 
                     '<span id="tlname_'+$content[el].emp_id+'">'+ $content[el].emp_last_name +'</span></span>',
@@ -527,7 +528,6 @@ function generateTemplateSentMessage($elem, $content)
 function generateTemplateMessageDetail($elem, $content)
 {
 
-    console.log($content);
     $($elem).empty();
 
     for (var el =0; el<$content.length; el++) {
@@ -668,7 +668,7 @@ function generateTemplateService($elem, $content)
                     // '<span id="simage'+$content[el].service_id+'">'+$content[el].service_imageData +'</span> ',
                     '<span id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</span> ', 
                 '</td>',
-                '<td id="sdesc'+$content[el].service_id+'">'+ $content[el].service_description +'</td>',
+                '<td id="sdesc'+$content[el].service_id+'">'+ textLimit($content[el].service_description, 20)+'</td>',
                 '<td>PHP <span id="sprice'+$content[el].service_id+'">'+$content[el].service_price+'</span></td>',
             '</tr>'
         ];
@@ -679,6 +679,50 @@ function generateTemplateService($elem, $content)
 
 }
 
+// function generateModalService($elemId, $content)
+// {
+//     for (var el = 0; el < $content.length; el++) {
+        
+//         $($elemId + " #eserv_name").html($content[el].service_title);
+//         $($elemId + " #eserv_price").html($content[el].service_price);
+//         $($elemId + " #eserv_description").html($content[el].service_description);
+
+//     }
+// }
+
+function generateModalService($elem, $content)
+{
+    $($elem).empty();
+
+    for (var el =0; el<$content.length; el++) {
+
+        var html = [
+            '<div class="row g-2 mb-3">',
+                '<input type="hidden" id="eserv_id" value="'+$content[el].service_id +'">',
+                '<div class="col-md">',
+                    '<label for="serv_name" class="form-label">Name of Service:</label>',
+                    '<input type="text" class="form-control" id="eserv_name" value="'+$content[el].service_title +'">',
+                '</div>',
+                '<div class="col-md">',
+                    '<label for="serv_price" class="form-label">Price Rate:</label>',
+                    '<input class="form-control" type="number" id="eserv_price" value="'+$content[el].service_price +'">',
+                '</div>',
+            '</div>',
+            
+                '<div class="mb-3">',
+                    '<label for="serv_description" class="form-label">Description:</label>', 
+                    '<textarea class="form-control textarea2"  id="eserv_description" rows="3">'+$content[el].service_description +'</textarea>',
+                '</div>',     
+            '<div class=" d-grid gap-2 mb-3 mt-5">',
+                '<button type="button" class="btn btn-outline-primary" id="UpdateService">Update</button>',
+                '<button type="button" class="btn btn-outline-secondary" id="DeleteService">Delete</button>',
+            '</div>',
+        ];
+
+        $($elem).html(html.join(""));
+    }
+
+}
 function generateTemplateProduct($elem, $content)
 {
     $($elem).empty();
