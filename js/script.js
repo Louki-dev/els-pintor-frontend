@@ -171,11 +171,13 @@ $(document).on('click', "#copyApprovedRequest", function (e) {
 function copyDataApprovedRequest()
 {
 
-    var text = 'Fullname: '+ $("#request_modal-1 #fullName").html() + '\r\n' +
+    var text = "-- Customer Info --" + '\r\n' +
+    'Full Name: ' + $("#request_modal-1 #fullName").html() + '\r\n' +
     'Email: ' + $("#request_modal-1 #email").html() + '\r\n' +
     'Mobile Number: ' + $("#request_modal-1 #mobileNumber").html() + '\r\n' +
-    'Date Created: '+ $("#request_modal-1 #dateCreated").html() + '\r\n' +
-    "Request Details: " + $("#request_modal-1 #requestDetails").html();
+    'Date Created: '+ $("#request_modal-1 #dateCreated").html() + '\r\n\r\n' +
+    "-- Details --" + '\r\n' +
+    $("#request_modal-1 #requestDetails").html();
   
 
     navigator.clipboard.writeText(text)
@@ -279,12 +281,14 @@ $(document).on('click', "#copyTodo", function (e) {
 function copyTodoData()
 {
 
-    var text = 'Project: '+ $("#update_todo #td_title").html() + '\r\n' +
-    'Address: ' + $("#update_todo #td_address").html() + '\r\n' +
-    'Created At: ' + $("#update_todo #td_created").html() + '\r\n' +
-    'Due Date: '+ $("#update_todo #td_due").html() + '\r\n\r\n' +
-    "PROJECT DETAILS "+ '\r\n' + $("#update_todo #td_description").html();
-    
+    var text = "-- PROJECT DETAILS --" + '\r\n' + 
+        'Project: ' + $("#update_todo #td_title").html() + '\r\n' +
+        'Address: ' + $("#update_todo #td_address").html() + '\r\n' +
+        'Created At: ' + $("#update_todo #td_created").html() + '\r\n' +
+        'Due Date: ' + $("#update_todo #td_due").html() + '\r\n\r\n' +
+        $("#update_todo #td_description").html() + '\r\n\r\n' +
+        "If you have any questions, please contact this number: " + '\r\n\r\n' +
+        "Thank you.";
 
     navigator.clipboard.writeText(text)
     .then(function (){
@@ -473,7 +477,7 @@ function generateTemplateEmployee($elem, $content, $num)
            '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].emp_id+'" data-bs-target="#edit_emp_modal">',
                 '<td data-label="Employee Information">',
                 '<span class="material-icons '+ ($content[el].emp_status == 1 ? "approved": "") +'">'+ ($content[el].emp_status == 1 ? "person": "person_off") +'</span></td>',
-                '<td data-label="Employee Name"><span class="fcapital">',
+                '<td data-label="Employee Name""><span class="fcapital">',
                     '<span id="tfname_'+$content[el].emp_id+'">'+$content[el].emp_first_name +'</span> ', 
                     '<span id="tlname_'+$content[el].emp_id+'">'+ $content[el].emp_last_name +'</span></span>',
                 '</td>',
@@ -535,7 +539,7 @@ function generateTemplateMessageDetail($elem, $content)
                     '<p>Recipient Name: <span class="opacity-75 ms-2">'+$content[el].emp_first_name +" "+ $content[el].emp_last_name +'</span></p>',
                 '</div>',
                 '<div class="col">',
-                    '<p>Sent At: <span class="opacity-75 ms-2">'+humanReadableDate($content[el].todo_created_at, true)+'</span></p>',
+                    '<p>Recieved: <span class="opacity-75 ms-2">'+humanReadableDate($content[el].todo_created_at, true)+'</span></p>',
                 '</div>',
             '</div>',
             '<div class="row">',
@@ -543,7 +547,7 @@ function generateTemplateMessageDetail($elem, $content)
                     '<p>Mobile Number : <span class="opacity-75 ms-2">'+$content[el].emp_mobile_number+'</span></p>',
                 '</div>',
                 '<div class="col">',
-                    '<p>Email : <span class="opacity-75 ms-2">'+$content[el].emp_email+'</span></p>',
+                    '<p>Email Address: <span class="opacity-75 ms-2">'+$content[el].emp_email+'</span></p>',
                 '</div>',
             '</div>',
             '<hr/>',

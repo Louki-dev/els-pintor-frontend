@@ -25,7 +25,7 @@
           </span>
               <div class="card-body">
                 <div class="card-body scrollarea p-0">
-                  <div class="list-group" id="employee-contacts">
+                  <div class="list-group fcapital" id="employee-contacts">
                   </div>
                 </div>
                 
@@ -80,7 +80,7 @@
           </span>
           <div class="card-body">
             <!------------------------------->
-            <div class="list-group" id="sent-messages">
+            <div class="list-group fcapital" id="sent-messages">
             </div>
 
             <!------------------------------->

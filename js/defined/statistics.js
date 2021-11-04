@@ -62,8 +62,8 @@
             function (response_data) {
                 if (response_data.status == true) {
                     if (typeof response_data.content.length == "undefined") {
-                        for (key in response_data.content) { 
-                            generateRequestTemplate("#type-request-"+key,  response_data.content[key], key);
+                        for (key in response_data.content) {
+                            generateRequestTemplate("#type-request-"+key, response_data.content[key], key);
                         }
                     }
                 }

@@ -158,6 +158,7 @@
             function (response_data) {
                 if (response_data.status == true) {
                     loadSentMessage();
+                    loadEmployee();
                     // Swal.fire('Message is successfully removed!', '', 'success');
                     Swal.fire({
                         title: 'Message is successfully removed!',
@@ -211,12 +212,25 @@
         function (response_data) {
             if (response_data.status == true) {
                 loadSentMessage();
+                loadEmployee();
                 $('.modal').modal('hide');
                 // Swal.fire('Message is successfully sent!', '', 'success');
                 Swal.fire({
                     title: 'Message is successfully sent!',
                     text: '',
                     icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                })
+                .then(function (result) {
+                    $('#messageArea').val("");
+                });
+            } else {
+                // Swal.fire('Somethin went wrong', 'Unable to complete process. Select another date', 'error');
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Something went wrong. ' + response_data.error.error,
+                    icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });

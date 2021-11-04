@@ -7,7 +7,7 @@
         $('.modal').modal('hide');
     });
 
-    $(document).on("click", "#todo-update", function(e) { 
+    $(document).on("click", "#todo-update", function (e) {
         updateProject({
             todo_id :$(this).attr('data-info'),
             status: 1
@@ -203,7 +203,7 @@
                     // Swal.fire('Somethin went wrong', 'Unable to complete process. Select another date', 'error');
                     Swal.fire({
                         title: 'Oh no!',
-                        text: 'Unable to complete process. Please check the data',
+                        text: 'Something went wrong. Due date must be later than today.',
                         icon: 'error',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',
@@ -243,39 +243,48 @@
 
     function updateProject(data)
     {
-        ajaxRequest(
-            data,
-            {
-                url: update_todo_by_id,
-                type: "POST",
-                headers: assignAuthHeader(),
-                dataType: "json",
-            },
-            function (response_data) {
-                if (response_data.status == true) {
-                    loadTodoList();
-                    $('.modal').modal('hide');
-                    // Swal.fire('Project successfully completed!', '', 'success');
-                    Swal.fire({
-                        title: 'Project successfully completed!',
-                        text: '',
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#2691d9',
-                    });
-                
-                } else {
-                    // Swal.fire('Somethin went wrong', 'Required input must not be empty', 'error');
-                    Swal.fire({
-                        title: 'Oh no!',
-                        text: 'Something went wrong. Please check the data',
-                        icon: 'error',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#2691d9',
-                    });
-                }
-            }
-        );
+        Swal.fire({
+            title: 'Are you sure this project is completed?',
+            showCancelButton: true,
+            confirmButtonText: 'Completed',
+            confirmButtonColor: '#2691d9',
+        }).then(function (result) {
+            if (result.isConfirmed) { 
+                ajaxRequest(
+                    data,
+                    {
+                        url: update_todo_by_id,
+                        type: "POST",
+                        headers: assignAuthHeader(),
+                        dataType: "json",
+                    },
+                    function (response_data) {
+                        if (response_data.status == true) {
+                            loadTodoList();
+                            $('.modal').modal('hide');
+                            // Swal.fire('Project successfully completed!', '', 'success');
+                            Swal.fire({
+                                title: 'Project successfully completed!',
+                                text: '',
+                                icon: 'success',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#2691d9',
+                            });
+                        
+                        } else {
+                            // Swal.fire('Somethin went wrong', 'Required input must not be empty', 'error');
+                            Swal.fire({
+                                title: 'Oh no!',
+                                text: 'Something went wrong. Unable to complete process',
+                                icon: 'error',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#2691d9',
+                            });
+                        }
+                    }
+                ); 
+            } 
+        });
     }
 
     function deleteProject(data)

@@ -14,4 +14,4 @@
         <script src="<?php echo Utilities::domain();?>/frontend//js/preload.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <script src="<?php echo Utilities::domain();?>/frontend//js/defined/client.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <script src="<?php echo Utilities::domain();?>/frontend//js/defined/color.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <title>Else Pintor</title>
+        <title>Els Pintor</title>

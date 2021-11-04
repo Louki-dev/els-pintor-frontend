@@ -1,5 +1,5 @@
 <div class="modal fade" id="create_message" tabindex="-1" aria-labelledby="todoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content rounded-6 shadow">
         <div class="modal-header pending_header2">
             <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Create Message</h5>

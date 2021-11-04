@@ -12,7 +12,7 @@
                             <div class="card shadow-sm">
                                 <div class="card-header pending_header p-2">
                                     <span class="fw-light text-light float-start mt-2 ps-3">
-                                        In Progress 
+                                        Ongoing
                                     </span>
                                     <div class="dropdown">
                                     <a class="btn text-white material-icons float-end" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

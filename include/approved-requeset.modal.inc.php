@@ -18,7 +18,7 @@
                         </p>
                     </div>
                     <div class="col">
-                        <p>Posted At:
+                        <p>Posted:
                             <span class="opacity-75 ps-2" id="dateCreated"></span>
                         </p>
                         <p>Mobile Number: 
