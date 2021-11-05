@@ -139,8 +139,8 @@ function generateRequestTemplate($elemId, $elementValue,num)
                                 '</div>',
                                 '<p class="mb-0 opacity-75" id="request_details_in_list">'+textLimit($elementValue[el].customer_inquiry_details, 20)+'</p>',
                 '</a>',
-                        (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn"><small class="opacity-50 text-nowrap"><span class="material-icons">archive</span></small></button>' : ''),
-                        (num == 2 ? '<button type="button" id="approved" data-id="'+$elementValue[el].customer_id+'" class="btn"><small class="opacity-50 text-nowrap"><span class="material-icons">thumb_up_off_alt</span></small></button>' : ''),
+                        (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn" title="Turndown"><small class="opacity-50 text-nowrap"><span class="material-icons">archive</span></small></button>' : ''),
+                        (num == 2 ? '<button type="button" id="approved" data-id="'+$elementValue[el].customer_id+'" class="btn" title="Approve"><small class="opacity-50 text-nowrap"><i class="fas fa-clipboard-check fs-5"></i></small></button>' : ''),
                     '</div>',
                    '</div>'];
            
@@ -227,7 +227,7 @@ function generateTodoTemplate($elem, $content, num)
                             '</small>',
                         '</span>',
                     '</div>',
-                    (num == 0 ? '<div class="flex-fill align-items-center"><button class="btn float-end opacity-50" id="todo-update" data-info="'+$content[el].todo_id+'"><i class="material-icons">task_alt</i></button></div>' : ''),
+                    (num == 0 ? '<div class="flex-fill align-items-center"><button class="btn float-end opacity-50" id="todo-update" data-info="'+$content[el].todo_id+'" title="Completed"><i class="material-icons">task_alt</i></button></div>' : ''),
                 '</label>'
             ];
         
@@ -255,7 +255,7 @@ function getTodoModalTemplate($elem, $content, $num)
         '</div><hr>',
         '<h6>Details:</h6>',
         '<textarea class="form-control bg-white opacity-75 textarea" id="td_description" aria-describedby="help" disabled>'+ $content.todo_description +'</textarea>',
-        ($content.todo_status == 0 ? '<button type="button" class="btn float-end opacity-50 mt-3" id="copyTodo"><i class="material-icons">copy_all</i></button>': '')
+        ($content.todo_status == 0 ? '<button type="button" class="btn float-end opacity-50 mt-3" id="copyTodo">Copy<i class="material-icons fs-6">copy_all</i></button>': '')
 
     ];
 

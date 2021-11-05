@@ -11,6 +11,11 @@
         <div class="mt-5 pb-3 float-end">
         <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newProduct"> New Products +</button>
         </div>
+    <form class="g-3 mb-4">
+        <div class="input-group flex-nowrap">
+        <input type="search" class="form-control rounded-pill" id="myInput" placeholder="Search by Product Name">
+        </div>
+    </form>
         <table class="table-7">
             <thead>
                 <tr class="pending_header text-light">
@@ -27,6 +32,11 @@
         <div class="mt-5 pb-3 float-end">
         <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newService"> New Services +</button>
         </div>
+        <form class="g-3 mb-4">
+        <div class="input-group flex-nowrap">
+        <input type="search" class="form-control rounded-pill" id="myInput" placeholder="Search by Service Name">
+        </div>
+        </form>
         <table class="table-7">
             <thead>
                 <tr class="pending_header text-light">

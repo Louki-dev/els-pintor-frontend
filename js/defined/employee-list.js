@@ -17,6 +17,10 @@
 
     });
 
+    $(document).on('click','#search_emp',function (){
+        
+    });
+
     $(document).on('click','#resetEmployee',function (){
         $('#firstName').val("");
         $('#lastName').val("");

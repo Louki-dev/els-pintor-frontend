@@ -5,6 +5,13 @@
 
         <div class="content-section custom-m mt-5">
             <div class="container-md">
+
+            <form class="g-3 mb-4">
+            <div class="input-group flex-nowrap">
+            <input type="search" class="form-control rounded-pill" id="myInput" placeholder="Search by Project Name">
+            </div>
+            </form>
+            
                 <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-2 g-3">
                     <div class="col">
     

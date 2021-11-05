@@ -8,9 +8,15 @@
         <div class="button-pos mt-5 float-end">
             <button type="add" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#emp_create">Create New +</button>
         </div>
-	
+
+        <form class="g-3 mb-3">
+        <div class="input-group flex-nowrap">
+        <input type="search" class="form-control rounded-pill" id="myInput" placeholder="Search by Employee Name">
+        </div>
+        </form>
+
         <div class="col">
-        <table class="table_d shadow">
+        <table class="table_d shadow" id="table_content">
             <thead>
             <tr class="pending_header text-light">
                 <th scope="col"><i class="material-icons">badge</i></th>

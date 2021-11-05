@@ -52,6 +52,12 @@
             </div>
         </div>
 
+        <form class="mb-4 container">
+        <div class="input-group flex-nowrap">
+        <input type="search" class="form-control rounded-pill"  id="myInput" placeholder="Search by Customer Name">
+        </div>
+        </form>
+
         <div class="center-section custom-m">
             <div class="container-md">
                 <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-3 g-3">

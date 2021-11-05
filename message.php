@@ -56,9 +56,13 @@
 
 
 
-    
-      <div class="col-lg-7">
 
+      <div class="col-lg-7">
+      <form class="g-3 mb-4">
+      <div class="input-group flex-nowrap">
+      <input type="search" class="form-control rounded-pill" id="myInput" placeholder="Search by Employee Name">
+      </div>
+      </form>
         <!--------------------------Sent Message------------------------------------------->            
         <div class="d-flex flex-column bg-white rounded-3">
           <span href="#" class="pending_header text-light rounded-top p-2">
