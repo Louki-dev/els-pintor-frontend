@@ -16,10 +16,26 @@
         });
 
     });
+    
+    //setup before functions
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 1000;  //time in ms (5 seconds)
 
-    $(document).on('click','#search_emp',function (){
-        
+    //on keyup, start the countdown
+    $(document).on('keyup', '#search_emp',function (){
+        $('#search_emp').keyup(function(){
+            clearTimeout(typingTimer);
+            if ($('#search_emp').val()) {
+                typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            }
+        });
     });
+    
+
+    //user is "finished typing," do something
+    function doneTyping () {
+        loadEmployee();
+    }
 
     $(document).on('click','#resetEmployee',function (){
         $('#firstName').val("");
@@ -195,6 +211,9 @@
                 type: "GET",
                 headers: assignAuthHeader(),
                 dataType: "json",
+                data: {
+                    search: $("#search_emp").val()
+                }
             },
             function (response_data) {
                 if (response_data.status == true) {

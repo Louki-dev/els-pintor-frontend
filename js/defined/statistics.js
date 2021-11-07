@@ -4,6 +4,21 @@
         loadDashboard();
         requestApiList();
         
+        var typingTimer;              
+        var doneTypingInterval = 1000; 
+
+        $(document).on('keyup', '#search_d',function (){
+            $('#search_d').keyup(function(){
+                clearTimeout(typingTimer);
+                if ($('#search_d').val()) {
+                    typingTimer = setTimeout(doneTyping, doneTypingInterval);
+                }
+            });
+        });
+    
+        function doneTyping () {
+            requestApiList();
+        }
 
        
 
@@ -53,12 +68,19 @@
     function requestApiList()
     {
 
+        generateEmptyTemplate('#type-request-0');
+        generateEmptyTemplate('#type-request-1');
+        generateEmptyTemplate('#type-request-2');
+        
             ajaxRequest(null,
                 {
                     url: dashboard_api,
                     type: "GET",
                     headers: assignAuthHeader(),
                     dataType: "json",
+                    data: {
+                        search: $("#search_d").val()
+                    }
                 },
                 function (response_data) {
                     if (response_data.status == true) {

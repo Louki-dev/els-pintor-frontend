@@ -3,6 +3,7 @@
 
 
 
+
 function ajaxRequest (payload = null, options = null, callback, errocallback = null)
 {
     try {
@@ -665,7 +666,7 @@ function generateTemplateService($elem, $content)
         $html = [
             '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].service_id+'" data-bs-target="#editService">',
             '<td><span class="fcapital">',
-                    // '<span id="simage'+$content[el].service_id+'">'+$content[el].service_imageData +'</span> ',
+                    '<span id="simage'+$content[el].product_id+'"><img src="'+display_image+$content[el].service_image +'" width="20" heigth="20"></span> ', 
                     '<span id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</span> ', 
                 '</td>',
                 '<td id="sdesc'+$content[el].service_id+'">'+ textLimit($content[el].service_description, 20)+'</td>',
@@ -734,7 +735,7 @@ function generateTemplateProduct($elem, $content)
         $html = [
             '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].product_id+'" data-bs-target="#editProduct">',
             '<td><span class="fcapital">',
-                    // '<span id="pimage'+$content[el].product_id+'">'+$content[el].product_imageData +'</span> ', 
+                    '<span id="pimage'+$content[el].product_id+'"><img src="'+display_image+$content[el].product_image +'" width="20" heigth="20"></span> ', 
                     '<span id="ptitle'+$content[el].product_id+'">'+$content[el].product_name +'</span> ', 
                 '</td>',
             '<td>PHP <span id="pprice'+$content[el].product_id+'">'+$content[el].product_price+'</span></td>',
@@ -761,3 +762,6 @@ $(document).ready(function () {
     }
 });
 
+$("#searchclear").click(function(){
+    location.reload () 
+});

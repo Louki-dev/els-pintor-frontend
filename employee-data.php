@@ -11,7 +11,8 @@
 
         <form class="g-3 mb-3">
         <div class="input-group flex-nowrap">
-        <input type="search" class="form-control rounded-pill" id="myInput" placeholder="Search by Employee Name">
+        <input type="text" class="form-control" id="search_emp" placeholder="Search by Employee Name">
+        <button class="input-group-text pending_header text-white" id="searchclear"><i class="fas fa-undo"></i></button>
         </div>
         </form>
 

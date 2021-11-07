@@ -3,13 +3,32 @@
     $(document).ready(function () {
         loadService();
         loadProduct();
-        $(document).on('click', '#AddService', function () {
+        var imageLoader = document.getElementById('serv_image');
+            imageLoader.addEventListener('change', handleImage, false);
+        var canvas = document.getElementById('serv_image_canvas');
+        var ctx = canvas.getContext('2d');
+
+        function handleImage(e){
+            var reader = new FileReader();
+            reader.onload = function(event){
+                var img = new Image();
+                img.onload = function(){
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img,0,0);
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(e.target.files[0]);     
+        }
+
+        $(document).on('click', '#AddService', function (e) {     
+
             var data = {
                 serv_name : $('#serv_name').val(),
                 serv_price: $('#serv_price').val(),
-                serv_image : $('#serv_image').val(),
                 serv_description: $('#serv_description').val(),
-                
+                serv_image: document.getElementById('serv_image_canvas').toDataURL()     
             };
     
             if (data.serv_name == '') {
@@ -35,7 +54,7 @@
                 return;
             }
             if (data.serv_image == '') {
-                // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
+                // Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
                 Swal.fire({
                     title: 'Oops...',
                     text: 'Upload image must not be empty',
@@ -45,6 +64,7 @@
                 });
                 return;
             }
+
             if (data.serv_description == '') {
                 // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
                 Swal.fire({
@@ -57,16 +77,22 @@
                 return;
             }
         
-            validateImageServices(data);
-            // addService(data);  
+            // validateImageServices();
+            addService(data);  
             
         });
     
+        var imageLoader = document.getElementById('prod_image');
+        imageLoader.addEventListener('change', handleImage, false);
+        var canvas = document.getElementById('prod_image_canvas');
+        var ctx = canvas.getContext('2d');
+ 
+
         $(document).on('click', '#AddProduct', function () {
             var data = {
                 prod_name : $('#prod_name').val(),
                 prod_price: $('#prod_price').val(),
-                prod_image : $('#prod_image').val(),         
+                prod_image: document.getElementById('prod_image_canvas').toDataURL()         
             };
             if (data.prod_name == '') {
                 // Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
@@ -101,8 +127,8 @@
                 });
                 return;
             }
-            validateImageProduct(data);
-            // addProduct(data);  
+
+            addProduct(data);  
         });
     
 
@@ -277,6 +303,39 @@
         });
     });
     
+
+    //setup before functions
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 1000;  //time in ms (5 seconds)
+
+    //on keyup, start the countdown
+    $(document).on('keyup', '#search_s',function (){
+        $('#search_s').keyup(function(){
+            clearTimeout(typingTimer);
+            if ($('#search_s').val()) {
+                typingTimer = setTimeout(doneTyping1, doneTypingInterval);
+            }
+        });
+    });
+
+
+    $(document).on('keyup', '#search_p',function (){
+        $('#search_p').keyup(function(){
+            clearTimeout(typingTimer);
+            if ($('#search_p').val()) {
+                typingTimer = setTimeout(doneTyping2, doneTypingInterval);
+            }
+        });
+    });
+    
+
+    //user is "finished typing," do something
+    function doneTyping1 () {
+        loadService();
+    }
+    function doneTyping2 () {
+        loadProduct();
+    }
     
     function loadService()
     {
@@ -287,6 +346,9 @@
             type: "GET",
             headers: assignAuthHeader(),
             dataType: "json",
+            data: {
+                search: $("#search_s").val()
+            }
         },
         function (response_data) {
             if (response_data.status == true) {
@@ -308,6 +370,9 @@
             type: "GET",
             headers: assignAuthHeader(),
             dataType: "json",
+            data: {
+                search: $("#search_p").val()
+            }
         },
         function (response_data) {
             if (response_data.status == true) {
@@ -345,7 +410,7 @@
                     $('#serv_name').val("");
                     $('#serv_price').val("");
                     $('#serv_description').val("");
-                    // $('#serv_image').val("");     
+                    $('#serv_image').val("");     
                 });
 
             } else {
@@ -385,7 +450,7 @@
                 .then(function (result) {  
                     $('#prod_name').val("");
                     $('#prod_price').val("");
-                    // $('#serv_image').val("");      
+                    $('#prod_image').val("");      
                 });
 
             } else {
@@ -559,47 +624,7 @@
             }
         });
     }
-    function validateImageServices(data) {
-        var formData = new FormData();
-        var file = document.getElementById("serv_image").files[0];
-        formData.append("Filedata", file);
-        var t = file.type.split('/').pop().toLowerCase();
-        if (t != "jpeg" && t != "jpg" && t != "png" && t != "bmp" && t != "gif") {
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Please select a valid image',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            document.getElementById("serv_image").value = '';
-            return false;
-        } else {
-            addService(data);  
-        }
-        return true;
-    }
 
-    function validateImageProduct(data) {
-        var formData = new FormData();
-        var file = document.getElementById("prod_image").files[0];
-        formData.append("Filedata", file);
-        var t = file.type.split('/').pop().toLowerCase();
-        if (t != "jpeg" && t != "jpg" && t != "png" && t != "bmp" && t != "gif") {
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Please select a valid image',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            document.getElementById("prod_image").value = '';
-            return false;
-        } else {
-            addProduct(data);  
-        }
-        return true;
-    }
     $(document).on('click','#resetService',function (){
         $('#serv_name').val("");
         $('#serv_price').val("");

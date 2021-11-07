@@ -54,7 +54,8 @@
 
         <form class="mb-4 container">
         <div class="input-group flex-nowrap">
-        <input type="search" class="form-control rounded-pill"  id="myInput" placeholder="Search by Customer Name">
+        <input type="text" class="form-control"  id="search_d" placeholder="Search by Customer Name">
+        <button class="input-group-text pending_header text-white" id="searchclear"><i class="fas fa-undo"></i></button>
         </div>
         </form>
 

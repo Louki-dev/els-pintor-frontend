@@ -57,6 +57,22 @@
 
     });
 
+    var typingTimer;               
+    var doneTypingInterval = 1000;  
+
+    $(document).on('keyup', '#search_m',function (){
+        $('#search_m').keyup(function(){
+            clearTimeout(typingTimer);
+            if ($('#search_m').val()) {
+                typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            }
+        });
+    });
+
+    function doneTyping () {
+        loadSentMessage();
+    }
+
     $(document).on("change", "#selectallContact", function(e) { 
         $('#employee-contacts input:checkbox').each(function() {
             $(this).prop('checked', e.currentTarget.checked);
@@ -135,6 +151,9 @@
             type: "GET",
             headers: assignAuthHeader(),
             dataType: "json",
+            data: {
+                search: $("#search_m").val()
+            }
         },
         function (response_data) {
             if (response_data.status == true) {

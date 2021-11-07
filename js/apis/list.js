@@ -40,3 +40,5 @@ var create_inquiry_api = base1_url + '/api/v1/process/create-inquiry';
 
 var redirect_login =  '/frontend/login.php';
 var redirect_dashboard =  '/frontend/dashboard.php';
+
+var display_image = base1_url + '/'

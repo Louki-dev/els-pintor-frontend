@@ -20,7 +20,8 @@
             
                 <div class="mb-3">
                     <label for="serv_image" class="form-label">Upload Image File:</label> 
-                    <input class="form-control" type="file" accept="image/jpeg, image/png" id="serv_image">
+                    <input class="form-control" type="file" accept="image/jpeg, image/png" name="image" id="serv_image" >
+                    <canvas id="serv_image_canvas" style="display: none;"></canvas>
                 </div>
             
                 <div class="mb-3">

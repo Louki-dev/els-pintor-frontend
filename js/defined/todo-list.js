@@ -13,6 +13,23 @@
             status: 1
         });
     });
+
+    var typingTimer;               
+    var doneTypingInterval = 1000;  
+
+    $(document).on('keyup', '#search_t',function (){
+        $('#search_t').keyup(function(){
+            clearTimeout(typingTimer);
+            if ($('#search_t').val()) {
+                typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            }
+        });
+    });
+
+    function doneTyping () {
+        loadTodoList();
+    }
+
     // selectall-inprogress
 
     $(document).on("change","#selectall-inprogress", function(e) { 
@@ -106,6 +123,9 @@
                 type: "GET",
                 headers: assignAuthHeader(),
                 dataType: "json",
+                data: {
+                    search: $("#search_t").val()
+                }
             },
             function (response_data) {
                 if (response_data.status == true) {

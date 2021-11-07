@@ -8,7 +8,8 @@
 
             <form class="g-3 mb-4">
             <div class="input-group flex-nowrap">
-            <input type="search" class="form-control rounded-pill" id="myInput" placeholder="Search by Project Name">
+            <input type="text" class="form-control" id="search_t" placeholder="Search by Project Name">
+            <button class="input-group-text pending_header text-white" id="searchclear"><i class="fas fa-undo"></i></button>
             </div>
             </form>
             
