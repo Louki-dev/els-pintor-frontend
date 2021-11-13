@@ -571,6 +571,7 @@ function textLimit(text, length)
     return text;
 }
 
+
 function generateModelTemplateEmployee(elem, $content, $num)
 {
     $($elem).empty();
@@ -666,7 +667,7 @@ function generateTemplateService($elem, $content)
         $html = [
             '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].service_id+'" data-bs-target="#editService">',
             '<td><span class="fcapital">',
-                    '<span id="simage'+$content[el].product_id+'"><img src="'+display_image+$content[el].service_image +'" width="20" heigth="20"></span> ', 
+            '<span id="simage'+$content[el].service_id+'"><img src="'+display_image+$content[el].service_image +'" width="20" heigth="20"></span> ', 
                     '<span id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</span> ', 
                 '</td>',
                 '<td id="sdesc'+$content[el].service_id+'">'+ textLimit($content[el].service_description, 20)+'</td>',
@@ -677,7 +678,7 @@ function generateTemplateService($elem, $content)
         $($elem).append($html.join(""));
         
     }
-
+ 
 }
 
 // function generateModalService($elemId, $content)
@@ -699,13 +700,16 @@ function generateModalService($elem, $content)
 
         var html = [
             '<div class="row g-2 mb-3">',
-                '<input type="hidden" id="eserv_id" value="'+$content[el].service_id +'">',
+            '<input type="hidden" id="eserv_id" value="' + $content[el].service_id + '">',
                 '<div class="col-md">',
                     '<label for="serv_name" class="form-label">Name of Service:</label>',
-                    '<input type="text" class="form-control" id="eserv_name" value="'+$content[el].service_title +'">',
+                    '<input type="text" class="form-control" id="eserv_name" value="' + $content[el].service_title + '">',
+                    // '<label for="serv_name" class="form-label mt-3">Price Rate:</label>',
+                    // '<input class="form-control" type="number" id="eserv_price" value="'+$content[el].service_price +'">',
                 '</div>',
                 '<div class="col-md">',
                     '<label for="serv_price" class="form-label">Price Rate:</label>',
+                    // '<span id="simage'+$content[el].service_id+'"><center><img src="'+display_image+$content[el].service_image +'" width="120" heigth="120" style="border: solid 1px; border-color: #dddddd;"></center></span> ', 
                     '<input class="form-control" type="number" id="eserv_price" value="'+$content[el].service_price +'">',
                 '</div>',
             '</div>',
@@ -724,6 +728,8 @@ function generateModalService($elem, $content)
     }
 
 }
+
+
 function generateTemplateProduct($elem, $content)
 {
     $($elem).empty();
@@ -736,7 +742,7 @@ function generateTemplateProduct($elem, $content)
             '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].product_id+'" data-bs-target="#editProduct">',
             '<td><span class="fcapital">',
                     '<span id="pimage'+$content[el].product_id+'"><img src="'+display_image+$content[el].product_image +'" width="20" heigth="20"></span> ', 
-                    '<span id="ptitle'+$content[el].product_id+'">'+$content[el].product_name +'</span> ', 
+                    '<span id="ptitle'+$content[el].product_id+'">'+$content[el].product_name+'</span> ', 
                 '</td>',
             '<td>PHP <span id="pprice'+$content[el].product_id+'">'+$content[el].product_price+'</span></td>',
             '</tr>'
@@ -765,3 +771,5 @@ $(document).ready(function () {
 $("#searchclear").click(function(){
     location.reload () 
 });
+
+NumberComms = new Intl.NumberFormat('en-US')

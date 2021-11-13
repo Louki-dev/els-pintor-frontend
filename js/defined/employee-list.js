@@ -27,6 +27,8 @@
             clearTimeout(typingTimer);
             if ($('#search_emp').val()) {
                 typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            }else{
+                loadEmployee();
             }
         });
     });

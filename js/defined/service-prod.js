@@ -3,12 +3,8 @@
     $(document).ready(function () {
         loadService();
         loadProduct();
-        var imageLoader = document.getElementById('serv_image');
-            imageLoader.addEventListener('change', handleImage, false);
-        var canvas = document.getElementById('serv_image_canvas');
-        var ctx = canvas.getContext('2d');
 
-        function handleImage(e){
+        function handleImage1(e){
             var reader = new FileReader();
             reader.onload = function(event){
                 var img = new Image();
@@ -22,8 +18,27 @@
             reader.readAsDataURL(e.target.files[0]);     
         }
 
-        $(document).on('click', '#AddService', function (e) {     
+        function handleImage2(e){
+            var reader = new FileReader();
+            reader.onload = function(event){
+                var img = new Image();
+                img.onload = function(){
+                    canvas2.width = img.width;
+                    canvas2.height = img.height;
+                    ctx2.drawImage(img,0,0);
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(e.target.files[0]);     
+        }
 
+        var imageLoader = document.getElementById('serv_image');
+        imageLoader.addEventListener('change', handleImage1, false);
+        var canvas = document.getElementById('serv_image_canvas');
+        var ctx = canvas.getContext('2d');
+        
+        $(document).on('click', '#AddService', function (e) {     
+            
             var data = {
                 serv_name : $('#serv_name').val(),
                 serv_price: $('#serv_price').val(),
@@ -54,7 +69,7 @@
                 return;
             }
             if (data.serv_image == '') {
-                // Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
+                // Swal.fire('Something went wrong', 'Upload image must not be empty', 'error');
                 Swal.fire({
                     title: 'Oops...',
                     text: 'Upload image must not be empty',
@@ -82,10 +97,10 @@
             
         });
     
-        var imageLoader = document.getElementById('prod_image');
-        imageLoader.addEventListener('change', handleImage, false);
-        var canvas = document.getElementById('prod_image_canvas');
-        var ctx = canvas.getContext('2d');
+        var imageLoader2 = document.getElementById('prod_image');
+        imageLoader2.addEventListener('change', handleImage2, false);
+        var canvas2 = document.getElementById('prod_image_canvas');
+        var ctx2 = canvas.getContext('2d');
  
 
         $(document).on('click', '#AddProduct', function () {
@@ -314,6 +329,8 @@
             clearTimeout(typingTimer);
             if ($('#search_s').val()) {
                 typingTimer = setTimeout(doneTyping1, doneTypingInterval);
+            }else{
+                loadService();
             }
         });
     });
@@ -324,6 +341,8 @@
             clearTimeout(typingTimer);
             if ($('#search_p').val()) {
                 typingTimer = setTimeout(doneTyping2, doneTypingInterval);
+            }else{
+                loadProduct();
             }
         });
     });

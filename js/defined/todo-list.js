@@ -22,6 +22,8 @@
             clearTimeout(typingTimer);
             if ($('#search_t').val()) {
                 typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            }else{
+                loadTodoList();
             }
         });
     });

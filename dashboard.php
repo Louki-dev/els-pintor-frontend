@@ -51,14 +51,14 @@
                 </div>
             </div>
         </div>
-
+        
         <form class="mb-4 container">
         <div class="input-group flex-nowrap">
+        <span class="input-group-text pending_header text-white" style="cursor:default;">Search</span>
         <input type="text" class="form-control"  id="search_d" placeholder="Search by Customer Name">
-        <button class="input-group-text pending_header text-white" id="searchclear"><i class="fas fa-undo"></i></button>
         </div>
         </form>
-
+        
         <div class="center-section custom-m">
             <div class="container-md">
                 <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-3 g-3">

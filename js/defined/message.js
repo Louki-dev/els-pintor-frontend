@@ -65,6 +65,8 @@
             clearTimeout(typingTimer);
             if ($('#search_m').val()) {
                 typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            }else{
+                loadSentMessage();
             }
         });
     });

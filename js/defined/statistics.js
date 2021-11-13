@@ -12,6 +12,8 @@
                 clearTimeout(typingTimer);
                 if ($('#search_d').val()) {
                     typingTimer = setTimeout(doneTyping, doneTypingInterval);
+                }else{
+                    requestApiList();
                 }
             });
         });

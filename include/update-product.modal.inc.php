@@ -15,7 +15,7 @@
                         <input type="text" class="form-control" id="eprod_name">
                     </div>
                     <div class="col-md">
-                        <label for="serv_price" class="form-label">Price Rate:</label><span> 
+                        <label for="serv_price" class="form-label">Product Price:</label><span> 
                         <input class="form-control" type="number" id="eprod_price">
                     </div>
                 </div>

@@ -11,12 +11,13 @@
         <div class="mt-5 pb-3 float-end">
         <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newProduct"> New Products +</button>
         </div>
-    <form class="g-3 mb-4">
+
+        <form class="g-3 mb-4">
         <div class="input-group rounded-pill flex-nowrap">
+        <span class="input-group-text pending_header text-white" id="searchclear" style="cursor:default;">Search</span>
         <input type="text" class="form-control" id="search_p" placeholder="Search by Product Name">
-        <button class="input-group-text pending_header text-white" id="searchclear"><i class="fas fa-undo"></i></button>
         </div>
-    </form>
+        </form>
 
         <table class="table-7">
             <thead>
@@ -35,9 +36,9 @@
         <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newService"> New Services +</button>
         </div>
         <form class="g-3 mb-4">
-        <div class="input-group flex-nowrap">
+        <div class="input-group rounded-pillflex-nowrap">
+        <span class="input-group-text pending_header text-white" id="searchclear" style="cursor:default;">Search</span>
         <input type="text" class="form-control" id="search_s" placeholder="Search by Service Name">
-        <button class="input-group-text pending_header text-white" id="searchclear"><i class="fas fa-undo"></i></button>
         </div>
         </form>
         <table class="table-7">
