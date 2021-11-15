@@ -2,7 +2,7 @@
 </head>
     <body id="message_page">
 <?php require_once __DIR__ . "/include/top-navigation.inc.php";?>
-<div class="message-section custom-m">
+<div class="container-design-2 mt-1">
 <div class="container-md">
 <div class="container mt-5 mb-5">
     <div class="row">
@@ -89,7 +89,7 @@
 
             <!------------------------------->
           </div>
-          <div id="sent-message-paginate" class="my-3"></div>
+          <div id="sent-message-paginate" class="mb-3 mt-0 ms-3"></div>
         </div>
         <!--------------------------End Sent Message------------------------------------------->
       </div>

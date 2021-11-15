@@ -2,8 +2,8 @@
 </head>
     <body id="employee_page">
 <?php require_once __DIR__ . "/include/top-navigation.inc.php";?>
-<div class="container-design">
-    <div class="container">
+<div class="container-design-2">
+    <div class="container mt-4">
         <div class="button-pos mt-5 float-end">
             <button type="add" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#emp_create">Create New +</button>
         </div>
@@ -29,7 +29,7 @@
             <tbody id="employee-list-data"></tbody>
         </table>
         </div>
-        <div id="employee-paginate"></div>
+        <div id="employee-paginate" class="mb-5 mt-3"></div>
     </div>
 </div>
 

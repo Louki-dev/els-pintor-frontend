@@ -203,7 +203,7 @@
         return;
     }
 
-    function loadEmployee(offset = 0, limit = 10, rowOffset=0)
+    function loadEmployee()
     {
         generateEmptyTableTemplate('#employee-list-data');
             ajaxRequest(

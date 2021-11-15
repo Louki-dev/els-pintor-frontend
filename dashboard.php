@@ -3,7 +3,7 @@
     <body id="dashboard_page">
 <?php require_once __DIR__ . "/include/top-navigation.inc.php";?>
  
-        <div class="container-design">
+        <div class="container-design-2 mt-2">
         <div class="upper-section my-5">
             <div class="container-md">
                 <div class="row row-cols-2 row-cols-sm-2 row-cols-xl-4 g-3">
@@ -75,7 +75,7 @@
                                 <div class="accordion-body">
                                     <div class="list-group text-start" id="type-request-0">
                                     </div>
-                                    <div id="type-request-paginate-0"></div>
+                                    <div id="type-request-paginate-0" class="mb-0 mt-3"></div>
                                 </div>
                               </div>
                             </div>
@@ -93,7 +93,7 @@
                                 <div class="accordion-body">
                                     <div class="list-group text-start" id="type-request-1">
                                     </div>
-                                    <div id="type-request-paginate-1"></div>
+                                    <div id="type-request-paginate-1" class="mb-0 mt-3"></div>
                                 </div>
                               </div>
                             </div>
@@ -111,7 +111,7 @@
                                 <div class="accordion-body">
                                     <div class="list-group text-start" id="type-request-2">
                                     </div>
-                                    <div id="type-request-paginate-2"></div>
+                                    <div id="type-request-paginate-2" class="mb-0 mt-3"></div>
                                 </div>
                               </div>
                             </div>

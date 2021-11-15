@@ -100,7 +100,7 @@
         var imageLoader2 = document.getElementById('prod_image');
         imageLoader2.addEventListener('change', handleImage2, false);
         var canvas2 = document.getElementById('prod_image_canvas');
-        var ctx2 = canvas.getContext('2d');
+        var ctx2 = canvas2.getContext('2d');
  
 
         $(document).on('click', '#AddProduct', function () {

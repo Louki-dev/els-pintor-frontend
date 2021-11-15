@@ -3,7 +3,7 @@
     <body id="prod_page">
 <?php require_once __DIR__ . "/include/top-navigation.inc.php";?>
 
-<div class="container-design">
+<div class="container-design-2 mt-0">
 <div class="container-md">
 <div class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 g-3">
 
@@ -28,7 +28,7 @@
             </thead>
             <tbody id="product-list-data"></tbody>
         </table>
-        <div id="product-list-data-paginate"></div>
+        <div id="product-list-data-paginate" class="mb-0 mt-3"></div>
         </div>
 
 
@@ -52,7 +52,7 @@
             </thead>
             <tbody id="service-list-data"></tbody>
         </table>
-        <div id="service-list-data-paginate"></div>
+        <div id="service-list-data-paginate" class="mb-0 mt-3"></div>
     </div>
 
 </div>

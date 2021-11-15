@@ -905,7 +905,7 @@
     pageNumber: 1,
 
     // entries of per page
-    pageSize: 10,
+    pageSize: 5,
 
     // Page range (pages on both sides of the current page)
     pageRange: 2,

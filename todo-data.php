@@ -3,8 +3,8 @@
     <body id="todo_page">
 <?php require_once __DIR__ . "/include/top-navigation.inc.php";?>
 
-        <div class="content-section custom-m mt-5">
-            <div class="container-md">
+        <div class="container-design-2 mt-5">
+            <div class="container-md ">
 
             <form class="g-3 mb-4">
             <div class="input-group flex-nowrap">
@@ -38,7 +38,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body mainlist-todo" id="todoContent-0"></div>
-                                <div id="todoContent-paginate-0"></div>
+                                <div id="todoContent-paginate-0" class="mb-3 mt-0 float-end ms-3"></div>
                             </div>
                         </div>
     
@@ -79,7 +79,8 @@
                                         </div>
                                     </label> -->
                                 </div>
-                                <div id="todoContent-paginate-1"></div>
+                      
+                                <div id="todoContent-paginate-1" class="mb-3 mt-0 float-end ms-3"></div>
                             </div>
                         </div>
                     </div>
