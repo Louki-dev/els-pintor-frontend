@@ -762,11 +762,29 @@ function generateUser($elem, $content, num)
         $html = [
             '<form>',
             '<input type="hidden" id="id_user" value="' + $content[el].user_id + '">',
-            '<div class="">',
             '<label for="firstName" class="form-label">Username</label>',
-            '<input type="text" class="form-control bg-white" id="user" placeholder="" value="'+$content[el].user_username+'" >', 
+            '<div class="input-group">',
+            '<input type="text" class="form-control bg-white input_user" id="user" placeholder="" value="' + $content[el].user_username + '" disabled>',
+            '<span class="input-group-text pending_header text-white" id="edit_user" style="cursor:pointer;">Edit</span>',
             '</div></form>'
         ];
+        $($elem).append($html.join(""));
+    } 
+
+ 
+}
+
+function generateUserPass($elem, $content, num)
+{
+
+    $($elem).empty();
+
+    for (var el = 0; el<$content.length; el++) {
+
+        $html = [
+            '<input type="hidden" id="id_pass" value="' + $content[el].user_id + '">',
+        ];
+
         $($elem).append($html.join(""));
     } 
 

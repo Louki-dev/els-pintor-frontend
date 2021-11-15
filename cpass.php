@@ -18,32 +18,27 @@
                 <a href="acc.php" class="list-group-item">
                     Personal Settings
                 </a>
-                <a href="" class="list-group-item pending_header text-white" aria-current="true">Change Password</a>
+                <a href="" class="list-group-item pending" aria-current="true">Change Password</a>
                 </div>
                 </div>
 
 
                 <div class="col">
                 <form>
-                        <input type="text" name="id" value="" hidden>
-                    <div class="group">
-                        <label class="label mb-1">Current Password *</label>
-                        <input type="password" class="form-control mb-3" placeholder="" required>
+                    <div id="id-pass"></div>
+                    <label class="label mb-1">Current Password </label>
+                    <div class="group input-group mb-3">
+                        <input type="password" class="form-control bg-white curt_pass" id="old_pass" placeholder="" disabled>
+                        <span class="input-group-text pending_header text-white" id="edit_pass" style="cursor:pointer;">Change</span>
                     </div>
                     <div class="group">
                         <label class="label mb-1">New Password *</label>
-                        <input type="password" class="form-control mb-3" placeholder=""  required>
+                        <input type="password" class="form-control bg-white nw_pass" id="new_pass" placeholder="" disabled>
                     </div>
-                    
-                    <div class="group">
-                        <label class="label mb-1">Confirm Password *</label>
-                        <input type="password" class="form-control" placeholder="" required >
-                        <small class="text-muted mb-3">Re-type your new password to confirm changes.</small>
-                    </div>
+                
                 </br>
-                    <div class="d-grid gap-2 mt-4">
-                        <button type="button" class="btn btn-outline-primary mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#save" href="">Save Changes</button>
-                        <button type="button" class="btn btn-outline-secondary mb-3" data-bs-toggle="modal" data-bs-target="#discard" href="">Reset</button>
+                    <div class="d-grid gap-2 mb-5 mt-4">
+                        <button type="button" class="btn btn-outline-primary mt-3 mb-2 val-button" data-bs-toggle="modal" data-bs-target="#confirm-pass-modal" disabled>Save Changes</button>
                     </div>
                 </form>
                 </div>
@@ -59,6 +54,7 @@
 
 <?php
 require_once __DIR__ . "/include/navigation.inc.php";
+require_once __DIR__ . "/include/confirm-newpass.modal.inc.php";
 ?>
 </body>
 </html>
