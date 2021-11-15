@@ -1,9 +1,5 @@
 
 
-
-
-
-
 function ajaxRequest (payload = null, options = null, callback, errocallback = null)
 {
     try {
@@ -754,6 +750,29 @@ function generateTemplateProduct($elem, $content)
 
 }
 
+function generateUser($elem, $content, num)
+{
+
+    $($elem).empty();
+
+    for (var el = 0; el<$content.length; el++) {
+
+        id = "user'+$content[el].user_id+'"
+
+        $html = [
+            '<form>',
+            '<input type="hidden" id="id_user" value="' + $content[el].user_id + '">',
+            '<div class="">',
+            '<label for="firstName" class="form-label">Username</label>',
+            '<input type="text" class="form-control bg-white" id="user" placeholder="" value="'+$content[el].user_username+'" >', 
+            '</div></form>'
+        ];
+        $($elem).append($html.join(""));
+    } 
+
+ 
+}
+
 $(document).ready(function () {
     // const tx = document.getElementsByTagName("textarea");
     const tx = document.getElementsByClassName("_txtarea");
@@ -773,3 +792,5 @@ $("#searchclear").click(function(){
 });
 
 NumberComms = new Intl.NumberFormat('en-US')
+
+

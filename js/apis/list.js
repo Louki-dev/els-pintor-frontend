@@ -38,6 +38,10 @@ var delete_product = base1_url + '/api/v1/dashboard/delete-product';
 
 var create_inquiry_api = base1_url + '/api/v1/process/create-inquiry';
 
+var get_user = base1_url + '/api/v1/dashboard/get-user';
+var change_usern = base1_url + '/api/v1/dashboard/change-user';
+var change_passw = base1_url + '/api/v1/dashboard/change-pass';
+
 var redirect_login =  '/frontend/login.php';
 var redirect_dashboard =  '/frontend/dashboard.php';
 

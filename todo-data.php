@@ -16,7 +16,7 @@
                 <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-2 g-3">
                     <div class="col">
     
-                        <div class="list-group">   
+                        <div class="list-group mb-5">   
                             <div class="card shadow-sm">
                                 <div class="card-header pending_header p-2">
                                     <span class="fw-light text-light float-start mt-2 ps-3">
@@ -38,6 +38,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body mainlist-todo" id="todoContent-0"></div>
+                                <div id="todoContent-paginate-0"></div>
                             </div>
                         </div>
     
@@ -78,6 +79,7 @@
                                         </div>
                                     </label> -->
                                 </div>
+                                <div id="todoContent-paginate-1"></div>
                             </div>
                         </div>
                     </div>

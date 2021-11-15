@@ -9,16 +9,19 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet " href="<?php echo Utilities::domain();?>/frontend/css/style.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="<?php echo Utilities::domain();?>/frontend/css/pagination.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/bootstrap.bundle.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/sweetalert2.all.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/apis/list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/script.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/defined/statistics.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/defined/todo-list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/defined/employee-list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/defined/message.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/defined/service-prod.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-        <script src="<?php echo Utilities::domain();?>/frontend//js/defined/login.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/bootstrap.bundle.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/sweetalert2.all.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/apis/list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/script.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/paging.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/defined/user.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/defined/statistics.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/defined/todo-list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/defined/employee-list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/defined/message.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/defined/service-prod.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/defined/login.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <title>Els Pintor</title>

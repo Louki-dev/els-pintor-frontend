@@ -15,37 +15,37 @@
 
                 <div class="col mb-5">
                 <div class="list-group">
-                <a href="" class="list-group-item pending_header text-white">
-                    Personal Settings
-                </a>
+                <a href="" class="list-group-item pending_header text-white">Personal Settings</a>
                 <a href="cpass.php" class="list-group-item" aria-current="true">Change Password</a>
                 </div>
                 </div>
 
 
                 <div class="col">
-                <form>
-                    <input type="text" name="id" value="" hidden>
-                    <div class="">
-                    <label for="firstName" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="" placeholder="" value="" required> 
-                    </div>
-                    <div class="mt-3">
-                    <label for="firstName" class="form-label">New Username</label>
-                    <input type="text" class="form-control" id="" placeholder="" value="" required> 
-                    </div>
+          
+                    <div id="user_data"></div>
+                        <!-- <input type="text" name="id" value="" hidden>
+                        <div class="">
+                        <label for="firstName" class="form-label">Username</label>
+                        <input type="text" class="form-control bg-white" id="user" placeholder="" value="" > 
+                        </div> -->
+                        <!-- <div class="mt-3">
+                        <label for="firstName" class="form-label">New Username</label>
+                        <input type="text" class="form-control" id="new_user" placeholder="" value="" > 
+                        </div> -->
 
-                    <div class="mt-3">
-                    <label for="lastName" class="form-label">Password <span title="Required">*</span></label>
-                    <input type="password" class="form-control" id="" placeholder="" value="">
-                    <small class="text-muted">Enter your password to confirm changes.</small>
-                    </div>
+                        <!-- <div class="mt-3">
+                        <label for="lastName" class="form-label">Confirm using Password <span title="Required">*</span></label>
+                        <input type="password" class="form-control" id="confirm_pass" placeholder="" value="">
+                        <small class="text-muted">Enter your password to confirm changes.</small>
+                        </div> -->
+                    
+                    
                 </br>
                     <div class="d-grid gap-2 mt-4">
                         <button type="button" class="btn btn-outline-primary mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#save" href="">Save Changes</button>
-                        <button type="button" class="btn btn-outline-secondary mb-3" data-bs-toggle="modal" data-bs-target="#discard" href="">Reset</button>
                     </div>
-                </form>
+               
                 </div>
             </div>
             

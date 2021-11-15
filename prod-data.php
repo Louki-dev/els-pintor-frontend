@@ -28,6 +28,7 @@
             </thead>
             <tbody id="product-list-data"></tbody>
         </table>
+        <div id="product-list-data-paginate"></div>
         </div>
 
 
@@ -51,6 +52,7 @@
             </thead>
             <tbody id="service-list-data"></tbody>
         </table>
+        <div id="service-list-data-paginate"></div>
     </div>
 
 </div>

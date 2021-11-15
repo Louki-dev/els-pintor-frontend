@@ -2,7 +2,6 @@
 </head>
     <body id="employee_page">
 <?php require_once __DIR__ . "/include/top-navigation.inc.php";?>
-
 <div class="container-design">
     <div class="container">
         <div class="button-pos mt-5 float-end">
@@ -30,7 +29,7 @@
             <tbody id="employee-list-data"></tbody>
         </table>
         </div>
-
+        <div id="employee-paginate"></div>
     </div>
 </div>
 

@@ -15,7 +15,7 @@
       <script src="<?php echo Utilities::domain();?>/frontend/js/apis/list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <script src="<?php echo Utilities::domain();?>/frontend/js/script.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <script src="<?php echo Utilities::domain();?>/frontend/js/defined/login.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-      <script src="<?php echo Utilities::domain();?>/frontend//js/preload.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+      <script src="<?php echo Utilities::domain();?>/frontend/js/preload.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <title>Else Pintor</title>
   </head>
   

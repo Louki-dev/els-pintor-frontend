@@ -75,6 +75,7 @@
                                 <div class="accordion-body">
                                     <div class="list-group text-start" id="type-request-0">
                                     </div>
+                                    <div id="type-request-paginate-0"></div>
                                 </div>
                               </div>
                             </div>
@@ -92,6 +93,7 @@
                                 <div class="accordion-body">
                                     <div class="list-group text-start" id="type-request-1">
                                     </div>
+                                    <div id="type-request-paginate-1"></div>
                                 </div>
                               </div>
                             </div>
@@ -109,6 +111,7 @@
                                 <div class="accordion-body">
                                     <div class="list-group text-start" id="type-request-2">
                                     </div>
+                                    <div id="type-request-paginate-2"></div>
                                 </div>
                               </div>
                             </div>

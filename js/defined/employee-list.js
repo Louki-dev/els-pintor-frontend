@@ -203,24 +203,30 @@
         return;
     }
 
-    function loadEmployee()
+    function loadEmployee(offset = 0, limit = 10, rowOffset=0)
     {
         generateEmptyTableTemplate('#employee-list-data');
-       
-            ajaxRequest(null,
+            ajaxRequest(
+                {
+                    search: $("#search_emp").val()
+                },
                 {
                 url: get_employee_list,
                 type: "GET",
                 headers: assignAuthHeader(),
-                dataType: "json",
-                data: {
-                    search: $("#search_emp").val()
-                }
+                dataType: "json"
             },
             function (response_data) {
                 if (response_data.status == true) {
                     if (response_data.content.count != 0) {
-                        generateTemplateEmployee("#employee-list-data", response_data.content.employees);
+                        
+                        $('#employee-paginate').pagination({
+                            dataSource: response_data.content.employees,
+                            callback: function(data, pagination) {
+                                generateTemplateEmployee("#employee-list-data", data);
+                            }
+                        });
+                        
                     }
                 }
             });

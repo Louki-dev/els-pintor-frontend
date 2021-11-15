@@ -1,6 +1,10 @@
 (function () {
     $(document).ready(function (e) {
-         
+        // prevents ENTER key to reload page
+        $('form').on('submit', function(e){
+            e.preventDefault();
+        });
+
         loadEmployee();
         loadSentMessage();
 
@@ -143,25 +147,32 @@
             });
     }
 
-    function loadSentMessage()
+    function loadSentMessage($offset = 0, $limit = 5, rowOffset=0)
     {
         generateEmptyTemplate('#sent-messages');
 
-        ajaxRequest(null,
+        ajaxRequest(
+        {
+            search: $("#search_m").val()
+        },
         {
             url: get_sent_message,
             type: "GET",
             headers: assignAuthHeader(),
-            dataType: "json",
-            data: {
-                search: $("#search_m").val()
-            }
+            dataType: "json"
         },
         function (response_data) {
             if (response_data.status == true) {
                 if (response_data.content != null) {
-                    if (response_data.content.length > 0) {
-                        generateTemplateSentMessage('#sent-messages', response_data.content);
+                    if (response_data.content.messages.length > 0) {
+
+                        // renderPagination(response_data.content.count, "#message-paginate", 'message', rowOffset, $limit)
+                        $('#sent-message-paginate').pagination({
+                            dataSource: response_data.content.messages,
+                            callback: function(data, pagination) {
+                                generateTemplateSentMessage('#sent-messages', data);
+                            }
+                        })
                     }
                 }
             }
