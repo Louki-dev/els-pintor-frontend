@@ -20,6 +20,7 @@
   </head>
   
   <body>
+<section class="login-bg" id="login-bg">
 
 <div id="loader"></div>
 <div id="content">
@@ -42,5 +43,6 @@
     </div>
 
 </div>
+</section>
 </body>
 </html>

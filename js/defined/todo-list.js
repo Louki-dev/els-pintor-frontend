@@ -144,21 +144,19 @@
                         // }
 
                         if (response_data.content[0]) {
-                            $('#todoContent-paginate-'+0).pagination({
+                            $('#todoContent-paginate-0').pagination({
                                 dataSource: response_data.content[0],
                                 callback: function(data, pagination) {
-                                    console.log(key);
-                                    generateTodoTemplate('#todoContent-'+0, data, 0);
+                                    generateTodoTemplate('#todoContent-0', data, 0);
                                 }
                             });
                         }
 
                         if (response_data.content[1]) {
-                            $('#todoContent-paginate-'+1).pagination({
+                            $('#todoContent-paginate-1').pagination({
                                 dataSource: response_data.content[1],
                                 callback: function(data, pagination) {
-                                    console.log(key);
-                                    generateTodoTemplate('#todoContent-'+1, data, 1);
+                                    generateTodoTemplate('#todoContent-1', data, 1);
                                 }
                             });
                         }

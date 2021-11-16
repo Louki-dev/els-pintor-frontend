@@ -39,8 +39,10 @@
 
         return true;
     }
-
-    
+    $(document).ready(function (e) {
+        loadServices();
+        loadProducts();
+    });
     $(document).ready(function(e){
 
         $(document).on("click", "#csubmit", function(e) { 
@@ -177,14 +179,91 @@
         window.onscroll = function (){
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
-        // colorsPalette.classList.remove('active');
         }
-    
-        // document.querySelectorAll('.colors-palette .color').forEach(function (btn){
-        // btn.onclick = function (){
-        //     let color = btn.style.background;
-        //     document.querySelector(':root').style.setProperty('--main-color',color);
-        // }
-        // });
+
+        NumberComms = new Intl.NumberFormat('en-US')
+
     })
+
+    function loadServices()
+    {
+        ajaxRequest(null,
+            {
+            url: get_services,
+            type: "GET",
+            dataType: "json",
+        },
+        function (response_data) {
+            if (response_data.status == true) {
+                if (response_data.content != null) {
+                    if (response_data.content.length > 0) {
+                        generateServices('#services-list', response_data.content);
+                    }
+                }
+            }
+        });
+    }
+
+    function loadProducts()
+    {
+        ajaxRequest(null,
+            {
+            url: get_products,
+            type: "GET",
+            dataType: "json",
+        },
+        function (response_data) {
+            if (response_data.status == true) {
+                if (response_data.content != null) {
+                    if (response_data.content.length > 0) {
+                        generateProducts('#products-list', response_data.content);
+                    }
+                }
+            }
+        });
+    }
+
+
+    function generateServices($elem, $content, num)
+    {
+
+        $($elem).empty();
+
+        for (var el = 0; el<$content.length; el++) {
+
+            $html = [
+                // '<input type="hidden" id="id_user" value="' + $content[el].service_id + '">',
+                '<div class="box">',
+                    '<i class="fas fa-brush"></i>',
+                    '<img id="simage'+$content[el].service_id+'" src="'+display_image+$content[el].service_image +'" alt="">',
+                    '<h3 id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</h3>',
+                    '<p id="sdesc'+$content[el].service_id+'">'+ $content[el].service_description+'</p>',
+                    '<br>',
+                    '<h2 id="sprice'+$content[el].service_id+'">Price rate: Php '+NumberComms.format($content[el].service_price)+'.00</h2>',
+                '</div>'   
+            ];
+            $($elem).append($html.join(""));
+        } 
+    }
+
+    function generateProducts($elem, $content, num)
+    {
+
+        $($elem).empty();
+
+        for (var el = 0; el<$content.length; el++) {
+
+            $html = [
+                
+                '<div class="box">',
+                '<img id="pimage'+$content[el].product_id+'" src="'+display_image+$content[el].product_image +'" alt="">',
+                '<div class="content">',
+                    '<h3 id="ptitle'+$content[el].product_id+'">'+$content[el].product_name +'</h3>',
+                    '<span id="pprice'+$content[el].product_id+'">Php '+NumberComms.format($content[el].product_price)+'.00</span>',
+                '</div>',
+                '</div>'  
+            ];
+            $($elem).append($html.join(""));
+        } 
+    }
 })();

@@ -37,6 +37,8 @@ var update_product_api = base1_url + '/api/v1/dashboard/update-product';
 var delete_product = base1_url + '/api/v1/dashboard/delete-product';
 
 var create_inquiry_api = base1_url + '/api/v1/process/create-inquiry';
+var get_services = base1_url + '/api/v1/process/get-services';
+var get_products = base1_url + '/api/v1/process/get-products';
 
 var get_user = base1_url + '/api/v1/dashboard/get-user';
 var change_usern = base1_url + '/api/v1/dashboard/change-user';

@@ -13,7 +13,7 @@
                             <div class="pending_header rounded text-light p-4 pe-4">
                                 <h1 class="material-icons fs-1 float-start">person</h1>
                                     <p class="fw-bold text-end fs-4 mb-0" id="emp_status_1">0</p>
-                                    <small class="card-text float-end fw-light">Employees - <small class="opacity-75">Active</small></small>
+                                    <small class="card-text float-end fw-light">Active Contacts</small>
                             </div>
                         </div>
                     </div>

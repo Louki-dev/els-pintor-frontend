@@ -258,6 +258,33 @@ section{
     color:#666;
     padding:1rem 0;
 }
+/*.home{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding-top: 8rem;
+}
+
+.home .content{
+    border-radius: .5rem;
+    max-width: 55rem;
+    padding:3rem 5rem;
+    background: var(--bg-color-1);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.home .content h3{
+    color:var(--text-color-1);
+    font-size: 3.5rem;
+}
+
+.home .content p{
+    color:var(--text-color-1);
+    font-size: 1.5rem;
+    padding:1.5rem 0;
+    line-height: 1.9;
+}*/
 
 .services .box-container{
     display: grid;
@@ -427,20 +454,52 @@ section{
 .paint .box-container .box .colors-palette .colors .color{
     border-radius: .5rem;
     cursor: pointer;
-    height: 10.5rem;
-    width: 10.5rem;
+    height: 6.5rem;
+    width: 6.5rem;
 }
 .paint .box-container .box .colors-palette .colors .color:hover{
      background-color: #f5f5f5;
      transform: scale(1.04);
      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2), -1px -1px 6px rgba(0, 0, 0, 0.2);
 }
+
+
 .paint .box-container .box .colors-palette .colors label{
     font-size: 15px;
     color: white;
     margin-top: 8px;
     margin-left:8px;
 }
+
+.paint .box-container .box  .mixer .colors{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:1rem;
+}
+.paint .box-container .box  .mixer .colors .color-mix{
+    border-radius: .5rem;
+    cursor: pointer;
+    height: 9.5rem;
+    width: 10.5rem;
+}
+.paint .box-container .box  .mixer .colors .color-mix{
+     background-color: white;
+     transform: scale(1.04);
+     border: solid 1px #dddddd;
+}
+
+.paint .box-container .box  .mixer .colors .color-mix label{
+    font-size: 12px;
+    color: white;
+    margin-top: 10px;
+    margin-left:15px;
+}
+
+
+
+
+
 .color-picker {
     padding: 10px 15px;
     border-radius: 10px;
@@ -449,35 +508,53 @@ section{
     background: #f8f9f9;
 }
 
-.tooltiptext .tooltiptext {
-  font-size: 20px;
-  visibility: hidden;
-  width: 255px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: .8rem;
-  padding: 5px 0;
- 
-  margin-left: 13px;
 
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
+
+
+
+.picker{
+    display: grid;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.selector{
+    width: 100px;
+}
+.centers{
+    margin: auto;
+    align-items: center;
+    justify-content: center;}
+
+
+.btn1{
+    margin-top: .5rem;
+    display: inline-block;
+    padding:0rem 1.5rem;
+    font-size: 1.3rem;
+    color:#fff;
+    background: var(--main-color);
+    border-radius: 3px;
+    cursor: pointer;
 }
 
-.tooltiptext .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
+.btn1:hover{
+    opacity: .6;
 }
-.tooltiptext:hover .tooltiptext {
-  visibility: visible;
+
+
+.boxing{
+    background: #eee;
+    border-radius: 25px;
+    height: 45px;
+    border: solid 2px #2980b9;
+    width: auto;
+    display: flex;
+}
+.cnt{
+   display: flex;
+   margin-right: 20px;
+   margin-left: 20px;
 }
 
 
@@ -486,6 +563,23 @@ section{
     background-size: cover;
     background-position: center;
     padding-bottom: 3rem;
+}
+.about .image img{
+    width:20vw;
+}
+
+.about .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    gap:1.5rem;
+}
+
+.about .box-container .box{
+    padding:3rem;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    background: #FFFFFF;
+    position: relative;
 }
 
 .about .column{
@@ -521,6 +615,9 @@ section{
 .about .column .content .buttons a:last-child{
     margin-left: 2rem;
 }
+
+
+
 .contact form{
     max-width: 70rem;
     margin:-2.7rem -4rem;
@@ -535,15 +632,16 @@ section{
 
 .contact form .inputBox input,
 .contact form textarea{
-    width: 100%;
+    width: auto;
     padding:1rem;
-    font-size: 1.6rem;
+    font-size: 15px;
     color:var(--text-color-1);
     background:white;
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
     margin:.7rem 0;
     text-transform: none;
+    display: flex;
 }
 
 .contact form .inputBox input{
@@ -551,7 +649,7 @@ section{
 }
 
 .footer{
-     background:var(--bg-color-1);
+     background: #fff;
 }
 
 .footer .box-container{
@@ -592,6 +690,28 @@ section{
 .footer .credit span{
     color:var(--main-color);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* media queries  */
