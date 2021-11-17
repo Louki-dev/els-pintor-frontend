@@ -16,11 +16,11 @@
     outline: none; border:none;
     text-decoration: none;
     /* text-transform: capitalize; */
-    transition: .2s ease-in-out;
+  
 }
 
 html{
-    font-size: 80.5%;
+    font-size: 80%;
     overflow-x: hidden;
     scroll-padding-top: 7rem;
     scroll-behavior: smooth;
@@ -51,21 +51,6 @@ section{
     padding:2rem 9%;
 }
 
-.btn{
-    margin-top: .5rem;
-    display: inline-block;
-    padding:.9rem 3.5rem;
-    font-size: 1.7rem;
-    color:#fff;
-    background: var(--main-color);
-    border-radius: 5rem;
-    cursor: pointer;
-}
-
-.btn:hover{
-    letter-spacing: .2rem;
-    opacity: .8;
-}
 
 .heading{
     text-align: center;
@@ -136,6 +121,7 @@ section{
     padding:1rem;
     color:var(--text-color-1);
     display: block;
+    transition: .2s ease-in-out;
 }
 
 .header .navbar a:hover{
@@ -258,33 +244,6 @@ section{
     color:#666;
     padding:1rem 0;
 }
-/*.home{
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding-top: 8rem;
-}
-
-.home .content{
-    border-radius: .5rem;
-    max-width: 55rem;
-    padding:3rem 5rem;
-    background: var(--bg-color-1);
-    box-shadow: var(--box-shadow);
-    text-align: center;
-}
-
-.home .content h3{
-    color:var(--text-color-1);
-    font-size: 3.5rem;
-}
-
-.home .content p{
-    color:var(--text-color-1);
-    font-size: 1.5rem;
-    padding:1.5rem 0;
-    line-height: 1.9;
-}*/
 
 .services .box-container{
     display: grid;
@@ -298,6 +257,7 @@ section{
     border-radius: .5rem;
     background: #FFFFFF;
     position: relative;
+    transition: .2s ease-in-out;
 }
 
 .services .box-container .box:hover{
@@ -372,12 +332,13 @@ section{
     top:0; left: 0;
     height: 100%;
     width: 100%;
-    background: var(--bg-color-1);
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: column;
     transform: scale(0);
+    transition: .2s ease-in-out;
 }
 
 .gallery .box-container .box .content h3{
@@ -387,6 +348,7 @@ section{
     transform: translateY(-5rem);
     opacity: 0;
     transition-delay: .3s;
+    transition: .2s ease-in-out;
 }
 
 .gallery .box-container .box .content span{
@@ -395,6 +357,16 @@ section{
     transform: translateY(5rem);
     opacity: 0;
     transition-delay: .3s;
+    transition: .2s ease-in-out;
+}
+
+.gallery .box-container .box .content .btn_product{
+    font-size: 1.5rem;
+    color: var(--text-color-1);
+    transform: translateY(5rem);
+    opacity: 0;
+    transition-delay: .3s;
+    transition: .2s ease-in-out;
 }
 
 .gallery .box-container .box:hover .content{
@@ -402,9 +374,11 @@ section{
 }
 
 .gallery .box-container .box:hover .content h3,
+.gallery .box-container .box:hover .content .btn_product,
 .gallery .box-container .box:hover .content span{
     transform: translateY(0rem);
     opacity: 1;
+    transition: .2s ease-in-out;
 }
 
 
@@ -500,16 +474,6 @@ section{
 
 
 
-.color-picker {
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    color: black;
-    background: #f8f9f9;
-}
-
-
-
 
 
 .picker{
@@ -576,7 +540,7 @@ section{
 
 .about .box-container .box{
     padding:3rem;
-    box-shadow: var(--box-shadow);
+    /* box-shadow: var(--box-shadow); */
     border-radius: .5rem;
     background: #FFFFFF;
     position: relative;
@@ -673,6 +637,7 @@ section{
 .footer .box-container .box a i{
     padding-right: .5rem;
     color:var(--main-color);
+    transition: .2s ease-in-out;
 }
 
 .footer .box-container .box a:hover i{
@@ -690,25 +655,6 @@ section{
 .footer .credit span{
     color:var(--main-color);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -787,3 +733,27 @@ section{
     overflow: visible;
     background: #FAFAFA url('../img/paintbrush.gif') no-repeat center center;
   }
+
+.pending {
+color:#2980b9 !important;
+}
+.offline {
+color:#a19797;
+}
+.pending_header{
+background-color:#2980b9 !important;
+}
+.pending_header2{
+background-color:#2691d9 !important;
+}
+
+.btn_product:hover {
+    opacity: .7 !important;
+}
+
+/* Hide number(input type) arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

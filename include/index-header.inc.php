@@ -9,10 +9,14 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet " href="<?php echo Utilities::domain();?>/frontend/css/style2.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
+        <link rel="stylesheet" href="<?php echo Utilities::domain();?>/frontend/css/pagination.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="<?php echo Utilities::domain();?>/frontend/js/sweetalert2.all.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <script src="<?php echo Utilities::domain();?>/frontend/js/apis/list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <script src="<?php echo Utilities::domain();?>/frontend/js/preload.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+        <script src="<?php echo Utilities::domain();?>/frontend/js/paging.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <script src="<?php echo Utilities::domain();?>/frontend/js/defined/client.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <script src="<?php echo Utilities::domain();?>/frontend/js/defined/color.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <title>Els Pintor</title>

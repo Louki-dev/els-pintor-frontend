@@ -165,6 +165,9 @@
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
             });
+            let textarea = document.getElementById("cinq");
+            textarea.focus();
+            textarea.value += text;
         })
         .catch(function () {
             Swal.fire({
@@ -176,6 +179,7 @@
             });
         });
     }
+
     
     function add_color() {
 
@@ -1377,6 +1381,82 @@
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '3p') {
                     document.getElementById("color_3").style.background = "#aa5555";
+                }
+            });
+        }
+
+        if (first_number == "green" && second_number == "ghostwhite" && third_number == "black" ||
+            first_number == "green" && second_number == "black" && third_number == "ghostwhite" ||
+            first_number == "ghostwhite" && second_number == "black" && third_number == "green" ||
+            first_number == "ghostwhite" && second_number == "green" && third_number == "black" ||
+            first_number == "black" && second_number == "green" && third_number == "ghostwhite" ||
+            first_number == "black" && second_number == "ghostwhite" && third_number == "green")
+        {
+            var result = "INEFFABLE FOREST";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#559155";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#559155";
+                }
+            });
+        }
+
+        if (first_number == "green" && second_number == "ghostwhite" && third_number == "yellow" ||
+            first_number == "green" && second_number == "yellow" && third_number == "ghostwhite" ||
+            first_number == "ghostwhite" && second_number == "yellow" && third_number == "green" ||
+            first_number == "ghostwhite" && second_number == "green" && third_number == "yellow" ||
+            first_number == "yellow" && second_number == "green" && third_number == "ghostwhite" ||
+            first_number == "yellow" && second_number == "ghostwhite" && third_number == "green")
+        {
+            var result = "CONIFER";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#aae055";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#aae055";
+                }
+            });
+        }
+
+        if (first_number == "black" && second_number == "ghostwhite" && third_number == "yellow" ||
+            first_number == "black" && second_number == "yellow" && third_number == "ghostwhite" ||
+            first_number == "ghostwhite" && second_number == "yellow" && third_number == "black" ||
+            first_number == "ghostwhite" && second_number == "black" && third_number == "yellow" ||
+            first_number == "yellow" && second_number == "black" && third_number == "ghostwhite" ||
+            first_number == "yellow" && second_number == "ghostwhite" && third_number == "black")
+        {
+            var result = "YELLOW SALMONBERRY";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#fff680";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#fff680";
+                }
+            });
+        }
+
+        if (first_number == "black" && second_number == "green" && third_number == "yellow" ||
+            first_number == "black" && second_number == "yellow" && third_number == "green" ||
+            first_number == "green" && second_number == "yellow" && third_number == "black" ||
+            first_number == "green" && second_number == "black" && third_number == "yellow" ||
+            first_number == "yellow" && second_number == "black" && third_number == "green" ||
+            first_number == "yellow" && second_number == "green" && third_number == "black")
+        {
+            var result = "TATZELWURM GREEN";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#558B00";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#558B00";
                 }
             });
         }

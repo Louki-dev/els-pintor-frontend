@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . "/include/index-header.inc.php";?>
 
 </head>
-    <body>
+    <body class="bg-white">
 
 <div id="loader"></div>
 <div id="content">
@@ -10,9 +10,12 @@
 
 <header class="header">
     <a href="" class="logo text-decoration-none"><i class="fas fa-paint-roller"></i> ELS PINTOR</a>
-
+    
     <div class="icons">
+    <button class="btn pending_header text-white fs-5" data-bs-toggle="modal" data-bs-target="#inq-modal">Make An Inquiry</button>
+
         <div class="fas fa-bars" id="menu-btn"></div>
+
     </div>
     <nav class="navbar">
         <a href="#home" class="text-decoration-none">Home</a>
@@ -31,7 +34,7 @@
    <div class="content">
         <h3>welcome to <span>els pintor</span></h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus suscipit porro nam libero natus error consequatur sed repudiandae eos quo?</p>
-        <a href="#footer" class="btn">Contact Us</a>
+        <!-- <a href="#footer" class="btn text-whtie">Contact Us</a> -->
     </div>
 
     <div class="image">
@@ -47,15 +50,16 @@
 
 
 <!-- services section starts  -->
-
+<hr class="container">
 <section class="services" id="services">
 
-<h1 class="heading"> our <span>services</span> </h1>
+<h1 class="heading mt-5 pt-5"> our <span>services</span> </h1>
 
 <div class="box-container" id="services-list"></div>
-
+<div id="serv_paginate" class="mb-5 mt-5 float-end"></div>
 </section>
 
+<hr class="container">
 <!-- services section ends -->
 
 
@@ -70,22 +74,12 @@
 
     <h1 class="heading"> our <span>products</span> </h1>
 
-    <div class="box-container" id="products-list">
-
-        <!-- <div class="box">
-            <img src="img/g-1.jpg" alt="">
-            <div class="content">
-                <h3>product 01</h3>
-                <span>Php 2,000.00</span>
-            </div>
-        </div> -->
-
-    </div>
-
+    <div class="box-container" id="products-list"></div>
+    <div id="prod_paginate" class="mb-5 mt-5 float-end"></div>
 </section>
 <!-- gallery section ends -->
 
-
+<hr class="container">
 
 
 <!-- paint section starts -->
@@ -175,17 +169,6 @@
 
         </div>
 
-                
-   
-
-
-
-                 
-
-                
-
-
-
 
 <div class="row">
             <div class="col">
@@ -208,7 +191,7 @@
 
                 <input class="mb-1 bg-white" type="text" disabled="" id="color_price" placeholder="Price" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
 
-                  <button type="button" id="copyColor"class="btn1" style="  border-radius: 20px; height: 30px; width: 100%;" >Copy</button>
+                <button type="button" id="copyColor"class="btn1" style="  border-radius: 6px; height: 30px; width: 100%;" >Add to Inquiry</button>
                   
 </div>
 
@@ -225,6 +208,7 @@
 </section>
 <!-- paint section ends -->
 
+<hr class="container">
 
 <!-- about section starts -->
 <section class="about" id="about">
@@ -244,6 +228,7 @@
             <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla placeat deserunt saepe repudiandae veniam soluta minima dolor hic aperiam iure.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, quaerat. Dolorem ratione saepe magni quo inventore porro ab voluptates eos, nam eius provident accusantium, quia similique est, repellendus et reiciendis.</p>
+            <!-- <button class="btn pending_header text-white fs-5" data-bs-toggle="modal" data-bs-target="#inq-modal">Make An Inquiry</button> -->
         </div>
 
     </div>
@@ -256,21 +241,21 @@
 
 <!-- footer section starts  -->
 
-<section class="footer" id="footer">
+<section class="footer shadow-lg pending_header2" id="footer">
 
-    <div class="box-container">
+    <div class="box-container mt-5 pt-5">
 
         <div class="box">
-            <h3>Contact Info</h3>
-             <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0947-897-0835 </a>
-            <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0906-944-5124 </a>
-            <a href="#" class="text-decoration-none"> <i class="fas fa-envelope"></i> pawercapstone@gmail.com </a>
-            <a href="#" class="text-decoration-none"> <i class="fas fa-map-marker-alt"></i> San Isidro, Tagbilaran City, bohol - 6300 </a>
+            <h3 class="text-white">Contact Info</h3>
+             <a href="#" class="text-decoration-none text-white"> <i class="fas fa-phone text-white"></i> +0947-897-0835 </a>
+            <a href="#" class="text-decoration-none text-white"> <i class="fas fa-phone text-white"></i> +0906-944-5124 </a>
+            <a href="#" class="text-decoration-none text-white"> <i class="fas fa-envelope text-white"></i> pawercapstone@gmail.com </a>
+            <a href="#" class="text-decoration-none text-white"> <i class="fas fa-map-marker-alt text-white"></i> San Isidro, Tagbilaran City, bohol - 6300 </a>
             
         </div>
 
         <div class="box">
-            <h3>Our Location</h3>
+            <h3 class="text-white">Our Location</h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15732.33478911981!2d123.87814656873488!3d9.673889838658607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa4c02c7e8bcf7%3A0xcf31ffb8b8911634!2sSan%20Isidro%2C%20Tagbilaran%20City%2C%20Bohol!5e0!3m2!1sen!2sph!4v1628495001520!5m2!1sen!2sph" width="98%" height="398px" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
     </section>
@@ -278,12 +263,15 @@
    
     </div>
 
-    <center><div class="credit"> &copy; copyright @ 2021 by <span>Pawer Capstone</span> </div></center>
+    <center><div class="credit p-2"> &copy; copyright @ 2021 by <span>Pawer Capstone</span> </div></center>
 
 </section>
 
 <!-- footer section ends -->
 </div>
 
+<?php
+require_once __DIR__ . "/include/create-inquiry.modal.inc.php";
+?>
 </body>
 </html>

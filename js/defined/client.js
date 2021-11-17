@@ -120,6 +120,7 @@
                 },
             function (response_data) {
                 if (response_data.status == true) {
+                    $('.modal').modal('hide');
                     Swal.fire({
                         title: 'Inquiry sent!',
                         text: 'We will contact you as soon as possible. Thank you',
@@ -127,6 +128,7 @@
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',
                     })
+                    
                     $('#cfname').val(''),
                     $('#clname').val(''),
                     $('#cemail').val(''),
@@ -146,7 +148,7 @@
 
         function ValidateEmail(data) 
         {
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.cemail.value))
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(cemail.value))
             {
                 createInquiry(data);
                 return;
@@ -163,22 +165,20 @@
 
     $(document).ready(function(){
         var menuBtn = document.querySelector('#menu-btn');
-        var searchBtn = document.querySelector('#search-btn');
-        var themeBtn = document.querySelector('#theme-btn');
+
 
         var navbar = document.querySelector('.navbar');
-        var searchForm = document.querySelector('.search-form');
+
         // var colorsPalette = document.querySelector('.colors-palette');
     
         menuBtn.onclick = function (){
         navbar.classList.toggle('active');
-        searchForm.classList.remove('active');
-        colorsPalette.classList.remove('active');
+ 
         }
         
         window.onscroll = function (){
         navbar.classList.remove('active');
-        searchForm.classList.remove('active');
+
         }
 
         NumberComms = new Intl.NumberFormat('en-US')
@@ -197,7 +197,13 @@
             if (response_data.status == true) {
                 if (response_data.content != null) {
                     if (response_data.content.length > 0) {
-                        generateServices('#services-list', response_data.content);
+                        // generateServices('#services-list', response_data.content);
+                        $('#serv_paginate').pagination({
+                            dataSource: response_data.content,
+                            callback: function(data, pagination) {
+                                generateServices('#services-list', data);
+                            }
+                        })
                     }
                 }
             }
@@ -216,7 +222,13 @@
             if (response_data.status == true) {
                 if (response_data.content != null) {
                     if (response_data.content.length > 0) {
-                        generateProducts('#products-list', response_data.content);
+                        // generateProducts('#products-list', response_data.content);
+                        $('#prod_paginate').pagination({
+                            dataSource: response_data.content,
+                            callback: function(data, pagination) {
+                                generateProducts('#products-list', data);
+                            }
+                        })
                     }
                 }
             }
@@ -232,15 +244,16 @@
         for (var el = 0; el<$content.length; el++) {
 
             $html = [
-                // '<input type="hidden" id="id_user" value="' + $content[el].service_id + '">',
+                '<form><input type="hidden" id="services-copy" value="' +$content[el].service_title + '">',
                 '<div class="box">',
                     '<i class="fas fa-brush"></i>',
                     '<img id="simage'+$content[el].service_id+'" src="'+display_image+$content[el].service_image +'" alt="">',
                     '<h3 id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</h3>',
                     '<p id="sdesc'+$content[el].service_id+'">'+ $content[el].service_description+'</p>',
                     '<br>',
-                    '<h2 id="sprice'+$content[el].service_id+'">Price rate: Php '+NumberComms.format($content[el].service_price)+'.00</h2>',
-                '</div>'   
+                '<h2 id="sprice' + $content[el].service_id + '">Price rate: Php ' + NumberComms.format($content[el].service_price) + '.00</h2>',
+                '<button type="button" id="copyService"class="btn1 text-white mt-3 fs-6 p-2" >Add to Inquiry</button>',
+                '</div></form>'   
             ];
             $($elem).append($html.join(""));
         } 
@@ -254,16 +267,102 @@
         for (var el = 0; el<$content.length; el++) {
 
             $html = [
-                
-                '<div class="box">',
+                '<form><input type="hidden" id="products-copy" value="' +$content[el].product_name + '">',
+                '<div class="box shadow">',
                 '<img id="pimage'+$content[el].product_id+'" src="'+display_image+$content[el].product_image +'" alt="">',
                 '<div class="content">',
                     '<h3 id="ptitle'+$content[el].product_id+'">'+$content[el].product_name +'</h3>',
-                    '<span id="pprice'+$content[el].product_id+'">Php '+NumberComms.format($content[el].product_price)+'.00</span>',
+                '<span id="pprice' + $content[el].product_id + '">Php ' + NumberComms.format($content[el].product_price) + '.00</span>',
+                '<button type="button" id="copyProduct"class="btn pending_header btn_product text-white mt-3 fs-5" >Add to Inquiry</button>',
                 '</div>',
-                '</div>'  
+                '</div></form>'  
             ];
             $($elem).append($html.join(""));
         } 
     }
+    $(document).ready(function () {
+        // const tx = document.getElementsByTagName("textarea");
+        const tx = document.getElementsByClassName("_txtarea");
+        for (let i = 0; i < tx.length; i++) {
+        tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+        tx[i].addEventListener("input", OnInput, false);
+        }
+    
+        function OnInput() {
+        this.style.height = "auto";
+        this.style.height = (this.scrollHeight) + "px";
+        }
+    });
+
+    $(document).on('click', "#copyProduct", function (e) {
+        copyProduct();
+    });
+    $(document).on('click', "#copyService", function (e) {
+        copyService();
+    });
+
+    function copyProduct()
+    {
+
+        var productname = String(document.getElementById("products-copy").value);
+
+        var text = 'Product: ' + productname + '\r\n';
+    
+        navigator.clipboard.writeText(text)
+        .then(function (){
+            // Success!
+            Swal.fire({
+                title: 'Copied!',
+                text: '',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            let textarea = document.getElementById("cinq");
+            textarea.value += text;
+        })
+        .catch(function () {
+            Swal.fire({
+                title: 'Oh no!',
+                text: 'Something went wrong',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+        });
+    }
+
+    function copyService()
+    {
+        var servicename = String(document.getElementById("services-copy").value);
+
+        var text = 'Service: ' + servicename + '\r\n';
+
+        navigator.clipboard.writeText(text)
+        .then(function (){
+            // Success!
+            Swal.fire({
+                title: 'Copied!',
+                text: '',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+
+            let textarea = document.getElementById("cinq");
+            textarea.focus();
+            textarea.value += text;
+
+        })
+        .catch(function () {
+            Swal.fire({
+                title: 'Oh no!',
+                text: 'Something went wrong',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+        });
+    }
+
 })();
