@@ -24,119 +24,257 @@
             });
         });
         $(document).on("click", "#1", function (e) {
-            var result = "SAFETY ORANGE";
+            var result = "PUMPKIN";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#FF6600";
+            document.getElementById("color_hexcode").value = "#FF7715";
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#FF6600";
+                    document.getElementById("color_3").style.background = "#FF7715";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "yellow";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "red";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "magenta";
+                }
+            });
+        });
+        $(document).on("click", "#2", function (e) {
+            var result = "CORAL";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#FF7F50";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#FF7F50";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "yellow";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "red";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "ghostwhite";
+                }
+            });
+        });
+        $(document).on("click", "#3", function (e) {
+            var result = "GUILLIMAN BLUE";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#6495ED";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#6495ED";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "magenta";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "blue";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "cyan";
+                }
+            });
+        });
+        $(document).on("click", "#4", function (e) {
+            var result = "CRIMSON";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#DC143C";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#DC143C";
                 }
                 if ($(this).attr("data-color") == '1p') {
                     document.getElementById("color_1").style.background = "red";
                 }
                 if ($(this).attr("data-color") == '2p') {
-                    document.getElementById("color_2").style.background = "green";
+                    document.getElementById("color_2").style.background = "magenta";
                 }
                 if ($(this).attr("data-color") == '4p') {
-                    document.getElementById("color_4").style.background = "white";
-                }
-            });
-        });
-        $(document).on("click", "#2", function (e) {
-            var result = "HADDOCK'S SWEATER";
-            var price = "PHP 100.00";
-            document.getElementById("color_result").value = result;
-            document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#2980b9";
-            $(".colors").children().each(function(item) {
-                if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#2980b9";
-                }
-            });
-        });
-        $(document).on("click", "#3", function (e) {
-            var result = "ISLAND GREEN";
-            var price = "PHP 100.00";
-            document.getElementById("color_result").value = result;
-            document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#27ae60";
-            $(".colors").children().each(function(item) {
-                if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#27ae60";
-                }
-            });
-        });
-        $(document).on("click", "#4", function (e) {
-            var result = "CARMINE PINK";
-            var price = "PHP 100.00";
-            document.getElementById("color_result").value = result;
-            document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#e74c3c";
-            $(".colors").children().each(function(item) {
-                if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#e74c3c";
+                    document.getElementById("color_4").style.background = "green";
                 }
             });
         });
         $(document).on("click", "#5", function (e) {
-            var result = "MOONSHADOW";
+            var result = "GOLD";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#8e44ad";
+            document.getElementById("color_hexcode").value = "#FFD700";
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#8e44ad";
+                    document.getElementById("color_3").style.background = "#FFD700";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "yellow";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "magenta";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "green";
                 }
             });
         });
         $(document).on("click", "#6", function (e) {
-            var result = "FIERY FUCHSIA";
+            var result = "INDIAN RED";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#B33771";
+            document.getElementById("color_hexcode").value = "#CD5C5C";
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#B33771";
+                    document.getElementById("color_3").style.background = "#CD5C5C";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "red";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "ghostwhite";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "black";
                 }
             });
         });
         $(document).on("click", "#7", function (e) {
-            var result = "TURQUOISE TOPAZ";
+            var result = "LIGHT SKY BLUE";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#0fb9b1";
+            document.getElementById("color_hexcode").value = "#87CEFA";
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#0fb9b1";
+                    document.getElementById("color_3").style.background = "#87CEFA";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "magenta";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "cyan";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "ghostwhite";
                 }
             });
         });
         $(document).on("click", "#8", function (e) {
-            var result = "RADIANT YELLOW";
+            var result = "MEDIUM SPRING GREEN";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#ff9f1a";
+            document.getElementById("color_hexcode").value = "#00FA9A";
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#ff9f1a";
+                    document.getElementById("color_3").style.background = "#00FA9A";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "yellow";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "cyan";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "green";
                 }
             });
         });
         $(document).on("click", "#9", function (e) {
-            var result = "SCHIAPARELLI PINK";
+            var result = "PEACH PUFF";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#e84393";
+            document.getElementById("color_hexcode").value = "#FFDAB9";
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#e84393";
+                    document.getElementById("color_3").style.background = "#FFDAB9";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "yellow";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "red";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "ghostwhite";
+                }
+            });
+        });
+
+        $(document).on("click", "#10", function (e) {
+            var result = "PLUM";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#DDA0DD";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#DDA0DD";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "magenta";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "blue";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "ghostwhite";
+                }
+            });
+        });
+
+        $(document).on("click", "#11", function (e) {
+            var result = "AMEIXA";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#6A5ACD";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#6A5ACD";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "magenta";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "blue";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "cyan";
+                }
+            });
+        });
+
+        $(document).on("click", "#12", function (e) {
+            var result = "MISTY ROSE";
+            var price = "PHP 100.00";
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#FFE4E1";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "#FFE4E1";
+                }
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "magenta";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "green";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "ghostwhite";
                 }
             });
         });

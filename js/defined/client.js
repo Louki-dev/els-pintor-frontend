@@ -228,7 +228,7 @@
                             callback: function(data, pagination) {
                                 generateProducts('#products-list', data);
                             }
-                        })
+                        })               
                     }
                 }
             }
@@ -244,7 +244,7 @@
         for (var el = 0; el<$content.length; el++) {
 
             $html = [
-                '<form><input type="hidden" id="services-copy" value="' +$content[el].service_title + '">',
+                '<form><input type="hidden" id="services-copy'+$content[el].service_id+'" value="' +$content[el].service_title + '">',
                 '<div class="box">',
                     '<i class="fas fa-brush"></i>',
                     '<img id="simage'+$content[el].service_id+'" src="'+display_image+$content[el].service_image +'" alt="">',
@@ -252,10 +252,13 @@
                     '<p id="sdesc'+$content[el].service_id+'">'+ $content[el].service_description+'</p>',
                     '<br>',
                 '<h2 id="sprice' + $content[el].service_id + '">Price rate: Php ' + NumberComms.format($content[el].service_price) + '.00</h2>',
-                '<button type="button" id="copyService"class="btn1 text-white mt-3 fs-6 p-2" >Add to Inquiry</button>',
+                '<button type="button" id="copyService'+$content[el].service_id+'"class="btn1 text-white mt-3 fs-6 p-2" >Add to Inquiry</button>',
                 '</div></form>'   
             ];
             $($elem).append($html.join(""));
+
+            var servNo = $content[el].service_id;
+            getservcopy(servNo);
         } 
     }
 
@@ -267,17 +270,20 @@
         for (var el = 0; el<$content.length; el++) {
 
             $html = [
-                '<form><input type="hidden" id="products-copy" value="' +$content[el].product_name + '">',
+                '<form><input type="hidden" id="products-copy' + $content[el].product_id + '" value="' + $content[el].product_name + '">',,
                 '<div class="box shadow">',
                 '<img id="pimage'+$content[el].product_id+'" src="'+display_image+$content[el].product_image +'" alt="">',
                 '<div class="content">',
                     '<h3 id="ptitle'+$content[el].product_id+'">'+$content[el].product_name +'</h3>',
                 '<span id="pprice' + $content[el].product_id + '">Php ' + NumberComms.format($content[el].product_price) + '.00</span>',
-                '<button type="button" id="copyProduct"class="btn pending_header btn_product text-white mt-3 fs-5" >Add to Inquiry</button>',
+                '<button type="button" id="copyProduct'+$content[el].product_id+'" class="btn pending_header btn_product text-white mt-3 fs-5" >Add to Inquiry</button>',
                 '</div>',
                 '</div></form>'  
             ];
             $($elem).append($html.join(""));
+
+            var prodNo = $content[el].product_id;
+            getprodcopy(prodNo);
         } 
     }
     $(document).ready(function () {
@@ -294,17 +300,27 @@
         }
     });
 
-    $(document).on('click', "#copyProduct", function (e) {
-        copyProduct();
-    });
-    $(document).on('click', "#copyService", function (e) {
-        copyService();
-    });
 
-    function copyProduct()
+    function getprodcopy(prodNo)
+    {
+        $(document).on('click', '#copyProduct'+prodNo+'', function (e) {
+            copyProduct(prodNo);
+        });
+    }
+    
+    function getservcopy(servNo)
+    {
+        $(document).on('click', '#copyService'+servNo+'', function (e) {
+            copyService(servNo);
+        });
+    }
+
+    
+    function copyProduct(prodNo)
     {
 
-        var productname = String(document.getElementById("products-copy").value);
+    
+        var productname = String(document.getElementById('products-copy'+prodNo).value);
 
         var text = 'Product: ' + productname + '\r\n';
     
@@ -332,9 +348,9 @@
         });
     }
 
-    function copyService()
+    function copyService(servNo)
     {
-        var servicename = String(document.getElementById("services-copy").value);
+        var servicename = String(document.getElementById('services-copy'+servNo).value);
 
         var text = 'Service: ' + servicename + '\r\n';
 

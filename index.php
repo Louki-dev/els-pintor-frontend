@@ -92,15 +92,18 @@
 <br>
         <div class="colors-palette">
             <div class="colors">
-                <div class="color" id="1" style="background: #FF6600;"><label>1</label></div>
-                <div class="color" id="2" style="background: #2980b9;"><label>2</label></div>
-                <div class="color" id="3" style="background: #27ae60;"><label>3</label></div>
-                <div class="color" id="4" style="background: #e74c3c;"><label>4</label></div>
-                <div class="color" id="5" style="background: #8e44ad;"><label>5</label></div>
-                <div class="color" id="6" style="background: #B33771;"><label>6</label></div>
-                <div class="color" id="7" style="background: #0fb9b1;"><label>7</label></div>
-                <div class="color" id="8" style="background: #ff9f1a;"><label>8</label></div>
-                <div class="color" id="9" style="background: #e84393;"><label>9</label></div>
+                <div class="color" id="1" style="background: #FF7715;"><label>1</label></div>
+                <div class="color" id="2" style="background: #FF7F50;"><label>2</label></div>
+                <div class="color" id="3" style="background: #6495ED;"><label>3</label></div>
+                <div class="color" id="4" style="background: #DC143C;"><label>4</label></div>
+                <div class="color" id="5" style="background: #FFD700;"><label>5</label></div>
+                <div class="color" id="6" style="background: #CD5C5C;"><label>6</label></div>
+                <div class="color" id="7" style="background: #87CEFA;"><label>7</label></div>
+                <div class="color" id="8" style="background: #00FA9A;"><label>8</label></div>
+                <div class="color" id="9" style="background: #FFDAB9;"><label>9</label></div>
+                <div class="color" id="10" style="background: #DDA0DD;"><label>10</label></div>
+                <div class="color" id="11" style="background: #6A5ACD;"><label>11</label></div>
+                <div class="color" id="12" style="background: #FFE4E1;"><label>12</label></div>
             </div>
         </div>
     </div>
@@ -222,7 +225,7 @@
     <div class="column">
 
     <div class="image">
-        <img src="img/brush.png">
+        <img src="img/brs.png">
     </div>
         <div class="content">
             <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
@@ -241,16 +244,16 @@
 
 <!-- footer section starts  -->
 
-<section class="footer shadow-lg pending_header2" id="footer">
+<section class="footer shadow-lg" id="footer">
 
     <div class="box-container mt-5 pt-5">
 
         <div class="box">
-            <h3 class="text-white">Contact Info</h3>
-             <a href="#" class="text-decoration-none text-white"> <i class="fas fa-phone text-white"></i> +0947-897-0835 </a>
-            <a href="#" class="text-decoration-none text-white"> <i class="fas fa-phone text-white"></i> +0906-944-5124 </a>
-            <a href="#" class="text-decoration-none text-white"> <i class="fas fa-envelope text-white"></i> pawercapstone@gmail.com </a>
-            <a href="#" class="text-decoration-none text-white"> <i class="fas fa-map-marker-alt text-white"></i> San Isidro, Tagbilaran City, bohol - 6300 </a>
+            <h3 class="">Contact Info</h3>
+             <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0947-897-0835 </a>
+            <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0906-944-5124 </a>
+            <a href="#" class="text-decoration-none"> <i class="fas fa-envelope"></i> pawercapstone@gmail.com </a>
+            <a href="#" class="text-decoration-none"> <i class="fas fa-map-marker-alt"></i> San Isidro, Tagbilaran City, bohol - 6300 </a>
             
         </div>
 
