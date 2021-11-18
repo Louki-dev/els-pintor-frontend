@@ -757,3 +757,25 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.btn-outline-primary{
+    border-color: #2980b9 !important;
+    color: #2980b9 !important;
+}
+
+.btn-outline-primary:hover{
+    border-color: #2980b9 !important;
+    background-color: #2980b9 !important;
+    color: white !important;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+.btn-close:focus{
+    box-shadow: none !important;
+}
+
+.form-control {
+    box-shadow: none !important;
+}
