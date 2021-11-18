@@ -11,9 +11,10 @@
 <header class="header">
     <a href="" class="logo text-decoration-none"><i class="fas fa-paint-roller"></i> ELS PINTOR</a>
     
-    <div class="icons">
-    <button class="btn pending_header text-white fs-5" data-bs-toggle="modal" data-bs-target="#inq-modal">Make An Inquiry</button>
-
+    <div class="icons"><!-- 
+    <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
+        
+        <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div>
         <div class="fas fa-bars" id="menu-btn"></div>
 
     </div>
@@ -33,7 +34,7 @@
 
    <div class="content">
         <h3>welcome to <span>els pintor</span></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus suscipit porro nam libero natus error consequatur sed repudiandae eos quo?</p>
+        <p>Els Pintor is a company where they offer house painting, car painting, varnish paint and services. They also sell paints which are located at Livingstone Village, San Isidro, Tagbilaran City. Els Pintor is a company where they meet the requirements of their clients to the highest expectations.</p>
         <!-- <a href="#footer" class="btn text-whtie">Contact Us</a> -->
     </div>
 
@@ -189,10 +190,12 @@
 <div class="col">
     
       <input type="text" id="color_hexcode" hidden style="background: #eee;"><br>
+      <input type="hidden" id="c1">
+      <input type="hidden" id="c2">
+      <input type="hidden" id="c3">
+                <input class="mb-2 bg-white" type="text" disabled id="color_result" placeholder="Paint Color" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
 
-                <input class="mb-2 bg-white" type="text" disabled="" id="color_result" placeholder="Paint Color" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
-
-                <input class="mb-1 bg-white" type="text" disabled="" id="color_price" placeholder="Price" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
+                <input class="mb-1 bg-white" type="text" disabled id="color_price" placeholder="Price" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
 
                 <button type="button" id="copyColor"class="btn1" style="  border-radius: 6px; height: 30px; width: 100%;" >Add to Inquiry</button>
                   
@@ -228,9 +231,9 @@
         <img src="img/brs.png">
     </div>
         <div class="content">
-            <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla placeat deserunt saepe repudiandae veniam soluta minima dolor hic aperiam iure.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, quaerat. Dolorem ratione saepe magni quo inventore porro ab voluptates eos, nam eius provident accusantium, quia similique est, repellendus et reiciendis.</p>
+            <h3>The owner of this business is Mr. Emil Simbajon.</h3>
+            <p> Mr. Emil Simbajon shares that he started this business around the year 1999 and has a capital of 30,000 pesos. And his first project was in the Island city mall(ICM) which is one of the known malls in Bohol. This company is already tied up to Alturas group Company.</p>
+            <p>Their service is manpower which means it depends on how many workers are available to work on the new project or how big the project is to work with many workers. For the meantime, Mr. Emil Simbajon does not have  stable workers but he has a leadmans where he sends important information and is also in charge of gathering or recruiting workers to work on the said project.</p>
             <!-- <button class="btn pending_header text-white fs-5" data-bs-toggle="modal" data-bs-target="#inq-modal">Make An Inquiry</button> -->
         </div>
 
@@ -266,7 +269,7 @@
    
     </div>
 
-    <center><div class="credit p-2"> &copy; copyright @ 2021 by <span>Pawer Capstone</span> </div></center>
+    <center><div class="credit p-2" style="background: white;"> &copy; copyright @ 2021 by <span>Pawer Capstone</span> </div></center>
 
 </section>
 

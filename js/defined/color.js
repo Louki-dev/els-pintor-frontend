@@ -9,9 +9,7 @@
         $(document).on("click", "#3rdpick", function (e) {
             add_color();
         });
-        $(document).on('click', "#copyColor", function (e) {
-            copyColor();
-        });
+   
         
         $(document).on('click','#color_reset',function (){
             $(".colors").children().each(function(item) {
@@ -43,6 +41,9 @@
                     document.getElementById("color_4").style.background = "magenta";
                 }
             });
+            document.getElementById("c1").value = "Yellow";
+            document.getElementById("c2").value = "Red";
+            document.getElementById("c3").value = "Magenta";
         });
         $(document).on("click", "#2", function (e) {
             var result = "CORAL";
@@ -64,6 +65,9 @@
                     document.getElementById("color_4").style.background = "ghostwhite";
                 }
             });
+            document.getElementById("c1").value = "Yellow";
+            document.getElementById("c2").value = "Red";
+            document.getElementById("c3").value = "White";
         });
         $(document).on("click", "#3", function (e) {
             var result = "GUILLIMAN BLUE";
@@ -85,6 +89,9 @@
                     document.getElementById("color_4").style.background = "cyan";
                 }
             });
+            document.getElementById("c1").value = "Magenta";
+            document.getElementById("c2").value = "Blue";
+            document.getElementById("c3").value = "Cyan";
         });
         $(document).on("click", "#4", function (e) {
             var result = "CRIMSON";
@@ -106,6 +113,9 @@
                     document.getElementById("color_4").style.background = "green";
                 }
             });
+            document.getElementById("c1").value = "Red";
+            document.getElementById("c2").value = "Magenta";
+            document.getElementById("c3").value = "Green";
         });
         $(document).on("click", "#5", function (e) {
             var result = "GOLD";
@@ -127,6 +137,9 @@
                     document.getElementById("color_4").style.background = "green";
                 }
             });
+            document.getElementById("c1").value = "Yellow";
+            document.getElementById("c2").value = "Magenta";
+            document.getElementById("c3").value = "Green";
         });
         $(document).on("click", "#6", function (e) {
             var result = "INDIAN RED";
@@ -148,6 +161,9 @@
                     document.getElementById("color_4").style.background = "black";
                 }
             });
+            document.getElementById("c1").value = "Red";
+            document.getElementById("c2").value = "White";
+            document.getElementById("c3").value = "Black";
         });
         $(document).on("click", "#7", function (e) {
             var result = "LIGHT SKY BLUE";
@@ -169,6 +185,9 @@
                     document.getElementById("color_4").style.background = "ghostwhite";
                 }
             });
+            document.getElementById("c1").value = "Magenta";
+            document.getElementById("c2").value = "Cyan";
+            document.getElementById("c3").value = "White";
         });
         $(document).on("click", "#8", function (e) {
             var result = "MEDIUM SPRING GREEN";
@@ -190,6 +209,9 @@
                     document.getElementById("color_4").style.background = "green";
                 }
             });
+            document.getElementById("c1").value = "Yellow";
+            document.getElementById("c2").value = "Cyan";
+            document.getElementById("c3").value = "Green";
         });
         $(document).on("click", "#9", function (e) {
             var result = "PEACH PUFF";
@@ -211,6 +233,9 @@
                     document.getElementById("color_4").style.background = "ghostwhite";
                 }
             });
+            document.getElementById("c1").value = "Yellow";
+            document.getElementById("c2").value = "Red";
+            document.getElementById("c3").value = "White";
         });
 
         $(document).on("click", "#10", function (e) {
@@ -233,6 +258,9 @@
                     document.getElementById("color_4").style.background = "ghostwhite";
                 }
             });
+            document.getElementById("c1").value = "Magenta";
+            document.getElementById("c2").value = "Blue";
+            document.getElementById("c3").value = "White";
         });
 
         $(document).on("click", "#11", function (e) {
@@ -255,6 +283,9 @@
                     document.getElementById("color_4").style.background = "cyan";
                 }
             });
+            document.getElementById("c1").value = "Magenta";
+            document.getElementById("c2").value = "Blue";
+            document.getElementById("c3").value = "Cyan";
         });
 
         $(document).on("click", "#12", function (e) {
@@ -263,33 +294,46 @@
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#FFE4E1";
+
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '3p') {
                     document.getElementById("color_3").style.background = "#FFE4E1";
                 }
                 if ($(this).attr("data-color") == '1p') {
-                    document.getElementById("color_1").style.background = "magenta";
+                    document.getElementById("color_1").style.background = "magenta";         
                 }
                 if ($(this).attr("data-color") == '2p') {
-                    document.getElementById("color_2").style.background = "green";
+                    document.getElementById("color_2").style.background = "green";          
                 }
                 if ($(this).attr("data-color") == '4p') {
-                    document.getElementById("color_4").style.background = "ghostwhite";
+                    document.getElementById("color_4").style.background = "ghostwhite";            
                 }
             });
+            document.getElementById("c1").value = "Magenta";
+            document.getElementById("c2").value = "Green";
+            document.getElementById("c3").value = "White";
         });
+    });
+
+
+
+    $(document).on('click', "#copyColor", function (e) {
+        copyColor();
     });
 
 
     function copyColor()
     {
-        var colorHex = String(document.getElementById("color_hexcode").value);
+        // var colorHex = String(document.getElementById("color_hexcode").value);
+        var c1 =  String(document.getElementById("c1").value);
+        var c2 =  String(document.getElementById("c2").value);
+        var c3 =  String(document.getElementById("c3").value);
         var colorName = String(document.getElementById("color_result").value);
-        var color_price = String(document.getElementById("color_price").value);
+        // var color_price = String(document.getElementById("color_price").value);
 
-        var text = 'Hex Color Code: ' + colorHex + '\r\n' +
-        'Color Name: ' + colorName + '\r\n' +
-        'Price: ' + color_price + '\r\n';
+        var text = 'Color Name: ' + colorName + '\r\n' +
+            'Color Mix Base: ' + c1 + ', ' + c2 + ', ' + c3 + '\r\n';
+        // 'Price: ' + color_price + '\r\n';
     
         // console.log(colorName);
         
@@ -297,14 +341,13 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Copied!',
+                title: 'Added to Inquiry!',
                 text: '',
                 icon: 'success',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
             });
             let textarea = document.getElementById("cinq");
-            textarea.focus();
             textarea.value += text;
         })
         .catch(function () {
