@@ -13,8 +13,8 @@
     
     <div class="icons"><!-- 
     <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
-        
-        <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div>
+    <div class="material-icons" data-bs-toggle="modal" data-bs-target="#inq-modal">maps_ugc</div>
+        <!-- <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div> -->
         <div class="fas fa-bars" id="menu-btn"></div>
 
     </div>
@@ -30,7 +30,7 @@
 <!-- header section ends  -->
 
 <!-- home section start  -->
-<section class="home" id="home">
+<section class="home mt-5 pt-5" id="home">
 
    <div class="content">
         <h3>welcome to <span>els pintor</span></h3>
@@ -197,7 +197,7 @@
 
                 <input class="mb-1 bg-white" type="text" disabled id="color_price" placeholder="Price" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
 
-                <button type="button" id="copyColor"class="btn1" style="  border-radius: 6px; height: 30px; width: 100%;" >Add to Inquiry</button>
+                <button type="button" id="copyColor"class="btn1" style="  border-radius: 6px; height: 30px; width: 100%;" >Add to Inquiry<div class="material-icons fs-5 ms-2">maps_ugc</div></button>
                   
 </div>
 
@@ -249,9 +249,9 @@
 
 <section class="footer shadow-lg" id="footer">
 
-    <div class="box-container mt-5 pt-5">
+    <div class="box-container">
 
-        <div class="box">
+        <div class="box mt-5 pt-5">
             <h3 class="">Contact Info</h3>
              <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0947-897-0835 </a>
             <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0906-944-5124 </a>
@@ -260,7 +260,7 @@
             
         </div>
 
-        <div class="box">
+        <div class="box mb-5 pb-5">
             <h3 class="text-white">Our Location</h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15732.33478911981!2d123.87814656873488!3d9.673889838658607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa4c02c7e8bcf7%3A0xcf31ffb8b8911634!2sSan%20Isidro%2C%20Tagbilaran%20City%2C%20Bohol!5e0!3m2!1sen!2sph!4v1628495001520!5m2!1sen!2sph" width="98%" height="398px" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>

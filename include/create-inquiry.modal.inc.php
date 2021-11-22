@@ -7,29 +7,36 @@
             </div>
     <form>
         <div class="modal-body">
+        <div class="container">
             <div class="mb-3">
                 <div class="row">
-                <div class="col">
-                <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="cfname" placeholder="">
-                </div>
+                    <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="cfname" placeholder="">
 
-                <div class="col">
-                <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="clname" placeholder="">
-                </div>
+                    <label for="exampleFormControlInput1" class="form-label mt-3">Mobile Number</label>
+                    <input type="number" class="form-control" id="cnumber" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" placeholder="">
+                    </div>
+
+                    <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="clname" placeholder="">
+
+                    <label for="exampleFormControlInput1" class="form-label mt-3">Email address</label>
+                    <input type="email" class="form-control" id="cemail" placeholder="">
+                    </div>
                 </div>
             </div>
 
-            <div class="mb-3">
+            <!-- <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Mobile Number</label>
             <input type="number" class="form-control" id="cnumber" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" placeholder="">
-            </div>
+            </div> -->
 
-            <div class="mb-3">
+            <!-- <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
             <input type="email" class="form-control" id="cemail" placeholder="">
-            </div>
+            </div> -->
 
             <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Inquiry Details</label>
@@ -40,6 +47,7 @@
                 <button type="button" class="btn btn-outline-primary" id="csubmit">Submit</button>
                 <input type="reset" value="Reset" class="btn btn-outline-secondary">
             </div>
+        </div>
         </div>
     </form>
     </div>

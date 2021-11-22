@@ -6,6 +6,7 @@
         <button type="button" class="btn-close bg-light rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+      <div class="container">
         <form>
         <div class="row g-2">
           <div class="col-md">
@@ -33,6 +34,7 @@
       <div class="container d-grid gap-2 mb-4">
         <button type="button" class="btn btn-outline-primary" id="createTodo">Submit</button>
         <button type="button" class="btn btn-outline-secondary" id="resetTodo">Reset</button>
+      </div>
       </div>
     </div>
   </div>

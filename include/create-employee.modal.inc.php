@@ -7,6 +7,7 @@
             </div>
     <form name="form">
         <div class="modal-body">
+        <div class="container">
             <div class="txt_field mt-3">
                 <input type="hidden" id="emp_id" value="">
                         <input type="text" class="fcapital" name="e_fname" value="" id="firstName" aria-describedby="help" required>
@@ -32,6 +33,7 @@
                 <button type="button" class="btn btn-outline-primary " id="AddEmployee">Submit</button>
                 <button type="button" class="btn btn-outline-secondary " id="resetEmployee">Reset</button>
             </div>
+        </div>
         </div>
     </form>
     </div>

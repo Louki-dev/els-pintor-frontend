@@ -7,10 +7,12 @@
             </div>
     <form>
         <div class="modal-body">
+        <div class="container">
             <textarea class="form-control _txtarea2" id="messageArea" rows="1" name="message" placeholder="Your message here"></textarea>     
             <div class=" d-grid gap-2 mb-2 mt-4">
                 <button type="button" class="btn btn-outline-primary " id="createMessage">Submit</button>
             </div>
+        </div>
         </div>
     </form>
     </div>

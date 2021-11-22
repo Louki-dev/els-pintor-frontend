@@ -32,7 +32,7 @@
                     <textarea class="opacity-75 form-control bg-white textarea" id="requestDetails" disabled></textarea>
                     </div>
                 </p>
-                <button type="button" class="btn float-end opacity-50 "  id="deleteRequest">Remove<i class="material-icons fs-6">delete_outline</i></button>
+                <button type="button" class="btn float-end opacity-50 hover" title="Delete Inquiry" id="deleteRequest">Delete<i class="material-icons fs-6">delete_outline</i></button>
             </div>
             <div class="container d-grid gap-2 mb-4 mt-2">
                 <!-- <button type="button" id="approved" class="btn btn-outline-success">Approve</button> -->

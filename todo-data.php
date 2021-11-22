@@ -22,10 +22,14 @@
                             <span class="fw-light text-light float-start mt-2 ps-3">
                                 Ongoing
                             </span>
+                          
                             <div class="dropdown">
                             <a class="btn text-white material-icons float-end" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             more_vert
                             </a>
+                            <span class="material-icons btn text-white float-end" data-bs-toggle="modal" data-bs-target="#todo" title="New Project">
+                            post_add
+                            </span>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><div class="form-check form-switch ms-3">
                                 <input class="form-check-input" type="checkbox" id="selectall-inprogress">

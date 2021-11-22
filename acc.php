@@ -22,7 +22,7 @@
 
 
                 <div class="col">
-                    <div id="user_data" class="edit-user" id="e-user"></div>
+                    <div id="user_data" class="edit-user"></div>
                 </br>
                     <div class="d-grid gap-2 mb-5 mt-4">
                         <button type="button" class="btn btn-outline-primary mt-3 mb-2 input_button" data-bs-toggle="modal" data-bs-target="#confirm-user-modal" disabled>Save Changes</button>

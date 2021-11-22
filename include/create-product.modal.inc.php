@@ -7,6 +7,7 @@
             </div>
     <form enctype="multipart/form-data">
         <div class="modal-body">
+        <div class="container">
             <div class="row g-2 mb-3">
                 <div class="col-md">
                     <label for="serv_name" class="form-label">Product Name:</label>
@@ -27,6 +28,7 @@
                 <button type="button" class="btn btn-outline-primary" id="AddProduct">Submit</button>
                 <button type="button" class="btn btn-outline-secondary" id="resetProduct">Reset</button>
             </div>
+        </div>
         </div>
     </form>
     </div>

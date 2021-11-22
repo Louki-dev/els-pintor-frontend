@@ -7,7 +7,8 @@
             </div>
     <form>
         <div class="modal-body">
-        <div class="txt_field mt-3">
+            <div class="container">
+                <div class="txt_field mt-3">
                 <input type="hidden" id="update-emp_id" value="">
                         <input type="text" name="e_fname" value="" id="update-firstName" aria-describedby="help" required>
                     <span></span>
@@ -30,6 +31,7 @@
             <div class=" d-grid gap-2 mb-4 mt-5">
                 <button type="button" class="btn btn-outline-primary" id="UpdateEmployee">Update</button>
                 <button type="button" class="btn btn-outline-secondary" id="deleteEmployee">Delete</button> 
+            </div>
             </div>
         </div>
     </form>

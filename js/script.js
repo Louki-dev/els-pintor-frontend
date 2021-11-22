@@ -129,15 +129,15 @@ function generateRequestTemplate($elemId, $elementValue,num)
                     '<div class="d-flex gap-2 w-100 justify-content-between">',
                         '<a href="" class="text-decoration-none text-black" aria-current="true" data-bs-toggle="modal" data-info="'+$elementValue[el].customer_id+'" data-bs-target="#request_modal-'+num+'" id="dataTarget">',
                                 '<div class="endtext">',
-                                    '<h6 class="mb-0 fcapital" id="emp_name">' + $elementValue[el].customer_last_name +' ',
+                                    '<h6 class="mb-0 fcapital " id="emp_name"><span class="hover">' + $elementValue[el].customer_last_name +'</span>',
                                     (num == 0 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_created_at)))+'</small></h6>' : '' ),
                                     (num == 1 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_updated_at)))+'</small></h6>' : '' ),
                                     (num == 2 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_updated_at)))+'</small></h6>' : '' ),
                                 '</div>',
                                 '<p class="mb-0 opacity-75" id="request_details_in_list">'+textLimit($elementValue[el].customer_inquiry_details, 20)+'</p>',
                 '</a>',
-                        (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn" title="Turndown"><small class="opacity-50 text-nowrap"><span class="material-icons">archive</span></small></button>' : ''),
-                        (num == 2 ? '<button type="button" id="approved" data-id="'+$elementValue[el].customer_id+'" class="btn" title="Approve"><small class="opacity-50 text-nowrap"><i class="fas fa-clipboard-check fs-5"></i></small></button>' : ''),
+                        (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Turndown"><small class="opacity-50 text-nowrap"><span class="material-icons">archive</span></small></button>' : ''),
+                        (num == 2 ? '<button type="button" id="approved" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Approve"><small class="opacity-50 text-nowrap"><i class="fas fa-clipboard-check fs-5"></i></small></button>' : ''),
                     '</div>',
                    '</div>'];
            
@@ -214,7 +214,7 @@ function generateTodoTemplate($elem, $content, num)
                     '<div class="flex-fill d-flex gap-3">',
                         '<input class="form-check-input checkbox mt-3" type="checkbox" value="'+$content[el].todo_id+'" style="font-size: 1.00em;" aria-label="...">',
                         '<span class="pt-1 form-checked-content">',
-                            '<strong><a href="" class="text-decoration-none text-dark" data-bs-toggle="modal" data-info="'+$content[el].todo_id+'" data-bs-target="#update_todo">'+$content[el].todo_title+'</a></strong>',
+                            '<strong><a href="" class="text-decoration-none text-dark hover" data-bs-toggle="modal" data-info="'+$content[el].todo_id+'" data-bs-target="#update_todo">'+$content[el].todo_title+'</a></strong>',
                             '<small class="d-block mt-1">',
                                 '<!--Due Date Observation-->',
                                 ( num == 0 ?'<span class="material-icons fs-5 float-start pe-2 turndown">event</span> ': ''),
@@ -224,7 +224,7 @@ function generateTodoTemplate($elem, $content, num)
                             '</small>',
                         '</span>',
                     '</div>',
-                    (num == 0 ? '<div class="flex-fill align-items-center"><button class="btn float-end opacity-50" id="todo-update" data-info="'+$content[el].todo_id+'" title="Completed"><i class="material-icons">task_alt</i></button></div>' : ''),
+                    (num == 0 ? '<div class="flex-fill align-items-center"><button class="btn float-end opacity-50 hover" id="todo-update" data-info="'+$content[el].todo_id+'" title="Completed"><i class="material-icons">task_alt</i></button></div>' : ''),
                 '</label>'
             ];
         
@@ -252,7 +252,7 @@ function getTodoModalTemplate($elem, $content, $num)
         '</div><hr>',
         '<h6>Details:</h6>',
         '<textarea class="form-control bg-white opacity-75 textarea" id="td_description" aria-describedby="help" disabled>'+ $content.todo_description +'</textarea>',
-        ($content.todo_status == 0 ? '<button type="button" class="btn float-end opacity-50 mt-3" id="copyTodo">Copy<i class="material-icons fs-6">copy_all</i></button>': '')
+        ($content.todo_status == 0 ? '<button type="button" class="btn float-end opacity-50 mt-3 hover" title="Copy to Clipboard" id="copyTodo">Copy<i class="material-icons fs-6">copy_all</i></button>': '')
 
     ];
 
@@ -375,8 +375,8 @@ function generateContactMessage($elem, $content)
 
     for (var el = 0; el < $content.length; el++) {
         var html = [
-            '<label class="list-group-item d-flex gap-3">',
-                '<input class="form-check-input class="selectContacts" flex-shrink-0" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
+            '<label class="list-group-item d-flex gap-3" id="selectContacts">',
+                '<input class="form-check-input flex-shrink-0 ff" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
                 '<span class="pt-1 form-checked-content">',
                     '<strong>'+$content[el].emp_first_name +" " + $content[el].emp_last_name+'</strong>',
                     '<small class="d-block text-muted">',
@@ -506,7 +506,7 @@ function generateTemplateSentMessage($elem, $content)
                 '<div class="flex-fill d-flex gap-3">',
                     '<input class="form-check-input checkbox2 mt-3" type="checkbox" value="'+$content[el].sent_message_id+'" style="font-size: 1.00em;" aria-label="...">',
                     '<span class="pt-1 form-checked-content">',
-                        '<strong><a href="" class="text-decoration-none text-dark" data-bs-toggle="modal" data-info="'+$content[el].sent_message_id+'" data-bs-target="#view-message">'+ $content[el].emp_first_name + " " + $content[el].emp_last_name +' <small class="opacity-50 text-secondary">'+time_ago(new Date($content[el].sent_created_at))+'</small></a></strong>',
+                        '<strong><a href="" class="text-decoration-none text-dark hover" data-bs-toggle="modal" data-info="'+$content[el].sent_message_id+'" data-bs-target="#view-message">'+ $content[el].emp_first_name + " " + $content[el].emp_last_name +' <small class="opacity-50 text-secondary">'+time_ago(new Date($content[el].sent_created_at))+'</small></a></strong>',
                         '<small class="d-block text-muted mt-1">',
                         textLimit($content[el].message_content, 30),
                         '</small>',
@@ -593,41 +593,41 @@ function generateModelTemplateEmployee(elem, $content, $num)
     
 }
 
-$(document).ready(function (e) {
+// $(document).ready(function (e) {
 
-    var dt = new Date();
-    document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+//     var dt = new Date();
+//     document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
     
-    function showTime(){
-        var date = new Date();
-        var h = date.getHours(); 
-        var m = date.getMinutes(); 
-        var s = date.getSeconds(); 
-        var session = "AM";
+//     function showTime(){
+//         var date = new Date();
+//         var h = date.getHours(); 
+//         var m = date.getMinutes(); 
+//         var s = date.getSeconds(); 
+//         var session = "AM";
         
-        if(h == 0){
-            h = 12;
-        }
+//         if(h == 0){
+//             h = 12;
+//         }
         
-        if(h > 12){
-            h = h - 12;
-            session = "PM";
-        }
+//         if(h > 12){
+//             h = h - 12;
+//             session = "PM";
+//         }
         
-        h = (h < 10) ? "0" + h : h;
-        m = (m < 10) ? "0" + m : m;
-        s = (s < 10) ? "0" + s : s;
+//         h = (h < 10) ? "0" + h : h;
+//         m = (m < 10) ? "0" + m : m;
+//         s = (s < 10) ? "0" + s : s;
         
-        var time = h + ":" + m + ":" + s + " " + session;
-        document.getElementById("DigitalCLOCK").innerText = time;
-        document.getElementById("DigitalCLOCK").textContent = time;
+//         var time = h + ":" + m + ":" + s + " " + session;
+//         document.getElementById("DigitalCLOCK").innerText = time;
+//         document.getElementById("DigitalCLOCK").textContent = time;
         
-        setTimeout(showTime, 1000);
+//         setTimeout(showTime, 1000);
         
-    }
+//     }
     
-    showTime();
-})
+//     showTime();
+// })
 $(document).ready(function(e){
     
     var currentpage= ($('body').attr('id'))

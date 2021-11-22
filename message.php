@@ -30,25 +30,10 @@
                 
               </div>
               <div class="d-grid gap-3 col-11 mx-auto mb-3">
-                <button class="btn btn-outline-primary text-white" data-bs-toggle="modal" data-bs-target="#create_message">Create Message</button>
+                <button class="btn btn-outline-primary text-white select-contact"  data-bs-toggle="modal" data-bs-target="#create_message">Create Message</button>
                 </div>
           </div>
         <!--------------------------End Contact List------------------------------------------->
-
-
-
-            <!-- ------------------------Create Message------------------------------------------->
-            <!-- <div class="card mt-3 mb-3 rounded-3">
-                <div class="card-body">
-                  <h6>Create Message</h6>
-                  <textarea class="form-control" id="messageArea" rows="6" name="message" placeholder="Input text here"></textarea>
-                </div>
-
-                <div class="d-grid gap-3 col-11  mx-auto mb-3">
-                  <button class="btn btn-outline-primary" id="createMessage" type="button" name="sent">Submit</button>
-                </div>
-            </div> -->
-          <!--------------------------End Create Message----------------------------------------- -->
 
       </div>
       <!--------------------------End Contacts------------------------------------------->
