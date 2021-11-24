@@ -15,37 +15,33 @@
       <script src="<?php echo Utilities::domain();?>/frontend/js/sweetalert2.all.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <script src="<?php echo Utilities::domain();?>/frontend/js/apis/list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <script src="<?php echo Utilities::domain();?>/frontend/js/script.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-      <script src="<?php echo Utilities::domain();?>/frontend/js/defined/login.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <script src="<?php echo Utilities::domain();?>/frontend/js/preload.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+
       <title>Else Pintor</title>
   </head>
   
   <body>
-<section class="login-bg" id="login-bg">
+<section id="login-bg">
 
 <div id="loader"></div>
 <div id="content">
 
-    <div class="login-form shadow ">
-      <h2 class="p-3 mb-4"><i class="fas fa-brush login_icon fs-5"></i><span class="opacity-75 fs-4">ADMIN</span></h2>
-      <form>
-        <div class="txt_field2">
-          <input type="text" id="username" required>
-          <span></span>
-          <label>Username</label>
+
+    <div class="card shadow centerss container">
+    <h5 class="card-header fw-bold bg-white p-3">Find Your Account</h5>
+    <div class="card-body">
+        <p class="card-text">Please enter your email to search for your account.</p>
+
+        <input type="text" class="form-control">
+        <div class="modal-footer mt-4 pb-0 mb-0 pe-0">
+            <a type="button" href="login.php" class="btn btn-secondary">Cancel</a>
+            <button type="button" class="btn pending_header text-white">Search</button>
         </div>
-        <div class="txt_field2">
-          <input type="password" id="password" required>
-          <span></span>
-          <label>Password</label>
-        </div>
-        <input type="button" id="login" value="Login">
-      </form>
-      <hr>
-      <p><center><a href="sacc.php" class="text-decoration-none txt_decor">Forgot password?</a></center></p>
+    </div>
     </div>
 
 </div>
+
 </section>
 </body>
 </html>

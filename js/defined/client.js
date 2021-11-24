@@ -248,12 +248,12 @@
                 '<div class="box">',
                     '<i class="fas fa-brush"></i>',
                     '<img id="simage'+$content[el].service_id+'" src="'+display_image+$content[el].service_image +'" alt="">',
-                    '<h3 id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</h3>',
-                    '<p id="sdesc'+$content[el].service_id+'">'+ $content[el].service_description+'</p>',
+                    '<h3 id="stitle'+$content[el].service_id+'" class="fw-bold">'+$content[el].service_title +'</h3>',
+                    '<p id="sdesc'+$content[el].service_id+'" class="fw-light">'+ $content[el].service_description+'</p>',
                     '<br>',
-                '<h2 id="sprice' + $content[el].service_id + '">Price rate: Php ' + NumberComms.format($content[el].service_price) + '.00</h2>',
+                '<h2 id="sprice' + $content[el].service_id + '" class="fs-4">Price rate: Php ' + NumberComms.format($content[el].service_price) + '.00</h2>',
                 // '<button type="button" id="copyService' + $content[el].service_id + '"class="btn1 text-white mt-3 fs-4 p-2"><small class="ms-2">Add to Inquiry</small><div class="fas fa-paint-roller fs-5 ms-2 me-2"></div></button>',
-                '<button type="button" id="copyService'+$content[el].service_id+'"class="btn1 text-white mt-3 fs-4 p-2"><small class="ms-2">Add to Inquiry</small><div class="material-icons fs-5 ms-2 me-2">maps_ugc</div></button>',
+                '<button type="button" id="copyService'+$content[el].service_id+'"class="btn1 text-white trans pt-0 fs-4 p-2 mt-3"><small class="ms-2">Add to Inquiry</small><div class="material-icons fs-6 ms-2 me-2">maps_ugc</div></button>',
                 '</div></form>'   
             ];
             $($elem).append($html.join(""));
@@ -278,7 +278,7 @@
                     '<h3 id="ptitle'+$content[el].product_id+'">'+$content[el].product_name +'</h3>',
                 '<span id="pprice' + $content[el].product_id + '">Php ' + NumberComms.format($content[el].product_price) + '.00</span>',
                 // '<button type="button" id="copyProduct' + $content[el].product_id + '" class="btn pending_header btn_product text-white mt-3 fs-5" style="padding-left:15px !important" >Add to Inquiry<i style="margin-right:10px !important; margin-left:10px !important;" class="fas fa-paint-roller fs-5 m-0"></button>',
-                '<button type="button" id="copyProduct'+$content[el].product_id+'" class="btn pending_header btn_product text-white mt-3 fs-5" style="padding-left:15px !important" >Add to Inquiry<i class="material-icons fs-5 ms-2 me-1">maps_ugc</i></button>',
+                '<button type="button" id="copyProduct'+$content[el].product_id+'" class="btn pending_header btn_product text-white pt-1 mt-3 fs-5" style="padding-left:15px !important" >Add to Inquiry<i class="material-icons fs-6 ms-2 me-1">maps_ugc</i></button>',
                 '</div>',
                 '</div></form>'  
             ];

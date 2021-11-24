@@ -9,13 +9,13 @@
 <!-- header section starts  -->
 
 <header class="header">
-    <a href="" class="logo text-decoration-none"><i class="fas fa-paint-roller"></i> ELS PINTOR</a>
+    <a href="" class="logo text-decoration-none fw-bold"><i class="fas fa-paint-roller"></i> ELS PINTOR</a>
     
     <div class="icons"><!-- 
     <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
-    <div class="material-icons" data-bs-toggle="modal" data-bs-target="#inq-modal">maps_ugc</div>
+    <div class="material-icons trans" data-bs-toggle="modal" data-bs-target="#inq-modal">maps_ugc</div>
         <!-- <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div> -->
-        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-bars trans" id="menu-btn"></div>
 
     </div>
     <nav class="navbar">
@@ -33,8 +33,8 @@
 <section class="home mt-5 pt-5" id="home">
 
    <div class="content">
-        <h3>welcome to <span>els pintor</span></h3>
-        <p>Els Pintor is a company where they offer house painting, car painting, varnish paint and services. They also sell paints which are located at Livingstone Village, San Isidro, Tagbilaran City. Els Pintor is a company where they meet the requirements of their clients to the highest expectations.</p>
+        <h3 class="fw-bold">welcome to <span>els pintor</span></h3>
+        <p class="fw-lighter">Els Pintor is a company where they offer house painting, car painting, varnish paint and services. They also sell paints which are located at Livingstone Village, San Isidro, Tagbilaran City. Els Pintor is a company where they meet the requirements of their clients to the highest expectations.</p>
         <!-- <a href="#footer" class="btn text-whtie">Contact Us</a> -->
     </div>
 
@@ -54,7 +54,7 @@
 <hr class="container">
 <section class="services" id="services">
 
-<h1 class="heading mt-5 pt-5"> our <span>services</span> </h1>
+<h1 class="heading mt-5 pt-5 fw-bold"> our <span>services</span> </h1>
 
 <div class="box-container" id="services-list"></div>
 <div id="serv_paginate" class="mb-5 mt-5 float-end"></div>
@@ -73,7 +73,7 @@
 
 <section class="gallery" id="gallery">
 
-    <h1 class="heading"> our <span>products</span> </h1>
+    <h1 class="heading fw-bold"> our <span>products</span> </h1>
 
     <div class="box-container" id="products-list"></div>
     <div id="prod_paginate" class="mb-5 mt-5 float-end"></div>
@@ -85,7 +85,7 @@
 
 <!-- paint section starts -->
 <section class="paint" id="paint">
-     <h1 class="heading"> our <span>paint colors</span> </h1>
+     <h1 class="heading fw-bold"> our <span>paint colors</span> </h1>
 <form>
 <div class="box-container">
     <div class="box">
@@ -93,23 +93,23 @@
 <br>
         <div class="colors-palette">
             <div class="colors">
-                <div class="color" id="1" style="background: #FF7715;"><label>1</label></div>
-                <div class="color" id="2" style="background: #FF7F50;"><label>2</label></div>
-                <div class="color" id="3" style="background: #6495ED;"><label>3</label></div>
-                <div class="color" id="4" style="background: #DC143C;"><label>4</label></div>
-                <div class="color" id="5" style="background: #FFD700;"><label>5</label></div>
-                <div class="color" id="6" style="background: #CD5C5C;"><label>6</label></div>
-                <div class="color" id="7" style="background: #87CEFA;"><label>7</label></div>
-                <div class="color" id="8" style="background: #00FA9A;"><label>8</label></div>
-                <div class="color" id="9" style="background: #FFDAB9;"><label>9</label></div>
-                <div class="color" id="10" style="background: #DDA0DD;"><label>10</label></div>
-                <div class="color" id="11" style="background: #6A5ACD;"><label>11</label></div>
-                <div class="color" id="12" style="background: #FFE4E1;"><label>12</label></div>
+                <div class="color trans" id="1" style="background: #FF7715;"><label>1</label></div>
+                <div class="color trans" id="2" style="background: #FF7F50;"><label>2</label></div>
+                <div class="color trans" id="3" style="background: #6495ED;"><label>3</label></div>
+                <div class="color trans" id="4" style="background: #DC143C;"><label>4</label></div>
+                <div class="color trans" id="5" style="background: #FFD700;"><label>5</label></div>
+                <div class="color trans" id="6" style="background: #CD5C5C;"><label>6</label></div>
+                <div class="color trans" id="7" style="background: #87CEFA;"><label>7</label></div>
+                <div class="color trans" id="8" style="background: #00FA9A;"><label>8</label></div>
+                <div class="color trans" id="9" style="background: #FFDAB9;"><label>9</label></div>
+                <div class="color trans" id="10" style="background: #DDA0DD;"><label>10</label></div>
+                <div class="color trans" id="11" style="background: #6A5ACD;"><label>11</label></div>
+                <div class="color trans" id="12" style="background: #FFE4E1;"><label>12</label></div>
             </div>
         </div>
     </div>
     <div class="box">
-           <h3>Color Mixer<button type="reset" id="color_reset"class="btn1 float-end" style=" border-radius: 20px;height: 30px; width: 100px;" >Reset</button></h3>
+           <h3>Color Mixer<button type="reset" id="color_reset"class="btn1 float-end trans " style=" border-radius: 20px;height: 30px; width: 100px;" >Reset</button></h3>
 
         <br>
         <div class="row">
@@ -197,7 +197,7 @@
 
                 <input class="mb-1 bg-white" type="text" disabled id="color_price" placeholder="Price" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
 
-                <button type="button" id="copyColor"class="btn1" style="  border-radius: 6px; height: 30px; width: 100%;" >Add to Inquiry<div class="material-icons fs-5 ms-2">maps_ugc</div></button>
+                <button type="button" id="copyColor"class="btn1 p-1 pt-0 trans" style="  border-radius: 6px; height: 40px; width: 100%;" >Add to Inquiry<div class="material-icons fs-6 ms-2">maps_ugc</div></button>
                   
 </div>
 
@@ -223,7 +223,7 @@
 
         <div class="box">
 
-    <h1 class="heading"> about <span>els pintor</span> </h1>
+    <h1 class="heading fw-bold"> about <span>els pintor</span> </h1>
 
     <div class="column">
 
@@ -232,8 +232,8 @@
     </div>
         <div class="content">
             <h3>The owner of this business is Mr. Emil Simbajon.</h3>
-            <p> Mr. Emil Simbajon shares that he started this business around the year 1999 and has a capital of 30,000 pesos. And his first project was in the Island city mall(ICM) which is one of the known malls in Bohol. This company is already tied up to Alturas group Company.</p>
-            <p>Their service is manpower which means it depends on how many workers are available to work on the new project or how big the project is to work with many workers. For the meantime, Mr. Emil Simbajon does not have  stable workers but he has a leadmans where he sends important information and is also in charge of gathering or recruiting workers to work on the said project.</p>
+            <p class="fw-light"> Mr. Emil Simbajon shares that he started this business around the year 1999 and has a capital of 30,000 pesos. And his first project was in the Island city mall(ICM) which is one of the known malls in Bohol. This company is already tied up to Alturas group Company.</p>
+            <p class="fw-light">Their service is manpower which means it depends on how many workers are available to work on the new project or how big the project is to work with many workers. For the meantime, Mr. Emil Simbajon does not have  stable workers but he has a leadmans where he sends important information and is also in charge of gathering or recruiting workers to work on the said project.</p>
             <!-- <button class="btn pending_header text-white fs-5" data-bs-toggle="modal" data-bs-target="#inq-modal">Make An Inquiry</button> -->
         </div>
 
@@ -251,8 +251,8 @@
 
     <div class="box-container">
 
-        <div class="box mt-5 pt-5">
-            <h3 class="">Contact Info</h3>
+        <div class="box mt-5 pt-5 fw-light">
+            <h3 class="fw-bold">Contact Info</h3>
              <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0947-897-0835 </a>
             <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0906-944-5124 </a>
             <a href="#" class="text-decoration-none"> <i class="fas fa-envelope"></i> pawercapstone@gmail.com </a>

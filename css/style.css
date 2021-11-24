@@ -775,7 +775,7 @@ border-bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 350px;
+  /* height: 350px; */
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
@@ -958,3 +958,21 @@ input[type="button"]:hover{
 .hover:hover {
   color: #2980b9 !important;
 }
+
+.txt_decor:hover {
+  text-decoration: underline !important;
+}
+
+
+.centerss{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 470px;
+  /* height: 350px; */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+
