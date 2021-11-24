@@ -1,5 +1,10 @@
 var base1_url = "http://localhost/backend";
 var login_api = base1_url + "/api/v1/auth/login";
+var get_user2 = base1_url + '/api/v1/auth/get-user';
+var check_email = base1_url + '/api/v1/auth/check-email';
+var check_key = base1_url + '/api/v1/auth/check-key';
+var reset_pass = base1_url + '/api/v1/auth/reset-pass';
+
 var statistics_api = base1_url + "/api/v1/dashboard/statistics";
 var dashboard_api = base1_url + "/api/v1/dashboard/dashboard";
 var dashboard_detail = base1_url + '/api/v1/dashboard/dashboard-detail';

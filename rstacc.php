@@ -28,17 +28,8 @@
 
 
     <div class="card shadow centerss container">
-    <h5 class="card-header fw-bold bg-white p-3">Find Your Account</h5>
-    <div class="card-body">
-        <p class="card-text">Please enter your email to search for your account.</p>
-
-        <input type="text" id="srch_email" class="form-control" placeholder="abcd@email.com" autofocus>
-
-        <div class="modal-footer mt-4 pb-0 mb-0 pe-0">
-            <a type="button" href="login.php" class="btn btn-secondary">Cancel</a>
-            <button type="button" id="srch_email_submit" class="btn btn-primary">Search</button>
-        </div>
-    </div>
+    <h5 class="card-header fw-bold bg-white p-3">Reset Password</h5>
+    <div class="card-body" id="rst_pass"></div>
     </div>
 
 </div>

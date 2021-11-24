@@ -866,6 +866,16 @@ input[type="button"]:hover{
     text-align: center;
 }
 
+.btn-primary{
+  background-color: #2691d9 !important;
+  border-color: #2691d9 !important;
+}
+
+.btn-primary:hover{
+  background-color: #2980b9 !important;
+  outline-color: #2980b9 !important;
+}
+
 .btn-outline-primary{
   border-color: #2980b9 !important;
   color: #2980b9 !important;
