@@ -766,7 +766,13 @@ function generateUser($elem, $content, num)
             '<div class="input-group">',
             '<input type="text" class="form-control bg-white input_user" id="user" placeholder="" value="' + $content[el].user_username + '" disabled>',
             '<span class="input-group-text pending_header text-white" id="edit_user" style="cursor:pointer;">Edit</span>',
-            '</div></form>'
+            '</div>',
+            '<label for="firstName" class="form-label mt-4">Email Address</label>',
+            '<div class="input-group">',
+            '<input type="text" class="form-control bg-white input_email" id="email" placeholder="" value="' + $content[el].user_email + '" disabled>',
+            '<span class="input-group-text pending_header text-white" id="edit_email" style="cursor:pointer;">Edit</span>',
+            '</div>',
+            '</form>'
         ];
         $($elem).append($html.join(""));
     } 

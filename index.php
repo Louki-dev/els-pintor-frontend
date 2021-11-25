@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . "/include/index-header.inc.php";?>
 
 </head>
-    <body class="bg-white">
+    <body class="bg_color">
 
 <div id="loader"></div>
 <div id="content">
@@ -30,11 +30,11 @@
 <!-- header section ends  -->
 
 <!-- home section start  -->
-<section class="home mt-5 pt-5" id="home">
+<section class="home mt-5 pt-5 shadow-lg"  id="home">
 
-   <div class="content">
+   <div class="content ">
         <h3 class="fw-bold">welcome to <span>els pintor</span></h3>
-        <p class="fw-lighter">Els Pintor is a company where they offer house painting, car painting, varnish paint and services. They also sell paints which are located at Livingstone Village, San Isidro, Tagbilaran City. Els Pintor is a company where they meet the requirements of their clients to the highest expectations.</p>
+        <p class="fw-lighter">Els Pintor is a company where they offer painting services and selling paints that meets the requirements of their clients to the highest expectations.</p>
         <!-- <a href="#footer" class="btn text-whtie">Contact Us</a> -->
     </div>
 
@@ -51,7 +51,7 @@
 
 
 <!-- services section starts  -->
-<hr class="container">
+
 <section class="services" id="services">
 
 <h1 class="heading mt-5 pt-5 fw-bold"> our <span>services</span> </h1>
@@ -121,13 +121,13 @@
                         </div>
                     </div>
                      <select id="1stpick" style=" border-radius: 6px; width:100%; margin-top: 5px; height: 30px; display: flex; border: solid 2px #dddddd;">
-                        <option value="none">Choose Color 1</option>
-                        <option value="red">Red</option>
-                        <option value="green">Green</option>
-                        <option value="blue">Blue</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="ghostwhite">White</option>
-                        <option value="black">Black</option>
+                        <option value="-">Choose Color 1</option>
+                        <option value="Red">Red</option>
+                        <option value="Green">Green</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="White">White</option>
+                        <option value="Black">Black</option>
                     </select>
             </div>
             
@@ -140,13 +140,13 @@
                 </div>
 
                 <select id="2ndpick" style=" border-radius: 6px; width:100%; margin-top: 5px; height: 30px; display: flex;border: solid 2px #dddddd;">
-                    <option value="">Choose Color 2</option>
-                    <option value="red">Red</option>
-                    <option value="green">Green</option>
-                    <option value="blue">Blue</option>
-                    <option value="yellow">Yellow</option>
-                    <option value="ghostwhite">White</option>
-                    <option value="black">Black</option>
+                    <option value="-">Choose Color 2</option>
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
                 </select>
 
             </div>
@@ -160,13 +160,13 @@
                 </div>
 
                 <select id="3rdpick" style=" border-radius: 6px; width:100%; margin-top: 5px; height: 30px; display: flex;border: solid 2px #dddddd;">
-                    <option value="">Choose Color 3</option>
-                    <option value="red">Red</option>
-                    <option value="green">Green</option>
-                    <option value="blue">Blue</option>
-                    <option value="yellow">Yellow</option>
-                    <option value="ghostwhite">White</option>
-                    <option value="black">Black</option>
+                    <option value="-">Choose Color 3</option>
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
                 </select>
 
             </div>
@@ -197,7 +197,7 @@
 
                 <input class="mb-1 bg-white" type="text" disabled id="color_price" placeholder="Price" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
 
-                <button type="button" id="copyColor"class="btn1 p-1 pt-0 trans" style="  border-radius: 6px; height: 40px; width: 100%;" >Add to Inquiry<div class="material-icons fs-6 ms-2">maps_ugc</div></button>
+                <button type="button" id="copyColor" class="btn1 p-1 pt-0 trans ddd" style="  border-radius: 6px; height: 40px; width: 100%;" disabled >Add to Inquiry<div class="material-icons fs-6 ms-2">maps_ugc</div></button>
                   
 </div>
 
@@ -214,10 +214,9 @@
 </section>
 <!-- paint section ends -->
 
-<hr class="container">
 
 <!-- about section starts -->
-<section class="about" id="about">
+<section class="about bg-white mt-5 shadow-lg" id="about">
 
     <div class="box-container">
 
@@ -228,9 +227,9 @@
     <div class="column">
 
     <div class="image">
-        <img src="img/brs.png">
+        <img src="img/brs.jpg" class="pe-5">
     </div>
-        <div class="content">
+        <div class="content ps-5 mt-5">
             <h3>The owner of this business is Mr. Emil Simbajon.</h3>
             <p class="fw-light"> Mr. Emil Simbajon shares that he started this business around the year 1999 and has a capital of 30,000 pesos. And his first project was in the Island city mall(ICM) which is one of the known malls in Bohol. This company is already tied up to Alturas group Company.</p>
             <p class="fw-light">Their service is manpower which means it depends on how many workers are available to work on the new project or how big the project is to work with many workers. For the meantime, Mr. Emil Simbajon does not have  stable workers but he has a leadmans where he sends important information and is also in charge of gathering or recruiting workers to work on the said project.</p>
@@ -247,7 +246,7 @@
 
 <!-- footer section starts  -->
 
-<section class="footer shadow-lg" id="footer">
+<section class="footer" id="footer">
 
     <div class="box-container">
 

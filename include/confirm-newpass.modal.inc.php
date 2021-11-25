@@ -8,9 +8,9 @@
         <p class="mb-0"><input type="password" id="ch-pass" class="form-control"></p>
         </div>
 
-        <div class="modal-footer flex-nowrap p-0">
-        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right" id="edit-pass-submit"><strong>Confirm</strong></button>
-        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
+        <div class="modal-footer flex-nowrap mt-3 mb-0">
+        <button type="button" class="btn btn-outline-primary fs-6  col-6 m-0 rounded-0" id="edit-pass-submit"><strong>Confirm</strong></button>
+        <button type="button" class="btn btn-outline-secondary fs-6  col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
         </div>
         </div>
     </div>

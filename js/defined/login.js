@@ -11,8 +11,8 @@
 
             if (data.username == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Username must not be empty',
+                    title: 'Username is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -22,8 +22,8 @@
 
             if (data.password == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Password must not be empty',
+                    title: 'Password is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -52,7 +52,7 @@
                 } else {
                     Swal.fire({
                         title: 'Oh no!',
-                        text: 'Invalid username or password',
+                        text: 'Invalid username or password.',
                         icon: 'error',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',

@@ -15,6 +15,17 @@
             document.getElementById("user").focus();
     
         });
+
+        $(document).on("click","#edit_email", function(e) { 
+            var input = document.querySelector(".input_email");
+            var button = document.querySelector(".input_button");
+            //check whether the element exists
+            if (input != null && input != undefined && button != null && button != undefined) {
+                input.disabled = false;
+                button.disabled = false;
+            }
+            document.getElementById("email").focus();
+        });
     
         $(document).on("click","#edit_pass", function(e) { 
             var curt_pass = document.querySelector(".curt_pass");
@@ -26,21 +37,30 @@
                 nw_pass.disabled = false;
                 val_button.disabled = false;
             }
-
-            document.getElementById("user").focus();
         });
 
         $(document).on("click", "#edit-user-submit", function (e) {
             var user_payload = {
                 user_ID: $('#id_user').val(),
                 user_username: $('#user').val(),
+                user_email: $('#email').val(),
                 check_pass: $('#c-pass').val()
             };
 
             if (user_payload.user_username == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Username must not be empty. Reload the page',
+                    title: 'Username must not be empty!',
+                    text: '',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (user_payload.user_email == '') {
+                Swal.fire({
+                    title: 'Email must not be empty!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -49,8 +69,8 @@
             }
             if (user_payload.check_pass == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Password is required! Please try again',
+                    title: 'Password is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -147,7 +167,7 @@
                 loadUser();
                 $(".modal").modal('hide');
                 Swal.fire({
-                    title: 'Username updated!',
+                    title: 'User profile is successfully updated!',
                     text: '',
                     icon: 'success',
                     confirmButtonText: 'OK',
@@ -165,6 +185,8 @@
                     icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
+                }).then(function (result) {
+                    $('#c-pass').val("");
                 });
             }
         });
@@ -183,7 +205,7 @@
             if (response_data.status == true) {
                 $(".modal").modal('hide');
                 Swal.fire({
-                    title: 'Your new-password is successfully updated!',
+                    title: 'Your password is successfully updated!',
                     text: '',
                     icon: 'success',
                     confirmButtonText: 'OK',

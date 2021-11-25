@@ -460,7 +460,7 @@ section{
     width: 10.5rem;
 }
 .paint .box-container .box  .mixer .colors .color-mix{
-     background-color: white;
+     background-color: #eee;
      transform: scale(1.04);
      border: solid 1px #dddddd;
 }
@@ -784,4 +784,12 @@ input::-webkit-inner-spin-button {
 
 .trans {
     transition: .2s ease-in-out;
+}
+
+.fcapital {
+    text-transform: capitalize;
+}
+
+.bg_color{
+    background-color: ghostwhite !important;
 }

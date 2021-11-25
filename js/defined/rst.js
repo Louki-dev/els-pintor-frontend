@@ -10,7 +10,7 @@
 
             if (email_payload.email == '') {
                 Swal.fire({
-                    title: 'Your email is required for validation.',
+                    title: 'Your email is required!',
                     text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
@@ -19,7 +19,7 @@
                 return;
             }
             
-            checkEmail(email_payload);
+            ValEmail(email_payload);
     
         });
 
@@ -31,7 +31,7 @@
 
             if (key_payload.key == '') {
                 Swal.fire({
-                    title: 'Secret key is required.',
+                    title: 'Secret key is required!',
                     text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
@@ -55,7 +55,7 @@
 
             if (rst_payload.rst_new_pass == '') {
                 Swal.fire({
-                    title: 'New password must not be empty.',
+                    title: 'New password must not be empty!',
                     text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
@@ -68,7 +68,7 @@
 
             if (rst_payload.rst_cnfrm_pass == '') {
                 Swal.fire({
-                    title: 'Confirm new password must not be empty.',
+                    title: 'Repeat password must not be empty!',
                     text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
@@ -203,16 +203,33 @@
         for (var el = 0; el<$content.length; el++) {
 
             $html = [
-                '<p class="card-text">Password must be at least eight characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special character.</p>',
+                '<p class="card-text">Fill in the required fields to reset password.</p>',
                 '<input type="hidden" id="rst_id" value="'+ $content[el].user_id + '">',
                 '<input type="password" id="rst_new_pass" class="form-control" placeholder="New Password" autofocus>',
-                '<input type="password" id="rst_cnfrm_pass" class="form-control mt-3" placeholder="Re-type new password">',
+                '<input type="password" id="rst_cnfrm_pass" class="form-control mt-3" placeholder="Repeat new password">',
                 '<div class="modal-footer mt-4 pb-0 mb-0 pe-0">',
-                    '<a type="button" href="" class="btn btn-secondary">Cancel</a>',
+                    '<a type="button" href="login.php" class="btn btn-secondary">Cancel</a>',
                     '<button type="button" id="rst_pass_submit" class="btn btn-primary">Validate</button>',
                 '</div>'
             ];
             $($elem).append($html.join(""));
         } 
+    }
+
+    function ValEmail(email_payload) 
+    {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(srch_email.value))
+    {
+        checkEmail(email_payload);  
+        return;
+    }
+        Swal.fire({
+            title: 'Oh no!',
+            text: 'You have entered invalid email.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#2691d9',
+        });
+        return;
     }
 })()
