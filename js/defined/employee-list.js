@@ -194,9 +194,9 @@
         return;
     }
         Swal.fire({
-            title: 'Oops...',
-            text: 'You have entered invalid email',
-            icon: 'warning',
+            title: 'You have entered invalid email!',
+            text: '',
+            icon: 'error',
             confirmButtonText: 'OK',
             confirmButtonColor: '#2691d9',
         });
@@ -265,7 +265,7 @@
             } else {
                 Swal.fire({
                     title: 'Oh no!',
-                    text: response_data.error.error,
+                    text: response_data.error,
                     icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -305,7 +305,7 @@
             } else {
                 Swal.fire({
                     title: 'Oh no!',
-                    text: 'Cannot find the employee. Please check the data',
+                    text: 'Cannot find the employee. Unable to complete process.',
                     icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',

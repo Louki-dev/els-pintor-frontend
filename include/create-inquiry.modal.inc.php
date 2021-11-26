@@ -11,18 +11,18 @@
             <div class="mb-3">
                 <div class="row">
                     <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                    <label for="exampleFormControlInput1" class="form-label" title="Required">First Name *</label>
                     <input type="text" class="form-control" id="cfname" placeholder="">
 
-                    <label for="exampleFormControlInput1" class="form-label mt-3">Mobile Number</label>
+                    <label for="exampleFormControlInput1" class="form-label mt-3" title="Required">Mobile Number *</label>
                     <input type="number" class="form-control" id="cnumber" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" placeholder="">
                     </div>
 
                     <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                    <label for="exampleFormControlInput1" class="form-label" title="Required">Last Name *</label>
                     <input type="text" class="form-control" id="clname" placeholder="">
 
-                    <label for="exampleFormControlInput1" class="form-label mt-3">Email address</label>
+                    <label for="exampleFormControlInput1" class="form-label mt-3" title="Required">Email address *</label>
                     <input type="email" class="form-control" id="cemail" placeholder="">
                     </div>
                 </div>
@@ -39,7 +39,7 @@
             </div> -->
 
             <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Inquiry Details</label>
+            <label for="exampleFormControlTextarea1" class="form-label" title="Required">Inquiry Details *</label>
             <textarea class="form-control _txtarea" id="cinq" rows="1"></textarea>
             </div>
           

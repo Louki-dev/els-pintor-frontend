@@ -51,7 +51,7 @@
 
 
 <!-- services section starts  -->
-
+<br><br><br><br><br><br>
 <section class="services" id="services">
 
 <h1 class="heading mt-5 pt-5 fw-bold"> our <span>services</span> </h1>
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                      <select id="1stpick" style=" border-radius: 6px; width:100%; margin-top: 5px; height: 30px; display: flex; border: solid 2px #dddddd;">
-                        <option value="-">Choose Color 1</option>
+                        <option value="none">Choose Color 1</option>
                         <option value="Red">Red</option>
                         <option value="Green">Green</option>
                         <option value="Blue">Blue</option>
@@ -140,7 +140,7 @@
                 </div>
 
                 <select id="2ndpick" style=" border-radius: 6px; width:100%; margin-top: 5px; height: 30px; display: flex;border: solid 2px #dddddd;">
-                    <option value="-">Choose Color 2</option>
+                    <option value="none">Choose Color 2</option>
                     <option value="Red">Red</option>
                     <option value="Green">Green</option>
                     <option value="Blue">Blue</option>
@@ -160,7 +160,7 @@
                 </div>
 
                 <select id="3rdpick" style=" border-radius: 6px; width:100%; margin-top: 5px; height: 30px; display: flex;border: solid 2px #dddddd;">
-                    <option value="-">Choose Color 3</option>
+                    <option value="none">Choose Color 3</option>
                     <option value="Red">Red</option>
                     <option value="Green">Green</option>
                     <option value="Blue">Blue</option>
@@ -216,6 +216,7 @@
 
 
 <!-- about section starts -->
+<br><br><br><br><br><br><br><br>
 <section class="about bg-white mt-5 shadow-lg" id="about">
 
     <div class="box-container">

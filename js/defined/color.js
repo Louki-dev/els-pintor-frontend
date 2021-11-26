@@ -1876,5 +1876,24 @@
             document.getElementById("c3").value = third_number;
         }
 
+        if (
+            first_number == "none" && second_number == "none" ||
+            first_number == "none" && third_number == "none" ||
+            second_number == "none" && third_number == "none" )
+        {
+            $("#copyColor").prop("disabled", true);
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '1p') {
+                    document.getElementById("color_1").style.background = "#eee";
+                }
+                if ($(this).attr("data-color") == '2p') {
+                    document.getElementById("color_2").style.background = "#eee";
+                }
+                if ($(this).attr("data-color") == '4p') {
+                    document.getElementById("color_4").style.background = "#eee";
+                }
+            });
+        }
+
     }
 })();

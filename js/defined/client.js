@@ -56,8 +56,8 @@
 
             if (data.customer_first_name == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'First name must not be empty',
+                    title: 'First name is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -66,8 +66,8 @@
             }
             if (data.customer_last_name == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Last name must not be empty',
+                    title: 'Last name is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -75,10 +75,21 @@
                 return;
             }
             
+            if (data.customer_mobile_number == '') {
+                Swal.fire({
+                    title: 'Mobile number is required!',
+                    text: '',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+
             if (data.customer_email == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Email must not be empty',
+                    title: 'Email is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -86,20 +97,11 @@
                 return;
             }
     
-            if (data.customer_mobile_number == '') {
-                Swal.fire({
-                    title: 'Oops...',
-                    text: 'Mobile number must not be empty',
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#2691d9',
-                });
-                return;
-            }
+            
             if (data.customer_inquiry_details == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Inquiry details must not be empty',
+                    title: 'Inquiry details must not be empty!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -136,8 +138,8 @@
                     $('#cinq').val('')
                 } else {
                     Swal.fire({
-                        title: 'Oh no!',
-                        text: 'Something went wrong. Please try again',
+                        title: response_data.error,
+                        text: '',
                         icon: 'error',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',
@@ -154,9 +156,9 @@
                 return;
             }
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'You have entered invalid email',
-                    icon: 'warning',
+                    title: 'You have entered invalid email!',
+                    text: '',
+                    icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
