@@ -40,6 +40,7 @@
         });
 
         $(document).on("click", "#edit-user-submit", function (e) {
+
             var user_payload = {
                 user_ID: $('#id_user').val(),
                 user_username: $('#user').val(),
@@ -89,7 +90,13 @@
                 new_pass: $('#new_pass').val()
                 
             };
-
+            var check_pass_payload = {
+                old_pass: $('#old_pass').val(),
+                new_pass: $('#new_pass').val(),
+                pass_word: $('#ch-pass').val()
+                
+            };
+    
             if (pass_payload.old_pass == '') {
                 Swal.fire({
                     title: 'Oops...',
@@ -125,7 +132,9 @@
                 return;
             }
             
-            updatePass(pass_payload);
+            $(".modal").modal('hide');
+            checkPass(check_pass_payload, pass_payload);
+            // updatePass(pass_payload);
     
         });
 
@@ -192,7 +201,88 @@
         });
     }
 
+    function checkPass(check_pass_payload, pass_payload)
+    {
+        ajaxRequest(check_pass_payload,
+            {
+                url: check_pass,
+                type: "POST",
+                headers: assignAuthHeader(),
+                dataType: "json"
+            },
+        function (response_data) {
+            if (response_data.status == true) {
+                updatePass(pass_payload);
+            } else {
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: response_data.error.error,
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                }).then(function (result) {
+                    $('#edit_pass').val("");
+                    $('#new_pass').val("");
+                    $('#ch-pass').val("");
+                    $('#old_pass').val("");
+                });
+            }
+        });
+     
+    }
+    
     function updatePass(pass_payload)
+    {
+        $("#sk-modal").modal('show');
+
+        $(document).on("click", "#confirm-sk-submit", function (e) {
+
+            var sk_payload = {
+                key: $('#sk-admin').val()
+            }
+
+            if (sk_payload.key == '') {
+                Swal.fire({
+                    title: 'Secret key is required!',
+                    text: '',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+
+            checkKey(sk_payload, pass_payload);
+        });
+    }
+
+    function checkKey(sk_payload, pass_payload)
+    {
+        ajaxRequest(sk_payload,
+            {
+                url: check_key,
+                type: "GET",
+                dataType: "json"
+            },
+        function (response_data) {
+            if (response_data.status == true) {
+                $('#sk-admin').val("");
+                updatePassword(pass_payload)
+            } else {
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: response_data.error.error,
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                }).then(function (result) {
+                    $('#sk-admin').val("");
+                });
+            }
+        });
+    }
+
+    function updatePassword(pass_payload)
     {
         ajaxRequest(pass_payload,
             {
@@ -205,8 +295,8 @@
             if (response_data.status == true) {
                 $(".modal").modal('hide');
                 Swal.fire({
-                    title: 'Your password is successfully updated!',
-                    text: '',
+                    title: 'Success!',
+                    text: 'Password has been updated.',
                     icon: 'success',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -235,5 +325,4 @@
             }
         });
     }
-
 })()

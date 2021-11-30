@@ -188,6 +188,7 @@
                     $('#cfname').val(''),
                     $('#clname').val(''),
                     $('#cemail').val(''),
+                    $('#caddress').val(''),
                     $('#cnumber').val(''),
                     $('#cinq').val('')
                     
@@ -214,11 +215,11 @@
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(cemail.value))
             {
                 Swal.fire({
-                    title: 'Are you sure you want to submit your inquiry?',
+                    title: 'Are you sure you want to submit inquiry?',
                     showCancelButton: true,
-                    confirmButtonText: 'Yes, submit my inquiry',
+                    confirmButtonText: 'Yes, submit',
                     confirmButtonColor: '#2691d9',
-                    cancelButtonText: 'No, continue adding inquiry',
+                    cancelButtonText: 'Add another inquiry',
                     icon: 'question',
                 }).then(function (result) {
                     if (result.isConfirmed) {  
@@ -252,9 +253,8 @@
 
         // var colorsPalette = document.querySelector('.colors-palette');
     
-        menuBtn.onclick = function (){
+        menuBtn.onclick = function () {
         navbar.classList.toggle('active');
- 
         }
         
         window.onscroll = function (){
@@ -414,7 +414,7 @@
                 title: 'Added to Inquiry!',
                 text: 'Please check your inquiries!',
                 icon: 'success',
-                confirmButtonText: 'View my Inquiries',
+                confirmButtonText: 'View Inquiries',
                 confirmButtonColor: '#2691d9',
                 cancelButtonText: 'Add another Inquiry',
                 showCancelButton: true,
@@ -450,7 +450,7 @@
                 title: 'Added to Inquiry!',
                 text: 'Please check your inquiries!',
                 icon: 'success',
-                confirmButtonText: 'View my Inquiries',
+                confirmButtonText: 'View Inquiries',
                 confirmButtonColor: '#2691d9',
                 cancelButtonText: 'Add another Inquiry',
                 showCancelButton: true,

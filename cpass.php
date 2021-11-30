@@ -55,6 +55,7 @@
 <?php
 require_once __DIR__ . "/include/navigation.inc.php";
 require_once __DIR__ . "/include/confirm-newpass.modal.inc.php";
+require_once __DIR__ . "/include/confirm-sk.modal.inc.php";
 ?>
 </body>
 </html>

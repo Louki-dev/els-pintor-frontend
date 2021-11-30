@@ -183,17 +183,16 @@ function customerDetails(custID, custname, custnum, custemail, custadd, custinq)
 {
     // var servicename = String(document.getElementById('services-copy').value);
 
-    var text = "-- Customer Info --" + '\r\n' +
+    var text = "-- Customer Information --" + '\r\n' +
         'Full Name: ' + custname + '\r\n' +
         'Mobile Number: ' + custnum + '\r\n' +
         'Email: ' + custemail + '\r\n' +
         'Address: ' + custadd + '\r\n\r\n' +
-        "-- Details --" + '\r\n' +
+        "-- Project Details --" + '\r\n' +
         custinq + '\r\n\r\n' ;
 
     navigator.clipboard.writeText(text)
 
-        
     let textarea = document.getElementById("send_message");
     textarea.value = text;
 
@@ -201,6 +200,7 @@ function customerDetails(custID, custname, custnum, custemail, custadd, custinq)
     cust_id.value = custID;
     let cust_stat = document.getElementById("custStat");
     cust_stat.value = 1;
+    
 }
 
 $(document).on('click', "#copyApprovedRequest", function (e) {
@@ -210,12 +210,12 @@ $(document).on('click', "#copyApprovedRequest", function (e) {
 function copyDataApprovedRequest()
 {
 
-    var text = "-- Customer Info --" + '\r\n' +
+    var text = "-- Customer Information --" + '\r\n' +
     'Full Name: ' + $("#request_modal-1 #fullName").html() + '\r\n' +
     'Email: ' + $("#request_modal-1 #email").html() + '\r\n' +
     'Mobile Number: ' + $("#request_modal-1 #mobileNumber").html() + '\r\n' +
     'Date Created: '+ $("#request_modal-1 #dateCreated").html() + '\r\n\r\n' +
-    "-- Details --" + '\r\n' +
+    "-- Project Details --" + '\r\n' +
     $("#request_modal-1 #requestDetails").html();
   
 

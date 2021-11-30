@@ -360,7 +360,7 @@
                 title: 'Added to Inquiry!',
                 text: 'Please check your inquiries!',
                 icon: 'success',
-                confirmButtonText: 'View my Inquiries',
+                confirmButtonText: 'View Inquiries',
                 confirmButtonColor: '#2691d9',
                 cancelButtonText: 'Add another Inquiry',
                 showCancelButton: true,

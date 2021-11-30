@@ -49,6 +49,7 @@ var get_user = base1_url + '/api/v1/dashboard/get-user';
 var change_usern = base1_url + '/api/v1/dashboard/change-user';
 var change_passw = base1_url + '/api/v1/dashboard/change-pass';
 var check_admin = base1_url + '/api/v1/dashboard/check-admin';
+var check_pass = base1_url + '/api/v1/dashboard/check-pass';
 
 var redirect_login =  '/frontend/login.php';
 var redirect_dashboard =  '/frontend/dashboard.php';
