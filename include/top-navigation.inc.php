@@ -17,7 +17,7 @@
 
         <div class="flex-shrink-0 dropdown">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle text-white" id="dropdownUser2" data-bs-toggle="dropdown">
-            <i class="fas fa-user-circle fs-6"></i> Administrator
+            <i class="fas fa-user-circle fs-6"></i>
             </a>
             <ul class="dropdown-menu text-small shadow">
                 <li><a class="dropdown-item" href="acc.php"><i class="fas fa-user-cog"></i> Account Settings</a></li>

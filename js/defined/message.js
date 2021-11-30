@@ -108,17 +108,17 @@
                 confirmButtonColor: '#2691d9',
             }).then(function (result) {
                 if (result.isConfirmed) { 
-                    deleteSentMessage({
-                        sent_message_id: selected
-                    });
+                    $('#confirm-pass-admin').val("");
+                    $('#confirm-admin-modal').modal('show');
+                    var messageId = selected;
+                    confirmAdmin(messageId);
                 } 
             });
         } else {
-            // Swal.fire('Cannot delete the message.', 'Please select atleast 1 message!', 'error');
             Swal.fire({
-                title: 'Oops...',
-                text: 'Please select atleast 1 message',
-                icon: 'warning',
+                title: 'Oh no!',
+                text: 'Cannot delete the message. Please select atleast 1 message',
+                icon: 'error',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
             });
@@ -179,38 +179,97 @@
         });
     }
 
-    function deleteSentMessage(data)
+    function confirmAdmin(messageId)
     {
-        ajaxRequest(data,
-            {
-                url: delete_sent_message,
-                type: "POST",
-                headers: assignAuthHeader(),
-                dataType: "json",
-            },
-            function (response_data) {
-                if (response_data.status == true) {
-                    loadSentMessage();
-                    loadEmployee();
-                    // Swal.fire('Message is successfully removed!', '', 'success');
-                    Swal.fire({
-                        title: 'Message is successfully removed!',
-                        text: '',
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#2691d9',
-                    });
-                } else {
-                    // Swal.fire('Cannot delete the message.', ' Please check the data!', 'error');
-                    Swal.fire({
-                        title: 'Oh no!',
-                        text: 'Cannot delete the message. Please check the data',
-                        icon: 'error',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#2691d9',
-                    });
+        $(document).on("click","#confirm-pass-submit", function(e) {
+            var checkAdmin = {
+                check_pass: $('#confirm-pass-admin').val()
+            };
+            var message_payload = {
+                sent_message_id: messageId
+            };
+
+            if (checkAdmin.check_pass == '') {
+                Swal.fire({
+                    title: 'Admin password is empty!',
+                    text: 'To confirm changes, please ask the admin.',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                $('#confirm-pass-admin').val("");
+                return;
+            }
+            ajaxRequest(checkAdmin,
+                {
+                    url: check_admin,
+                    type: "POST",
+                    headers: assignAuthHeader(),
+                    dataType: "json",
+                },
+                function (response_data) {
+                    if (response_data.status == true) {
+                        $('.modal').modal('hide');
+                        $('#confirm-pass-admin').val("");
+                        deleteSentMessage(message_payload)
+                    }else {
+                        Swal.fire({
+                            title: 'Oh no!',
+                            text: response_data.error + ' Unable to complete process.',
+                            icon: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#2691d9',
+                        });
+                        $('#confirm-pass-admin').val("");
+                    }
                 }
-            });
+            );
+        });
+    }
+        
+    function deleteSentMessage(message_payload)
+    {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            confirmButtonColor: '#2691d9',
+            icon: 'question'
+        }).then(function (result) {
+            if (result.isConfirmed) {
+                ajaxRequest(message_payload,
+                    {
+                        url: delete_sent_message,
+                        type: "POST",
+                        headers: assignAuthHeader(),
+                        dataType: "json",
+                    },
+                    function (response_data) {
+                        if (response_data.status == true) {
+                            loadSentMessage();
+                            loadEmployee();
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'Message has been deleted.',
+                                icon: 'success',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#2691d9',
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Oh no!',
+                                text: 'Cannot delete the message. Please check the data',
+                                icon: 'error',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#2691d9',
+                            });
+                        }
+                    });
+            } else {
+                $('#confirm-pass-admin').val("");
+            }
+        });
     }
 
     function getSentMessageDetail(data)

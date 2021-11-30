@@ -126,6 +126,8 @@ require_once __DIR__ . "/include/navigation.inc.php";
 require_once __DIR__ . "/include/pending-progress.modal.inc.php";
 require_once __DIR__ . "/include/approved-requeset.modal.inc.php";
 require_once __DIR__ . "/include/turned-down.modal.inc.php";
+require_once __DIR__ . "/include/choose-contacts.modal.inc.php";
+require_once __DIR__ . "/include/confirm-admin.modal.inc.php";
 require_once __DIR__ . "/include/script.inc.php"; 
 ?>
 </body>

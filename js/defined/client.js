@@ -44,15 +44,27 @@
         loadProducts();
     });
     $(document).ready(function(e){
-
+        $('#flexCheckDefault').click(function () {
+            //check if checkbox is checked
+            if ($(this).is(':checked')) {
+    
+                $('#csubmit').removeAttr('disabled'); //enable input
+    
+            } else {
+                $('#csubmit').attr('disabled', true); //disable input
+            }
+        });
         $(document).on("click", "#csubmit", function(e) { 
             var data = {
                 customer_first_name : $('#cfname').val(),
                 customer_last_name : $('#clname').val(),
                 customer_mobile_number : $('#cnumber').val(),
                 customer_email : $('#cemail').val(),
+                customer_address : $('#caddress').val(),
                 customer_inquiry_details : $('#cinq').val()
             };
+            var int_number = data.customer_mobile_number;
+            var int_length = ('' + int_number).length;
 
             if (data.customer_first_name == '') {
                 Swal.fire({
@@ -62,6 +74,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
+                let inputs = document.getElementById('flexCheckDefault');
+                inputs.checked = false;
+                $('#csubmit').attr('disabled', true);
                 return;
             }
             if (data.customer_last_name == '') {
@@ -72,6 +87,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
+                let inputs = document.getElementById('flexCheckDefault');
+                inputs.checked = false;
+                $('#csubmit').attr('disabled', true);
                 return;
             }
             
@@ -83,6 +101,23 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
+                let inputs = document.getElementById('flexCheckDefault');
+                inputs.checked = false;
+                $('#csubmit').attr('disabled', true);
+                return;
+            }
+
+            if (int_length != 11) {
+                Swal.fire({
+                    title: 'Mobile number must have 11 digits!',
+                    text: '',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                let inputs = document.getElementById('flexCheckDefault');
+                inputs.checked = false;
+                $('#csubmit').attr('disabled', true);
                 return;
             }
 
@@ -94,10 +129,26 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
+                let inputs = document.getElementById('flexCheckDefault');
+                inputs.checked = false;
+                $('#csubmit').attr('disabled', true);
                 return;
             }
-    
-            
+
+            if (data.customer_address == '') {
+                Swal.fire({
+                    title: 'Address is required!',
+                    text: '',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                let inputs = document.getElementById('flexCheckDefault');
+                inputs.checked = false;
+                $('#csubmit').attr('disabled', true);
+                return;
+            }
+
             if (data.customer_inquiry_details == '') {
                 Swal.fire({
                     title: 'Inquiry details must not be empty!',
@@ -106,6 +157,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
+                let inputs = document.getElementById('flexCheckDefault');
+                inputs.checked = false;
+                $('#csubmit').attr('disabled', true);
                 return;
             }
             ValidateEmail(data);
@@ -136,6 +190,10 @@
                     $('#cemail').val(''),
                     $('#cnumber').val(''),
                     $('#cinq').val('')
+                    
+                    let inputs = document.getElementById('flexCheckDefault');
+                    inputs.checked = false;
+                    $('#csubmit').attr('disabled', true);
                 } else {
                     Swal.fire({
                         title: response_data.error,
@@ -144,6 +202,9 @@
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',
                     });
+                    let inputs = document.getElementById('flexCheckDefault');
+                    inputs.checked = false;
+                    $('#csubmit').attr('disabled', true);
                 }
             });
         }
@@ -152,7 +213,22 @@
         {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(cemail.value))
             {
-                createInquiry(data);
+                Swal.fire({
+                    title: 'Are you sure you want to submit your inquiry?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, submit my inquiry',
+                    confirmButtonColor: '#2691d9',
+                    cancelButtonText: 'No, continue adding inquiry',
+                    icon: 'question',
+                }).then(function (result) {
+                    if (result.isConfirmed) {  
+                        createInquiry(data);    
+                    }
+                    else {
+                        $('#inq-modal').modal('hide');
+                    }
+                });
+                
                 return;
             }
                 Swal.fire({
@@ -162,6 +238,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
+                let inputs = document.getElementById('flexCheckDefault');
+                inputs.checked = false;
+                $('#csubmit').attr('disabled', true);
                 return;
         }
 
@@ -333,13 +412,19 @@
             // Success!
             Swal.fire({
                 title: 'Added to Inquiry!',
-                text: '',
+                text: 'Please check your inquiries!',
                 icon: 'success',
-                confirmButtonText: 'OK',
+                confirmButtonText: 'View my Inquiries',
                 confirmButtonColor: '#2691d9',
+                cancelButtonText: 'Add another Inquiry',
+                showCancelButton: true,
+            }).then(function (result) {
+                let textarea = document.getElementById("cinq");
+                textarea.value += text;
+                if (result.isConfirmed) {  
+                    $('#inq-modal').modal('show');
+                }
             });
-            let textarea = document.getElementById("cinq");
-            textarea.value += text;
         })
         .catch(function () {
             Swal.fire({
@@ -363,15 +448,19 @@
             // Success!
             Swal.fire({
                 title: 'Added to Inquiry!',
-                text: '',
+                text: 'Please check your inquiries!',
                 icon: 'success',
-                confirmButtonText: 'OK',
+                confirmButtonText: 'View my Inquiries',
                 confirmButtonColor: '#2691d9',
+                cancelButtonText: 'Add another Inquiry',
+                showCancelButton: true,
+            }).then(function (result) {
+                let textarea = document.getElementById("cinq");
+                textarea.value += text;
+                if (result.isConfirmed) {  
+                    $('#inq-modal').modal('show');
+                }
             });
-
-            let textarea = document.getElementById("cinq");
-            textarea.focus();
-            textarea.value += text;
 
         })
         .catch(function () {

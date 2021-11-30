@@ -39,6 +39,7 @@ require_once __DIR__ . "/include/navigation.inc.php";
 require_once __DIR__ . "/include/script.inc.php";
 require_once __DIR__ ."/include/create-employee.modal.inc.php";
 require_once __DIR__ ."/include/update-employee.modal.inc.php";
+require_once __DIR__ . "/include/confirm-admin.modal.inc.php";
 ?>
 </body>
 </html>

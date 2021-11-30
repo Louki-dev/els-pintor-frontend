@@ -617,6 +617,10 @@ input::-webkit-inner-spin-button {
   overflow-y: auto;
   height: 350px;
 }
+.scrollarea2 {
+  overflow-y: auto;
+  height: 220px;
+}
 
 .accordion-button:focus {
   box-shadow: none;

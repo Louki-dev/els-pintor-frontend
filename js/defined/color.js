@@ -358,13 +358,19 @@
             // Success!
             Swal.fire({
                 title: 'Added to Inquiry!',
-                text: '',
+                text: 'Please check your inquiries!',
                 icon: 'success',
-                confirmButtonText: 'OK',
+                confirmButtonText: 'View my Inquiries',
                 confirmButtonColor: '#2691d9',
+                cancelButtonText: 'Add another Inquiry',
+                showCancelButton: true,
+            }).then(function (result) {
+                let textarea = document.getElementById("cinq");
+                textarea.value += text;
+                if (result.isConfirmed) {  
+                    $('#inq-modal').modal('show');
+                }
             });
-            let textarea = document.getElementById("cinq");
-            textarea.value += text;
         })
         .catch(function () {
             Swal.fire({

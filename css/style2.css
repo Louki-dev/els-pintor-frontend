@@ -22,7 +22,7 @@
 }
 
 html{
-    font-size: 80%;
+    font-size: 1.6vh;
     overflow-x: hidden;
     scroll-padding-top: 7rem;
     scroll-behavior: smooth;
@@ -264,7 +264,7 @@ section{
 
 .services .box-container .box:hover{
      background-color: #f5f5f5;
-     transform: scale(1.04);
+     /*transform: scale(1.04);*/
      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
 }
 .services .box-container .box img{
@@ -770,7 +770,16 @@ input::-webkit-inner-spin-button {
     background-color: #2980b9 !important;
     color: white !important;
 }
-
+.btn-primary{
+    border-color: #2691d9 !important;
+    color: white !important;
+    background-color: #2691d9 !important;
+}
+.btn-primary:hover{
+    border-color: #2980b9 !important;
+    background-color: #2980b9 !important;
+    color: white !important;
+}
 .btn:focus {
     box-shadow: none !important;
 }

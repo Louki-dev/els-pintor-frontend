@@ -56,9 +56,14 @@
             confirmButtonColor: '#2691d9',
         }).then(function (result) {
             if (result.isConfirmed) { 
-                deleteEmployee({
-                    emp_id: $("#update-emp_id").val()
-                });
+                // deleteEmployee({
+                //     emp_id: $("#update-emp_id").val()
+                // });
+                $('#edit_emp_modal').modal('hide');
+                $('#confirm-pass-admin').val("");
+                $('#confirm-admin-modal').modal('show');
+                var empId = $("#update-emp_id").val();
+                confirmAdmin(empId);
             }
         });
     });
@@ -265,7 +270,7 @@
             } else {
                 Swal.fire({
                     title: 'Oh no!',
-                    text: response_data.error,
+                    text: response_data.error.error,
                     icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -274,42 +279,102 @@
         });
     }
 
-
-    function deleteEmployee(data)
+    function confirmAdmin(empId)
     {
-        ajaxRequest(data,
-            {
-            url: delete_employee_api,
-            type: "POST",
-            headers: assignAuthHeader(),
-            dataType: "json"
-        },
-        function (response_data) {
-            if (response_data.status == true) {
-                loadEmployee();
-                $(".modal").modal('hide');
+        $(document).on("click","#confirm-pass-submit", function(e) {
+            var checkAdmin = {
+                check_pass: $('#confirm-pass-admin').val()
+            };
+            var emp_payload = {
+                emp_id: empId
+            };
+
+            if (checkAdmin.check_pass == '') {
                 Swal.fire({
-                    title: 'Employee successfully deleted!',
-                    text: '',
-                    icon: 'success',
+                    title: 'Admin password is empty!',
+                    text: 'To confirm changes, please ask the admin.',
+                    icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
-                })
-                .then(function (result) {
-                    $('#update-firstName').val("");
-                    $('#update-lastName').val("");
-                    $('#update-inputEmail').val("");
-                    $('#update-mobileNumber').val("");
-                    $("#update-emp_id").val("");          
+                });
+                $('#confirm-pass-admin').val("");
+                return;
+            }
+            ajaxRequest(checkAdmin,
+                {
+                    url: check_admin,
+                    type: "POST",
+                    headers: assignAuthHeader(),
+                    dataType: "json",
+                },
+                function (response_data) {
+                    if (response_data.status == true) {
+                        $('.modal').modal('hide');
+                        $('#confirm-pass-admin').val("");
+                        deleteEmployee(emp_payload)
+                    }else {
+                        Swal.fire({
+                            title: 'Oh no!',
+                            text: response_data.error + ' Unable to complete process.',
+                            icon: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#2691d9',
+                        });
+                        $('#confirm-pass-admin').val("");
+                    }
+                }
+            );
+        });
+    }
+
+    function deleteEmployee(emp_payload)
+    {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            confirmButtonColor: '#2691d9',
+            icon: 'question'
+        }).then(function (result) {
+            if (result.isConfirmed) {
+                ajaxRequest(emp_payload,
+                    {
+                    url: delete_employee_api,
+                    type: "POST",
+                    headers: assignAuthHeader(),
+                    dataType: "json"
+                },
+                function (response_data) {
+                    if (response_data.status == true) {
+                        loadEmployee();
+                        $(".modal").modal('hide');
+                        Swal.fire({
+                            title: 'Deleted!',
+                            text: 'Employee has been deleted!',
+                            icon: 'success',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#2691d9',
+                        })
+                        .then(function (result) {
+                            $('#update-firstName').val("");
+                            $('#update-lastName').val("");
+                            $('#update-inputEmail').val("");
+                            $('#update-mobileNumber').val("");
+                            $("#update-emp_id").val("");          
+                        });
+                    } else {
+                        Swal.fire({
+                            title: 'Oh no!',
+                            text: 'Cannot find the employee. Unable to complete process.',
+                            icon: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#2691d9',
+                        });
+                    }
                 });
             } else {
-                Swal.fire({
-                    title: 'Oh no!',
-                    text: 'Cannot find the employee. Unable to complete process.',
-                    icon: 'error',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#2691d9',
-                });
+                $('#confirm-pass-admin').val("");
             }
         });
     }

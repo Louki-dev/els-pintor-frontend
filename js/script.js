@@ -8,7 +8,7 @@ function ajaxRequest (payload = null, options = null, callback, errocallback = n
             cache: false,
             async: true,
             processData: true,
-        }
+        };
 
         var object = {
             data: payload,
@@ -43,12 +43,13 @@ function ajaxRequest (payload = null, options = null, callback, errocallback = n
 
 function setToLocalStorage($object, callback = null)
 {
-    for ($key in $object) {
+    for (var $key in $object) {
         if (typeof localStorage.getItem($key) != "undefined") {
             localStorage.removeItem($key);
         }
 
         localStorage.setItem($key, $object[$key]);
+ 
     }
 
     if (callback != null) {
@@ -75,19 +76,20 @@ function assignAuthHeader($object = getToLocalStorage(['user_id', 'token']))
         Authorization: "no-code",
         Userid: "no-id"
     };
-
+    
     for (var key in $object) {
         if (localStorage.getItem(key) == null 
             || typeof localStorage.getItem(key) == 'undefined') {
               return null;
         }
-
+        
         switch(key) {
             case 'token':
-                output['Authorization'] =  localStorage.getItem(key);
+                output.Authorization =  localStorage.getItem(key);
             break;
             case 'user_id':
-                output['Userid'] =  localStorage.getItem(key);
+                output.Userid =  localStorage.getItem(key);
+        
             break;
         }
     }
@@ -104,7 +106,6 @@ function getToLocalStorage($obj)
             || typeof localStorage.getItem($obj[i]) == "undefined" ) {
                 return null;
         }
-
         output[$obj[i]] =  localStorage.getItem($obj[i]);
     }
     
@@ -136,8 +137,8 @@ function generateRequestTemplate($elemId, $elementValue,num)
                                 '</div>',
                                 '<p class="mb-0 opacity-75" id="request_details_in_list">'+textLimit($elementValue[el].customer_inquiry_details, 20)+'</p>',
                 '</a>',
-                        (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Turndown"><small class="opacity-50 text-nowrap"><span class="material-icons">archive</span></small></button>' : ''),
-                        (num == 2 ? '<button type="button" id="approved" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Approve"><small class="opacity-50 text-nowrap"><i class="fas fa-clipboard-check fs-5"></i></small></button>' : ''),
+                        (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Turndown"><small class="text-muted hover text-nowrap"><span class="material-icons">archive</span></small></button>' : ''),
+                        (num == 2 ? '<button type="button" id="approved" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Approve"><small class="text-muted hover text-nowrap"><i class="fas fa-clipboard-check fs-5"></i></small></button>' : ''),
                     '</div>',
                    '</div>'];
            
@@ -149,18 +150,58 @@ function generateRequestTemplate($elemId, $elementValue,num)
 
 function generateModelTemplateDashboard($elemId, $content)
 {
-    for (var el = 0; el<$content.length; el++) { 
+    for (var el = 0; el < $content.length; el++) {
+        $($elemId + " #customer-id").attr('data-id',$content[el].customer_id);
         $($elemId + " #fullName").html( $content[el].customer_first_name+ " " +  $content[el].customer_last_name);
-        $($elemId + " #email").html( $content[el].customer_email);
+        $($elemId + " #email").html($content[el].customer_email);
+        $($elemId + " #address").html( $content[el].customer_address);
         $($elemId + " #mobileNumber").html($content[el].customer_mobile_number);
         $($elemId + " #dateCreated").html(humanReadableDate($content[el].customer_created_at, true));
         $($elemId + " #requestDetails").html($content[el].customer_inquiry_details);
         $($elemId + " #approved").attr('data-id',$content[el].customer_id);
         $($elemId + " #turndown").attr('data-id', $content[el].customer_id);
-        $($elemId + " #deleteRequest").attr('data-id',$content[el].customer_id);
+        $($elemId + " #deleteRequest").attr('data-id', $content[el].customer_id);
+
+        var custID = $content[el].customer_id;
+        var custname = $content[el].customer_first_name + " " + $content[el].customer_last_name;
+        var custnum = $content[el].customer_mobile_number;
+        var custemail = $content[el].customer_email;
+        var custadd = $content[el].customer_address;
+        var custinq = $content[el].customer_inquiry_details;
+        copydetail(custID, custname, custnum, custemail, custadd, custinq);
     }
 }
 
+function copydetail(custID, custname, custnum, custemail, custadd, custinq)
+{
+    $(document).on('click', '#approved', function (e) {
+        customerDetails(custID, custname, custnum, custemail, custadd, custinq);
+    });
+}
+
+function customerDetails(custID, custname, custnum, custemail, custadd, custinq)
+{
+    // var servicename = String(document.getElementById('services-copy').value);
+
+    var text = "-- Customer Info --" + '\r\n' +
+        'Full Name: ' + custname + '\r\n' +
+        'Mobile Number: ' + custnum + '\r\n' +
+        'Email: ' + custemail + '\r\n' +
+        'Address: ' + custadd + '\r\n\r\n' +
+        "-- Details --" + '\r\n' +
+        custinq + '\r\n\r\n' ;
+
+    navigator.clipboard.writeText(text)
+
+        
+    let textarea = document.getElementById("send_message");
+    textarea.value = text;
+
+    let cust_id = document.getElementById("custID");
+    cust_id.value = custID;
+    let cust_stat = document.getElementById("custStat");
+    cust_stat.value = 1;
+}
 
 $(document).on('click', "#copyApprovedRequest", function (e) {
     copyDataApprovedRequest();
@@ -224,7 +265,7 @@ function generateTodoTemplate($elem, $content, num)
                             '</small>',
                         '</span>',
                     '</div>',
-                    (num == 0 ? '<div class="flex-fill align-items-center"><button class="btn float-end opacity-50 hover" id="todo-update" data-info="'+$content[el].todo_id+'" title="Completed"><i class="material-icons">task_alt</i></button></div>' : ''),
+                    (num == 0 ? '<div class="flex-fill align-items-center"><button class="btn float-end text-muted hover" id="todo-update" data-info="'+$content[el].todo_id+'" title="Completed"><i class="material-icons">task_alt</i></button></div>' : ''),
                 '</label>'
             ];
         
@@ -279,14 +320,12 @@ $(document).on('click', "#copyTodo", function (e) {
 function copyTodoData()
 {
 
-    var text = "-- PROJECT DETAILS --" + '\r\n' + 
+    var text = "-- PROJECT DETAILS --" + '\r\n' +
         'Project: ' + $("#update_todo #td_title").html() + '\r\n' +
         'Address: ' + $("#update_todo #td_address").html() + '\r\n' +
         'Created At: ' + $("#update_todo #td_created").html() + '\r\n' +
         'Due Date: ' + $("#update_todo #td_due").html() + '\r\n\r\n' +
-        $("#update_todo #td_description").html() + '\r\n\r\n' +
-        "If you have any questions, please contact this number: " + '\r\n\r\n' +
-        "Thank you.";
+        $("#update_todo #td_description").html() + '\r\n\r\n';
 
     navigator.clipboard.writeText(text)
     .then(function (){
@@ -379,6 +418,26 @@ function generateContactMessage($elem, $content)
                 '<input class="form-check-input flex-shrink-0 ff" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
                 '<span class="pt-1 form-checked-content">',
                     '<strong>'+$content[el].emp_first_name +" " + $content[el].emp_last_name+'</strong>',
+                    '<small class="d-block text-muted">',
+                        $content[el].emp_mobile_number,
+                    '</small>',
+                '</span>',
+            '</label>'
+        ];
+        $($elem).append(html.join(""));
+    }
+}
+
+function generateActiveContacts($elem, $content)
+{
+    $($elem).empty();
+
+    for (var el = 0; el < $content.length; el++) {
+        var html = [
+            '<label class="list-group-item d-flex gap-3" id="selectContacts">',
+                '<input class="form-check-input flex-shrink-0 ff" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
+                '<span class="pt-1 form-checked-content">',
+                    '<strong class="fcapital">'+$content[el].emp_first_name +" " + $content[el].emp_last_name+'</strong>',
                     '<small class="d-block text-muted">',
                         $content[el].emp_mobile_number,
                     '</small>',
@@ -535,7 +594,7 @@ function generateTemplateMessageDetail($elem, $content)
                     '<p>Recipient Name: <span class="opacity-75 ms-2">'+$content[el].emp_first_name +" "+ $content[el].emp_last_name +'</span></p>',
                 '</div>',
                 '<div class="col">',
-                    '<p>Recieved: <span class="opacity-75 ms-2">'+humanReadableDate($content[el].todo_created_at, true)+'</span></p>',
+                    '<p>Recieved: <span class="opacity-75 ms-2">'+humanReadableDate($content[el].sent_created_at, true)+'</span></p>',
                 '</div>',
             '</div>',
             '<div class="row">',
@@ -593,41 +652,7 @@ function generateModelTemplateEmployee(elem, $content, $num)
     
 }
 
-// $(document).ready(function (e) {
 
-//     var dt = new Date();
-//     document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
-    
-//     function showTime(){
-//         var date = new Date();
-//         var h = date.getHours(); 
-//         var m = date.getMinutes(); 
-//         var s = date.getSeconds(); 
-//         var session = "AM";
-        
-//         if(h == 0){
-//             h = 12;
-//         }
-        
-//         if(h > 12){
-//             h = h - 12;
-//             session = "PM";
-//         }
-        
-//         h = (h < 10) ? "0" + h : h;
-//         m = (m < 10) ? "0" + m : m;
-//         s = (s < 10) ? "0" + s : s;
-        
-//         var time = h + ":" + m + ":" + s + " " + session;
-//         document.getElementById("DigitalCLOCK").innerText = time;
-//         document.getElementById("DigitalCLOCK").textContent = time;
-        
-//         setTimeout(showTime, 1000);
-        
-//     }
-    
-//     showTime();
-// })
 $(document).ready(function(e){
     
     var currentpage= ($('body').attr('id'))
@@ -716,7 +741,7 @@ function generateModalService($elem, $content)
                 '</div>',     
             '<div class=" d-grid gap-2 mb-3 mt-5">',
                 '<button type="button" class="btn btn-outline-primary" id="UpdateService">Update</button>',
-                '<button type="button" class="btn btn-outline-secondary" id="DeleteService">Delete</button>',
+                '<button type="button" class="btn btn-outline-danger" id="DeleteService">Delete</button>',
             '</div>',
         ];
 

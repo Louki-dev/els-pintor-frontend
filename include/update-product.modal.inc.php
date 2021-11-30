@@ -22,7 +22,7 @@
                     
                 <div class=" d-grid gap-2 mb-3 mt-5">
                     <button type="button" class="btn btn-outline-primary" id="UpdateProduct">Update</button>
-                    <button type="button" class="btn btn-outline-secondary" id="DeleteProduct">Delete</button>
+                    <button type="button" class="btn btn-outline-danger" id="DeleteProduct">Delete</button>
                 </div>
             </div> 
         </div>

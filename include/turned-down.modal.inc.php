@@ -5,9 +5,9 @@
             <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Customer Details</h5>
             <button type="button" class="btn-close btn-light rounded-circle bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form>
+        <form class="container">
             <div class="modal-body">
-                <input type="hidden" id="clipboard">
+                <input type="hidden" id="customer-id" value="">
                 <div class="row ms-2">
                     <div class="col">
                         <p>Customer Name:
@@ -15,6 +15,9 @@
                         </p>
                         <p>Email Address: 
                             <span class="opacity-75 ps-2" id="email"></span>
+                        </p>
+                        <p>Address: 
+                            <span class="opacity-75 ps-2" id="address"></span>
                         </p>
                     </div>
                     <div class="col">
@@ -32,7 +35,7 @@
                     <textarea class="opacity-75 form-control bg-white textarea" id="requestDetails" disabled></textarea>
                     </div>
                 </p>
-                <button type="button" class="btn float-end opacity-50 hover" title="Delete Inquiry" id="deleteRequest">Delete<i class="material-icons fs-6">delete_outline</i></button>
+                <button type="button" class="btn float-end text-muted hover" title="Delete Inquiry" id="deleteRequest">Delete<i class="material-icons fs-6">delete_outline</i></button>
             </div>
             <div class="container d-grid gap-2 mb-4 mt-2">
                 <!-- <button type="button" id="approved" class="btn btn-outline-success">Approve</button> -->

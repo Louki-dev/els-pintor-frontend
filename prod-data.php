@@ -66,6 +66,7 @@ require_once __DIR__ ."/include/create-service.modal.inc.php";
 require_once __DIR__ ."/include/create-product.modal.inc.php";
 require_once __DIR__ ."/include/update-service.modal.inc.php";
 require_once __DIR__ ."/include/update-product.modal.inc.php";
+require_once __DIR__ . "/include/confirm-admin.modal.inc.php";
 ?>
 </body>
 </html>

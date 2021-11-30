@@ -13,10 +13,9 @@
     
     <div class="icons"><!-- 
     <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
-    <div class="material-icons trans" data-bs-toggle="modal" data-bs-target="#inq-modal">maps_ugc</div>
+    <button class="btn btn-primary trans mb-2 pt-1" data-bs-toggle="modal" data-bs-target="#inq-modal">Your Inquiries<button>
         <!-- <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div> -->
         <div class="fas fa-bars trans" id="menu-btn"></div>
-
     </div>
     <nav class="navbar">
         <a href="#home" class="text-decoration-none">Home</a>
@@ -253,10 +252,10 @@
 
         <div class="box mt-5 pt-5 fw-light">
             <h3 class="fw-bold">Contact Info</h3>
-             <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0947-897-0835 </a>
-            <a href="#" class="text-decoration-none"> <i class="fas fa-phone"></i> +0906-944-5124 </a>
-            <a href="#" class="text-decoration-none"> <i class="fas fa-envelope"></i> pawercapstone@gmail.com </a>
-            <a href="#" class="text-decoration-none"> <i class="fas fa-map-marker-alt"></i> San Isidro, Tagbilaran City, bohol - 6300 </a>
+             <a  class="text-decoration-none"> <i class="fas fa-phone"></i> +0947-897-0835 </a>
+            <a  class="text-decoration-none"> <i class="fas fa-phone"></i> +0906-944-5124 </a>
+            <a  class="text-decoration-none"> <i class="fas fa-envelope"></i> pawercapstone@gmail.com </a>
+            <a  class="text-decoration-none"> <i class="fas fa-map-marker-alt"></i> San Isidro, Tagbilaran City, bohol - 6300 </a>
             
         </div>
 
