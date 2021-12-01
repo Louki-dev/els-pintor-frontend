@@ -53,7 +53,7 @@ var check_admin = base1_url + '/api/v1/dashboard/check-admin';
 var check_pass = base1_url + '/api/v1/dashboard/check-pass';
 var check_date = base1_url + '/api/v1/dashboard/check-date';
 
-var redirect_login =  '/frontend/login.php';
-var redirect_dashboard =  '/frontend/dashboard.php';
+var redirect_login =  '/login.php';
+var redirect_dashboard =  '/dashboard.php';
 
 var display_image = base1_url + '/'
