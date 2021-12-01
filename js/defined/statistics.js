@@ -199,6 +199,25 @@
             }
         );
     });
+    
+    $('#request_modal-approve').on('show.bs.modal', function(e) { 
+        ajaxRequest(
+            {
+                customer_id: $(e.relatedTarget).attr("data-info")
+            },
+            {
+                url: dashboard_detail,
+                type: "GET",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    generateModelTemplateApprove("#request_modal-approve", response_data.content);
+                }
+            }
+        );
+    });
 
 
     $(document).on("click","#deleteRequest", function(e) {
@@ -317,8 +336,49 @@
         });
     }
 
+    $(document).on("click", "#close_modal", function (e) {
+        $("#start-date").val("");
+        $("#due-date").val("");
+    });
+        
+    $(document).on("click", "#close_modal_choose_contact", function (e) {
+        $("#start-date").val("");
+        $("#due-date").val("");
+    });
+        
     $(document).on("click", "#approved", function(e) {
-       
+        let cust_start = document.getElementById("custStart");
+        cust_start.value = $("#start-date").val();
+        let cust_end = document.getElementById("custEnd");
+        cust_end.value = $("#due-date").val();
+        
+        if ($("#start-date").val()) {
+        } else {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Start date must not be empty!',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+        if ($("#due-date").val()) {
+        } else {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Due date must not be empty!',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+        checkDate({
+            started: $("#start-date").val(),
+            deadline: $("#due-date").val()
+        })
+
         Swal.fire({
             title: 'Are you sure you want to approved this item?',
             showCancelButton: true,
@@ -329,6 +389,63 @@
             if (result.isConfirmed) {
                 $('.modal').modal('hide');
                 $('#choose_contacts_modal').modal('show');
+            }else {
+                let cust_start = document.getElementById("custStart");
+                cust_start.value = $("#start-date").val("");
+                let cust_end = document.getElementById("custEnd");
+                cust_end.value = $("#due-date").val("");
+            }
+        });
+
+    });
+        
+    $(document).on("click", "#approve2", function(e) {
+        let cust_start = document.getElementById("custStart");
+        cust_start.value = $("#start-date2").val();
+        let cust_end = document.getElementById("custEnd");
+        cust_end.value = $("#due-date2").val();
+        
+        if ($("#start-date2").val()) {
+        } else {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Start date must not be empty!',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+        if ($("#due-date2").val()) {
+        } else {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Due date must not be empty!',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+        checkDate({
+            started: $("#start-date2").val(),
+            deadline: $("#due-date2").val()
+        });
+        Swal.fire({
+            title: 'Are you sure you want to approved this item?',
+            showCancelButton: true,
+            confirmButtonText: 'Approve',
+            confirmButtonColor: '#2691d9',
+            icon: 'question'
+        }).then(function (result) {
+            if (result.isConfirmed) {
+                $('.modal').modal('hide');
+                $('#choose_contacts_modal').modal('show');
+            }else {
+                let cust_start = document.getElementById("custStart");
+                cust_start.value = $("#start-date2").val("");
+                let cust_end = document.getElementById("custEnd");
+                cust_end.value = $("#due-date2").val("");
             }
         });
 
@@ -341,9 +458,7 @@
         updateCustomerTurdown($status, $id, "Turndown");
     });
 
-
-       
-        
+   
    function updateCustomerTurdown($status, $id, $desc) {
         Swal.fire({
             title: 'Are you sure you want to turndown this item?',
@@ -356,7 +471,7 @@
                 ajaxRequest(
                     {
                         status: $status,
-                        customer_id: $id
+                        customer_id: $id,
                     },
                     {
                         url: dashboad_customer_update_api,
@@ -381,8 +496,32 @@
                 );     
             }
         }); 
+   }
+        
+    function checkDate(data) {
+        ajaxRequest(data,
+            {
+                url: check_date,
+                type: "GET",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    
+                } else {
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: response_data.error,
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
+                }
+            }
+        );     
     }
-    
+       
     $(document).on("click", "#sendSMS", function(e) { 
         
         var $selected = [];
@@ -432,10 +571,32 @@
                 approvedRequest({
                     status: $("#custStat").val(),
                     customer_id: $("#custID").val(),
-                })
+                });
                 $("#sendSMS").prop("disabled", false);
-            } else {
                 
+                approvedDates({
+                    customer_id: $("#custID").val(),
+                    started: $("#start-date").val(),
+                    duedate: $("#due-date").val()
+                });
+                $("#start-date").val("");
+                $("#due-date").val("");
+                $("#start-date2").val("");
+                $("#due-date2").val("");
+
+            } else {
+                $('.modal').modal('hide');
+                // $('#request_modal-0').modal('show');
+                var items = document.getElementsByName('uncheck');
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].type == 'checkbox')
+                        items[i].checked = false;
+                }
+                $("#start-date").val("");
+                $("#due-date").val("");
+                $("#start-date2").val("");
+                $("#due-date2").val("");
+
             }
         }); 
 
@@ -446,6 +607,28 @@
         ajaxRequest(data,
             {
                 url: dashboad_customer_update_api,
+                type: "POST",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    // Swal.fire({
+                    //     title: $desc + '!',
+                    //     text: '',
+                    //     icon: 'success',
+                    //     confirmButtonText: 'OK',
+                    //     confirmButtonColor: '#2691d9',
+                    // });
+                }
+            }
+        ); 
+    }
+    function approvedDates(data)
+    {
+        ajaxRequest(data,
+            {
+                url: dashboad_customer_update_dates,
                 type: "POST",
                 headers: assignAuthHeader(),
                 dataType: "json",

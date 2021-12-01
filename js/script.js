@@ -133,12 +133,12 @@ function generateRequestTemplate($elemId, $elementValue,num)
                                     '<h6 class="mb-0 fcapital " id="emp_name"><span class="hover">' + $elementValue[el].customer_last_name +'</span>',
                                     (num == 0 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_created_at)))+'</small></h6>' : '' ),
                                     (num == 1 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_updated_at)))+'</small></h6>' : '' ),
-                                    (num == 2 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_updated_at)))+'</small></h6>' : '' ),
+                                    (num == 2 ? '<small class="opacity-50" id="updated_at">.' + (time_ago(new Date($elementValue[el].customer_updated_at))) + '</small></h6>' : ''),
                                 '</div>',
                                 '<p class="mb-0 opacity-75" id="request_details_in_list">'+textLimit($elementValue[el].customer_inquiry_details, 20)+'</p>',
                 '</a>',
                         (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Turndown"><small class="text-muted hover text-nowrap"><span class="material-icons">archive</span></small></button>' : ''),
-                        (num == 2 ? '<button type="button" id="approved" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Approve"><small class="text-muted hover text-nowrap"><i class="fas fa-clipboard-check fs-5"></i></small></button>' : ''),
+                        (num == 2 ? '<button type="button"  data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Approve" data-info="'+$elementValue[el].customer_id+'" data-bs-toggle="modal" data-bs-target="#request_modal-approve"><small class="text-muted hover text-nowrap"><i class="fas fa-clipboard-check fs-5"></i></small></button>' : ''),
                     '</div>',
                    '</div>'];
            
@@ -151,6 +151,8 @@ function generateRequestTemplate($elemId, $elementValue,num)
 function generateModelTemplateDashboard($elemId, $content)
 {
     for (var el = 0; el < $content.length; el++) {
+        
+        $($elemId + " #customr-id").attr('data-id',$content[el].customer_id);
         $($elemId + " #customer-id").attr('data-id',$content[el].customer_id);
         $($elemId + " #fullName").html( $content[el].customer_first_name+ " " +  $content[el].customer_last_name);
         $($elemId + " #email").html($content[el].customer_email);
@@ -158,9 +160,37 @@ function generateModelTemplateDashboard($elemId, $content)
         $($elemId + " #mobileNumber").html($content[el].customer_mobile_number);
         $($elemId + " #dateCreated").html(humanReadableDate($content[el].customer_created_at, true));
         $($elemId + " #requestDetails").html($content[el].customer_inquiry_details);
+        $($elemId + " #start-date").html(humanReadableDate($content[el].customer_start_date, true));
+        $($elemId + " #due-date").html(humanReadableDate($content[el].customer_due_date, true));
         $($elemId + " #approved").attr('data-id',$content[el].customer_id);
         $($elemId + " #turndown").attr('data-id', $content[el].customer_id);
         $($elemId + " #deleteRequest").attr('data-id', $content[el].customer_id);
+
+        var custID = $content[el].customer_id;
+        var custname = $content[el].customer_first_name + " " + $content[el].customer_last_name;
+        var custnum = $content[el].customer_mobile_number;
+        var custemail = $content[el].customer_email;
+        var custadd = $content[el].customer_address;
+        var custinq = $content[el].customer_inquiry_details;
+        copydetail(custID, custname, custnum, custemail, custadd, custinq);
+    }
+}
+
+function generateModelTemplateApprove($elemId, $content)
+{
+    for (var el = 0; el < $content.length; el++) {
+        
+        $($elemId + " #customr-id").attr('data-id',$content[el].customer_id);
+        $($elemId + " #fullName2").html( $content[el].customer_first_name+ " " +  $content[el].customer_last_name);
+        $($elemId + " #email2").html($content[el].customer_email);
+        $($elemId + " #address2").html( $content[el].customer_address);
+        $($elemId + " #mobileNumber2").html($content[el].customer_mobile_number);
+        $($elemId + " #dateCreated2").html(humanReadableDate($content[el].customer_created_at, true));
+        $($elemId + " #requestDetails2").html($content[el].customer_inquiry_details);
+        $($elemId + " #start-date2").html(humanReadableDate($content[el].customer_start_date, true));
+        $($elemId + " #due-date2").html(humanReadableDate($content[el].customer_due_date, true));
+        $($elemId + " #approved2").attr('data-id',$content[el].customer_id);
+
 
         var custID = $content[el].customer_id;
         var custname = $content[el].customer_first_name + " " + $content[el].customer_last_name;
@@ -177,6 +207,9 @@ function copydetail(custID, custname, custnum, custemail, custadd, custinq)
     $(document).on('click', '#approved', function (e) {
         customerDetails(custID, custname, custnum, custemail, custadd, custinq);
     });
+    $(document).on('click', '#approve2', function (e) {
+        customerDetails2(custID, custname, custnum, custemail, custadd, custinq);
+    });
 }
 
 function customerDetails(custID, custname, custnum, custemail, custadd, custinq)
@@ -187,7 +220,35 @@ function customerDetails(custID, custname, custnum, custemail, custadd, custinq)
         'Full Name: ' + custname + '\r\n' +
         'Mobile Number: ' + custnum + '\r\n' +
         'Email: ' + custemail + '\r\n' +
-        'Address: ' + custadd + '\r\n\r\n' +
+        'Address: ' + custadd + '\r\n' +
+        'Start Date: ' + $("#start-date").val() + '\r\n' +
+        'Due Date: ' + $("#due-date").val() + '\r\n\r\n' +
+        "-- Project Details --" + '\r\n' +
+        custinq + '\r\n\r\n' ;
+
+    navigator.clipboard.writeText(text)
+
+    let textarea = document.getElementById("send_message");
+    textarea.value = text;
+
+    let cust_id = document.getElementById("custID");
+    cust_id.value = custID;
+    let cust_stat = document.getElementById("custStat");
+    cust_stat.value = 1;
+    
+}
+
+function customerDetails2(custID, custname, custnum, custemail, custadd, custinq)
+{
+    // var servicename = String(document.getElementById('services-copy').value);
+
+    var text = "-- Customer Information --" + '\r\n' +
+        'Full Name: ' + custname + '\r\n' +
+        'Mobile Number: ' + custnum + '\r\n' +
+        'Email: ' + custemail + '\r\n' +
+        'Address: ' + custadd + '\r\n' +
+        'Start Date: ' + $("#start-date2").val() + '\r\n' +
+        'Due Date: ' + $("#due-date2").val() + '\r\n\r\n' +
         "-- Project Details --" + '\r\n' +
         custinq + '\r\n\r\n' ;
 
@@ -435,8 +496,8 @@ function generateActiveContacts($elem, $content)
     for (var el = 0; el < $content.length; el++) {
         var html = [
             '<label class="list-group-item d-flex gap-3" id="selectContacts">',
-                '<input class="form-check-input flex-shrink-0 ff" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
-                '<span class="pt-1 form-checked-content">',
+                '<input class="form-check-input flex-shrink-0 ff" id="flexCheckDefault" name="uncheck" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
+                '<span class="pt-1 form-checked-content" for="flexCheckDefault">',
                     '<strong class="fcapital">'+$content[el].emp_first_name +" " + $content[el].emp_last_name+'</strong>',
                     '<small class="d-block text-muted">',
                         $content[el].emp_mobile_number,

@@ -4,7 +4,7 @@
         
         <div class="modal-body p-4 text-center">
         <div class="container">
-        <p><h5 class="mb-0">Ask the Administrator to confirm changes.</h5></p>
+        <p><h5 class="mb-0">Enter password to confirm changes.</h5></p>
         <p class="mb-0"><input type="password" id="confirm-pass-admin" class="form-control"></p>
         </div>
 

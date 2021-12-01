@@ -340,7 +340,7 @@
 
         if (empty_result == "" && empty_price == "" ) {
             Swal.fire({
-                title: 'Please choose or select 1 color!',
+                title: 'Please choose atleast 1 color!',
                 text: '',
                 icon: 'warning',
                 confirmButtonText: 'OK',

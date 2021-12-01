@@ -8,7 +8,7 @@
         <form class="container">
             <div class="modal-body">
                 <input type="hidden" id="customer-id">
-                <div class="row ms-2">
+                <div class="row">
                     <div class="col">
                         <p>Customer Name:
                             <span class="opacity-75 ps-2 fcapital" id="fullName"></span>
@@ -19,6 +19,9 @@
                         <p>Address: 
                             <span class="opacity-75 ps-2" id="address"></span>
                         </p>
+                        <p>Due Date: 
+                            <span class="opacity-75 ps-2" id="due-date"></span>
+                        </p>
                     </div>
                     <div class="col">
                         <p>Posted:
@@ -27,9 +30,12 @@
                         <p>Mobile Number: 
                             <span class="opacity-75 ps-2" id="mobileNumber"></span>
                         </p>
+                        <p>Start Date: 
+                            <span class="opacity-75 ps-2" id="start-date"></span>
+                        </p>
                     </div>
                 </div><hr>
-                <h6 class="mt-3 ms-2">Inquiry Details:</h6>
+                <h6 class="mt-3">Inquiry Details:</h6>
                 <p class="float-end">
                     <div class="ms-2 mt-2">
                     <textarea class="opacity-75 form-control bg-white textarea" id="requestDetails" disabled></textarea>

@@ -5,7 +5,7 @@
 <div class="container-design-2">
     <div class="container mt-4">
         <div class="button-pos mt-5 float-end">
-            <button type="add" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#emp_create">Create New +</button>
+            <button type="add" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#emp_create">Add Employee</button>
         </div>
 
         <form class="g-3 mb-3">

@@ -9,7 +9,7 @@
 
     <div class="col">
         <div class="mt-5 pb-3 float-end">
-        <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newProduct"> New Products +</button>
+        <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newProduct"> Add Product</button>
         </div>
 
         <form class="g-3 mb-4">
@@ -34,7 +34,7 @@
 
     <div class="col mb-4">
         <div class="mt-5 pb-3 float-end">
-        <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newService"> New Services +</button>
+        <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newService"> Add Service</button>
         </div>
         <form class="g-3 mb-4">
         <div class="input-group rounded-pillflex-nowrap">
