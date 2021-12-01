@@ -22,11 +22,12 @@
             });
             var button = document.querySelector(".ddd");
             if (button != null && button != undefined) {
-                button.disabled = true;
+                button.disabled = false;
             }
+            
         });
         $(document).on("click", "#1", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "PUMPKIN";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -51,7 +52,7 @@
             document.getElementById("c3").value = "Magenta";
         });
         $(document).on("click", "#2", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "CORAL";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -76,7 +77,7 @@
             document.getElementById("c3").value = "White";
         });
         $(document).on("click", "#3", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "GUILLIMAN BLUE";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -101,7 +102,7 @@
             document.getElementById("c3").value = "Cyan";
         });
         $(document).on("click", "#4", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "CRIMSON";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -126,7 +127,7 @@
             document.getElementById("c3").value = "Green";
         });
         $(document).on("click", "#5", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "GOLD";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -151,7 +152,7 @@
             document.getElementById("c3").value = "Green";
         });
         $(document).on("click", "#6", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "INDIAN RED";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -176,7 +177,7 @@
             document.getElementById("c3").value = "Black";
         });
         $(document).on("click", "#7", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "LIGHT SKY BLUE";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -201,7 +202,7 @@
             document.getElementById("c3").value = "White";
         });
         $(document).on("click", "#8", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "MEDIUM SPRING GREEN";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -226,7 +227,7 @@
             document.getElementById("c3").value = "Green";
         });
         $(document).on("click", "#9", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "PEACH PUFF";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -252,7 +253,7 @@
         });
 
         $(document).on("click", "#10", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "PLUM";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -278,7 +279,7 @@
         });
 
         $(document).on("click", "#11", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "AMEIXA";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -304,7 +305,7 @@
         });
 
         $(document).on("click", "#12", function (e) {
-            $("#copyColor").prop("disabled", false);
+            // $("#copyColor").prop("disabled", false);
             var result = "MISTY ROSE";
             var price = "PHP 100.00";
             document.getElementById("color_result").value = result;
@@ -334,6 +335,20 @@
 
 
     $(document).on('click', "#copyColor", function (e) {
+        var empty_result= document.getElementById("color_result").value;
+        var empty_price = document.getElementById("color_price").value;
+
+        if (empty_result == "" && empty_price == "" ) {
+            Swal.fire({
+                title: 'Please choose or select 1 color!',
+                text: '',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+
         copyColor();
     });
 
@@ -1887,7 +1902,7 @@
             first_number == "none" && third_number == "none" ||
             second_number == "none" && third_number == "none" )
         {
-            $("#copyColor").prop("disabled", true);
+            // $("#copyColor").prop("disabled", true);
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '1p') {
                     document.getElementById("color_1").style.background = "#eee";
@@ -1899,7 +1914,17 @@
                     document.getElementById("color_4").style.background = "#eee";
                 }
             });
+            if (empty_result == "" && empty_price == "" ) {
+                Swal.fire({
+                    title: 'Select at least 1 color!',
+                    text: '',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
         }
-
+        
     }
 })();

@@ -30,7 +30,7 @@
     <div class="card shadow centerss container">
     <h5 class="card-header fw-bold bg-white p-3">Find Your Account</h5>
     <div class="card-body">
-        <p class="card-text">Please enter your email to search for your account.</p>
+        <p class="card-text">Please enter your email account.</p>
 
         <input type="text" id="srch_email" class="form-control" placeholder="abcd@email.com" autofocus>
 

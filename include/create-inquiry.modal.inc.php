@@ -46,7 +46,7 @@
             <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                    Check to confirm your inquries
+                    Check to confirm your inquries.
                 </label>
             </div>
 

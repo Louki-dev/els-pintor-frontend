@@ -9,7 +9,7 @@
         </div>
 
         <div class="modal-footer flex-nowrap mt-3 mb-0">
-        <button type="button" class="btn btn-outline-primary fs-6  col-6 m-0 rounded-0" id="confirm-sk-submit"><strong>Confirm</strong></button>
+        <button type="button" class="btn btn-outline-primary fs-6  col-6 m-0 rounded-0" id="confirm-sk-submit"><strong>Validate</strong></button>
         <button type="button" class="btn btn-outline-secondary fs-6  col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
         </div>
         </div>
