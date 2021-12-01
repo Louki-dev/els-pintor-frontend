@@ -128,6 +128,7 @@ require_once __DIR__ . "/include/approved-requeset.modal.inc.php";
 require_once __DIR__ . "/include/approve-from-turndown.modal.inc.php";
 require_once __DIR__ . "/include/turned-down.modal.inc.php";
 require_once __DIR__ . "/include/choose-contacts.modal.inc.php";
+require_once __DIR__ . "/include/choose_contacts_modal2.modal.inc.php";
 require_once __DIR__ . "/include/confirm-admin.modal.inc.php";
 require_once __DIR__ . "/include/script.inc.php"; 
 ?>

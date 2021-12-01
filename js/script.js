@@ -254,12 +254,12 @@ function customerDetails2(custID, custname, custnum, custemail, custadd, custinq
 
     navigator.clipboard.writeText(text)
 
-    let textarea = document.getElementById("send_message");
+    let textarea = document.getElementById("send_message2");
     textarea.value = text;
 
-    let cust_id = document.getElementById("custID");
+    let cust_id = document.getElementById("custID2");
     cust_id.value = custID;
-    let cust_stat = document.getElementById("custStat");
+    let cust_stat = document.getElementById("custStat2");
     cust_stat.value = 1;
     
 }
@@ -490,6 +490,26 @@ function generateContactMessage($elem, $content)
 }
 
 function generateActiveContacts($elem, $content)
+{
+    $($elem).empty();
+
+    for (var el = 0; el < $content.length; el++) {
+        var html = [
+            '<label class="list-group-item d-flex gap-3" id="selectContacts">',
+                '<input class="form-check-input flex-shrink-0 ff" id="flexCheckDefault" name="uncheck" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
+                '<span class="pt-1 form-checked-content" for="flexCheckDefault">',
+                    '<strong class="fcapital">'+$content[el].emp_first_name +" " + $content[el].emp_last_name+'</strong>',
+                    '<small class="d-block text-muted">',
+                        $content[el].emp_mobile_number,
+                    '</small>',
+                '</span>',
+            '</label>'
+        ];
+        $($elem).append(html.join(""));
+    }
+}
+
+function generateActiveContacts2($elem, $content)
 {
     $($elem).empty();
 

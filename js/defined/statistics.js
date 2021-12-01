@@ -2,6 +2,7 @@
 
     $(document).ready(function() {
         loadActiveContacts();
+        loadActiveContacts2();
         loadDashboard();
         requestApiList();
         
@@ -136,6 +137,28 @@
                     if (response_data.content.employees != null) {
                         if (response_data.content.employees.length > 0) {
                             generateActiveContacts('#choose-active-contacts', response_data.content.employees);
+                        }
+                    }
+                }
+            });
+    }
+    
+    function loadActiveContacts2()
+    {
+        generateEmptyTemplate('#choose-active-contacts');
+        ajaxRequest(null,
+            {
+                url: get_active_employee_list,
+                type: "GET",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+
+                    if (response_data.content.employees != null) {
+                        if (response_data.content.employees.length > 0) {
+                            generateActiveContacts2('#choose-active-contacts2', response_data.content.employees);
                         }
                     }
                 }
@@ -400,9 +423,9 @@
     });
         
     $(document).on("click", "#approve2", function(e) {
-        let cust_start = document.getElementById("custStart");
+        let cust_start = document.getElementById("custStart2");
         cust_start.value = $("#start-date2").val();
-        let cust_end = document.getElementById("custEnd");
+        let cust_end = document.getElementById("custEnd2");
         cust_end.value = $("#due-date2").val();
         
         if ($("#start-date2").val()) {
@@ -440,11 +463,11 @@
         }).then(function (result) {
             if (result.isConfirmed) {
                 $('.modal').modal('hide');
-                $('#choose_contacts_modal').modal('show');
+                $('#choose_contacts_modal2').modal('show');
             }else {
-                let cust_start = document.getElementById("custStart");
+                let cust_start = document.getElementById("custStart2");
                 cust_start.value = $("#start-date2").val("");
-                let cust_end = document.getElementById("custEnd");
+                let cust_end = document.getElementById("custEnd2");
                 cust_end.value = $("#due-date2").val("");
             }
         });
@@ -581,8 +604,7 @@
                 });
                 $("#start-date").val("");
                 $("#due-date").val("");
-                $("#start-date2").val("");
-                $("#due-date2").val("");
+
 
             } else {
                 $('.modal').modal('hide');
@@ -594,6 +616,81 @@
                 }
                 $("#start-date").val("");
                 $("#due-date").val("");
+
+
+            }
+        }); 
+
+    });
+    
+    $(document).on("click", "#sendSMS2", function(e) { 
+        
+        var $selected = [];
+   
+        $('#choose-active-contacts2 input:checked').each(function() {
+            $selected.push($(this).val());
+        });
+
+        if ($selected.length == 0) {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'You cannot send without a contact number. Please select atleast 1 number.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+
+        if ($("#send_message2").val() == '') {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Message must not be empty and is required.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+
+        Swal.fire({
+            title: 'Are you sure you want to send this message?',
+            text: '',
+            showCancelButton: true,
+            cancelButtonText: 'No, cancel',
+            confirmButtonText: 'Yes, send this message',
+            confirmButtonColor: '#2691d9',
+            icon: 'question',
+            showLoaderOnConfirm: true,
+        }).then(function (result) {
+            if (result.isConfirmed) {
+                $("#sendSMS2").prop("disabled", true);
+                sendMessage({
+                    message_content: $("#send_message2").val(),
+                    message_numbers: $selected
+                });
+                approvedRequest({
+                    status: $("#custStat2").val(),
+                    customer_id: $("#custID2").val(),
+                });
+                $("#sendSMS2").prop("disabled", false);
+                
+                approvedDates({
+                    customer_id: $("#custID2").val(),
+                    started: $("#start-date2").val(),
+                    duedate: $("#due-date2").val()
+                });
+                $("#start-date2").val("");
+                $("#due-date2").val("");
+
+            } else {
+                $('.modal').modal('hide');
+                // $('#request_modal-0').modal('show');
+                var items = document.getElementsByName('uncheck');
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].type == 'checkbox')
+                        items[i].checked = false;
+                }
                 $("#start-date2").val("");
                 $("#due-date2").val("");
 
@@ -601,6 +698,7 @@
         }); 
 
     });
+        
         
     function approvedRequest(data)
     {
