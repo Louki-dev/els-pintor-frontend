@@ -102,9 +102,9 @@
         if (selected.length > 0) {
 
             Swal.fire({
-                title: 'Are you sure you want to delete these Message(s) ('+selected.length+')?',
+                title: 'Are you sure you want to remove these Message(s) ('+selected.length+')?',
                 showCancelButton: true,
-                confirmButtonText: 'Delete',
+                confirmButtonText: 'Remove',
                 confirmButtonColor: '#2691d9',
             }).then(function (result) {
                 if (result.isConfirmed) { 
@@ -117,7 +117,7 @@
         } else {
             Swal.fire({
                 title: 'Oh no!',
-                text: 'Cannot delete the message. Please select atleast 1 message',
+                text: 'Cannot remove the message. Please select atleast 1 message',
                 icon: 'error',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
@@ -191,8 +191,8 @@
 
             if (checkAdmin.check_pass == '') {
                 Swal.fire({
-                    title: 'Admin password is empty!',
-                    text: 'To confirm changes, please ask the admin.',
+                    title: 'Admin password is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -233,7 +233,7 @@
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonText: 'Yes, remove it!',
             confirmButtonColor: '#2691d9',
             icon: 'question'
         }).then(function (result) {
@@ -251,7 +251,7 @@
                             loadEmployee();
                             Swal.fire({
                                 title: 'Success!',
-                                text: 'Message has been deleted.',
+                                text: 'Message has been removed.',
                                 icon: 'success',
                                 confirmButtonText: 'OK',
                                 confirmButtonColor: '#2691d9',
@@ -259,7 +259,7 @@
                         } else {
                             Swal.fire({
                                 title: 'Oh no!',
-                                text: 'Cannot delete the message. Please check the data',
+                                text: 'Cannot remove the message. Please check the data',
                                 icon: 'error',
                                 confirmButtonText: 'OK',
                                 confirmButtonColor: '#2691d9',
@@ -308,8 +308,8 @@
                 $('.modal').modal('hide');
                 // Swal.fire('Message is successfully sent!', '', 'success');
                 Swal.fire({
-                    title: 'Message is successfully sent!',
-                    text: '',
+                    title: 'Success!',
+                    text: 'Your message has been sent.',
                     icon: 'success',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',

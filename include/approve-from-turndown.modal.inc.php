@@ -3,7 +3,7 @@
         <div class="modal-content">
         <div class="modal-header pending_header2">
             <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Customer Details</h5>
-            <button type="button" class="btn-close btn-light rounded-circle bg-light" id="close_modal" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-light rounded-circle bg-light" id="close_modal2" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form class="container">
             <div class="modal-body" id="pendingrequest">

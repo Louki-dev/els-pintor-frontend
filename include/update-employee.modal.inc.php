@@ -30,7 +30,7 @@
                         <label>Email Address</label></div>
             <div class=" d-grid gap-2 mb-4 mt-5">
                 <button type="button" class="btn btn-outline-primary" id="UpdateEmployee">Update</button>
-                <button type="button" class="btn btn-outline-danger" id="deleteEmployee">Delete</button> 
+                <button type="button" class="btn btn-outline-danger" id="deleteEmployee">Remove</button> 
             </div>
             </div>
         </div>

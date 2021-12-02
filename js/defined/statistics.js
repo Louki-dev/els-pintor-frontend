@@ -245,9 +245,9 @@
 
     $(document).on("click","#deleteRequest", function(e) {
         Swal.fire({
-            title: 'Are you sure you want to delete this item?',
+            title: 'Are you sure you want to remove this item?',
             showCancelButton: true,
-            confirmButtonText: 'Delete',
+            confirmButtonText: 'Remove',
             confirmButtonColor: '#2691d9',
         }).then(function (result) {
             if (result.isConfirmed) {
@@ -272,8 +272,8 @@
 
             if (checkAdmin.check_pass == '') {
                 Swal.fire({
-                    title: 'Admin password is empty!',
-                    text: 'To confirm changes, please ask the admin.',
+                    title: 'Admin password is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -314,7 +314,7 @@
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonText: 'Yes, remove it!',
             confirmButtonColor: '#2691d9',
             icon: 'question'
         }).then(function (result) {
@@ -332,8 +332,8 @@
                             requestApiList();
                             $('.modal').modal('hide');
                             Swal.fire({
-                                title: 'Deleted!',
-                                text: 'The request has been deleted. ',
+                                title: 'Removed!',
+                                text: 'The request has been removed. ',
                                 icon: 'success',
                                 confirmButtonText: 'OK',
                                 confirmButtonColor: '#2691d9',
@@ -363,10 +363,20 @@
         $("#start-date").val("");
         $("#due-date").val("");
     });
+    
+    $(document).on("click", "#close_modal2", function (e) {
+        $("#start-date2").val("");
+        $("#due-date2").val("");
+    });
         
     $(document).on("click", "#close_modal_choose_contact", function (e) {
         $("#start-date").val("");
         $("#due-date").val("");
+    });
+        
+    $(document).on("click", "#close_modal_choose_contact2", function (e) {
+        $("#start-date2").val("");
+        $("#due-date2").val("");
     });
         
     $(document).on("click", "#approved", function(e) {
@@ -402,23 +412,7 @@
             deadline: $("#due-date").val()
         })
 
-        Swal.fire({
-            title: 'Are you sure you want to approved this item?',
-            showCancelButton: true,
-            confirmButtonText: 'Approve',
-            confirmButtonColor: '#2691d9',
-            icon: 'question'
-        }).then(function (result) {
-            if (result.isConfirmed) {
-                $('.modal').modal('hide');
-                $('#choose_contacts_modal').modal('show');
-            }else {
-                let cust_start = document.getElementById("custStart");
-                cust_start.value = $("#start-date").val("");
-                let cust_end = document.getElementById("custEnd");
-                cust_end.value = $("#due-date").val("");
-            }
-        });
+        
 
     });
         
@@ -450,27 +444,11 @@
             });
             return;
         }
-        checkDate({
+        checkDate2({
             started: $("#start-date2").val(),
             deadline: $("#due-date2").val()
         });
-        Swal.fire({
-            title: 'Are you sure you want to approved this item?',
-            showCancelButton: true,
-            confirmButtonText: 'Approve',
-            confirmButtonColor: '#2691d9',
-            icon: 'question'
-        }).then(function (result) {
-            if (result.isConfirmed) {
-                $('.modal').modal('hide');
-                $('#choose_contacts_modal2').modal('show');
-            }else {
-                let cust_start = document.getElementById("custStart2");
-                cust_start.value = $("#start-date2").val("");
-                let cust_end = document.getElementById("custEnd2");
-                cust_end.value = $("#due-date2").val("");
-            }
-        });
+        
 
     });
 
@@ -531,7 +509,63 @@
             },
             function (response_data) {
                 if (response_data.status == true) {
-                    
+                    Swal.fire({
+                        title: 'Are you sure you want to approved this item?',
+                        showCancelButton: true,
+                        confirmButtonText: 'Approve',
+                        confirmButtonColor: '#2691d9',
+                        icon: 'question'
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
+                            $('.modal').modal('hide');
+                            $('#choose_contacts_modal').modal('show');
+                        }else {
+                            let cust_start = document.getElementById("custStart");
+                            cust_start.value = $("#start-date").val("");
+                            let cust_end = document.getElementById("custEnd");
+                            cust_end.value = $("#due-date").val("");
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: response_data.error,
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
+                }
+            }
+        );     
+    }
+        
+    function checkDate2(data) {
+        ajaxRequest(data,
+            {
+                url: check_date,
+                type: "GET",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    Swal.fire({
+                        title: 'Are you sure you want to approved this item?',
+                        showCancelButton: true,
+                        confirmButtonText: 'Approve',
+                        confirmButtonColor: '#2691d9',
+                        icon: 'question'
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
+                            $('.modal').modal('hide');
+                            $('#choose_contacts_modal2').modal('show');
+                        }else {
+                            let cust_start = document.getElementById("custStart2");
+                            cust_start.value = $("#start-date2").val("");
+                            let cust_end = document.getElementById("custEnd2");
+                            cust_end.value = $("#due-date2").val("");
+                        }
+                    });
                 } else {
                     Swal.fire({
                         title: 'Oh no!',
@@ -686,7 +720,7 @@
             } else {
                 $('.modal').modal('hide');
                 // $('#request_modal-0').modal('show');
-                var items = document.getElementsByName('uncheck');
+                var items = document.getElementsByName('uncheck2');
                 for (var i = 0; i < items.length; i++) {
                     if (items[i].type == 'checkbox')
                         items[i].checked = false;

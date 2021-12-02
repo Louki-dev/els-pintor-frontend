@@ -3,14 +3,14 @@
         <div class="modal-content">
         <div class="modal-header pending_header2">
             <h5 class="modal-title text-white fw-normal" id="confirm_inquiryModalLabel">Choose An Employee To Disseminate</h5>
-            <button type="button" class="btn-close btn-light rounded-circle bg-light" id="close_modal_choose_contact" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-light rounded-circle bg-light" id="close_modal_choose_contact2" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form class="container">
             <div class="modal-body">
                 <div class="scrollarea2 mt-3" id="choose-active-contacts2">
                 </div>
 
-                <div class="container">
+                <div class="container mt-3">
                     <label for="" class="form-label">Your Message:</label>
                     <textarea class="form-control"  id="send_message2" rows="8"></textarea>
                 </div>

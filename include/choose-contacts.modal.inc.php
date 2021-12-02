@@ -10,7 +10,7 @@
                 <div class="scrollarea2 mt-3" id="choose-active-contacts">
                 </div>
 
-                <div class="container">
+                <div class="container mt-3">
                     <label for="" class="form-label">Your Message:</label>
                     <textarea class="form-control"  id="send_message" rows="8"></textarea>
                 </div>

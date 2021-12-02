@@ -287,9 +287,9 @@
 
     $(document).on('click','#DeleteService', function (e) {
         Swal.fire({
-            title: 'Are you sure you want to delete this service?',
+            title: 'Are you sure you want to remove this service?',
             showCancelButton: true,
-            confirmButtonText: 'Delete',
+            confirmButtonText: 'Remove',
             confirmButtonColor: '#2691d9',
         }).then(function (result) {
             if (result.isConfirmed) { 
@@ -307,9 +307,9 @@
 
     $(document).on('click','#DeleteProduct', function (e) {
         Swal.fire({
-            title: 'Are you sure you want to delete this product?',
+            title: 'Are you sure you want to remove this product?',
             showCancelButton: true,
-            confirmButtonText: 'Delete',
+            confirmButtonText: 'Remove',
             confirmButtonColor: '#2691d9',
         }).then(function (result) {
             if (result.isConfirmed) { 
@@ -562,8 +562,8 @@
 
             if (checkAdmin.check_pass == '') {
                 Swal.fire({
-                    title: 'Admin password is empty!',
-                    text: 'To confirm changes, please ask the admin.',
+                    title: 'Admin password is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -604,7 +604,7 @@
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonText: 'Yes, remove it!',
             confirmButtonColor: '#2691d9',
             icon: 'question'
         }).then(function (result) {
@@ -619,8 +619,8 @@
                 function (response_data) {
                     if (response_data.status == true) {
                         Swal.fire({
-                            title: 'Deleted!',
-                            text: 'Service has been deleted.',
+                            title: 'Removed!',
+                            text: 'Service has been removed.',
                             icon: 'success',
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',
@@ -637,7 +637,7 @@
                     } else {
                         Swal.fire({
                             title: 'Oh no!',
-                            text: 'Cannot delete the service. Unable to complete process.',
+                            text: 'Cannot remove the service. Unable to complete process.',
                             icon: 'error',
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',
@@ -702,8 +702,8 @@
 
             if (checkAdmin.check_pass == '') {
                 Swal.fire({
-                    title: 'Admin password is empty!',
-                    text: 'To confirm changes, please ask the admin.',
+                    title: 'Admin password is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -744,7 +744,7 @@
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonText: 'Yes, remove it!',
             confirmButtonColor: '#2691d9',
             icon: 'question'
         }).then(function (result) {
@@ -759,8 +759,8 @@
                 function (response_data) {
                     if (response_data.status == true) {
                         Swal.fire({
-                            title: 'Deleted!',
-                            text: 'Product has been deleted.',
+                            title: 'Removed!',
+                            text: 'Product has been removed.',
                             icon: 'success',
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',
@@ -775,7 +775,7 @@
                     } else {
                         Swal.fire({
                             title: 'Oh no!',
-                            text: 'Cannot delete the product. Unable to complete process.',
+                            text: 'Cannot remove the product. Unable to complete process.',
                             icon: 'error',
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',

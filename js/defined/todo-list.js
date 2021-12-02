@@ -57,9 +57,9 @@
         if (selected.length > 0) {
 
             Swal.fire({
-                title: 'Are you sure you want to delete these item(s) ('+selected.length+')?',
+                title: 'Are you sure you want to remove these item(s) ('+selected.length+')?',
                 showCancelButton: true,
-                confirmButtonText: 'Delete',
+                confirmButtonText: 'Remove',
                 confirmButtonColor: '#2691d9',
             }).then(function (result){
                 if (result.isConfirmed) {
@@ -72,7 +72,7 @@
         }else {
             Swal.fire({
                 title: 'Oh no!',
-                text: 'Cannot delete the project. Select atleast 1 project',
+                text: 'Cannot remove the project. Select atleast 1 project',
                 icon: 'error',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
@@ -90,9 +90,9 @@
     
         if (selected.length > 0) {
             Swal.fire({
-                title: 'Are you sure you want to delete these item(s) ('+selected.length+')?',
+                title: 'Are you sure you want to remove these item(s) ('+selected.length+')?',
                 showCancelButton: true,
-                confirmButtonText: 'Delete',
+                confirmButtonText: 'Remove',
                 confirmButtonColor: '#2691d9',
             }).then(function (result) {
                 if (result.isConfirmed) { 
@@ -106,7 +106,7 @@
             // Swal.fire('Cannot delete the project.', 'Please select atleast 1 project!', 'error');
             Swal.fire({
                 title: 'Oh no!',
-                text: 'Cannot delete the project. Select atleast 1 project',
+                text: 'Cannot remove the project. Select atleast 1 project',
                 icon: 'error',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
@@ -347,8 +347,8 @@
 
             if (checkAdmin.check_pass == '') {
                 Swal.fire({
-                    title: 'Admin password is empty!',
-                    text: 'To confirm changes, please ask the admin.',
+                    title: 'Admin password is required!',
+                    text: '',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -389,7 +389,7 @@
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonText: 'Yes, remove it!',
             confirmButtonColor: '#2691d9',
             icon: 'question'
         }).then(function (result) {
@@ -407,8 +407,8 @@
                             loadTodoList();
                             $('.modal').modal('hide');
                             Swal.fire({
-                                title: 'Deleted!',
-                                text: 'Project has been deleted.',
+                                title: 'Removed!',
+                                text: 'Project has been removed.',
                                 icon: 'success',
                                 confirmButtonText: 'OK',
                                 confirmButtonColor: '#2691d9',
@@ -418,7 +418,7 @@
                             // Swal.fire('Cannot delete the project.', 'Please check the data!', 'error');
                             Swal.fire({
                                 title: 'Oh no!',
-                                text: 'Cannot delete the project. Please check the data',
+                                text: 'Cannot remove the project. Please check the data',
                                 icon: 'error',
                                 confirmButtonText: 'OK',
                                 confirmButtonColor: '#2691d9',
