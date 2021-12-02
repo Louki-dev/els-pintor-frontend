@@ -15,7 +15,7 @@
         <form class="g-3 mb-4">
         <div class="input-group rounded-pill flex-nowrap">
         <span class="input-group-text pending_header text-white" id="searchclear" style="cursor:default;">Search</span>
-        <input type="text" class="form-control" id="search_p" placeholder="Search by Product Name">
+        <input type="text" class="form-control" id="search_p" placeholder="Search by product name">
         </div>
         </form>
 
@@ -39,7 +39,7 @@
         <form class="g-3 mb-4">
         <div class="input-group rounded-pillflex-nowrap">
         <span class="input-group-text pending_header text-white" id="searchclear" style="cursor:default;">Search</span>
-        <input type="text" class="form-control" id="search_s" placeholder="Search by Service Name">
+        <input type="text" class="form-control" id="search_s" placeholder="Search by service name">
         </div>
         </form>
         <table class="table-7">

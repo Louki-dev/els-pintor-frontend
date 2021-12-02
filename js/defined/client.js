@@ -334,7 +334,7 @@
                     '<br>',
                 '<h2 id="sprice' + $content[el].service_id + '" class="fs-4">Price rate: Php ' + NumberComms.format($content[el].service_price) + '.00</h2>',
                 // '<button type="button" id="copyService' + $content[el].service_id + '"class="btn1 text-white mt-3 fs-4 p-2"><small class="ms-2">Add to Inquiry</small><div class="fas fa-paint-roller fs-5 ms-2 me-2"></div></button>',
-                '<button type="button" id="copyService'+$content[el].service_id+'"class="btn1 text-white trans pt-0 fs-4 p-2 mt-3"><small class="ms-2">Add to Inquiry</small><div class="material-icons fs-6 ms-2 me-2">maps_ugc</div></button>',
+                '<button type="button" id="copyService'+$content[el].service_id+'"class="btn1 text-white trans pt-0 fs-4 p-2 mt-3"><small class="ms-2">Add to Inquiry</small><div class="material-icons fs-6 ms-2 me-2 mt-3">maps_ugc</div></button>',
                 '</div></form>'   
             ];
             $($elem).append($html.join(""));

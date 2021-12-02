@@ -45,7 +45,7 @@
       <form class="g-3 mb-4">
       <div class="input-group flex-nowrap">
       <span class="input-group-text pending_header text-white" id="searchclear" style="cursor:default;">Search</span>
-      <input type="text" class="form-control" id="search_m" placeholder="Search by Employee Name">
+      <input type="text" class="form-control" id="search_m" placeholder="Search by last name">
       </div>
       </form>
         <!--------------------------Sent Message------------------------------------------->            

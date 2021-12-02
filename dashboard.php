@@ -13,7 +13,7 @@
                             <div class="pending_header rounded text-light p-4 pe-4">
                                 <h1 class="material-icons fs-1 float-start">person</h1>
                                     <p class="fw-bold text-end fs-4 mb-0" id="emp_status_1">0</p>
-                                    <small class="card-text float-end fw-light">Active Contacts</small>
+                                    <small class="card-text float-end fw-light">Subscribed</small>
                             </div>
                         </div>
                     </div>
@@ -21,9 +21,9 @@
                     <div class="col">
                         <div class="card shadow rounded">
                             <div class="pending_header rounded text-light p-4 pe-4">
-                                <h1 class="material-icons fs-1 float-start">person_off</h1>
+                                <h1 class="material-icons fs-1 float-start">person</h1>
                                 <p class="fw-bold text-end fs-4 mb-0" id="emp_status_0">0</p>
-                                <small class="card-text float-end fw-light">Employees - <small class="opacity-75 fw-light">Inactive</small></small>                             
+                                <small class="card-text float-end fw-light">Unsubscribed</small>                             
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
         <form class="mb-4 container">
         <div class="input-group flex-nowrap">
         <span class="input-group-text pending_header text-white" style="cursor:default;">Search</span>
-        <input type="text" class="form-control"  id="search_d" placeholder="Search by Customer Name">
+        <input type="text" class="form-control"  id="search_d" placeholder="Search by last name">
         </div>
         </form>
         

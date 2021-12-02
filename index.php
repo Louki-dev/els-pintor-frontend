@@ -13,9 +13,9 @@
     
     <div class="icons"><!-- 
     <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
-    <button class="btn btn-primary trans mb-2 pt-1" data-bs-toggle="modal" data-bs-target="#inq-modal">Your Inquiries<button>
+    <button class="btn btn-primary btn-lg trans mb-2 pt-1" data-bs-toggle="modal" data-bs-target="#inq-modal">Your Inquiries<button>
         <!-- <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div> -->
-        <div class="fas fa-bars trans" id="menu-btn"></div>
+        <div class="fas fa-bars trans" id="menu-btn" title="Menu"></div>
     </div>
     <nav class="navbar">
         <a href="#home" class="text-decoration-none">Home</a>
@@ -50,7 +50,7 @@
 
 
 <!-- services section starts  -->
-<br><br><br><br><br><br>
+<br><br><br><br>
 <section class="services" id="services">
 
 <h1 class="heading mt-5 pt-5 fw-bold"> our <span>services</span> </h1>
@@ -115,7 +115,7 @@
             <div class="col">
                     <div class="mixer">     
                         <div class="colors">
-                            <div class="color-mix mb-3 mt-3"data-color="1p" id="color_1"><label>Color 1</label>
+                            <div class="color-mix mb-3 mt-3" data-color="1p" id="color_1" ><label>Color 1</label>
                             </div>
                         </div>
                     </div>
