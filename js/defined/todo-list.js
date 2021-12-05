@@ -10,7 +10,7 @@
     $(document).on("click", "#todo-update", function (e) {
         updateProject({
             todo_id :$(this).attr('data-info'),
-            status: 1
+            status: 4
         });
     });
 
@@ -67,7 +67,14 @@
                     $('#confirm-admin-modal').modal('show');
                     var todoId = selected;
                     confirmAdmin(todoId);
-                } 
+                } else {
+                    var items = document.getElementsByName('todo-uncheck');
+                    for (var i = 0; i < items.length; i++) {
+                        if (items[i].type == 'checkbox')
+                            items[i].checked = false;
+                    }
+                }
+                
             });
         }else {
             Swal.fire({
@@ -77,6 +84,7 @@
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
             });
+            
         }
 
     });
@@ -100,7 +108,14 @@
                     $('#confirm-admin-modal').modal('show');
                     var todoId = selected;
                     confirmAdmin(todoId);
-                } 
+                } else {
+                    var items = document.getElementsByName('todo-uncheck');
+                    for (var i = 0; i < items.length; i++) {
+                        if (items[i].type == 'checkbox')
+                            items[i].checked = false;
+                    }
+                }
+                
             });
         }else {
             // Swal.fire('Cannot delete the project.', 'Please select atleast 1 project!', 'error');
@@ -144,20 +159,20 @@
                         //     });
                         // }
 
-                        if (response_data.content[0]) {
+                        if (response_data.content[1]) {
                             $('#todoContent-paginate-0').pagination({
-                                dataSource: response_data.content[0],
+                                dataSource: response_data.content[1],
                                 callback: function(data, pagination) {
-                                    generateTodoTemplate('#todoContent-0', data, 0);
+                                    generateTodoTemplate('#todoContent-0', data, 1);
                                 }
                             });
                         }
 
-                        if (response_data.content[1]) {
+                        if (response_data.content[4]) {
                             $('#todoContent-paginate-1').pagination({
-                                dataSource: response_data.content[1],
+                                dataSource: response_data.content[4],
                                 callback: function(data, pagination) {
-                                    generateTodoTemplate('#todoContent-1', data, 1);
+                                    generateTodoTemplate('#todoContent-1', data, 4);
                                 }
                             });
                         }
@@ -178,7 +193,6 @@
         };
 
         if (data.title == '') {
-            // Swal.fire('Something went wrong', 'Project name must not be empty', 'error');
             Swal.fire({
                 title: 'Oops...',
                 text: 'Project name must not be empty',
@@ -199,7 +213,6 @@
             return;
         }
         if (data.address == '') {
-            // Swal.fire('Something went wrong', 'Address must not be empty', 'error');
             Swal.fire({
                 title: 'Oops...',
                 text: 'Address must not be empty',
@@ -210,7 +223,6 @@
             return;
         }
         if (data.description == '') {
-            // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
             Swal.fire({
                 title: 'Oops...',
                 text: 'Description must not be empty',
@@ -233,7 +245,6 @@
                 if (response_data.status == true) {
                     loadTodoList();
                     $('.modal').modal('hide');
-                    // Swal.fire('Todo is successfully added!', '', 'success')
                     Swal.fire({
                         title: 'Todo is successfully added!',
                         text: '',
@@ -248,7 +259,6 @@
                         $('#project-date').val("");
                     });
                 } else {
-                    // Swal.fire('Somethin went wrong', 'Unable to complete process. Select another date', 'error');
                     Swal.fire({
                         title: 'Oh no!',
                         text: 'Something went wrong. Due date must be later than today.',
@@ -282,7 +292,7 @@
             function (response_data) {
                 if (response_data.status == true) {
                     if (response_data.content.length > 0) {
-                        getTodoModalTemplate("#todo-project-modal", response_data.content[0])
+                        getTodoModalTemplate("#todo-project-modal", response_data.content[0]);
                     }
                 }
             }
@@ -292,9 +302,9 @@
     function updateProject(data)
     {
         Swal.fire({
-            title: 'Are you sure this project is completed?',
+            title: 'Are you sure this project is complete?',
             showCancelButton: true,
-            confirmButtonText: 'Completed',
+            confirmButtonText: 'Complete',
             confirmButtonColor: '#2691d9',
         }).then(function (result) {
             if (result.isConfirmed) { 
@@ -376,7 +386,6 @@
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',
                         });
-                        $('#confirm-pass-admin').val("");
                     }
                 }
             );
@@ -428,6 +437,11 @@
                 );
             } else {
                 $('#confirm-pass-admin').val("");
+                var items = document.getElementsByName('todo-uncheck');
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].type == 'checkbox')
+                        items[i].checked = false;
+                }
             }
         });
     }
@@ -438,4 +452,6 @@
         $('#project-address').val("");
         $('#project-description').val("");
     });
+
+    
 })();

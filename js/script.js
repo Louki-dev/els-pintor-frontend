@@ -137,8 +137,8 @@ function generateRequestTemplate($elemId, $elementValue,num)
                                 '</div>',
                                 '<p class="mb-0 opacity-75" id="request_details_in_list">'+textLimit($elementValue[el].customer_inquiry_details, 20)+'</p>',
                 '</a>',
-                        (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Turndown"><small class="text-muted hover text-nowrap"><span class="material-icons">archive</span></small></button>' : ''),
-                        (num == 2 ? '<button type="button"  data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Approve" data-info="'+$elementValue[el].customer_id+'" data-bs-toggle="modal" data-bs-target="#request_modal-approve"><small class="text-muted hover text-nowrap"><i class="fas fa-clipboard-check fs-5"></i></small></button>' : ''),
+                        (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Turndown"><small class="text-muted hover text-nowrap"><span class="material-icons">thumb_down_off_alt</span></small></button>' : ''),
+                        (num == 2 ? '<button type="button"  data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Approve" data-info="'+$elementValue[el].customer_id+'" data-bs-toggle="modal" data-bs-target="#request_modal-approve"><small class="text-muted hover text-nowrap"><span class="material-icons">thumb_up_off_alt</span></small></button>' : ''),
                     '</div>',
                    '</div>'];
            
@@ -160,8 +160,8 @@ function generateModelTemplateDashboard($elemId, $content)
         $($elemId + " #mobileNumber").html($content[el].customer_mobile_number);
         $($elemId + " #dateCreated").html(humanReadableDate($content[el].customer_created_at, true));
         $($elemId + " #requestDetails").html($content[el].customer_inquiry_details);
-        $($elemId + " #start-date").html(humanReadableDate($content[el].customer_start_date, true));
-        $($elemId + " #due-date").html(humanReadableDate($content[el].customer_due_date, true));
+        $($elemId + " #start-date").html(humanReadableDate($content[el].customer_start_date));
+        $($elemId + " #due-date").html(humanReadableDate($content[el].customer_due_date));
         $($elemId + " #approved").attr('data-id',$content[el].customer_id);
         $($elemId + " #turndown").attr('data-id', $content[el].customer_id);
         $($elemId + " #deleteRequest").attr('data-id', $content[el].customer_id);
@@ -314,19 +314,19 @@ function generateTodoTemplate($elem, $content, num)
             $html = [
                 '<label class="list-group-item d-flex">',
                     '<div class="flex-fill d-flex gap-3">',
-                        '<input class="form-check-input checkbox mt-3" type="checkbox" value="'+$content[el].todo_id+'" style="font-size: 1.00em;" aria-label="...">',
+                        '<input class="form-check-input checkbox mt-3" name="todo-uncheck" type="checkbox" value="'+$content[el].customer_id+'" style="font-size: 1.00em;" aria-label="...">',
                         '<span class="pt-1 form-checked-content">',
-                            '<strong><a href="" class="text-decoration-none text-dark hover" data-bs-toggle="modal" data-info="'+$content[el].todo_id+'" data-bs-target="#update_todo">'+$content[el].todo_title+'</a></strong>',
+                            '<strong><a href="" class="text-decoration-none text-dark hover" data-bs-toggle="modal" data-info="'+$content[el].customer_id+'" data-bs-target="#update_todo">'+$content[el].customer_first_name + " " + $content[el].customer_last_name + '</a></strong>',
                             '<small class="d-block mt-1">',
                                 '<!--Due Date Observation-->',
-                                ( num == 0 ?'<span class="material-icons fs-5 float-start pe-2 turndown">event</span> ': ''),
-                                ( num == 1 ?'<span class="material-icons fs-5 float-start pe-2 approved">event</span> ': ''),
-                                (num == 0 ? humanReadableDate($content[el].todo_deadline) + " (" + getDayDescription($content[el].todo_deadline) + ")": ''),   
-                               (num == 1 ? humanReadableDate($content[el].todo_updated_at) + " (" + getDayDescription($content[el].todo_updated_at) + ")": ''),                                                                                
+                                ( num == 1 ?'<span class="material-icons fs-5 float-start pe-2 turndown">event</span> ': ''),
+                                ( num == 4 ?'<span class="material-icons fs-5 float-start pe-2 approved">event</span> ': ''),
+                                (num == 1 ? humanReadableDate($content[el].customer_due_date) + " (" + getDayDescription($content[el].customer_due_date) + ") <br><small class='opacity-75 turndown'> Not Fully Paid </small>": ''),   
+                               (num == 4 ? humanReadableDate($content[el].customer_updated_at) + " (" + getDayDescription($content[el].customer_updated_at) + ") <br><small class=' approved'> Fully Paid </small>": ''),                                                                                
                             '</small>',
                         '</span>',
                     '</div>',
-                    (num == 0 ? '<div class="flex-fill align-items-center"><button class="btn float-end text-muted hover" id="todo-update" data-info="'+$content[el].todo_id+'" title="Completed"><i class="material-icons">task_alt</i></button></div>' : ''),
+                    (num == 1 ? '<div class="flex-fill align-items-center"><button class="btn float-end text-muted hover" id="todo-update" data-info="'+$content[el].customer_id+'" title="Complete"><i class="material-icons">task_alt</i></button></div>' : ''),
                 '</label>'
             ];
         
@@ -344,18 +344,22 @@ function getTodoModalTemplate($elem, $content, $num)
     var $html = [
         '<div class="row">',
             '<div class="col">',
-                '<p>Project Name:</span> <span class="opacity-75 ms-2" id="td_title">'+$content.todo_title+ '</span></p>',
-                '<p>Address: <span class="opacity-75 ms-2" id="td_address">'+$content.todo_address+ '</span></p>',
+                '<p>Customer Name:</span> <span class="opacity-75 ms-2" id="td_title">'+$content.customer_first_name + " " + $content.customer_last_name + '</span></p>',
+                '<p>Email: <span class="opacity-75 ms-2" id="td_address">'+$content.customer_email+ '</span></p>',        
+                '<p>Address: <span class="opacity-75 ms-2" id="td_address">' + $content.customer_address + '</span></p>',
             '</div>',
             '<div class="col">',
-                '<p>Created At: <span class="opacity-75 ms-2" id="td_created">'+humanReadableDate($content.todo_created_at)+'</span></p>',
-                ($content.todo_status == 0 ? '<p>Due: <span class="opacity-75 ms-2" id="td_due">'+humanReadableDate($content.todo_deadline) + " (" + getDayDescription($content.todo_deadline) + ")" + '</span></p>' : '<p>Completed At: <span class="opacity-75 ms-2" id="td_due">'+humanReadableDate($content.todo_updated_at) + " (" + getDayDescription($content.todo_updated_at) + ")" + '</span></p>'),
+                '<p>Posted: <span class="opacity-75 ms-2" id="td_created">' + humanReadableDate($content.customer_created_at, true) + '</span></p>',
+                '<p>Mobile Number: <span class="opacity-75 ms-2" id="td_address">' + $content.customer_mobile_number + '</span></p>',
+                ($content.customer_status == 1 ? '<p>Start Date: <span class="opacity-75 ms-2" id="td_due">' + humanReadableDate($content.customer_start_date) + " (" + getDayDescription($content.customer_start_date) + ")" + '</span></p>' : ''),
+                ($content.customer_status == 4 ? '<p>Completed At: <span class="opacity-75 ms-2" id="td_due">'+humanReadableDate($content.customer_updated_at) + " (" + getDayDescription($content.customer_updated_at) + ")" + '</span></p>' : ''),
             '</div>',
         '</div><hr>',
         '<h6>Details:</h6>',
-        '<textarea class="form-control bg-white opacity-75 textarea" id="td_description" aria-describedby="help" disabled>'+ $content.todo_description +'</textarea>',
-        ($content.todo_status == 0 ? '<button type="button" class="btn float-end opacity-50 mt-3 hover" title="Copy to Clipboard" id="copyTodo">Copy<i class="material-icons fs-6">copy_all</i></button>': '')
-
+        '<textarea class="form-control bg-white opacity-75 border-0" rows="4" id="td_description" aria-describedby="help" disabled>' + $content.customer_inquiry_details + '</textarea>',
+        // ($content.customer_status == 1 ? '<button type="button" class="btn float-end opacity-50 mt-3 hover" title="Copy to Clipboard" id="copyTodo">Copy<i class="material-icons fs-6">copy_all</i></button>': '')
+        ($content.customer_status == 1 ? '<a type="button" class="btn float-end text-muted mt-3 hover" id="view-contract" >View Contract</a>' : ''),
+        ($content.customer_status == 4 ? '<a type="button" class="btn float-end text-muted mt-3 hover" id="view-contract" >View Contract</a>' : ''),
     ];
 
     // if ($content.todo_status == '0') {
@@ -370,6 +374,22 @@ function getTodoModalTemplate($elem, $content, $num)
 
     // $("#todo-buttons").empty();
     // $("#todo-buttons").append($buttons.join(""));
+    $(document).on('click','#view-contract',function (){
+        Swal.fire({
+            title: '',
+            text: ($content.customer_status == null ?  'No image' : ''),
+            imageUrl: display_image+$content.customer_contract,
+            imageAlt: ' Image Contract',
+            showCloseButton: true,
+            showConfirmButton: false,
+            // showClass: {
+            //     popup: 'animate__animated animate__fadeInDown'
+            //   },
+            // hideClass: {
+            // popup: 'animate__animated animate__fadeOutUp'
+            // }
+          })
+    });
     $($elem).append($html.join(""));
 }
 

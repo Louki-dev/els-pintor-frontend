@@ -13,7 +13,7 @@
                             <p>Customer Name:
                                 <span class="opacity-75 ps-2 fcapital" id="fullName2"></span>
                             </p>
-                            <p>Email Address: 
+                            <p>Email: 
                                 <span class="opacity-75 ps-2" id="email2"></span>
                             </p>
                             <p>Address: 
@@ -46,6 +46,9 @@
                             <input type="date" class="form-control" id="due-date2">
                         </div>
                     </div>
+                    <div class="mt-3"><label for="" class="col-form-label">Upload Image Contract:</label>
+                    <input type="file" class="form-control"  accept="image/jpeg, image/png" id="pdf-contract2"></div>
+                    <canvas id="pdf_contract_canvas2" style="display: none;"></canvas>
                    
             
                     

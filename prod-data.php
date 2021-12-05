@@ -9,7 +9,7 @@
 
     <div class="col">
         <div class="mt-5 pb-3 float-end">
-        <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newProduct"> Add Product</button>
+        <button type="add" class="btn btn-primary animate__animated animate__fadeInUp" data-bs-toggle="modal" data-bs-target="#newProduct"> Add Product</button>
         </div>
 
         <form class="g-3 mb-4">
@@ -26,15 +26,15 @@
                     <th scope="col">PRODUCT PRICE</th>
                 </tr>
             </thead>
-            <tbody id="product-list-data"></tbody>
+            <tbody id="product-list-data" class="animate__animated animate__fadeIn"></tbody>
         </table>
-        <div id="product-list-data-paginate" class="mb-0 mt-3"></div>
+        <div id="product-list-data-paginate" class="mb-0 mt-3 animate__animated animate__fadeInDown"></div>
         </div>
 
 
     <div class="col mb-4">
         <div class="mt-5 pb-3 float-end">
-        <button type="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newService"> Add Service</button>
+        <button type="add" class="btn btn-primary animate__animated animate__fadeInUp" data-bs-toggle="modal" data-bs-target="#newService"> Add Service</button>
         </div>
         <form class="g-3 mb-4">
         <div class="input-group rounded-pillflex-nowrap">
@@ -50,9 +50,9 @@
                     <th scope="col">SERVICE PRICE</th>
                 </tr>
             </thead>
-            <tbody id="service-list-data"></tbody>
+            <tbody id="service-list-data" class="animate__animated animate__fadeIn"></tbody>
         </table>
-        <div id="service-list-data-paginate" class="mb-0 mt-3"></div>
+        <div id="service-list-data-paginate" class="mb-0 mt-3 animate__animated animate__fadeInDown"></div>
     </div>
 
 </div>

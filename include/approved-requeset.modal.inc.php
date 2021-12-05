@@ -38,7 +38,7 @@
                 <h6 class="mt-3">Inquiry Details:</h6>
                 <p class="float-end">
                     <div class="ms-2 mt-2">
-                    <textarea class="opacity-75 form-control bg-white textarea" id="requestDetails" disabled></textarea>
+                    <textarea class="opacity-75 form-control bg-white border-0"  rows="4" id="requestDetails" disabled></textarea>
                     </div>
                 </p>
                 <button type="button" class="btn float-end text-muted icon hover" title="Copy to Clipboard" id="copyApprovedRequest">Copy<i class="material-icons fs-6">copy_all</i></button>

@@ -13,7 +13,7 @@
                         <p>Customer Name:
                             <span class="opacity-75 ps-2 fcapital" id="fullName"></span>
                         </p>
-                        <p>Email Address: 
+                        <p>Email: 
                             <span class="opacity-75 ps-2" id="email"></span>
                         </p>
                         <p>Address: 

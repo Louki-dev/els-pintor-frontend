@@ -13,7 +13,7 @@
                             <p>Customer Name:
                                 <span class="opacity-75 ps-2 fcapital" id="fullName"></span>
                             </p>
-                            <p>Email Address: 
+                            <p>Email: 
                                 <span class="opacity-75 ps-2" id="email"></span>
                             </p>
                             <p>Address: 
@@ -32,7 +32,7 @@
                     <h6 class="mt-3 ">Inquiry Details:</h6>
                     <p class="float-end">
                         <div class="ms-2 mt-2">
-                        <textarea class="opacity-75 form-control bg-white textarea"  id="requestDetails" disabled></textarea>
+                        <textarea class="opacity-75 form-control bg-white border-0" rows="4" id="requestDetails" disabled></textarea>
                         </div>
                     </p>
                     
@@ -46,7 +46,10 @@
                             <input type="date" class="form-control" id="due-date">
                         </div>
                     </div>
-                   
+                    <div class="mt-3"><label for="project-date" class="col-form-label">Upload Image Contract:</label>
+                    <input type="file" class="form-control"  accept="image/jpeg, image/png" id="pdf-contract"></div>
+                    <canvas id="pdf_contract_canvas" style="display: none;"></canvas>
+                    
             
                     
             </div>

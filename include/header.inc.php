@@ -10,7 +10,8 @@
         <link rel="stylesheet " href="<?php echo Utilities::domain();?>/css/style.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link rel="stylesheet" href="<?php echo Utilities::domain();?>/css/pagination.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
-        <link rel="shortcut icon" href="<?php echo Utilities::domain();?>img/icon.png?v=<?php echo md5(uniqid(rand(), true));?>">
+        <link rel="shortcut icon" href="<?php echo Utilities::domain();?>/img/icon.png?v=<?php echo md5(uniqid(rand(), true));?>">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="<?php echo Utilities::domain();?>/js/bootstrap.bundle.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
         <script src="<?php echo Utilities::domain();?>/js/sweetalert2.all.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>

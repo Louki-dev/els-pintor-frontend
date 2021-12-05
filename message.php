@@ -22,7 +22,7 @@
                 <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                 </div>
           </span>
-              <div class="card-body">
+              <div class="card-body animate__animated animate__fadeIn">
                 <div class="card-body scrollarea p-0">
                   <div class="list-group fcapital" id="employee-contacts">
                   </div>
@@ -67,14 +67,14 @@
             </ul>
             </div>
           </span>
-          <div class="card-body">
+          <div class="card-body animate__animated animate__fadeIn">
             <!------------------------------->
             <div class="list-group fcapital" id="sent-messages">
             </div>
 
             <!------------------------------->
           </div>
-          <div id="sent-message-paginate" class="mb-3 mt-0 ms-3"></div>
+          <div id="sent-message-paginate" class="mb-3 mt-0 ms-3 animate__animated animate__fadeInDown"></div>
         </div>
         <!--------------------------End Sent Message------------------------------------------->
       </div>

@@ -18,6 +18,7 @@
                 <input type="hidden" id="custStat2" value="">
                 <input type="hidden" id="custStart2" value="">
                 <input type="hidden" id="custEnd2" value="">
+                <input type="hidden" id="custContract2" value="">
                 <div class="container d-grid gap-2 mb-4 mt-4">
                     <button type="button" class="btn btn-primary" id="sendSMS2">SEND</button>
                 </div>

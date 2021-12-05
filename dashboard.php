@@ -9,7 +9,7 @@
                 <div class="row row-cols-2 row-cols-sm-2 row-cols-xl-4 g-3">
 
                     <div class="col">
-                        <div class="card shadow rounded">
+                        <div class="card shadow rounded animate__animated animate__slideInDown">
                             <div class="pending_header rounded text-light p-4 pe-4">
                                 <h1 class="material-icons fs-1 float-start">person</h1>
                                     <p class="fw-bold text-end fs-4 mb-0" id="emp_status_1">0</p>
@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="col">
-                        <div class="card shadow rounded">
+                        <div class="card shadow rounded animate__animated animate__slideInDown">
                             <div class="pending_header rounded text-light p-4 pe-4">
                                 <h1 class="material-icons fs-1 float-start">person</h1>
                                 <p class="fw-bold text-end fs-4 mb-0" id="emp_status_0">0</p>
@@ -29,20 +29,20 @@
                     </div>
 
                     <div class="col">
-                        <div class="card shadow rounded">
+                        <div class="card shadow rounded animate__animated animate__slideInDown">
                             <div class="pending_header rounded text-light p-4 pe-4">
                                 <h1 class="material-icons fs-1 float-start">pending_actions</h1>
-                                <p class="fw-bold text-end fs-4 mb-0" id="todo_status_0">0<p>
+                                <p class="fw-bold text-end fs-4 mb-0" id="customer_status__1">0<p>
                                 <small class="card-text float-end fw-light">Ongoing Projects </small>
                             </div>
                         </div>
                     </div>
 
                     <div class="col">
-                        <div class="card shadow rounded">
+                        <div class="card shadow rounded animate__animated animate__slideInDown">
                             <div class="pending_header rounded text-light p-4 pe-4">
                                 <h1 class="material-icons fs-1 float-start">assignment_turned_in</h1>
-                                <p class="fw-bold text-end fs-4 mb-0" id="todo_status_1">0</p>
+                                <p class="fw-bold text-end fs-4 mb-0" id="customer_status_4">0</p>
                                 <small class="card-text float-end fw-light">Completed Projects </small>
                             </div>
                         </div>
@@ -72,16 +72,16 @@
                                 </button>
                               </h2>
                               <div id="collapseZero" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample0">
-                                <div class="accordion-body">
+                                <div class="accordion-body animate__animated animate__fadeIn">
                                     <div class="list-group text-start" id="type-request-0">
                                     </div>
-                                    <div id="type-request-paginate-0" class="mb-0 mt-3"></div>
+                                    <div id="type-request-paginate-0" class="mb-0 mt-3 animate__animated animate__fadeInDown"></div>
                                 </div>
                               </div>
                             </div>
                         </div>
 
-                        <div class="accordion" id="accordionExample1">
+                        <div class="accordion " id="accordionExample1">
                             <div class="accordion-item">
                               <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button pending_header2 text-light fw-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -90,10 +90,10 @@
                                   </button>
                               </h2>
                               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample1">
-                                <div class="accordion-body">
+                                <div class="accordion-body animate__animated animate__fadeIn">
                                     <div class="list-group text-start" id="type-request-1">
                                     </div>
-                                    <div id="type-request-paginate-1" class="mb-0 mt-3"></div>
+                                    <div id="type-request-paginate-1" class="mb-0 mt-3 animate__animated animate__fadeInDown"></div>
                                 </div>
                               </div>
                             </div>
@@ -108,10 +108,10 @@
                                 </button>
                               </h2>
                               <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample2">
-                                <div class="accordion-body">
+                                <div class="accordion-body animate__animated animate__fadeIn">
                                     <div class="list-group text-start" id="type-request-2">
                                     </div>
-                                    <div id="type-request-paginate-2" class="mb-0 mt-3"></div>
+                                    <div id="type-request-paginate-2" class="mb-0 mt-3 animate__animated animate__fadeInDown"></div>
                                 </div>
                               </div>
                             </div>

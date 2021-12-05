@@ -9,7 +9,7 @@
     <form class="g-3 mb-4">
     <div class="input-group flex-nowrap">
     <span class="input-group-text pending_header text-white" id="searchclear" style="cursor:default;">Search</span>
-    <input type="text" class="form-control" id="search_t" placeholder="Search by project name">
+    <input type="text" class="form-control" id="search_t" placeholder="Search by last name">
     </div>
     </form>
     
@@ -27,22 +27,22 @@
                             <a class="btn text-white material-icons float-end" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             more_vert
                             </a>
-                            <span class="material-icons btn text-white float-end" data-bs-toggle="modal" data-bs-target="#todo" title="New Project">
+                            <!-- <span class="material-icons btn text-white float-end" data-bs-toggle="modal" data-bs-target="#todo" title="New Project">
                             post_add
-                            </span>
+                            </span> -->
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><div class="form-check form-switch ms-3">
                                 <input class="form-check-input" type="checkbox" id="selectall-inprogress">
                                 <label class="form-check-label" for="flexSwitchCheckChecked">Select All</label>
                                 </div></li>
                                 <li><input class="dropdown-item" type="submit" id="delete-todoList-inprogress" name='but_delete' value="Remove"></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><input class="dropdown-item" type="submit" data-bs-toggle="modal" data-bs-target="#todo" value="New project..."></li>   
+                                <!-- <li><hr class="dropdown-divider"></li> -->
+                                <!-- <li><input class="dropdown-item" type="submit" data-bs-toggle="modal" data-bs-target="#todo" value="New project..."></li>    -->
                             </ul>
                             </div>
                         </div>
-                        <div class="card-body" id="todoContent-0"></div>
-                        <div id="todoContent-paginate-0" class="mb-3 mt-0 ms-3"></div>
+                        <div class="card-body animate__animated animate__fadeIn" id="todoContent-0"></div>
+                        <div id="todoContent-paginate-0" class="mb-3 mt-0 ms-3 animate__animated animate__fadeInDown"></div>
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@
                             </ul>
                             </div>
                         </div>
-                        <div class="card-body" id="todoContent-1">
+                        <div class="card-body animate__animated animate__fadeIn" id="todoContent-1">
                             <!-- <label class="list-group-item d-flex">
                                 <div class="flex-fill d-flex gap-3">
                                 <input class="form-check-input checkbox mt-3" type="checkbox" name="delete" value="2" style="font-size: 1.00em;" aria-label="...">
@@ -84,7 +84,7 @@
                             </label> -->
                         </div>
                 
-                        <div id="todoContent-paginate-1" class="mb-3 mt-0 float-end ms-3"></div>
+                        <div id="todoContent-paginate-1" class="mb-3 mt-0 float-end ms-3 animate__animated animate__fadeInDown"></div>
                     </div>
                 </div>
             </div>

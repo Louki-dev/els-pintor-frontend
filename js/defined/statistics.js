@@ -6,6 +6,45 @@
         loadDashboard();
         requestApiList();
         
+        function handleImage3(e){
+            var reader = new FileReader();
+            reader.onload = function(event){
+                var img = new Image();
+                img.onload = function(){
+                    canvas3.width = img.width;
+                    canvas3.height = img.height;
+                    ctx3.drawImage(img,0,0);
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(e.target.files[0]);     
+        }
+
+        function handleImage4(e){
+            var reader = new FileReader();
+            reader.onload = function(event){
+                var img = new Image();
+                img.onload = function(){
+                    canvas4.width = img.width;
+                    canvas4.height = img.height;
+                    ctx4.drawImage(img,0,0);
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(e.target.files[0]);     
+        }
+
+        var imageLoader3 = document.getElementById('pdf-contract');
+        imageLoader3.addEventListener('change', handleImage3, false);
+        var canvas3 = document.getElementById('pdf_contract_canvas');
+        var ctx3 = canvas3.getContext('2d');
+
+        var imageLoader4 = document.getElementById('pdf-contract2');
+        imageLoader4.addEventListener('change', handleImage4, false);
+        var canvas4 = document.getElementById('pdf_contract_canvas2');
+        var ctx4 = canvas4.getContext('2d');
+
+
         var typingTimer;              
         var doneTypingInterval = 1000; 
 
@@ -384,12 +423,14 @@
         cust_start.value = $("#start-date").val();
         let cust_end = document.getElementById("custEnd");
         cust_end.value = $("#due-date").val();
+        let cust_contract = document.getElementById("custContract");
+        cust_contract.value = $("#pdf-contract").val();
         
         if ($("#start-date").val()) {
         } else {
             Swal.fire({
                 title: 'Oops...',
-                text: 'Start date must not be empty!',
+                text: 'Start date must not be empty and is required.',
                 icon: 'warning',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
@@ -400,7 +441,18 @@
         } else {
             Swal.fire({
                 title: 'Oops...',
-                text: 'Due date must not be empty!',
+                text: 'Due date must not be empty and is required.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+        if ($("#pdf-contract").val()) {
+        } else {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Image contract must not be empty and is required.',
                 icon: 'warning',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
@@ -421,6 +473,8 @@
         cust_start.value = $("#start-date2").val();
         let cust_end = document.getElementById("custEnd2");
         cust_end.value = $("#due-date2").val();
+        let cust_contract = document.getElementById("custContract2");
+        cust_contract.value = $("#pdf-contract2").val();
         
         if ($("#start-date2").val()) {
         } else {
@@ -438,6 +492,17 @@
             Swal.fire({
                 title: 'Oops...',
                 text: 'Due date must not be empty!',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+        if ($("#pdf-contract2").val()) {
+        } else {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Image contract must not be empty and is required.',
                 icon: 'warning',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
@@ -510,7 +575,7 @@
             function (response_data) {
                 if (response_data.status == true) {
                     Swal.fire({
-                        title: 'Are you sure you want to approved this item?',
+                        title: 'Are you sure you want to approve this item?',
                         showCancelButton: true,
                         confirmButtonText: 'Approve',
                         confirmButtonColor: '#2691d9',
@@ -524,6 +589,8 @@
                             cust_start.value = $("#start-date").val("");
                             let cust_end = document.getElementById("custEnd");
                             cust_end.value = $("#due-date").val("");
+                            let cust_contract = document.getElementById("custContract");
+                            cust_contract.value = $("#pdf-contract").val("");
                         }
                     });
                 } else {
@@ -550,7 +617,7 @@
             function (response_data) {
                 if (response_data.status == true) {
                     Swal.fire({
-                        title: 'Are you sure you want to approved this item?',
+                        title: 'Are you sure you want to approve this item?',
                         showCancelButton: true,
                         confirmButtonText: 'Approve',
                         confirmButtonColor: '#2691d9',
@@ -564,6 +631,8 @@
                             cust_start.value = $("#start-date2").val("");
                             let cust_end = document.getElementById("custEnd2");
                             cust_end.value = $("#due-date2").val("");
+                            let cust_contract = document.getElementById("custContract2");
+                            cust_contract.value = $("#pdf-contract2").val("");
                         }
                     });
                 } else {
@@ -617,7 +686,6 @@
             confirmButtonText: 'Yes, send this message',
             confirmButtonColor: '#2691d9',
             icon: 'question',
-            showLoaderOnConfirm: true,
         }).then(function (result) {
             if (result.isConfirmed) {
                 $("#sendSMS").prop("disabled", true);
@@ -634,10 +702,12 @@
                 approvedDates({
                     customer_id: $("#custID").val(),
                     started: $("#start-date").val(),
-                    duedate: $("#due-date").val()
+                    duedate: $("#due-date").val(),
+                    contract: document.getElementById('pdf_contract_canvas').toDataURL()    
                 });
                 $("#start-date").val("");
                 $("#due-date").val("");
+                $("#pdf-contract").val("");
 
 
             } else {
@@ -650,6 +720,7 @@
                 }
                 $("#start-date").val("");
                 $("#due-date").val("");
+                $("#pdf-contract").val("");
 
 
             }
@@ -695,7 +766,6 @@
             confirmButtonText: 'Yes, send this message',
             confirmButtonColor: '#2691d9',
             icon: 'question',
-            showLoaderOnConfirm: true,
         }).then(function (result) {
             if (result.isConfirmed) {
                 $("#sendSMS2").prop("disabled", true);
@@ -712,10 +782,12 @@
                 approvedDates({
                     customer_id: $("#custID2").val(),
                     started: $("#start-date2").val(),
-                    duedate: $("#due-date2").val()
+                    duedate: $("#due-date2").val(),
+                    contract: document.getElementById('pdf_contract_canvas2').toDataURL()
                 });
                 $("#start-date2").val("");
                 $("#due-date2").val("");
+                $("#pdf-contract2").val("");
 
             } else {
                 $('.modal').modal('hide');
@@ -727,6 +799,7 @@
                 }
                 $("#start-date2").val("");
                 $("#due-date2").val("");
+                $("#pdf-contract2").val("");
 
             }
         }); 

@@ -5,7 +5,7 @@
 <div class="container-design-2">
     <div class="container mt-4">
         <div class="button-pos mt-5 float-end">
-            <button type="add" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#emp_create">Add Employee</button>
+            <button type="add" class="btn btn-primary mb-3 animate__animated animate__fadeInUp" data-bs-toggle="modal" data-bs-target="#emp_create">Add Employee</button>
         </div>
 
         <form class="g-3 mb-3">
@@ -26,10 +26,10 @@
                 <th scope="col">STATUS</th>
             </tr>
             </thead>
-            <tbody id="employee-list-data"></tbody>
+            <tbody id="employee-list-data" class="animate__animated animate__fadeIn"></tbody>
         </table>
         </div>
-        <div id="employee-paginate" class="mb-5 mt-3"></div>
+        <div id="employee-paginate" class="mb-5 mt-3 animate__animated animate__fadeInDown"></div>
     </div>
 </div>
 
