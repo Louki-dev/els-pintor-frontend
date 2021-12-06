@@ -28,9 +28,9 @@
         });
         $(document).on("click", "#1", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "PUMPKIN";
             var price = 'PHP '+total_price+'';
@@ -57,9 +57,9 @@
         });
         $(document).on("click", "#2", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "CORAL";
             var price = 'PHP '+total_price+'';
@@ -86,9 +86,9 @@
         });
         $(document).on("click", "#3", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "GUILLIMAN BLUE";
             var price = 'PHP '+total_price+'';
@@ -115,9 +115,9 @@
         });
         $(document).on("click", "#4", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "CRIMSON";
             var price = 'PHP '+total_price+'';
@@ -144,9 +144,9 @@
         });
         $(document).on("click", "#5", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "GOLD";
             var price = 'PHP '+total_price+'';
@@ -173,9 +173,9 @@
         });
         $(document).on("click", "#6", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "INDIAN RED";
             var price = 'PHP '+total_price+'';
@@ -202,9 +202,9 @@
         });
         $(document).on("click", "#7", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "LIGHT SKY BLUE";
             var price = 'PHP '+total_price+'';
@@ -231,9 +231,9 @@
         });
         $(document).on("click", "#8", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "MEDIUM SPRING GREEN";
             var price = 'PHP '+total_price+'';
@@ -260,9 +260,9 @@
         });
         $(document).on("click", "#9", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "PEACH PUFF";
             var price = 'PHP '+total_price+'';
@@ -290,9 +290,9 @@
 
         $(document).on("click", "#10", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "PLUM";
             var price = 'PHP '+total_price+'';
@@ -320,9 +320,9 @@
 
         $(document).on("click", "#11", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "AMEIXA";
             var price = 'PHP '+total_price+'';
@@ -350,9 +350,9 @@
 
         $(document).on("click", "#12", function (e) {
             // $("#copyColor").prop("disabled", false);
-            var price1 = 100;
-            var price2 = 100;
-            var price3 = 100;
+            var price1 = 850;
+            var price2 = 850;
+            var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "MISTY ROSE";
             var price = 'PHP '+total_price+'';
@@ -420,12 +420,12 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Added to Inquiry!',
-                text: 'Please check your inquiries!',
+                title: 'Added to your Cart!',
+                text: '',
                 icon: 'success',
-                confirmButtonText: 'View Inquiries',
+                confirmButtonText: 'Go to Cart',
                 confirmButtonColor: '#2691d9',
-                cancelButtonText: 'Add another Inquiry',
+                cancelButtonText: 'Add another Item',
                 showCancelButton: true,
             }).then(function (result) {
                 let textarea = document.getElementById("cinq");
@@ -483,15 +483,137 @@
   
         }
 
+        // one color 
+        if (first_number == "Blue" || second_number == "Blue" || third_number == "Blue")
+        {
+            var price1 = (first_number == "Blue"  ? 850.00 : 0);
+            var price2= (second_number == "Blue" ? 850.00 : 0);
+            var price3 = (third_number == "Blue"  ? 850.00 : 0);
+            var totalPrice = price1 + price2 + price3;
+            var result = "BLUE";
+            var price = 'PHP '+totalPrice+'';
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#0000ff";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "Blue";
+                }
+            });
+            document.getElementById("c1").value = first_number;
+            document.getElementById("c2").value = second_number;
+            document.getElementById("c3").value = third_number;
+        }
+        if (first_number == "Green" || second_number == "Green" || third_number == "Green")
+        {
+            var price1 = (first_number == "Green"  ? 850.00 : 0);
+            var price2= (second_number == "Green" ? 850.00 : 0);
+            var price3 = (third_number == "Green" ? 850.00 : 0);
+            var result = "GREEN";
+            var totalPrice = price1 + price2 + price3;
+            var price = 'PHP '+totalPrice+'';
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#008000";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "Green";
+                }
+            });
+            document.getElementById("c1").value = first_number;
+            document.getElementById("c2").value = second_number;
+            document.getElementById("c3").value = third_number;
+        }
+        if (first_number == "Yellow" || second_number == "Yellow" || third_number == "Yellow")
+        {
+            var price1 = (first_number == "Yellow"  ? 850.00 : 0);
+            var price2= (second_number == "Yellow" ? 850.00 : 0);
+            var price3 = (third_number == "Yellow" ? 850.00 : 0);
+            var result = "YELLOW";
+            var totalPrice = price1 + price2 + price3;
+            var price = 'PHP '+totalPrice+'';
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#ffff00";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "Yellow";
+                }
+            });
+            document.getElementById("c1").value = first_number;
+            document.getElementById("c2").value = second_number;
+            document.getElementById("c3").value = third_number;
+        }
+        if (first_number == "Red" || second_number == "Red" || third_number == "Red")
+        {
+            var price1 = (first_number == "Red"  ? 850.00 : 0);
+            var price2= (second_number == "Red" ? 850.00 : 0);
+            var price3 = (third_number == "Red" ? 850.00 : 0);
+            var result = "RED";
+            var totalPrice = price1 + price2 + price3;
+            var price = 'PHP '+totalPrice+'';
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#ff0000";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "Red";
+                }
+            });
+            document.getElementById("c1").value = first_number;
+            document.getElementById("c2").value = second_number;
+            document.getElementById("c3").value = third_number;
+        }
+        if (first_number == "White" || second_number == "White" || third_number == "White")
+        {
+            var price1 = (first_number == "White"  ? 850.00 : 0);
+            var price2= (second_number == "White" ? 850.00 : 0);
+            var price3 = (third_number == "White" ? 850.00 : 0);
+            var result = "WHITE";
+            var totalPrice = price1 + price2 + price3;
+            var price = 'PHP '+totalPrice+'';
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#f8f8ff";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "White";
+                }
+            });
+            document.getElementById("c1").value = first_number;
+            document.getElementById("c2").value = second_number;
+            document.getElementById("c3").value = third_number;
+        }
+        if (first_number == "Black" || second_number == "Black" || third_number == "Black")
+        {
+            var price1 = (first_number == "Black"  ? 850.00 : 0);
+            var price2= (second_number == "Black" ? 850.00 : 0);
+            var price3 = (third_number == "Black" ? 850.00 : 0);
+            var result = "BLACK";
+            var totalPrice = price1 + price2 + price3;
+            var price = 'PHP '+totalPrice+'';
+            document.getElementById("color_result").value = result;
+            document.getElementById("color_price").value = price;
+            document.getElementById("color_hexcode").value = "#000000";
+            $(".colors").children().each(function(item) {
+                if ($(this).attr("data-color") == '3p') {
+                    document.getElementById("color_3").style.background = "Black";
+                }
+            });
+            document.getElementById("c1").value = first_number;
+            document.getElementById("c2").value = second_number;
+            document.getElementById("c3").value = third_number;
+        }
+
         // color mixer 
         if (first_number == "Blue" && second_number == "Blue" && third_number == "Blue"||
             first_number == "Blue" && second_number == "Blue" ||
             first_number == "Blue" && third_number == "Blue" ||
-            second_number == "Blue" && third_number == "Blue" )
+            second_number == "Blue" && third_number == "Blue")
         {
-            var price1 = (first_number == "Blue"  ? 100.00 : 0);
-            var price2= (second_number == "Blue" ? 100.00 : 0);
-            var price3 = (third_number == "Blue"  ? 100.00 : 0);
+            var price1 = (first_number == "Blue"  ? 850.00 : 0);
+            var price2= (second_number == "Blue" ? 850.00 : 0);
+            var price3 = (third_number == "Blue"  ? 850.00 : 0);
             var totalPrice = price1 + price2 + price3;
             var result = "BLUE";
             var price = 'PHP '+totalPrice+'';
@@ -514,13 +636,12 @@
             first_number == "Red" && second_number == "Blue" ||
             first_number == "Red" && third_number == "Blue" )
         {
-            var price1 = (first_number == "Blue"  ? 100.00 : 0);
-            var price2 = (second_number == "Blue" ? 100.00 : 0);
-            var price3 = (third_number == "Blue" ? 100.00 : 0);
-            var price4 = (first_number == "Red"  ? 100.00 : 0);
-            var price5= (second_number == "Red" ? 100.00 : 0);
-            var price6 = (third_number == "Red" ? 100.00 : 0);
-            
+            var price1 = (first_number == "Blue"  ? 850.00 : 0);
+            var price2= (second_number == "Blue" ? 850.00 : 0);
+            var price3 = (third_number == "Blue" ? 850.00 : 0);
+            var price4 = (first_number == "Red"  ? 850.00 : 0);
+            var price5= (second_number == "Red" ? 850.00 : 0);
+            var price6 = (third_number == "Red" ? 850.00 : 0);
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var result = "PURPLE";
             var price = 'PHP '+totalPrice+'';
@@ -543,12 +664,12 @@
             first_number == "Yellow" && second_number == "Blue" ||
             first_number == "Yellow" && third_number == "Blue")
         {
-            var price1 = (first_number == "Blue"  ? 100.00 : 0);
-            var price2= (second_number == "Blue" ? 100.00 : 0);
-            var price3 = (third_number == "Blue" ? 100.00 : 0);
-            var price4 = (first_number == "Yellow"  ? 100.00 : 0);
-            var price5= (second_number == "Yellow" ? 100.00 : 0);
-            var price6 = (third_number == "Yellow" ? 100.00 : 0);
+            var price1 = (first_number == "Blue"  ? 850.00 : 0);
+            var price2= (second_number == "Blue" ? 850.00 : 0);
+            var price3 = (third_number == "Blue" ? 850.00 : 0);
+            var price4 = (first_number == "Yellow"  ? 850.00 : 0);
+            var price5= (second_number == "Yellow" ? 850.00 : 0);
+            var price6 = (third_number == "Yellow" ? 850.00 : 0);
             var result = "GREEN";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -571,12 +692,12 @@
             first_number == "White" && second_number == "Blue" ||
             first_number == "White" && third_number == "Blue")
         {
-            var price1 = (first_number == "Blue"  ? 100.00 : 0);
-            var price2= (second_number == "Blue" ? 100.00 : 0);
-            var price3 = (third_number == "Blue" ? 100.00 : 0);
-            var price4 = (first_number == "White"  ? 100.00 : 0);
-            var price5= (second_number == "White" ? 100.00 : 0);
-            var price6 = (third_number == "White" ? 100.00 : 0);
+            var price1 = (first_number == "Blue"  ? 850.00 : 0);
+            var price2= (second_number == "Blue" ? 850.00 : 0);
+            var price3 = (third_number == "Blue" ? 850.00 : 0);
+            var price4 = (first_number == "White"  ? 850.00 : 0);
+            var price5= (second_number == "White" ? 850.00 : 0);
+            var price6 = (third_number == "White" ? 850.00 : 0);
             var result = "LIGHT BLUE";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -599,12 +720,12 @@
             first_number == "Black" && second_number == "Blue" ||
             first_number == "Black" && third_number == "Blue")
         {
-            var price1 = (first_number == "Blue"  ? 100.00 : 0);
-            var price2= (second_number == "Blue" ? 100.00 : 0);
-            var price3 = (third_number == "Blue" ? 100.00 : 0);
-            var price4 = (first_number == "Black"  ? 100.00 : 0);
-            var price5= (second_number == "Black" ? 100.00 : 0);
-            var price6 = (third_number == "Black" ? 100.00 : 0);
+            var price1 = (first_number == "Blue"  ? 850.00 : 0);
+            var price2= (second_number == "Blue" ? 850.00 : 0);
+            var price3 = (third_number == "Blue" ? 850.00 : 0);
+            var price4 = (first_number == "Black"  ? 850.00 : 0);
+            var price5= (second_number == "Black" ? 850.00 : 0);
+            var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "YVES KLEIN BLUE";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -625,11 +746,11 @@
         if (first_number == "Green" && second_number == "Green" && third_number == "Green" ||
             first_number == "Green" && second_number == "Green" ||
             first_number == "Green" && third_number == "Green" ||
-            second_number == "Green" && third_number == "Green" )
+            second_number == "Green" && third_number == "Green")
         {
-            var price1 = (first_number == "Green"  ? 100.00 : 0);
-            var price2= (second_number == "Green" ? 100.00 : 0);
-            var price3 = (third_number == "Green" ? 100.00 : 0);
+            var price1 = (first_number == "Green"  ? 850.00 : 0);
+            var price2= (second_number == "Green" ? 850.00 : 0);
+            var price3 = (third_number == "Green" ? 850.00 : 0);
             var result = "GREEN";
             var totalPrice = price1 + price2 + price3;
             var price = 'PHP '+totalPrice+'';
@@ -653,12 +774,12 @@
             first_number == "Red" && second_number == "Green" ||
             first_number == "Red" && third_number == "Green")
         {
-            var price1 = (first_number == "Green"  ? 100.00 : 0);
-            var price2= (second_number == "Green" ? 100.00 : 0);
-            var price3 = (third_number == "Green" ? 100.00 : 0);
-            var price4 = (first_number == "Red"  ? 100.00 : 0);
-            var price5= (second_number == "Red" ? 100.00 : 0);
-            var price6 = (third_number == "Red" ? 100.00 : 0);
+            var price1 = (first_number == "Green"  ? 850.00 : 0);
+            var price2= (second_number == "Green" ? 850.00 : 0);
+            var price3 = (third_number == "Green" ? 850.00 : 0);
+            var price4 = (first_number == "Red"  ? 850.00 : 0);
+            var price5= (second_number == "Red" ? 850.00 : 0);
+            var price6 = (third_number == "Red" ? 850.00 : 0);
             var result = "YELLOW";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -682,12 +803,12 @@
             first_number == "Blue" && second_number == "Green" ||
             first_number == "Blue" && third_number == "Green")
         {
-            var price1 = (first_number == "Green"  ? 100.00 : 0);
-            var price2= (second_number == "Green" ? 100.00 : 0);
-            var price3 = (third_number == "Green" ? 100.00 : 0);
-            var price4 = (first_number == "Blue"  ? 100.00 : 0);
-            var price5= (second_number == "Blue" ? 100.00 : 0);
-            var price6 = (third_number == "Blue" ? 100.00 : 0);
+            var price1 = (first_number == "Green"  ? 850.00 : 0);
+            var price2= (second_number == "Green" ? 850.00 : 0);
+            var price3 = (third_number == "Green" ? 850.00 : 0);
+            var price4 = (first_number == "Blue"  ? 850.00 : 0);
+            var price5= (second_number == "Blue" ? 850.00 : 0);
+            var price6 = (third_number == "Blue" ? 850.00 : 0);
             var result = "AQUA";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -711,12 +832,12 @@
             first_number == "Yellow" && second_number == "Green" ||
             first_number == "Yellow" && third_number == "Green")
         {
-            var price1 = (first_number == "Green"  ? 100.00 : 0);
-            var price2= (second_number == "Green" ? 100.00 : 0);
-            var price3 = (third_number == "Green" ? 100.00 : 0);
-            var price4 = (first_number == "Yellow"  ? 100.00 : 0);
-            var price5= (second_number == "Yellow" ? 100.00 : 0);
-            var price6 = (third_number == "Yellow" ? 100.00 : 0);
+            var price1 = (first_number == "Green"  ? 850.00 : 0);
+            var price2= (second_number == "Green" ? 850.00 : 0);
+            var price3 = (third_number == "Green" ? 850.00 : 0);
+            var price4 = (first_number == "Yellow"  ? 850.00 : 0);
+            var price5= (second_number == "Yellow" ? 850.00 : 0);
+            var price6 = (third_number == "Yellow" ? 850.00 : 0);
             var result = "LUCKY LIME";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -740,12 +861,12 @@
             first_number == "White" && second_number == "Green" ||
             first_number == "White" && third_number == "Green")
         {
-            var price1 = (first_number == "Green"  ? 100.00 : 0);
-            var price2= (second_number == "Green" ? 100.00 : 0);
-            var price3 = (third_number == "Green" ? 100.00 : 0);
-            var price4 = (first_number == "White"  ? 100.00 : 0);
-            var price5= (second_number == "White" ? 100.00 : 0);
-            var price6 = (third_number == "White" ? 100.00 : 0);
+            var price1 = (first_number == "Green"  ? 850.00 : 0);
+            var price2= (second_number == "Green" ? 850.00 : 0);
+            var price3 = (third_number == "Green" ? 850.00 : 0);
+            var price4 = (first_number == "White"  ? 850.00 : 0);
+            var price5= (second_number == "White" ? 850.00 : 0);
+            var price6 = (third_number == "White" ? 850.00 : 0);
             var result = "ULVA LACTUCA GREEN";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -769,12 +890,12 @@
             first_number == "Black" && second_number == "Green" ||
             first_number == "Black" && third_number == "Green")
         {
-            var price1 = (first_number == "Green"  ? 100.00 : 0);
-            var price2= (second_number == "Green" ? 100.00 : 0);
-            var price3 = (third_number == "Green" ? 100.00 : 0);
-            var price4 = (first_number == "Black"  ? 100.00 : 0);
-            var price5= (second_number == "Black" ? 100.00 : 0);
-            var price6 = (third_number == "Black" ? 100.00 : 0);
+            var price1 = (first_number == "Green"  ? 850.00 : 0);
+            var price2= (second_number == "Green" ? 850.00 : 0);
+            var price3 = (third_number == "Green" ? 850.00 : 0);
+            var price4 = (first_number == "Black"  ? 850.00 : 0);
+            var price5= (second_number == "Black" ? 850.00 : 0);
+            var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "HUNTER GREEN";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -794,11 +915,11 @@
         if (first_number == "Yellow" && second_number == "Yellow" && third_number == "Yellow" ||
             first_number == "Yellow" && second_number == "Yellow" ||
             first_number == "Yellow" && third_number == "Yellow" ||
-            second_number == "Yellow" && third_number == "Yellow" )
+            second_number == "Yellow" && third_number == "Yellow")
         {
-            var price1 = (first_number == "Yellow"  ? 100.00 : 0);
-            var price2= (second_number == "Yellow" ? 100.00 : 0);
-            var price3 = (third_number == "Yellow" ? 100.00 : 0);
+            var price1 = (first_number == "Yellow"  ? 850.00 : 0);
+            var price2= (second_number == "Yellow" ? 850.00 : 0);
+            var price3 = (third_number == "Yellow" ? 850.00 : 0);
             var result = "YELLOW";
             var totalPrice = price1 + price2 + price3;
             var price = 'PHP '+totalPrice+'';
@@ -821,12 +942,12 @@
             first_number == "Red" && second_number == "Yellow" ||
             first_number == "Red" && third_number == "Yellow")
         {
-            var price1 = (first_number == "Yellow"  ? 100.00 : 0);
-            var price2= (second_number == "Yellow" ? 100.00 : 0);
-            var price3 = (third_number == "Yellow" ? 100.00 : 0);
-            var price4 = (first_number == "Red"  ? 100.00 : 0);
-            var price5= (second_number == "Red" ? 100.00 : 0);
-            var price6 = (third_number == "Red" ? 100.00 : 0);
+            var price1 = (first_number == "Yellow"  ? 850.00 : 0);
+            var price2= (second_number == "Yellow" ? 850.00 : 0);
+            var price3 = (third_number == "Yellow" ? 850.00 : 0);
+            var price4 = (first_number == "Red"  ? 850.00 : 0);
+            var price5= (second_number == "Red" ? 850.00 : 0);
+            var price6 = (third_number == "Red" ? 850.00 : 0);
             var result = "ORANGE";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -849,12 +970,12 @@
             first_number == "White" && second_number == "Yellow" ||
             first_number == "White" && third_number == "Yellow")
         {
-            var price1 = (first_number == "Yellow"  ? 100.00 : 0);
-            var price2= (second_number == "Yellow" ? 100.00 : 0);
-            var price3 = (third_number == "Yellow" ? 100.00 : 0);
-            var price4 = (first_number == "White"  ? 100.00 : 0);
-            var price5= (second_number == "White" ? 100.00 : 0);
-            var price6 = (third_number == "White" ? 100.00 : 0);
+            var price1 = (first_number == "Yellow"  ? 850.00 : 0);
+            var price2= (second_number == "Yellow" ? 850.00 : 0);
+            var price3 = (third_number == "Yellow" ? 850.00 : 0);
+            var price4 = (first_number == "White"  ? 850.00 : 0);
+            var price5= (second_number == "White" ? 850.00 : 0);
+            var price6 = (third_number == "White" ? 850.00 : 0);
             var result = "WINTER DUVET";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -877,12 +998,12 @@
             first_number == "Black" && second_number == "Yellow" ||
             first_number == "Black" && third_number == "Yellow")
         {
-            var price1 = (first_number == "Yellow"  ? 100.00 : 0);
-            var price2= (second_number == "Yellow" ? 100.00 : 0);
-            var price3 = (third_number == "Yellow" ? 100.00 : 0);
-            var price4 = (first_number == "Black"  ? 100.00 : 0);
-            var price5= (second_number == "Black" ? 100.00 : 0);
-            var price6 = (third_number == "Black" ? 100.00 : 0);
+            var price1 = (first_number == "Yellow"  ? 850.00 : 0);
+            var price2= (second_number == "Yellow" ? 850.00 : 0);
+            var price3 = (third_number == "Yellow" ? 850.00 : 0);
+            var price4 = (first_number == "Black"  ? 850.00 : 0);
+            var price5= (second_number == "Black" ? 850.00 : 0);
+            var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "HEART GOLD";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -902,11 +1023,11 @@
         if (first_number == "Red" && second_number == "Red" && third_number == "Red" ||
             first_number == "Red" && second_number == "Red" ||
             first_number == "Red" && third_number == "Red" ||
-            second_number == "Red" && third_number == "Red" )
+            second_number == "Red" && third_number == "Red")
         {
-            var price1 = (first_number == "Red"  ? 100.00 : 0);
-            var price2= (second_number == "Red" ? 100.00 : 0);
-            var price3 = (third_number == "Red" ? 100.00 : 0);
+            var price1 = (first_number == "Red"  ? 850.00 : 0);
+            var price2= (second_number == "Red" ? 850.00 : 0);
+            var price3 = (third_number == "Red" ? 850.00 : 0);
             var result = "RED";
             var totalPrice = price1 + price2 + price3;
             var price = 'PHP '+totalPrice+'';
@@ -930,12 +1051,12 @@
             first_number == "White" && second_number == "Red" ||
             first_number == "White" && third_number == "Red")
         {
-            var price1 = (first_number == "Red"  ? 100.00 : 0);
-            var price2= (second_number == "Red" ? 100.00 : 0);
-            var price3 = (third_number == "Red" ? 100.00 : 0);
-            var price4 = (first_number == "White"  ? 100.00 : 0);
-            var price5= (second_number == "White" ? 100.00 : 0);
-            var price6 = (third_number == "White" ? 100.00 : 0);
+            var price1 = (first_number == "Red"  ? 850.00 : 0);
+            var price2= (second_number == "Red" ? 850.00 : 0);
+            var price3 = (third_number == "Red" ? 850.00 : 0);
+            var price4 = (first_number == "White"  ? 850.00 : 0);
+            var price5= (second_number == "White" ? 850.00 : 0);
+            var price6 = (third_number == "White" ? 850.00 : 0);
             var result = "PINK";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -959,12 +1080,12 @@
             first_number == "Black" && second_number == "Red" ||
             first_number == "Black" && third_number == "Red")
         {
-            var price1 = (first_number == "Red"  ? 100.00 : 0);
-            var price2= (second_number == "Red" ? 100.00 : 0);
-            var price3 = (third_number == "Red" ? 100.00 : 0);
-            var price4 = (first_number == "Black"  ? 100.00 : 0);
-            var price5= (second_number == "Black" ? 100.00 : 0);
-            var price6 = (third_number == "Black" ? 100.00 : 0);
+            var price1 = (first_number == "Red"  ? 850.00 : 0);
+            var price2= (second_number == "Red" ? 850.00 : 0);
+            var price3 = (third_number == "Red" ? 850.00 : 0);
+            var price4 = (first_number == "Black"  ? 850.00 : 0);
+            var price5= (second_number == "Black" ? 850.00 : 0);
+            var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "SCAB RED";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -986,9 +1107,9 @@
             first_number == "White" && third_number == "White" ||
             second_number == "White" && third_number == "White")
         {
-            var price1 = (first_number == "White"  ? 100.00 : 0);
-            var price2= (second_number == "White" ? 100.00 : 0);
-            var price3 = (third_number == "White" ? 100.00 : 0);
+            var price1 = (first_number == "White"  ? 850.00 : 0);
+            var price2= (second_number == "White" ? 850.00 : 0);
+            var price3 = (third_number == "White" ? 850.00 : 0);
             var result = "WHITE";
             var totalPrice = price1 + price2 + price3;
             var price = 'PHP '+totalPrice+'';
@@ -1011,12 +1132,12 @@
             first_number == "Black" && second_number == "White" ||
             first_number == "Black" && third_number == "White")
         {
-            var price1 = (first_number == "White"  ? 100.00 : 0);
-            var price2= (second_number == "White" ? 100.00 : 0);
-            var price3 = (third_number == "White" ? 100.00 : 0);
-            var price4 = (first_number == "Black"  ? 100.00 : 0);
-            var price5= (second_number == "Black" ? 100.00 : 0);
-            var price6 = (third_number == "Black" ? 100.00 : 0);
+            var price1 = (first_number == "White"  ? 850.00 : 0);
+            var price2= (second_number == "White" ? 850.00 : 0);
+            var price3 = (third_number == "White" ? 850.00 : 0);
+            var price4 = (first_number == "Black"  ? 850.00 : 0);
+            var price5= (second_number == "Black" ? 850.00 : 0);
+            var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "GREY";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var price = 'PHP '+totalPrice+'';
@@ -1038,9 +1159,9 @@
             first_number == "Black" && third_number == "Black" ||
             second_number == "Black" && third_number == "Black")
         {
-            var price1 = (first_number == "Black"  ? 100.00 : 0);
-            var price2= (second_number == "Black" ? 100.00 : 0);
-            var price3 = (third_number == "Black" ? 100.00 : 0);
+            var price1 = (first_number == "Black"  ? 850.00 : 0);
+            var price2= (second_number == "Black" ? 850.00 : 0);
+            var price3 = (third_number == "Black" ? 850.00 : 0);
             var result = "BLACK";
             var totalPrice = price1 + price2 + price3;
             var price = 'PHP '+totalPrice+'';
@@ -1066,7 +1187,7 @@
         {
 
             var result = "ROUGE";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1087,7 +1208,7 @@
         {
 
             var result = "TILLANDSIA PURPLE";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1109,7 +1230,7 @@
         {
 
             var result = "MANDARIN PEEL";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1130,7 +1251,7 @@
         {
 
             var result = "AEROSPACE ORANGE";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1151,7 +1272,7 @@
         {
 
             var result = "AVOCADO";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1172,7 +1293,7 @@
         {
 
             var result = "PEPPERONI";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1193,7 +1314,7 @@
         {
 
             var result = "FOND DE TEINT";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1214,7 +1335,7 @@
         {
 
             var result = "FLUORESCENT RED";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1235,7 +1356,7 @@
         {
 
             var result = "SOOOO BLOODY";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1256,7 +1377,7 @@
         {
 
             var result = "HEARTBEAT";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1277,7 +1398,7 @@
         {
 
             var result = "FLUORESCENT LIME";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1298,7 +1419,7 @@
         {
 
             var result = "DULL TURQUOISE";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1319,7 +1440,7 @@
         {
 
             var result = "PIXELATED GRASS";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1340,7 +1461,7 @@
         {
 
             var result = "TEAL MOTIF";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1361,7 +1482,7 @@
         {
 
             var result = "ANGELA BAY";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1382,7 +1503,7 @@
         {
 
             var result = "ASTRO NAUTICO";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1403,7 +1524,7 @@
         {
 
             var result = "NAVAL NIGHT";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1423,7 +1544,7 @@
             first_number == "Black" && second_number == "Blue" && third_number == "Blue")
         {
             var result = "KONJŌ BLUE";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1443,7 +1564,7 @@
             first_number == "Green" && second_number == "Yellow" && third_number == "Yellow")
         {
             var result = "SLIMER GREEN";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1463,14 +1584,14 @@
             first_number == "Green" && second_number == "Yellow" && third_number == "Green")
         {
             var result = "SOUR APPLE RINGS";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
-            document.getElementById("color_hexcode").value = "#40c300";
+            document.getElementById("color_hexcode").value = "#40c2550";
             $(".colors").children().each(function(item) {
                 if ($(this).attr("data-color") == '3p') {
-                    document.getElementById("color_3").style.background = "#40c300";
+                    document.getElementById("color_3").style.background = "#40c2550";
                 }
             });
             document.getElementById("c1").value = first_number;
@@ -1483,7 +1604,7 @@
             first_number == "White" && second_number == "Yellow" && third_number == "White")
         {
             var result = "BOLLYWOOD GOLD";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1503,7 +1624,7 @@
             first_number == "White" && second_number == "Yellow" && third_number == "Yellow")
         {
             var result = "XANTHE YELLOW";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1523,7 +1644,7 @@
             first_number == "Black" && second_number == "Black" && third_number == "Yellow")
         {
             var result = "SCORZONERA BROWN";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1543,7 +1664,7 @@
             first_number == "Black" && second_number == "Yellow" && third_number == "Yellow")
         {
             var result = "NUCLEAR FALLOUT";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1563,7 +1684,7 @@
             first_number == "White" && second_number == "White" && third_number == "Green")
         {
             var result = "LIME DREAM";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1583,7 +1704,7 @@
             first_number == "White" && second_number == "Green" && third_number == "Green")
         {
             var result = "POISONOUS PESTICIDE";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1603,7 +1724,7 @@
             first_number == "Black" && second_number == "Black" && third_number == "Green")
         {
             var result = "DARK GREEN";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1623,7 +1744,7 @@
             first_number == "Black" && second_number == "Green" && third_number == "Green")
         {
             var result = "GREEN HILLS";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1643,7 +1764,7 @@
             first_number == "Black" && second_number == "Black" && third_number == "White")
         {
             var result = "STONE COLD GRAY";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1663,7 +1784,7 @@
             first_number == "White" && second_number == "White" && third_number == "Black")
         {
             var result = "DHŪSAR GREY";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1688,7 +1809,7 @@
             first_number == "Red" && second_number == "Green" && third_number == "Blue")
         {
             var result = "AVOCADO PEAR";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1713,7 +1834,7 @@
             first_number == "Yellow" && second_number == "Red" && third_number == "Blue")
         {
             var result = "CAMEL BROWN";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1736,7 +1857,7 @@
             first_number == "White" && second_number == "Red" && third_number == "Blue")
         {
             var result = "LOW SATURATED SCARLET";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1759,7 +1880,7 @@
             first_number == "Black" && second_number == "Red" && third_number == "Blue")
         {
             var result = "VERY DARK SCARLET";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1782,7 +1903,7 @@
             first_number == "Yellow" && second_number == "Green" && third_number == "Blue")
         {
             var result = "BALLYHOO";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1805,7 +1926,7 @@
             first_number == "White" && second_number == "Green" && third_number == "Blue")
         {
             var result = "O'GRADY GREEN";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1828,7 +1949,7 @@
             first_number == "Black" && second_number == "Green" && third_number == "Blue")
         {
             var result = "PERMANENT GREEN";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1851,7 +1972,7 @@
             first_number == "White" && second_number == "Yellow" && third_number == "Blue")
         {
             var result = "CHERVIL LEAVES";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1874,7 +1995,7 @@
             first_number == "Black" && second_number == "Yellow" && third_number == "Blue")
         {
             var result = "DAISY LEAF";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1897,7 +2018,7 @@
             first_number == "Black" && second_number == "White" && third_number == "Blue")
         {
             var result = "KASHMIR BLUE";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1920,7 +2041,7 @@
             first_number == "Yellow" && second_number == "Green" && third_number == "Red")
         {
             var result = "STRONG MUSTARD";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1943,7 +2064,7 @@
             first_number == "White" && second_number == "Green" && third_number == "Red")
         {
             var result = "GATHERING FIELD";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1966,7 +2087,7 @@
             first_number == "Black" && second_number == "Green" && third_number == "Red")
         {
             var result = "ROMAN BRONZE COIN";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -1989,7 +2110,7 @@
             first_number == "White" && second_number == "Yellow" && third_number == "Red")
         {
             var result = "ECHINOIDEA THORNS";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -2012,7 +2133,7 @@
             first_number == "Black" && second_number == "Yellow" && third_number == "Red")
         {
             var result = "TIJOLO";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -2035,7 +2156,7 @@
             first_number == "Black" && second_number == "White" && third_number == "Red")
         {
             var result = "BRETZEL BROWN";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -2058,7 +2179,7 @@
             first_number == "Black" && second_number == "White" && third_number == "Green")
         {
             var result = "INEFFABLE FOREST";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -2081,7 +2202,7 @@
             first_number == "Yellow" && second_number == "White" && third_number == "Green")
         {
             var result = "CONIFER";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -2104,7 +2225,7 @@
             first_number == "Yellow" && second_number == "White" && third_number == "Black")
         {
             var result = "YELLOW SALMONBERRY";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
@@ -2127,7 +2248,7 @@
             first_number == "Yellow" && second_number == "Green" && third_number == "Black")
         {
             var result = "TATZELWURM GREEN";
-            var totalPrice = 300;
+            var totalPrice = 2550;
             var price = 'PHP '+totalPrice+'';
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;

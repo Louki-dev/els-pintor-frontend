@@ -18,9 +18,9 @@
                     <input class="form-control" type="number" id="serv_price">
                 </div>
             </div>
-            
+
                 <div class="mb-3">
-                    <label for="serv_image" class="form-label">Upload Image File:</label> 
+                    <label for="serv_image" class="form-label mt-3">Upload Image File:</label> 
                     <input class="form-control" type="file" accept="image/jpeg, image/png" name="image" id="serv_image" >
                     <canvas id="serv_image_canvas" style="display: none;"></canvas>
                 </div>

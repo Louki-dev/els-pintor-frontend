@@ -13,7 +13,7 @@
     
     <div class="icons"><!-- 
     <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
-    <button class="btn btn-primary btn-lg trans mb-2 pt-1" data-bs-toggle="modal" data-bs-target="#inq-modal">Your Inquiries<button>
+    <button class="btn btn-primary btn-lg trans mb-2 pt-1" data-bs-toggle="modal" data-bs-target="#inq-modal">View Cart<button>
         <!-- <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div> -->
         <div class="fas fa-bars trans" id="menu-btn" title="Menu"></div>
     </div>
@@ -21,9 +21,9 @@
         <a href="#home" class="text-decoration-none">Home</a>
         <a href="#services"  class="text-decoration-none">Services</a>
         <a href="#gallery"  class="text-decoration-none">Products</a>
-        <a href="#paint"  class="text-decoration-none">Paint Color</a>
-        <a href="#about"  class="text-decoration-none">About</a>
-        <a href="#footer"  class="text-decoration-none">Contact</a>
+        <a href="#paint"  class="text-decoration-none">Paint Color Evaluation</a>
+        <a href="#about"  class="text-decoration-none">About Us</a>
+        <a href="#footer"  class="text-decoration-none">Contact Us</a>
     </nav>
 </header>
 <!-- header section ends  -->
@@ -109,7 +109,7 @@
     </div>
     <div class="box">
            <h3>Color Mixer<button type="reset" id="color_reset"class="btn1 float-end trans " style=" border-radius: 20px;height: 30px; width: 100px;" >Reset</button></h3>
-
+           <div><p class="fs-5 fw-bold opacity-75">Note: Price starts at PHP 850.00 per gallon.</p></div>
         <br>
         <div class="row">
             <div class="col">
@@ -196,7 +196,7 @@
 
                 <input class="mb-1 bg-white" type="text" disabled id="color_price" placeholder="Price" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
 
-                <button type="button" id="copyColor" class="btn1 p-1 pt-0 trans ddd" style="  border-radius: 6px; height: 40px; width: 100%;"  >Add to Inquiry<div class="material-icons fs-6 ms-2">maps_ugc</div></button>
+                <button type="button" id="copyColor" class="btn1 p-1 pt-0 trans ddd" style="  border-radius: 6px; height: 40px; width: 100%;"  >Add to Cart</button>
                   
 </div>
 
@@ -251,11 +251,11 @@
     <div class="box-container">
 
         <div class="box mt-5 pt-5 fw-light">
-            <h3 class="fw-bold">Contact Info</h3>
-             <a  class="text-decoration-none"> <i class="fas fa-phone"></i> +0947-897-0835 </a>
-            <a  class="text-decoration-none"> <i class="fas fa-phone"></i> +0906-944-5124 </a>
-            <a  class="text-decoration-none"> <i class="fas fa-envelope"></i> pawercapstone@gmail.com </a>
-            <a  class="text-decoration-none"> <i class="fas fa-map-marker-alt"></i> San Isidro, Tagbilaran City, bohol - 6300 </a>
+            <h3 class="fw-bold">Contacts</h3>
+            <a  class="text-decoration-none"> <i class="fas fa-phone"></i> +63 947-897-0835 <small>( Smart )</small></a>
+            <a  class="text-decoration-none"> <i class="fas fa-phone"></i> +63 906-944-5124 <small>( Globe )</small></a>
+            <a href="mailto:" class="text-decoration-none pending"> <i class="fas fa-envelope"></i> Email: elsimbajon1006@gmail.com </a>
+            <a  class="text-decoration-none"> <i class="fas fa-map-marker-alt"></i> San Isidro, Tagbilaran City, Bohol - 6300 </a>
             
         </div>
 
