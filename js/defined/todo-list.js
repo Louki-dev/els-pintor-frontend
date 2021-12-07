@@ -1,7 +1,11 @@
 (function () {
 
     $(document).on('click', '#createTodo', createTodoList);
-    $(document).ready(function() {loadTodoList();});
+    $(document).ready(function ()
+    {
+        loadTodoList();
+        loadCompletedList();
+    });
 
     $(document).on("click","#todo-done", function(e) { 
         $('.modal').modal('hide');
@@ -24,12 +28,14 @@
                 typingTimer = setTimeout(doneTyping, doneTypingInterval);
             }else{
                 loadTodoList();
+                loadCompletedList();
             }
         });
     });
 
     function doneTyping () {
         loadTodoList();
+        loadCompletedList();
     }
 
     // selectall-inprogress
@@ -133,7 +139,6 @@
     function loadTodoList()
     {
         generateEmptyTemplate("#todoContent-0");
-        generateEmptyTemplate("#todoContent-1");
 
         ajaxRequest(null,
             {
@@ -148,16 +153,6 @@
             function (response_data) {
                 if (response_data.status == true) {
                     if (response_data.content.length > 0 || typeof response_data.content.length == 'undefined') {
-                        // for (key in response_data.content) {
-                        //     // generateTodoTemplate('#todoContent-'+key, response_data.content[key], key);
-                        //     $('#todoContent-paginate-'+key).pagination({
-                        //         dataSource: response_data.content[key],
-                        //         callback: function(data, pagination) {
-                        //             console.log(key);
-                        //             generateTodoTemplate('#todoContent-'+key, data, key);
-                        //         }
-                        //     });
-                        // }
 
                         if (response_data.content[1]) {
                             $('#todoContent-paginate-0').pagination({
@@ -167,6 +162,29 @@
                                 }
                             });
                         }
+                    }
+                }
+            }
+        );
+    }
+
+    function loadCompletedList()
+    {
+        generateEmptyTemplate("#todoContent-1");
+
+        ajaxRequest(null,
+            {
+                url: get_completed_list,
+                type: "GET",
+                headers: assignAuthHeader(),
+                dataType: "json",
+                data: {
+                    search: $("#search_t").val()
+                }
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    if (response_data.content.length > 0 || typeof response_data.content.length == 'undefined') {
 
                         if (response_data.content[4]) {
                             $('#todoContent-paginate-1').pagination({
@@ -181,6 +199,7 @@
             }
         );
     }
+
 
     function createTodoList()
     {
@@ -244,6 +263,7 @@
             function (response_data) {
                 if (response_data.status == true) {
                     loadTodoList();
+                    loadCompletedList();
                     $('.modal').modal('hide');
                     Swal.fire({
                         title: 'Todo is successfully added!',
@@ -319,6 +339,7 @@
                     function (response_data) {
                         if (response_data.status == true) {
                             loadTodoList();
+                            loadCompletedList();
                             $('.modal').modal('hide');
                             // Swal.fire('Project successfully completed!', '', 'success');
                             Swal.fire({
@@ -414,6 +435,7 @@
                     function (response_data) {
                         if (response_data.status == true) {
                             loadTodoList();
+                            loadCompletedList();
                             $('.modal').modal('hide');
                             Swal.fire({
                                 title: 'Removed!',

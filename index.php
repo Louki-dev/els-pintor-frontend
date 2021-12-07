@@ -88,7 +88,7 @@
 <form>
 <div class="box-container">
     <div class="box">
-             <h3>Available Colors</h3>
+             <h3>Ready-Mixed Colors</h3>
 <br>
         <div class="colors-palette">
             <div class="colors">

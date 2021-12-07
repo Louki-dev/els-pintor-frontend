@@ -306,9 +306,9 @@ function copyDataApprovedRequest()
 
 function generateTodoTemplate($elem, $content, num)
 {
+    $($elem).empty();
+
     if ($content.length > 0) {
-        
-        $($elem).empty();
 
         for (var el = 0; el<$content.length; el++) {
             $html = [

@@ -227,6 +227,8 @@
                     }
                     else {
                         $('#inq-modal').modal('hide');
+                        let inputs = document.getElementById('flexCheckDefault');
+                        inputs.checked = false;
                     }
                 });
                 
@@ -352,11 +354,11 @@
         for (var el = 0; el<$content.length; el++) {
 
             $html = [
-                '<form><input type="hidden" id="products-copy' + $content[el].product_id + '" value="' + $content[el].product_name + '">',,
+                '<form><input type="hidden" id="products-copy' + $content[el].product_id + '" value="' + $content[el].product_name +'">',
                 '<div class="box shadow">',
                 '<img id="pimage'+$content[el].product_id+'" src="'+display_image+$content[el].product_image +'" alt="">',
                 '<div class="content">',
-                    '<h3 id="ptitle'+$content[el].product_id+'" class="fcapital">'+$content[el].product_name +'</h3>',
+                    '<h5 id="ptitle'+$content[el].product_id+'" class="fcapital">'+$content[el].product_name +'</h5>',
                 '<span id="pprice' + $content[el].product_id + '">Php ' + NumberComms.format($content[el].product_price) + '.00</span>',
                 // '<button type="button" id="copyProduct' + $content[el].product_id + '" class="btn pending_header btn_product text-white mt-3 fs-5" style="padding-left:15px !important" >Add to Inquiry<i style="margin-right:10px !important; margin-left:10px !important;" class="fas fa-paint-roller fs-5 m-0"></button>',
                 '<button type="button" id="copyProduct'+$content[el].product_id+'" class="btn pending_header btn_product text-white pt-1 mt-3 fs-5" style="padding-left:15px !important; padding-right:15px !important;" >Add to Cart</button>',

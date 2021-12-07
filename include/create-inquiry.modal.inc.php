@@ -55,7 +55,7 @@
             <div class="d-flex flex-nowrap mt-3 mb-0 gap-2 container pe-3 mb-4">
             
                 <input type="button" data-bs-dismiss="modal" value="Add another Item" class="btn btn-outline-secondary col-6 btn-lg">
-                <button type="button" class="btn btn-outline-primary col-6 btn-lg" id="csubmit" disabled>Submit</button>
+                <button type="button" class="btn btn-outline-primary col-6 btn-lg" id="csubmit" disabled>Submit Inquiry</button>
                 
             </div>
             </center>

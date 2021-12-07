@@ -1,4 +1,4 @@
-var base1_url = "https://elspintor.com/backend";
+var base1_url = "http://localhost/backend";
 var login_api = base1_url + "/api/v1/auth/login";
 var get_user2 = base1_url + '/api/v1/auth/get-user';
 var check_email = base1_url + '/api/v1/auth/check-email';
@@ -13,6 +13,7 @@ var dashboad_customer_update_api = base1_url + '/api/v1/dashboard/update-custome
 var dashboad_customer_update_dates = base1_url + '/api/v1/dashboard/update-customer-dates';
 
 var get_todo_list = base1_url + "/api/v1/dashboard/get-todo-list";
+var get_completed_list = base1_url + "/api/v1/dashboard/get-completed-list";
 var create_todo_list = base1_url + '/api/v1/dashboard/create-todo';
 var get_todo_detail = base1_url + '/api/v1/dashboard/get-todo-detail';
 var update_todo_by_id = base1_url + '/api/v1/dashboard/update-todo';
@@ -54,7 +55,7 @@ var check_admin = base1_url + '/api/v1/dashboard/check-admin';
 var check_pass = base1_url + '/api/v1/dashboard/check-pass';
 var check_date = base1_url + '/api/v1/dashboard/check-date';
 
-var redirect_login =  '/login.php';
-var redirect_dashboard =  '/dashboard.php';
+var redirect_login =  '/frontend/login.php';
+var redirect_dashboard =  '/frontend/dashboard.php';
 
 var display_image = base1_url + '/'

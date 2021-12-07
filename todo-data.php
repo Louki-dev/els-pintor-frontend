@@ -47,7 +47,7 @@
                 </div>
 
             </div>
-
+ 
             <div class="col">
                 <div class="list-group">
                     <div class="card shadow-sm">
@@ -68,21 +68,7 @@
                             </ul>
                             </div>
                         </div>
-                        <div class="card-body animate__animated animate__fadeIn" id="todoContent-1">
-                            <!-- <label class="list-group-item d-flex">
-                                <div class="flex-fill d-flex gap-3">
-                                <input class="form-check-input checkbox mt-3" type="checkbox" name="delete" value="2" style="font-size: 1.00em;" aria-label="...">
-                                <span class="pt-1 form-checked-content">
-                                    <strong><a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#update_todo">project A</a></strong>
-                                    <small class="d-block mt-1">
-                                        Due Date Observation
-                                        <span class="material-icons fs-5 float-start pe-2 pending">event</span>
-                                        Oct 16 2021 - 11:51pm (Saturday)                                                                                
-                                    </small>
-                                </span>
-                                </div>
-                            </label> -->
-                        </div>
+                        <div class="card-body animate__animated animate__fadeIn" id="todoContent-1"></div>
                 
                         <div id="todoContent-paginate-1" class="mb-3 mt-0 float-end ms-3 animate__animated animate__fadeInDown"></div>
                     </div>

@@ -11,7 +11,7 @@
                 <input type="hidden" id="eprod_id">
                 <div class="row g-2 mb-3">
                     <div class="col-md">
-                        <label for="serv_name" class="form-label">Name of Service:</label>
+                        <label for="serv_name" class="form-label">Product Name:</label>
                         <input type="text" class="form-control" id="eprod_name">
                     </div>
                     <div class="col-md">
