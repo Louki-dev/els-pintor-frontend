@@ -5,7 +5,8 @@
         loadActiveContacts2();
         loadDashboard();
         requestApiList();
-        
+        // setInterval(requestApiList, 10000);
+
         function handleImage3(e){
             var reader = new FileReader();
             reader.onload = function(event){
@@ -38,7 +39,7 @@
         imageLoader3.addEventListener('change', handleImage3, false);
         var canvas3 = document.getElementById('pdf_contract_canvas');
         var ctx3 = canvas3.getContext('2d');
-
+        
         var imageLoader4 = document.getElementById('pdf-contract2');
         imageLoader4.addEventListener('change', handleImage4, false);
         var canvas4 = document.getElementById('pdf_contract_canvas2');
@@ -105,7 +106,6 @@
                     }
                 }   
                 );
-            
     }
 
     function requestApiList()
@@ -132,7 +132,7 @@
                             if ( response_data.content[0])  {
                                 $('#type-request-paginate-0').pagination({
                                     dataSource: response_data.content[0],
-                                    callback: function(data, pagination) {
+                                    callback: function (data, pagination) {
                                         generateRequestTemplate("#type-request-0", data, 0);
                                     }
                                 });
@@ -153,13 +153,14 @@
                                     }
                                 });
                             }
-
                         }
                     }
                 }
             );
     }
-
+        // var interval = setInterval(requestApiList, 10000);
+        // var interval = setInterval(loadDashboard, 10000);
+    // clearInterval(interval);
     function loadActiveContacts()
     {
         generateEmptyTemplate('#choose-active-contacts');

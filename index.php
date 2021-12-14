@@ -13,7 +13,7 @@
     
     <div class="icons"><!-- 
     <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
-    <button class="btn btn-primary btn-lg trans mb-2 pt-1" data-bs-toggle="modal" data-bs-target="#inq-modal">View Cart<button>
+    <button class="btn btn-primary btn-lg trans mb-2 pt-1 cart" data-bs-toggle="modal" data-bs-target="#inq-modal">View Cart<button>
         <!-- <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div> -->
         <div class="fas fa-bars trans" id="menu-btn" title="Menu"></div>
     </div>
@@ -254,7 +254,7 @@
             <h3 class="fw-bold">Contacts</h3>
             <a  class="text-decoration-none"> <i class="fas fa-phone"></i> +63 947-897-0835 <small>( Smart )</small></a>
             <a  class="text-decoration-none"> <i class="fas fa-phone"></i> +63 906-944-5124 <small>( Globe )</small></a>
-            <a href="mailto:" class="text-decoration-none pending"> <i class="fas fa-envelope"></i> Email: elsimbajon1006@gmail.com </a>
+            <a href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=elsimbajon1006@gmail.com&tf=1" target="_blank" class="text-decoration-none pending"> <i class="fas fa-envelope"></i> Email: elsimbajon1006@gmail.com </a>
             <a  class="text-decoration-none"> <i class="fas fa-map-marker-alt"></i> San Isidro, Tagbilaran City, Bohol - 6300 </a>
             
         </div>

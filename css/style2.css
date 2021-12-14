@@ -99,8 +99,9 @@ section{
 }
 
 .header .icons div:hover{
-    background:var(--main-color);
-    color:#fff;
+    /* background:var(--main-color); */
+    /* color:#fff; */
+    color:var(--main-color);
 }
 
 .header .navbar{
@@ -667,12 +668,19 @@ section{
 @media (max-width:991px){
 
     html{
-        font-size: 55%;
+        font-size: 70%;
     }    
 
     .header{
         padding:1.5rem 2rem;
     }
+    .header .logo{
+        font-size: 1.5rem;
+    }
+    .header  .icons .cart{
+        font-size: 1rem;
+    }
+
 
 }
 
@@ -715,7 +723,7 @@ section{
 @media (max-width:450px){
 
     html{
-        font-size: 50%;
+        font-size: 80%;
     }   
 
     .contact form .inputBox input{

@@ -75,7 +75,7 @@
                                 <div class="accordion-body animate__animated animate__fadeIn">
                                     <div class="list-group text-start" id="type-request-0">
                                     </div>
-                                    <div id="type-request-paginate-0" class="mb-0 mt-3 animate__animated animate__fadeInDown"></div>
+                                    <div id="type-request-paginate-0" class="mb-0 mt-3 animate__animated animate__fadeInDown pendd"></div>
                                 </div>
                               </div>
                             </div>

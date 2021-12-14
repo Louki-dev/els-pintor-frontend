@@ -586,7 +586,7 @@
                     }else {
                         Swal.fire({
                             title: 'Oh no!',
-                            text: response_data.error + ' Unable to complete process.',
+                            text: response_data.error,
                             icon: 'error',
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',
@@ -726,7 +726,7 @@
                     }else {
                         Swal.fire({
                             title: 'Oh no!',
-                            text: response_data.error + ' Unable to complete process.',
+                            text: response_data.error,
                             icon: 'error',
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',

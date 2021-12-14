@@ -216,7 +216,8 @@ function customerDetails(custID, custname, custnum, custemail, custadd, custinq)
 {
     // var servicename = String(document.getElementById('services-copy').value);
 
-    var text = "-- Customer Information --" + '\r\n' +
+    var text = "[THIS IS AN AUTOMATED MESSAGE - PLEASE DO NOT REPLY DIRECTLY TO THIS TEXT]" + '\r\n\r\n' +
+        "-- Customer Information --" + '\r\n' +
         'Full Name: ' + custname + '\r\n' +
         'Mobile Number: ' + custnum + '\r\n' +
         'Email: ' + custemail + '\r\n' +
@@ -242,7 +243,8 @@ function customerDetails2(custID, custname, custnum, custemail, custadd, custinq
 {
     // var servicename = String(document.getElementById('services-copy').value);
 
-    var text = "-- Customer Information --" + '\r\n' +
+    var text = "[THIS IS AN AUTOMATED MESSAGE - PLEASE DO NOT REPLY DIRECTLY TO THIS TEXT]" + '\r\n\r\n' +
+        "-- Customer Information --" + '\r\n' +
         'Full Name: ' + custname + '\r\n' +
         'Mobile Number: ' + custnum + '\r\n' +
         'Email: ' + custemail + '\r\n' +
@@ -271,7 +273,8 @@ $(document).on('click', "#copyApprovedRequest", function (e) {
 function copyDataApprovedRequest()
 {
 
-    var text = "-- Customer Information --" + '\r\n' +
+    var text = "[THIS IS AN AUTOMATED MESSAGE - PLEASE DO NOT REPLY DIRECTLY TO THIS TEXT]" + '\r\n\r\n' +
+    "-- Customer Information --" + '\r\n' +
     'Full Name: ' + $("#request_modal-1 #fullName").html() + '\r\n' +
     'Email: ' + $("#request_modal-1 #email").html() + '\r\n' +
     'Mobile Number: ' + $("#request_modal-1 #mobileNumber").html() + '\r\n' +
@@ -358,8 +361,8 @@ function getTodoModalTemplate($elem, $content, $num)
         '<h6>Details:</h6>',
         '<textarea class="form-control bg-white opacity-75 border-0" rows="4" id="td_description" aria-describedby="help" disabled>' + $content.customer_inquiry_details + '</textarea>',
         // ($content.customer_status == 1 ? '<button type="button" class="btn float-end opacity-50 mt-3 hover" title="Copy to Clipboard" id="copyTodo">Copy<i class="material-icons fs-6">copy_all</i></button>': '')
-        ($content.customer_status == 1 ? '<a type="button" class="btn float-end text-muted mt-3 hover" id="view-contract" >View Contract</a>' : ''),
-        ($content.customer_status == 4 ? '<a type="button" class="btn float-end text-muted mt-3 hover" id="view-contract" >View Contract</a>' : ''),
+        ($content.customer_status == 1 ? '<a type="button" href='+display_image+$content.customer_contract+' target="_blank" class="btn float-end text-muted mt-3 hover" id="" >View Contract</a>' : ''),
+        ($content.customer_status == 4 ? '<a type="button" href='+display_image+$content.customer_contract+' target="_blank" class="btn float-end text-muted mt-3 hover" id="" >View Contract</a>' : ''),
     ];
 
     // if ($content.todo_status == '0') {
@@ -401,7 +404,8 @@ $(document).on('click', "#copyTodo", function (e) {
 function copyTodoData()
 {
 
-    var text = "-- PROJECT DETAILS --" + '\r\n' +
+    var text = "[THIS IS AN AUTOMATED MESSAGE - PLEASE DO NOT REPLY DIRECTLY TO THIS TEXT]" + '\r\n\r\n' +
+        "-- PROJECT DETAILS --" + '\r\n' +
         'Project: ' + $("#update_todo #td_title").html() + '\r\n' +
         'Address: ' + $("#update_todo #td_address").html() + '\r\n' +
         'Created At: ' + $("#update_todo #td_created").html() + '\r\n' +
