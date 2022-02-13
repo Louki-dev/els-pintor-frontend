@@ -420,7 +420,7 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Added to your Cart!',
+                title: 'Added to Cart!',
                 text: '',
                 icon: 'success',
                 confirmButtonText: 'Go to Cart',

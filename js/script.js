@@ -325,7 +325,7 @@ function generateTodoTemplate($elem, $content, num)
                                 ( num == 1 ?'<span class="material-icons fs-5 float-start pe-2 turndown">event</span> ': ''),
                                 ( num == 4 ?'<span class="material-icons fs-5 float-start pe-2 approved">event</span> ': ''),
                                 (num == 1 ? humanReadableDate($content[el].customer_due_date) + " (" + getDayDescription($content[el].customer_due_date) + ") <br><small class='opacity-75 turndown'> Not Fully Paid </small>": ''),   
-                               (num == 4 ? humanReadableDate($content[el].customer_updated_at) + " (" + getDayDescription($content[el].customer_updated_at) + ") <br><small class=' approved'> Fully Paid </small>": ''),                                                                                
+                               (num == 4 ? humanReadableDate($content[el].customer_completed_at) + " (" + getDayDescription($content[el].customer_completed_at) + ") <br><small class=' approved'> Fully Paid </small>": ''),                                                                                
                             '</small>',
                         '</span>',
                     '</div>',
@@ -355,7 +355,7 @@ function getTodoModalTemplate($elem, $content, $num)
                 '<p>Mobile Number: <span class="opacity-75 ms-2" id="td_address">' + $content.customer_mobile_number + '</span></p>',
                 '<p>Start date: <span class="opacity-75 ms-2" id="td_created">' + humanReadableDate($content.customer_start_date) + '</span></p>',
                 ($content.customer_status == 1 ? '<p>Due Date: <span class="opacity-75 ms-2" id="td_due">' + humanReadableDate($content.customer_due_date) + " (" + getDayDescription($content.customer_due_date) + ")" + '</span></p>' : ''),
-                ($content.customer_status == 4 ? '<p>Completed At: <span class="opacity-75 ms-2" id="td_due">'+humanReadableDate($content.customer_updated_at, true) + '</span></p>' : ''),
+                ($content.customer_status == 4 ? '<p>Completed At: <span class="opacity-75 ms-2" id="td_due">'+humanReadableDate($content.customer_completed_at, true) + '</span></p>' : ''),
             '</div>',
         '</div><hr>',
         '<h6>Details:</h6>',
@@ -503,7 +503,7 @@ function generateContactMessage($elem, $content)
                 '<input class="form-check-input flex-shrink-0 ff" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
                 '<span class="pt-1 form-checked-content">',
                     '<strong>'+$content[el].emp_first_name +" " + $content[el].emp_last_name+'</strong>',
-                    '<small class="d-block text-muted">',
+                    '<small class="d-block text-muted">0',
                         $content[el].emp_mobile_number,
                     '</small>',
                 '</span>',
@@ -523,7 +523,7 @@ function generateActiveContacts($elem, $content)
                 '<input class="form-check-input flex-shrink-0 ff" id="flexCheckDefault" name="uncheck" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
                 '<span class="pt-1 form-checked-content" for="flexCheckDefault">',
                     '<strong class="fcapital">'+$content[el].emp_first_name +" " + $content[el].emp_last_name+'</strong>',
-                    '<small class="d-block text-muted">',
+                    '<small class="d-block text-muted">0',
                         $content[el].emp_mobile_number,
                     '</small>',
                 '</span>',
@@ -543,7 +543,7 @@ function generateActiveContacts2($elem, $content)
                 '<input class="form-check-input flex-shrink-0 ff" id="flexCheckDefault" name="uncheck2" type="checkbox" value="'+$content[el].emp_mobile_number+'" style="font-size: 1.375em;">',
                 '<span class="pt-1 form-checked-content" for="flexCheckDefault">',
                     '<strong class="fcapital">'+$content[el].emp_first_name +" " + $content[el].emp_last_name+'</strong>',
-                    '<small class="d-block text-muted">',
+                    '<small class="d-block text-muted">0',
                         $content[el].emp_mobile_number,
                     '</small>',
                 '</span>',
@@ -635,16 +635,19 @@ function generateTemplateEmployee($elem, $content, $num)
         id="tfname_'+$content[el].emp_id+'"
         
         $html = [
-           '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].emp_id+'" data-bs-target="#edit_emp_modal">',
-                '<td data-label="Employee Information">',
-                '<span class="material-icons '+ ($content[el].emp_status == 1 ? "approved": "offline" && ($content[el].emp_status == 3 ? "turndown" : "offline")) +'">'+ ($content[el].emp_status == 1 ? "person": "person" && ($content[el].emp_status == 3 ? "person_off" : "person")) +'</span></td>',
-                '<td data-label="Employee Name""><span class="fcapital">',
+           '<tr>',
+                '<td data-label="Employee Information" class="txt_uppercase">',
+                '<span class="material-icons '+ ($content[el].emp_status == 1 ? "pending": "offline" && ($content[el].emp_status == 3 ? "turndown" : "offline")) +'">'+ ($content[el].emp_status == 1 ? "person": "person" && ($content[el].emp_status == 3 ? "person_off" : "person")) +'</span></td>',
+                '<td data-label="Employee Name"><span class="fcapital">',
                     '<span id="tfname_'+$content[el].emp_id+'">'+$content[el].emp_first_name +'</span> ', 
                     '<span id="tlname_'+$content[el].emp_id+'">'+ $content[el].emp_last_name +'</span></span>',
+                    '<br><small class="hid2 '+ ($content[el].emp_status == 1 ? "pending": "offline" && ($content[el].emp_status == 3 ? "turndown" : "offline")) +'">'+ ($content[el].emp_status == 1 ? "Subscribed" : "Unsubscribed" && ($content[el].emp_status == 3 ? "Removed" : "Unsubscribed"))  +'</small>',
                 '</td>',
-                '<td id="tnumber_'+$content[el].emp_id+'" data-label="Mobile Number">'+ $content[el].emp_mobile_number +'</td>',
-                '<td id="temail_'+$content[el].emp_id+'" data-label="Email Address">'+$content[el].emp_email+'</td>',
-                '<td data-label="Status"><span class="'+ ($content[el].emp_status == 1 ? "approved": "offline" && ($content[el].emp_status == 3 ? "turndown" : "offline")) +'">'+ ($content[el].emp_status == 1 ? "Subscribed" : "Unsubscribed" && ($content[el].emp_status == 3 ? "Removed" : "Unsubscribed"))  +'</span></td>',
+                '<td id="tnumber_'+$content[el].emp_id+'" data-label="Mobile Number" class="hid">0'+ $content[el].emp_mobile_number +'</td>',
+                '<td id="temail_'+$content[el].emp_id+'" data-label="Email Address" class="hid">'+$content[el].emp_email+'</td>',
+                '<td data-label="Status"><span class="'+ ($content[el].emp_work_status == 1 ? "offline": "approved" && ($content[el].emp_work_status == 2 ? "turndown" : "approved")) +'">'+ ($content[el].emp_work_status == 1 ? "Unavailable" : "Available" && ($content[el].emp_work_status == 2 ? "Removed" : "Available"))  +'</span></td>',
+                '<td data-label=""><button type="button" class="btn btn-outline-primary btn-sm me-2" data-bs-toggle="modal" data-info="'+$content[el].emp_id+'" data-bs-target="#edit_emp_modal">Edit</button><a type="button" class="btn btn-outline-primary btn-sm" id="task_'+$content[el].emp_id+'">Task</a></td>',
+                // '<td data-label="Status"><span class="'+ ($content[el].emp_status == 1 ? "approved": "offline" && ($content[el].emp_status == 3 ? "turndown" : "offline")) +'">'+ ($content[el].emp_status == 1 ? "Subscribed" : "Unsubscribed" && ($content[el].emp_status == 3 ? "Removed" : "Unsubscribed"))  +'</span></td>',
                 // '<td>',
                 //     '<button class="btn btn-sm" id="deleteEmployee" data-info="'+$content[el].emp_id+'">',
                 //         '<span class="material-icons text-muted material-icons-outlined fs-3">delete</span>',
@@ -655,9 +658,22 @@ function generateTemplateEmployee($elem, $content, $num)
 
         $($elem).append($html.join(""));
         
+        var empId = $content[el].emp_id;
+        empTask(empId);
+
     }
 
 }
+
+function empTask(empId){
+    $(document).on('click', '#task_'+empId+'', function (e) {        
+        // window.location.replace("employee-task.php?emp="+ encodeURIComponent(empId)); 
+        window.location.replace("employee-task.php?dQSbcIC="+ encodeURIComponent(empId)); 
+
+    });
+}
+
+
 
 function generateTemplateSentMessage($elem, $content)
 {
@@ -704,7 +720,7 @@ function generateTemplateMessageDetail($elem, $content)
             '</div>',
             '<div class="row">',
                 '<div class="col">',
-                    '<p>Mobile Number : <span class="opacity-75 ms-2">'+$content[el].emp_mobile_number+'</span></p>',
+                    '<p>Mobile Number : <span class="opacity-75 ms-2">0'+$content[el].emp_mobile_number+'</span></p>',
                 '</div>',
                 '<div class="col">',
                     '<p>Email Address: <span class="opacity-75 ms-2">'+$content[el].emp_email+'</span></p>',
@@ -944,7 +960,7 @@ $(document).ready(function () {
 $("#searchclear").click(function(){
     location.reload () 
 });
-
+ 
 NumberComms = new Intl.NumberFormat('en-US')
 
 

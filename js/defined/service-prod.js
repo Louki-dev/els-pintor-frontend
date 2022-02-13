@@ -289,8 +289,9 @@
         Swal.fire({
             title: 'Are you sure you want to remove this service?',
             showCancelButton: true,
-            confirmButtonText: 'Remove',
+            confirmButtonText: 'Yes, remove it!',
             confirmButtonColor: '#2691d9',
+            icon: "question",
         }).then(function (result) {
             if (result.isConfirmed) { 
                 // deleteService({
@@ -309,8 +310,9 @@
         Swal.fire({
             title: 'Are you sure you want to remove this product?',
             showCancelButton: true,
-            confirmButtonText: 'Remove',
+            confirmButtonText: 'Yes, remove it!',
             confirmButtonColor: '#2691d9',
+            icon: "question",
         }).then(function (result) {
             if (result.isConfirmed) { 
                 // deleteProduct({
@@ -522,7 +524,7 @@
             },
         function (response_data) {
             if (response_data.status == true) {
-                loadService();
+                // loadService();
                 $(".modal").modal('hide');
                 // Swal.fire('Service successfully updated!', '', 'success');
                 Swal.fire({
@@ -531,12 +533,16 @@
                     icon: 'success',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
-                })
-                $('#eserv_id').val();
-                $('#eserv_name').val();
-                $('#eserv_price').val();
-                // $('#eserv_image').val();
-                $('#eserv_description').val();
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        $('#eserv_id').val();
+                        $('#eserv_name').val();
+                        $('#eserv_price').val();
+                        // $('#eserv_image').val();
+                        $('#eserv_description').val();
+                        window.location.reload(true);     
+                    }
+                });
             } else {
                 // Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
                 Swal.fire({
@@ -600,54 +606,45 @@
 
     function deleteService(serv_payload)
     {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            showCancelButton: true,
-            confirmButtonText: 'Yes, remove it!',
-            confirmButtonColor: '#2691d9',
-            icon: 'question'
-        }).then(function (result) {
-            if (result.isConfirmed) {
-                ajaxRequest(serv_payload,
-                    {
-                    url: delete_service,
-                    type: "POST",
-                    headers: assignAuthHeader(),
-                    dataType: "json",
-                },
-                function (response_data) {
-                    if (response_data.status == true) {
-                        Swal.fire({
-                            title: 'Removed!',
-                            text: 'Service has been removed.',
-                            icon: 'success',
-                            confirmButtonText: 'OK',
-                            confirmButtonColor: '#2691d9',
-                        })
-                        
-                        loadService();
-                        $(".modal").modal('hide');
+   
+        ajaxRequest(serv_payload,
+            {
+            url: delete_service,
+            type: "POST",
+            headers: assignAuthHeader(),
+            dataType: "json",
+        },
+        function (response_data) {
+            if (response_data.status == true) {
+                // loadService();
+                $(".modal").modal('hide');
+                Swal.fire({
+                    title: 'Removed!',
+                    text: 'Service has been removed.',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                }).then(function (result) {
+                    if (result.isConfirmed) {
                         $('#eserv_id').val();
                         $('#eserv_name').val();
                         $('#eserv_price').val();
                         // $('#eserv_image').val();
                         $('#eserv_description').val();
-                      
-                    } else {
-                        Swal.fire({
-                            title: 'Oh no!',
-                            text: 'Cannot remove the service. Unable to complete process.',
-                            icon: 'error',
-                            confirmButtonText: 'OK',
-                            confirmButtonColor: '#2691d9',
-                        });
+                        window.location.reload(true);     
                     }
-                });
+                });  
             } else {
-                $('#confirm-pass-admin').val("");
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Cannot remove the service. Unable to complete process.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
+ 
     }
 
     function updateProduct(data)
@@ -661,22 +658,24 @@
             },
         function (response_data) {
             if (response_data.status == true) {
-                
-                // Swal.fire('Product successfully updated!', '', 'success');
+                // loadProduct();
+                $(".modal").modal('hide');
                 Swal.fire({
                     title: 'Product successfully updated!',
                     text: '',
                     icon: 'success',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
-                })
-                loadProduct();
-                $(".modal").modal('hide');
-                $('#eprod_id').val();
-                $('#eprod_name').val();
-                // $('#eprod_image').val();
-                $('#eprod_price').val();
-                
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        $(".modal").modal('hide');
+                        $('#eprod_id').val();
+                        $('#eprod_name').val();
+                        // $('#eprod_image').val();
+                        $('#eprod_price').val();
+                        window.location.reload(true);     
+                    }
+                });  
             } else {
                 // Swal.fire('Something went wrong', 'Required input must not be empty!', 'error');
                 Swal.fire({
@@ -740,52 +739,45 @@
 
     function deleteProduct(prod_payload)
     {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            showCancelButton: true,
-            confirmButtonText: 'Yes, remove it!',
-            confirmButtonColor: '#2691d9',
-            icon: 'question'
-        }).then(function (result) {
-            if (result.isConfirmed) {
-                ajaxRequest(prod_payload,
-                    {
-                    url: delete_product,
-                    type: "POST",
-                    headers: assignAuthHeader(),
-                    dataType: "json"
-                },
-                function (response_data) {
-                    if (response_data.status == true) {
-                        Swal.fire({
-                            title: 'Removed!',
-                            text: 'Product has been removed.',
-                            icon: 'success',
-                            confirmButtonText: 'OK',
-                            confirmButtonColor: '#2691d9',
-                        })
-                        loadProduct();
-                        $(".modal").modal('hide');
+ 
+        ajaxRequest(prod_payload,
+            {
+            url: delete_product,
+            type: "POST",
+            headers: assignAuthHeader(),
+            dataType: "json"
+        },
+        function (response_data) {
+            if (response_data.status == true) {
+                // loadProduct();
+                $(".modal").modal('hide');
+                Swal.fire({
+                    title: 'Removed!',
+                    text: 'Product has been removed.',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                }).then(function (result) {
+                    if (result.isConfirmed) {
                         $('#eprod_id').val();
                         $('#eprod_name').val();
                         // $('#eprod_image').val();
                         $('#eprod_price').val();
-                       
-                    } else {
-                        Swal.fire({
-                            title: 'Oh no!',
-                            text: 'Cannot remove the product. Unable to complete process.',
-                            icon: 'error',
-                            confirmButtonText: 'OK',
-                            confirmButtonColor: '#2691d9',
-                        });
+                        window.location.reload(true);     
                     }
-                });
+                }); 
             } else {
-                $('#confirm-pass-admin').val("");
+                Swal.fire({
+                    title: 'Oh no!',
+                    text: 'Cannot remove the product. Unable to complete process.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
             }
         });
+   
+
     }
 
     $(document).on('click','#resetService',function (){

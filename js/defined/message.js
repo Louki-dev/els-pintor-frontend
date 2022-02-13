@@ -1,6 +1,6 @@
 (function () {
     $(document).ready(function (e) {
-        // prevents ENTER key to reload page
+        // prevents / disable ENTER key to reload page
         $('form').on('submit', function(e){
             e.preventDefault();
         });
@@ -104,8 +104,9 @@
             Swal.fire({
                 title: 'Are you sure you want to remove these Message(s) ('+selected.length+')?',
                 showCancelButton: true,
-                confirmButtonText: 'Remove',
+                confirmButtonText: 'Yes, remove it!',
                 confirmButtonColor: '#2691d9',
+                icon: "question",
             }).then(function (result) {
                 if (result.isConfirmed) { 
                     $('#confirm-pass-admin').val("");
@@ -215,7 +216,7 @@
                     }else {
                         Swal.fire({
                             title: 'Oh no!',
-                            text: response_data.error + ' Unable to complete process.',
+                            text: response_data.error,
                             icon: 'error',
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',
@@ -229,47 +230,40 @@
         
     function deleteSentMessage(message_payload)
     {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            showCancelButton: true,
-            confirmButtonText: 'Yes, remove it!',
-            confirmButtonColor: '#2691d9',
-            icon: 'question'
-        }).then(function (result) {
-            if (result.isConfirmed) {
-                ajaxRequest(message_payload,
-                    {
-                        url: delete_sent_message,
-                        type: "POST",
-                        headers: assignAuthHeader(),
-                        dataType: "json",
-                    },
-                    function (response_data) {
-                        if (response_data.status == true) {
-                            loadSentMessage();
-                            loadEmployee();
-                            Swal.fire({
-                                title: 'Success!',
-                                text: 'Message has been removed.',
-                                icon: 'success',
-                                confirmButtonText: 'OK',
-                                confirmButtonColor: '#2691d9',
-                            });
-                        } else {
-                            Swal.fire({
-                                title: 'Oh no!',
-                                text: 'Cannot remove the message. Please check the data',
-                                icon: 'error',
-                                confirmButtonText: 'OK',
-                                confirmButtonColor: '#2691d9',
-                            });
+     
+        ajaxRequest(message_payload,
+            {
+                url: delete_sent_message,
+                type: "POST",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    // loadSentMessage();
+                    // loadEmployee();
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Message has been removed.',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
+                            window.location.reload(true);     
                         }
+                    }); 
+                } else {
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: 'Cannot remove the message. Please check the data',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
                     });
-            } else {
-                $('#confirm-pass-admin').val("");
-            }
-        });
+                }
+            });
+
     }
 
     function getSentMessageDetail(data)
@@ -303,20 +297,21 @@
             },
         function (response_data) {
             if (response_data.status == true) {
-                loadSentMessage();
-                loadEmployee();
+                // loadSentMessage();
+                // loadEmployee();
                 $('.modal').modal('hide');
-                // Swal.fire('Message is successfully sent!', '', 'success');
+                $('#messageArea').val("");
                 Swal.fire({
                     title: 'Success!',
                     text: 'Your message has been sent.',
                     icon: 'success',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
-                })
-                .then(function (result) {
-                    $('#messageArea').val("");
-                });
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        window.location.reload(true);     
+                    }
+                }); 
             } else {
                 // Swal.fire('Somethin went wrong', 'Unable to complete process. Select another date', 'error');
                 Swal.fire({

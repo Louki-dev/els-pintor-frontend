@@ -16,20 +16,29 @@
         </form>
 
         <div class="col">
-        <table class="table_d shadow" id="table_content">
+        <table class="table_d shadow">
             <thead>
             <tr class="pending_header text-light">
                 <th scope="col"><i class="material-icons">badge</i></th>
                 <th scope="col">EMPLOYEE</th>
-                <th scope="col">MOBILE NUMBER</th>
-                <th scope="col">EMAIL</th>
                 <th scope="col">STATUS</th>
+                <th scope="col">ACTION</th>
             </tr>
             </thead>
             <tbody id="employee-list-data" class="animate__animated animate__fadeIn"></tbody>
         </table>
         </div>
         <div id="employee-paginate" class="mb-5 mt-3 animate__animated animate__fadeInDown"></div>
+
+        <hr class="container">
+
+        <div class="mt-5">
+            <h4 class="fs-5 mb-4">Get Employee to subscribed the system</h4>
+            <p class="text-muted">1. Subscribers need to text "INFO" to 225650607. For Globe users, send to 21580607.</p>
+            <p class="text-muted">2. Upon Receipt of the 'Welcome Message', the subscriber needs to reply YES.</p>
+            <p class="text-muted">3. After The subscriber replies (Yes), reload or refresh the page.</p>
+        </div>
+
     </div>
 </div>
 

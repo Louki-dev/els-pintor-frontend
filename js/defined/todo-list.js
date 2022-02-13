@@ -65,8 +65,9 @@
             Swal.fire({
                 title: 'Are you sure you want to remove these item(s) ('+selected.length+')?',
                 showCancelButton: true,
-                confirmButtonText: 'Remove',
+                confirmButtonText: 'Yes, remove it!',
                 confirmButtonColor: '#2691d9',
+                icon: "question",
             }).then(function (result){
                 if (result.isConfirmed) {
                     $('#confirm-pass-admin').val("");
@@ -106,8 +107,9 @@
             Swal.fire({
                 title: 'Are you sure you want to remove these item(s) ('+selected.length+')?',
                 showCancelButton: true,
-                confirmButtonText: 'Remove',
+                confirmButtonText: 'Yes, remove it!',
                 confirmButtonColor: '#2691d9',
+                icon: "question",
             }).then(function (result) {
                 if (result.isConfirmed) { 
                     $('#confirm-pass-admin').val("");
@@ -338,8 +340,8 @@
                     },
                     function (response_data) {
                         if (response_data.status == true) {
-                            loadTodoList();
-                            loadCompletedList();
+                            // loadTodoList();
+                            // loadCompletedList();
                             $('.modal').modal('hide');
                             // Swal.fire('Project successfully completed!', '', 'success');
                             Swal.fire({
@@ -348,7 +350,11 @@
                                 icon: 'success',
                                 confirmButtonText: 'OK',
                                 confirmButtonColor: '#2691d9',
-                            });
+                            }).then(function (result) {
+                                if (result.isConfirmed) {
+                                    window.location.reload(true);     
+                                }
+                            }); 
                         
                         } else {
                             // Swal.fire('Somethin went wrong', 'Required input must not be empty', 'error');
@@ -402,7 +408,7 @@
                     }else {
                         Swal.fire({
                             title: 'Oh no!',
-                            text: response_data.error + ' Unable to complete process.',
+                            text: response_data.error,
                             icon: 'error',
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',
@@ -415,57 +421,42 @@
 
     function deleteProject(todo_ongoing_delete)
     {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            showCancelButton: true,
-            confirmButtonText: 'Yes, remove it!',
-            confirmButtonColor: '#2691d9',
-            icon: 'question'
-        }).then(function (result) {
-            if (result.isConfirmed) {
-                ajaxRequest(
-                    todo_ongoing_delete,
-                    {
-                        url: delete_todo_by_id,
-                        type: "POST",
-                        headers: assignAuthHeader(),
-                        dataType: "json",
-                    },
-                    function (response_data) {
-                        if (response_data.status == true) {
-                            loadTodoList();
-                            loadCompletedList();
-                            $('.modal').modal('hide');
-                            Swal.fire({
-                                title: 'Removed!',
-                                text: 'Project has been removed.',
-                                icon: 'success',
-                                confirmButtonText: 'OK',
-                                confirmButtonColor: '#2691d9',
-                            });
-                          
-                        } else {
-                            // Swal.fire('Cannot delete the project.', 'Please check the data!', 'error');
-                            Swal.fire({
-                                title: 'Oh no!',
-                                text: 'Cannot remove the project. Please check the data',
-                                icon: 'error',
-                                confirmButtonText: 'OK',
-                                confirmButtonColor: '#2691d9',
-                            });
+     ajaxRequest(
+            todo_ongoing_delete,
+            {
+                url: delete_todo_by_id,
+                type: "POST",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    // loadTodoList();
+                    // loadCompletedList();
+                    $('.modal').modal('hide');
+                    Swal.fire({
+                        title: 'Removed!',
+                        text: 'Project has been removed.',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
+                            window.location.reload(true);     
                         }
-                    }
-                );
-            } else {
-                $('#confirm-pass-admin').val("");
-                var items = document.getElementsByName('todo-uncheck');
-                for (var i = 0; i < items.length; i++) {
-                    if (items[i].type == 'checkbox')
-                        items[i].checked = false;
+                    }); 
+                    
+                } else {
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: 'Cannot remove the project. Please check the data',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
                 }
             }
-        });
+        );
     }
 
     $(document).on('click','#resetTodo',function (){

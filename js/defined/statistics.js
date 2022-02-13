@@ -166,7 +166,7 @@
         generateEmptyTemplate('#choose-active-contacts');
         ajaxRequest(null,
             {
-                url: get_active_employee_list,
+                url: dashboard_active_employees,
                 type: "GET",
                 headers: assignAuthHeader(),
                 dataType: "json",
@@ -287,8 +287,9 @@
         Swal.fire({
             title: 'Are you sure you want to remove this item?',
             showCancelButton: true,
-            confirmButtonText: 'Remove',
+            confirmButtonText: 'Yes, remove it!',
             confirmButtonColor: '#2691d9',
+            icon: "question",
         }).then(function (result) {
             if (result.isConfirmed) {
                 $('.modal').modal('hide');
@@ -336,7 +337,7 @@
                     }else {
                         Swal.fire({
                             title: 'Oh no!',
-                            text: response_data.error + ' Unable to complete process.',
+                            text: response_data.error,
                             icon: 'error',
                             confirmButtonText: 'OK',
                             confirmButtonColor: '#2691d9',
@@ -350,53 +351,45 @@
         
     function deleteCustomer(customer_payload)
     {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            showCancelButton: true,
-            confirmButtonText: 'Yes, remove it!',
-            confirmButtonColor: '#2691d9',
-            icon: 'question'
-        }).then(function (result) {
-            if (result.isConfirmed) {
-                ajaxRequest(customer_payload,
-                    {
-                        url: dashboad_customer_del_api,
-                        type: "POST",
-                        headers: assignAuthHeader(),
-                        dataType: "json",
-                    },
-                    function (response_data) {
-                        if (response_data.status == true) {
-                            loadDashboard();
-                            requestApiList();
-                            $('.modal').modal('hide');
-                            Swal.fire({
-                                title: 'Removed!',
-                                text: 'The request has been removed. ',
-                                icon: 'success',
-                                confirmButtonText: 'OK',
-                                confirmButtonColor: '#2691d9',
-                            });
+     
+        ajaxRequest(customer_payload,
+            {
+                url: dashboad_customer_del_api,
+                type: "POST",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    // loadDashboard();
+                    // requestApiList();
+                    $('.modal').modal('hide');
+                    Swal.fire({
+                        title: 'Removed!',
+                        text: 'The request has been removed. ',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
                             $('#confirm-pass-admin').val("");
-                        }else {
-                            Swal.fire({
-                                title: 'Oh no!',
-                                text: response_data.error + ' Unable to complete process.',
-                                icon: 'error',
-                                confirmButtonText: 'OK',
-                                confirmButtonColor: '#2691d9',
-                            });
-                            $('#confirm-pass-admin').val("");
+                            window.location.reload(true);
                         }
-                    }
-                );
-            } else {
-                $('.modal').modal('hide');
-                $('#request_modal-2').modal('show');
-                $('#confirm-pass-admin').val("");
+                    }); 
+                    $('#confirm-pass-admin').val("");
+                }else {
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: response_data.error + ' Unable to complete process.',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
+                    $('#confirm-pass-admin').val("");
+                }
             }
-        });
+        );
+
     }
 
     $(document).on("click", "#close_modal", function (e) {
@@ -548,8 +541,8 @@
                     },
                     function (response_data) {
                         if (response_data.status == true) {
-                            loadDashboard();
-                            requestApiList();
+                            // loadDashboard();
+                            // requestApiList();
                             $('.modal').modal('hide');
                             Swal.fire({
                                 title: $desc + '!',
@@ -557,7 +550,11 @@
                                 icon: 'success',
                                 confirmButtonText: 'OK',
                                 confirmButtonColor: '#2691d9',
-                            });
+                            }).then(function (result) {
+                                if (result.isConfirmed) {
+                                    window.location.reload(true);
+                                }
+                            }); 
                         }
                     }
                 );     
@@ -668,6 +665,22 @@
             return;
         }
 
+        if ($selected.length != 1) {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'You cannot assign multiple employees for this project. Please select at least 1 employee.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            var items = document.getElementsByName('uncheck');
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type == 'checkbox')
+                    items[i].checked = false;
+            }
+            return;
+        }
+
         if ($("#send_message").val() == '') {
             Swal.fire({
                 title: 'Oops...',
@@ -692,7 +705,8 @@
                 $("#sendSMS").prop("disabled", true);
                 sendMessage({
                     message_content: $("#send_message").val(),
-                    message_numbers: $selected
+                    message_numbers: $selected,
+                    customer_id: $("#custID").val(),
                 });
                 approvedRequest({
                     status: $("#custStat").val(),
@@ -748,6 +762,22 @@
             return;
         }
 
+        if ($selected.length != 1) {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'You cannot assign multiple employees for this project. Please select at least 1 employee.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            var items = document.getElementsByName('uncheck');
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type == 'checkbox')
+                    items[i].checked = false;
+            }
+            return;
+        }
+
         if ($("#send_message2").val() == '') {
             Swal.fire({
                 title: 'Oops...',
@@ -772,7 +802,8 @@
                 $("#sendSMS2").prop("disabled", true);
                 sendMessage({
                     message_content: $("#send_message2").val(),
-                    message_numbers: $selected
+                    message_numbers: $selected,
+                    customer_id: $("#custID2").val(),
                 });
                 approvedRequest({
                     status: $("#custStat2").val(),
@@ -857,7 +888,7 @@
     {
         ajaxRequest(data,
             {
-                url: create_message_api,
+                url: dashboard_message,
                 type: "POST",
                 headers: assignAuthHeader(),
                 dataType: "json",
@@ -865,19 +896,21 @@
         function (response_data) {
             if (response_data.status == true) {
                 $('.modal').modal('hide');
-                loadDashboard();
-                loadActiveContacts();
-                requestApiList();
+                // loadDashboard();
+                // loadActiveContacts();
+                // requestApiList();
+                $('#send_message').val("");
                 Swal.fire({
                     title: 'Success!',
                     text: 'Your message has been sent.',
                     icon: 'success',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
-                })
-                .then(function (result) {
-                    $('#send_message').val("");
-                });
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        window.location.reload(true);     
+                    }
+                }); 
             } else {
                 Swal.fire({
                     title: 'Oh no!',

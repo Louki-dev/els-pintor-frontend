@@ -41,11 +41,11 @@
                     <textarea class="opacity-75 form-control bg-white border-0"  rows="4" id="requestDetails" disabled></textarea>
                     </div>
                 </p>
-                <button type="button" class="btn float-end text-muted icon hover" title="Copy to Clipboard" id="copyApprovedRequest">Copy<i class="material-icons fs-6">copy_all</i></button>
+                <!--<button type="button" class="btn float-end text-muted icon hover" title="Copy to Clipboard" id="copyApprovedRequest">Copy<i class="material-icons fs-6">copy_all</i></button>-->
             </div>
-            <div class="container d-grid gap-2 mb-4 mt-2">
-                <!-- <button type="button" id="turndown" class="btn btn-outline-success">Turndown</button> -->
-            </div>
+            <!--<div class="container d-grid gap-2 mb-4 mt-2">-->
+            <!--     <button type="button" id="turndown" class="btn btn-outline-success">Turndown</button> -->
+            <!--</div>-->
             </div>
         </form>
     </div>

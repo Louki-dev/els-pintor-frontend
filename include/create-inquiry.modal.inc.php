@@ -43,19 +43,19 @@
             <textarea class="form-control " id="cinq" rows="8"></textarea>
             </div>
 
-            <div class="form-check mb-3">
+            <!-- <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                     Check to confirm your inquries.
                 </label>
-            </div>
+            </div> -->
 
             <center>
-                <hr>
-            <div class="d-flex flex-nowrap mt-3 mb-0 gap-2 container pe-3 mb-4">
+                <hr class="mt-4 mb-4">
+            <div class="d-flex flex-nowrap mt-3 mb-4 gap-2 container pe-3">
             
                 <input type="button" data-bs-dismiss="modal" value="Add another Item" class="btn btn-outline-secondary col-6 btn-lg">
-                <button type="button" class="btn btn-outline-primary col-6 btn-lg" id="csubmit" disabled>Submit Inquiry</button>
+                <button type="button" class="btn btn-outline-primary col-6 btn-lg" id="csubmit">Submit Inquiry</button>
                 
             </div>
             </center>

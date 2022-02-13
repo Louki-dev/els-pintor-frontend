@@ -44,16 +44,16 @@
         loadProducts();
     });
     $(document).ready(function(e){
-        $('#flexCheckDefault').click(function () {
-            //check if checkbox is checked
-            if ($(this).is(':checked')) {
+        // $('#flexCheckDefault').click(function () {
+        //     //check if checkbox is checked
+        //     if ($(this).is(':checked')) {
     
-                $('#csubmit').removeAttr('disabled'); //enable input
+        //         $('#csubmit').removeAttr('disabled'); //enable input
     
-            } else {
-                $('#csubmit').attr('disabled', true); //disable input
-            }
-        });
+        //     } else {
+        //         $('#csubmit').attr('disabled', true); //disable input
+        //     }
+        // });
         $(document).on("click", "#csubmit", function(e) { 
             var data = {
                 customer_first_name : $('#cfname').val(),
@@ -74,9 +74,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
-                let inputs = document.getElementById('flexCheckDefault');
-                inputs.checked = false;
-                $('#csubmit').attr('disabled', true);
+                // let inputs = document.getElementById('flexCheckDefault');
+                // inputs.checked = false;
+                // $('#csubmit').attr('disabled', true);
                 return;
             }
             if (data.customer_last_name == '') {
@@ -87,9 +87,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
-                let inputs = document.getElementById('flexCheckDefault');
-                inputs.checked = false;
-                $('#csubmit').attr('disabled', true);
+                // let inputs = document.getElementById('flexCheckDefault');
+                // inputs.checked = false;
+                // $('#csubmit').attr('disabled', true);
                 return;
             }
             
@@ -101,9 +101,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
-                let inputs = document.getElementById('flexCheckDefault');
-                inputs.checked = false;
-                $('#csubmit').attr('disabled', true);
+                // let inputs = document.getElementById('flexCheckDefault');
+                // inputs.checked = false;
+                // $('#csubmit').attr('disabled', true);
                 return;
             }
 
@@ -115,9 +115,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
-                let inputs = document.getElementById('flexCheckDefault');
-                inputs.checked = false;
-                $('#csubmit').attr('disabled', true);
+                // let inputs = document.getElementById('flexCheckDefault');
+                // inputs.checked = false;
+                // $('#csubmit').attr('disabled', true);
                 return;
             }
 
@@ -129,9 +129,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
-                let inputs = document.getElementById('flexCheckDefault');
-                inputs.checked = false;
-                $('#csubmit').attr('disabled', true);
+                // let inputs = document.getElementById('flexCheckDefault');
+                // inputs.checked = false;
+                // $('#csubmit').attr('disabled', true);
                 return;
             }
 
@@ -143,9 +143,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
-                let inputs = document.getElementById('flexCheckDefault');
-                inputs.checked = false;
-                $('#csubmit').attr('disabled', true);
+                // let inputs = document.getElementById('flexCheckDefault');
+                // inputs.checked = false;
+                // $('#csubmit').attr('disabled', true);
                 return;
             }
 
@@ -157,9 +157,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
-                let inputs = document.getElementById('flexCheckDefault');
-                inputs.checked = false;
-                $('#csubmit').attr('disabled', true);
+                // let inputs = document.getElementById('flexCheckDefault');
+                // inputs.checked = false;
+                // $('#csubmit').attr('disabled', true);
                 return;
             }
             ValidateEmail(data);
@@ -185,16 +185,16 @@
                         confirmButtonColor: '#2691d9',
                     })
                     
-                    $('#cfname').val(''),
-                    $('#clname').val(''),
-                    $('#cemail').val(''),
-                    $('#caddress').val(''),
-                    $('#cnumber').val(''),
+                    // $('#cfname').val(''),
+                    // $('#clname').val(''),
+                    // $('#cemail').val(''),
+                    // $('#caddress').val(''),
+                    // $('#cnumber').val(''),
                     $('#cinq').val('')
                     
-                    let inputs = document.getElementById('flexCheckDefault');
-                    inputs.checked = false;
-                    $('#csubmit').attr('disabled', true);
+                    // let inputs = document.getElementById('flexCheckDefault');
+                    // inputs.checked = false;
+                    // $('#csubmit').attr('disabled', true);
                 } else {
                     Swal.fire({
                         title: response_data.error,
@@ -203,9 +203,9 @@
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',
                     });
-                    let inputs = document.getElementById('flexCheckDefault');
-                    inputs.checked = false;
-                    $('#csubmit').attr('disabled', true);
+                    // let inputs = document.getElementById('flexCheckDefault');
+                    // inputs.checked = false;
+                    // $('#csubmit').attr('disabled', true);
                 }
             });
         }
@@ -227,8 +227,8 @@
                     }
                     else {
                         $('#inq-modal').modal('hide');
-                        let inputs = document.getElementById('flexCheckDefault');
-                        inputs.checked = false;
+                        // let inputs = document.getElementById('flexCheckDefault');
+                        // inputs.checked = false;
                     }
                 });
                 
@@ -241,9 +241,9 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
-                let inputs = document.getElementById('flexCheckDefault');
-                inputs.checked = false;
-                $('#csubmit').attr('disabled', true);
+                // let inputs = document.getElementById('flexCheckDefault');
+                // inputs.checked = false;
+                // $('#csubmit').attr('disabled', true);
                 return;
         }
 
@@ -336,7 +336,7 @@
                     '<br>',
                 '<h2 id="sprice' + $content[el].service_id + '" class="fs-4">Price rate: Php ' + NumberComms.format($content[el].service_price) + '.00</h2>',
                 // '<button type="button" id="copyService' + $content[el].service_id + '"class="btn1 text-white mt-3 fs-4 p-2"><small class="ms-2">Add to Inquiry</small><div class="fas fa-paint-roller fs-5 ms-2 me-2"></div></button>',
-                '<button type="button" id="copyService'+$content[el].service_id+'"class="btn1 text-white trans pt-1 fs-4 p-2 mt-3"><small class="ms-2 me-2">Add to Cart</small></button>',
+                '<button type="button" id="copyService'+$content[el].service_id+'"class="btn1 text-white trans pt-1 fs-4 p-2 mt-3"><small class="ms-2 me-2">View the Cart</small></button>',
                 '</div></form>'   
             ];
             $($elem).append($html.join(""));
@@ -357,11 +357,11 @@
                 '<form><input type="hidden" id="products-copy' + $content[el].product_id + '" value="' + $content[el].product_name +'">',
                 '<div class="box shadow">',
                 '<img id="pimage'+$content[el].product_id+'" src="'+display_image+$content[el].product_image +'" alt="">',
-                '<div class="content">',
-                    '<h5 id="ptitle'+$content[el].product_id+'" class="fcapital">'+$content[el].product_name +'</h5>',
+                '<div class="content container">',
+                    '<h5 id="ptitle'+$content[el].product_id+'" class="fcapital w-75 text-center">'+$content[el].product_name +'</h5>',
                 '<span id="pprice' + $content[el].product_id + '">Php ' + NumberComms.format($content[el].product_price) + '.00</span>',
                 // '<button type="button" id="copyProduct' + $content[el].product_id + '" class="btn pending_header btn_product text-white mt-3 fs-5" style="padding-left:15px !important" >Add to Inquiry<i style="margin-right:10px !important; margin-left:10px !important;" class="fas fa-paint-roller fs-5 m-0"></button>',
-                '<button type="button" id="copyProduct'+$content[el].product_id+'" class="btn pending_header btn_product text-white pt-1 mt-3 fs-5" style="padding-left:15px !important; padding-right:15px !important;" >Add to Cart</button>',
+                '<button type="button" id="copyProduct'+$content[el].product_id+'" class="btn pending_header btn_product text-white pt-1 mt-3 fs-5" style="padding-left:15px !important; padding-right:15px !important;" >View the Cart</button>',
                 '</div>',
                 '</div></form>'  
             ];
@@ -413,7 +413,7 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Added to your Cart!',
+                title: 'Added to Cart!',
                 text: '',
                 icon: 'success',
                 confirmButtonText: 'Go to Cart',
@@ -449,7 +449,7 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Added to your Cart!',
+                title: 'Added to Cart!',
                 text: '',
                 icon: 'success',
                 confirmButtonText: 'Go to Cart',

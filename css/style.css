@@ -692,6 +692,13 @@ input::-webkit-inner-spin-button {
   text-transform: uppercase;
   }
 
+  .hid{
+    display: none;
+  }
+
+  .hid2{
+    display: block;
+  }
 @media screen and (max-width: 1000px) {
 .table_d {
 border: 0;
@@ -733,11 +740,18 @@ content: attr(aria-label);
 content: attr(data-label);
 float: left;
 font-weight: bold;
-text-transform: uppercase;
+/* text-transform: uppercase; */
 }
 
 .table_d td:last-child {
 border-bottom: 0;
+}
+
+.table_d .hid{
+  display: block;
+}
+.table_d .hid2{
+  display: none;
 }
 }
 
@@ -975,6 +989,16 @@ input[type="button"]:hover{
 
 .txt_decor:hover {
   text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.txt_decor2:hover {
+  color: #2980b9;
+  cursor: pointer;
+}
+
+.txt_uppercase {
+  text-transform: uppercase;
 }
 
 
