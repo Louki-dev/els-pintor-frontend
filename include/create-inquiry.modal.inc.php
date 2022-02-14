@@ -13,15 +13,20 @@
                     <div class="col">
                     <label for="exampleFormControlInput1" class="form-label fw-bold opacity-75" title="Required">First Name </label>
                     <input type="text" class="form-control" id="cfname" placeholder="John">
-
-                    <label for="exampleFormControlInput1" class="form-label mt-3 fw-bold opacity-75" title="Required">Mobile Number </label>
-                    <input type="number" class="form-control" id="cnumber" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" placeholder="09XXXXXXXXX" title="Please enter a valid mobile number">
                     </div>
 
                     <div class="col">
                     <label for="exampleFormControlInput1" class="form-label fw-bold opacity-75" title="Required">Last Name </label>
                     <input type="text" class="form-control" id="clname" placeholder="Wick">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold mt-3 opacity-75" title="Required">Mobile Number </label>
+                    <input type="number" class="form-control" id="cnumber" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" placeholder="09XXXXXXXXX" title="Please enter a valid mobile number">
+                    </div>
 
+                    <div class="col">
                     <label for="exampleFormControlInput1" class="form-label mt-3 fw-bold opacity-75" title="Required">Email </label>
                     <input type="email" class="form-control" id="cemail" placeholder="johnwick@email.com" title="Please enter a valid email">
                     </div>

@@ -798,7 +798,7 @@ $(document).ready(function(e){
     })
 })
 
-function generateTemplateService($elem, $content)
+function generateTemplateService($elem, $content) 
 {
     $($elem).empty();
 
@@ -807,13 +807,14 @@ function generateTemplateService($elem, $content)
         id = "stitle'+$content[el].service_id+'"
     
         $html = [
-            '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].service_id+'" data-bs-target="#editService">',
+            '<tr data-href="" data-bs-toggle="modal" data-info="' + $content[el].service_id + '" data-bs-target="#editService">',
+            '<td><span id="simage'+$content[el].service_id+'"><img src="'+display_image+$content[el].service_image +'" width="40" heigth="40"></span> </td>',
             '<td><span class="fcapital">',
-            '<span id="simage'+$content[el].service_id+'"><img src="'+display_image+$content[el].service_image +'" width="20" heigth="20"></span> ', 
                     '<span id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</span> ', 
                 '</td>',
-                '<td id="sdesc'+$content[el].service_id+'">'+ textLimit($content[el].service_description, 20)+'</td>',
-                '<td>PHP <span id="sprice'+$content[el].service_id+'">'+$content[el].service_price+'</span></td>',
+                '<td id="sdesc'+$content[el].service_id+'" class="hid">'+ textLimit($content[el].service_description, 20)+'</td>',
+            '<td>PHP <span id="sprice' + $content[el].service_id + '">' + $content[el].service_price + '</span></td>',
+            '<td><span id="sstatus'+$content[el].service_id+'" class="' + ($content[el].service_status == 1 ? "offline": "approved") + '">' + ($content[el].service_status == 1 ? "Not Available": "Available") + '</span></td>',
             '</tr>'
         ];
 
@@ -846,12 +847,9 @@ function generateModalService($elem, $content)
                 '<div class="col-md">',
                     '<label for="serv_name" class="form-label">Name of Service:</label>',
                     '<input type="text" class="form-control" id="eserv_name" value="' + $content[el].service_title + '">',
-                    // '<label for="serv_name" class="form-label mt-3">Price Rate:</label>',
-                    // '<input class="form-control" type="number" id="eserv_price" value="'+$content[el].service_price +'">',
                 '</div>',
                 '<div class="col-md">',
                     '<label for="serv_price" class="form-label">Price Rate:</label>',
-                    // '<span id="simage'+$content[el].service_id+'"><center><img src="'+display_image+$content[el].service_image +'" width="120" heigth="120" style="border: solid 1px; border-color: #dddddd;"></center></span> ', 
                     '<input class="form-control" type="number" id="eserv_price" value="'+$content[el].service_price +'">',
                 '</div>',
             '</div>',
@@ -859,11 +857,8 @@ function generateModalService($elem, $content)
                 '<div class="mb-3">',
                     '<label for="serv_description" class="form-label">Description:</label>', 
                     '<textarea class="form-control textarea2"  id="eserv_description" rows="3">'+$content[el].service_description +'</textarea>',
-                '</div>',     
-            '<div class=" d-grid gap-2 mb-3 mt-5">',
-                '<button type="button" class="btn btn-outline-primary" id="UpdateService">Update</button>',
-                '<button type="button" class="btn btn-outline-danger" id="DeleteService">Remove</button>',
-            '</div>',
+                '</div>',      
+            
         ];
 
         $($elem).html(html.join(""));
@@ -881,12 +876,14 @@ function generateTemplateProduct($elem, $content)
         id = "ptitle'+$content[el].product_id+'"
     
         $html = [
-            '<tr data-href="" data-bs-toggle="modal" data-info="'+$content[el].product_id+'" data-bs-target="#editProduct">',
+            '<tr data-href="" data-bs-toggle="modal" data-info="' + $content[el].product_id + '" data-bs-target="#editProduct">',
+            '<td><span id="pimage'+$content[el].product_id+'"><img src="'+display_image+$content[el].product_image +'" width="40" heigth="40"></span> </td>',
             '<td><span class="fcapital">',
-                    '<span id="pimage'+$content[el].product_id+'"><img src="'+display_image+$content[el].product_image +'" width="20" heigth="20"></span> ', 
                     '<span id="ptitle'+$content[el].product_id+'">'+$content[el].product_name+'</span> ', 
                 '</td>',
-            '<td>PHP <span id="pprice'+$content[el].product_id+'">'+$content[el].product_price+'</span></td>',
+            '<td class="hid">PHP <span id="pprice' + $content[el].product_id + '">' + $content[el].product_price + '</span></td>',
+            '<td><span id="pquant' + $content[el].product_id + '">' + $content[el].product_quantity + '</span></td>',
+            '<td><span id="pstatus'+$content[el].product_id+'" class="' + ($content[el].product_status == 1 ? "offline": "approved") + '">' + ($content[el].product_status == 1 ? "Out of Stock": "Available") + '</span></td>',
             '</tr>'
         ];
 
@@ -895,6 +892,21 @@ function generateTemplateProduct($elem, $content)
     }
 
 }
+
+// function generateProductStatus($elem, $content)
+// {
+//     $($elem).empty();
+
+//     for (var el = 0; el<$content.length; el++) {
+ 
+//         $html = [
+//             'hello',
+//         ];
+
+//         $($elem).append($html.join(""));
+        
+//     }
+// }
 
 function generateUser($elem, $content, num)
 {

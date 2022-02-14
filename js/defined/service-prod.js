@@ -4,6 +4,10 @@
         loadService();
         loadProduct();
 
+        //use to hide & unhide content
+        document.getElementById("serv-trig2").style.display = "none";
+        document.getElementById("services_section").style.display = "none";
+
         function handleImage1(e){
             var reader = new FileReader();
             reader.onload = function(event){
@@ -107,13 +111,13 @@
             var data = {
                 prod_name : $('#prod_name').val(),
                 prod_price: $('#prod_price').val(),
+                prod_quantity: $('#prod_quantity').val(),
                 prod_image: document.getElementById('prod_image_canvas').toDataURL()         
             };
             if (data.prod_name == '') {
                 // Swal.fire('Something went wrong', 'Product name must not be empty', 'error');
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Product name must not be empty',
+                    title: 'Product name is required!',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -121,21 +125,28 @@
                 return;
             }
             if (data.prod_price == '') {
-                // Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Product price must not be empty',
+                    title: 'Product price is required!',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
                 return;
             }
-            if (data.prod_image == '') {
-                // Swal.fire('Something went wrong', 'Product price must not be empty', 'error');
+
+            if (data.prod_quantity == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Upload image must not be empty',
+                    title: 'Quantity is required!',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+
+            if (data.prod_image == '') {
+                Swal.fire({
+                    title: 'Upload image is required!',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -151,6 +162,9 @@
             getServiceDetail({
                 service_id: $(e.relatedTarget).attr("data-info")
             });
+
+            var data = $(e.relatedTarget).attr('data-info');
+                $("#eserv_status").val($('#sstatus' + data).html());
         });
         
         function getServiceDetail(data)
@@ -181,17 +195,46 @@
                 $("#eprod_id").val(data);
                 $("#eprod_name").val($('#ptitle' + data).html());
                 $("#eprod_price").val($('#pprice' + data).html());
-                // $("#eprod_image").val($('#tnumber_' + data).html());
+                $("#eprod_quantity").val($('#pquant' + data).html());
+                $("#eprod_status").val($('#pstatus' + data).html());
                 $('#UpdateProduct').html('Update');
             });
         });
+
+        
+        // UPDATE SECTION
+        $(document).on('click','#available',function (){
+            // $('#eprod_status').val("Available");
+            $('#eserv_status').val("Available"); 
+            // stat = $("#eprod_status").val();
+            stat = $("#eserv_status").val();
+
+            if (stat == "Available") {
+                var set = 0;
+                // $('#upd-stat').val(set);
+                $('#upd-stat-service').val(set);
+            }
+        });
     
+        $(document).on('click','#not-available',function (){
+            // $('#eprod_status').val("Not Available");
+            $('#eserv_status').val("Not Available");
+            // stat = $("#eprod_status").val();
+            stat = $("#eserv_status").val();
+
+            if (stat == "Not Available") {
+                var set = 1;
+                // $('#upd-stat').val(set);
+                $('#upd-stat-service').val(set);
+            }
+        });
+
         $(document).on('click', '#UpdateService', function () {
             var payload = {
                 serviceId: $('#eserv_id').val(),
                 serviceName: $('#eserv_name').val(),
                 servicePrice: $('#eserv_price').val(),
-                // serviceImage : $('#eserv_image').val(),
+                serviceStatus: $('#upd-stat-service').val(),
                 serviceDescription: $('#eserv_description').val(),
             };
     
@@ -247,12 +290,11 @@
                 pId: $('#eprod_id').val(),
                 pName: $('#eprod_name').val(),
                 pPrice: $('#eprod_price').val(),
-                // pImage : $('#eprod_image').val(),
+                pQuant: $('#eprod_quantity').val(),
             };
             if (payload.pName == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Product name must not be empty',
+                    title: 'Product name must not be empty!',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -261,8 +303,17 @@
             }
             if (payload.pPrice == '') {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: 'Product price must not be empty',
+                    title: 'Product price must not be empty!',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+
+            if (payload.pQuant == '') {
+                Swal.fire({
+                    title: 'Quantity must not be empty!',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -497,7 +548,8 @@
                 .then(function (result) {  
                     $('#prod_name').val("");
                     $('#prod_price').val("");
-                    $('#prod_image').val("");      
+                    $('#prod_image').val("");  
+                    $('#prod_quantity').val("");  
                 });
 
             } else {
@@ -540,7 +592,7 @@
                         $('#eserv_price').val();
                         // $('#eserv_image').val();
                         $('#eserv_description').val();
-                        window.location.reload(true);     
+                        window.location.reload(true); 
                     }
                 });
             } else {
@@ -671,7 +723,7 @@
                         $(".modal").modal('hide');
                         $('#eprod_id').val();
                         $('#eprod_name').val();
-                        // $('#eprod_image').val();
+                        $('#eprod_quantity').val();
                         $('#eprod_price').val();
                         window.location.reload(true);     
                     }
@@ -791,6 +843,34 @@
         $('#prod_name').val("");
         $('#prod_price').val("");
         $('#prod_image').val("");
+        $('#prod_quantity').val("");
     });
 
+    $(document).on('click','#serv-trig',function (){
+        document.getElementById("serv-trig2").style.display = "block";
+        document.getElementById("services_section").style.display = "block";
+
+        document.getElementById("prod-trig2").style.display = "none";
+        document.getElementById("products_section").style.display = "none";
+
+        document.getElementById("prod-trig").classList.remove("btn-primary");
+        document.getElementById("prod-trig").classList.add("btn-outline-primary");
+        document.getElementById("serv-trig").classList.remove("btn-outline-primary");
+        document.getElementById("serv-trig").classList.add("btn-primary");
+    });
+
+    $(document).on('click','#prod-trig',function (){
+        document.getElementById("prod-trig2").style.display = "block";
+        document.getElementById("products_section").style.display = "block";
+
+        document.getElementById("serv-trig2").style.display = "none";
+        document.getElementById("services_section").style.display = "none";
+
+        document.getElementById("serv-trig").classList.remove("btn-primary");
+        document.getElementById("serv-trig").classList.add("btn-outline-primary");
+        document.getElementById("prod-trig").classList.remove("btn-outline-primary");
+        document.getElementById("prod-trig").classList.add("btn-primary");
+    });
+
+    
 })();

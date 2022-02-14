@@ -8,17 +8,22 @@
     <form enctype="multipart/form-data">
         <div class="modal-body">
         <div class="container">
-            <div class="row g-2 mb-3">
-                <div class="col-md">
-                    <label for="serv_name" class="form-label">Product Name:</label>
-                    <input type="text" class="form-control" id="prod_name">
-                </div>
-                <div class="col-md">
-                    <label for="serv_price" class="form-label">Product Price:</label><span> 
-                    <input class="form-control" type="number" id="prod_price">
-                </div>
-            </div>
             
+            <div class="col-md mb-3">
+                <label for="serv_name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="prod_name">
+            </div>
+            <div class="row g-2 mb-3">
+            <div class="col-md">
+                <label for="serv_price" class="form-label">Price:</label><span> 
+                <input class="form-control" type="number" id="prod_price">
+            </div>
+
+            <div class="col-md">
+                <label for="serv_price" class="form-label">Quantity:</label><span> 
+                <input class="form-control" type="number" id="prod_quantity">
+            </div>
+            </div>
                 <div class="mb-3">
                     <label for="serv_image" class="form-label">Upload Image File:</label> 
                     <input class="form-control" type="file" accept="image/jpeg, image/png" name="image" id="prod_image">

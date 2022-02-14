@@ -4,20 +4,20 @@
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="<?php echo Utilities::domain();?>/frontend/css/bootstrap.min.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
-      <link rel="stylesheet" href="<?php echo Utilities::domain();?>/frontend/css/sweetalert2.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
-      <link rel="stylesheet" href="<?php echo Utilities::domain();?>/frontend/css/style.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
+      <link rel="stylesheet" href="<?php echo Utilities::domain();?>/css/bootstrap.min.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
+      <link rel="stylesheet" href="<?php echo Utilities::domain();?>/css/sweetalert2.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
+      <link rel="stylesheet" href="<?php echo Utilities::domain();?>/css/style.css?v=<?php echo md5(uniqid(rand(), true));?>"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-      <link rel="shortcut icon" href="<?php echo Utilities::domain();?>/frontend/img/icon.png?v=<?php echo md5(uniqid(rand(), true));?>">
+      <link rel="shortcut icon" href="<?php echo Utilities::domain();?>/img/icon.png?v=<?php echo md5(uniqid(rand(), true));?>">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="<?php echo Utilities::domain();?>/frontend/js/bootstrap.bundle.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-      <script src="<?php echo Utilities::domain();?>/frontend/js/sweetalert2.all.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-      <script src="<?php echo Utilities::domain();?>/frontend/js/apis/list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-      <script src="<?php echo Utilities::domain();?>/frontend/js/script.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-      <script src="<?php echo Utilities::domain();?>/frontend/js/defined/login.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
-      <script src="<?php echo Utilities::domain();?>/frontend/js/preload.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+      <script src="<?php echo Utilities::domain();?>/js/bootstrap.bundle.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+      <script src="<?php echo Utilities::domain();?>/js/sweetalert2.all.min.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+      <script src="<?php echo Utilities::domain();?>/js/apis/list.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+      <script src="<?php echo Utilities::domain();?>/js/script.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+      <script src="<?php echo Utilities::domain();?>/js/defined/login.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
+      <script src="<?php echo Utilities::domain();?>/js/preload.js?v=<?php echo md5(uniqid(rand(), true));?>"></script>
       <title>Els Pintor</title>
   </head>
   
@@ -69,7 +69,7 @@
 
         <input type="button" id="verify" value="Log in">
         <p class="text-start mt-5 fs-5">Check your phone</p>
-        <p class="text-muted">Globe Labs sent a notification to your phone. Enter the code to verify it's you.</p>
+        <p class="text-muted">Enter the code to verify it's you.</p>
       </form>
       <hr class="mt-4">
       <p><center><span class="text-muted">Didn't received the code? </span><a class="text-decoration-none txt_decor" id="resend">Resend it</a></center></p>

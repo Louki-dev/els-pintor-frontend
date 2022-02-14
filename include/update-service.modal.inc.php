@@ -7,8 +7,25 @@
             </div>
  
         <div class="modal-body">
-            <div class="mb-3 container" id="view-service-detail">
-            </div> 
+            <div class="mb-3 container" id="view-service-detail"></div>
+
+            <div class="container"><div class="mt-4">Status:
+                <div class="btn-group">
+                <button class="btn btn-sm dropdown-toggle b-active" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   <input type="text" id="eserv_status" class="b-none" disabled>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><button class="dropdown-item" type="button" id="available">Available</button></li>
+                    <li><button class="dropdown-item" type="button" id="not-available">Not Available</button></li>
+                </ul>
+                </div></div>
+                <p id="upd-stat-service"></p>
+
+            <div class=" d-grid gap-2 mb-3 mt-5">
+                <button type="button" class="btn btn-outline-primary" id="UpdateService">Update</button>
+                <button type="button" class="btn btn-outline-danger" id="DeleteService">Remove</button>
+            </div></div> 
+            
         </div>
 
     </div>

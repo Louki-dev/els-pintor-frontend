@@ -9,17 +9,21 @@
         <div class="modal-body">
             <div class="mb-3 container">
                 <input type="hidden" id="eprod_id">
+                <div class="col-md mb-3">
+                    <label for="serv_name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="eprod_name">
+                </div>
                 <div class="row g-2 mb-3">
                     <div class="col-md">
-                        <label for="serv_name" class="form-label">Product Name:</label>
-                        <input type="text" class="form-control" id="eprod_name">
-                    </div>
-                    <div class="col-md">
-                        <label for="serv_price" class="form-label">Product Price:</label><span> 
+                        <label for="serv_price" class="form-label">Price:</label><span> 
                         <input class="form-control" type="number" id="eprod_price">
                     </div>
+                    <div class="col-md">
+                        <label for="serv_price" class="form-label">Quantity:</label><span> 
+                        <input class="form-control" type="number" id="eprod_quantity">
+                    </div>
                 </div>
-                    
+
                 <div class=" d-grid gap-2 mb-3 mt-5">
                     <button type="button" class="btn btn-outline-primary" id="UpdateProduct">Update</button>
                     <button type="button" class="btn btn-outline-danger" id="DeleteProduct">Remove</button>

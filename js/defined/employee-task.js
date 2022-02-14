@@ -105,7 +105,7 @@
             '<td id=" '+$content[el].customer_id+'" data-label="Start Date">'+ humanReadableDate($content[el].customer_start_date) +'</td>',
             '<td id=" '+$content[el].customer_id+'" data-label="End Date">'+ humanReadableDate($content[el].customer_due_date)+'</td>',
             '<td id=" '+$content[el].customer_id+'" data-label="Date Completed" ><span class="'+ ($content[el].customer_status == 1 ? "offline": "" && ($content[el].customer_status == 2 ? "turndown" : "")) +'">'+ ($content[el].customer_completed_at == null ? "-": humanReadableDate($content[el].customer_completed_at))+'</span></td>',
-            '<td data-label="Status"><span class="'+ ($content[el].customer_status == 1 ? "spinner-border": "approved" && ($content[el].customer_status == 2 ? "turndown" : "approved" && ($content[el].customer_status == 3 ? "turndown" : "approved"))) +'">'+ ($content[el].customer_status == 1 ? "" : "Completed" && ($content[el].customer_status == 2 ? "Canceled" : "Completed" && ($content[el].customer_status == 3 ? "Removed" : "Completed")))  +'</span></td>',
+            '<td data-label="Status"><span class="'+ ($content[el].customer_status == 1 ? "offline": "approved" && ($content[el].customer_status == 2 ? "turndown" : "approved" && ($content[el].customer_status == 3 ? "turndown" : "approved"))) +'">'+ ($content[el].customer_status == 1 ? "Ongoing" : "Completed" && ($content[el].customer_status == 2 ? "Canceled" : "Completed" && ($content[el].customer_status == 3 ? "Removed" : "Completed")))  +'</span></td>',
         '</tr>'
         ];
 
