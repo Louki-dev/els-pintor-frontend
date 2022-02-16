@@ -185,10 +185,10 @@
     
     function loadActiveContacts2()
     {
-        generateEmptyTemplate('#choose-active-contacts');
+        generateEmptyTemplate('#choose-active-contacts2');
         ajaxRequest(null,
             {
-                url: get_active_employee_list,
+                url: dashboard_active_employees,
                 type: "GET",
                 headers: assignAuthHeader(),
                 dataType: "json",
@@ -400,6 +400,12 @@
     $(document).on("click", "#close_modal2", function (e) {
         $("#start-date2").val("");
         $("#due-date2").val("");
+        document.getElementById("upload-image-contract2").style.display = "none";
+        document.getElementById("updateApprove").style.display = "none";
+
+        document.getElementById("display-contract_date").style.display = "block";
+        document.getElementById("approve2").style.display = "block";
+
     });
         
     $(document).on("click", "#close_modal_choose_contact", function (e) {
@@ -411,7 +417,7 @@
         $("#start-date2").val("");
         $("#due-date2").val("");
     });
-        
+    
     $(document).on("click", "#approved", function(e) {
         let cust_start = document.getElementById("custStart");
         cust_start.value = $("#start-date").val();
@@ -461,65 +467,35 @@
         
 
     });
+    
+    //hide and unhide contract-date
+    document.getElementById("upload-image-contract2").style.display = "none";
+    document.getElementById("updateApprove").style.display = "none";
+    
+    // $(document).on("click", "#display-contract_date", function (e) {
+    //     document.getElementById("upload-image-contract2").style.display = "block";
+    //     document.getElementById("display-contract_date").style.display = "none";
+    // });
+    
+    $(document).on("click", "#approve2", function (e) {
+        var date_updated = $("#dateCreated2").attr('data-id');
+        checkContract({ updated: date_updated });
+    });
         
-    $(document).on("click", "#approve2", function(e) {
-        let cust_start = document.getElementById("custStart2");
-        cust_start.value = $("#start-date2").val();
-        let cust_end = document.getElementById("custEnd2");
-        cust_end.value = $("#due-date2").val();
-        let cust_contract = document.getElementById("custContract2");
-        cust_contract.value = $("#pdf-contract2").val();
-        
-        if ($("#start-date2").val()) {
-        } else {
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Start date must not be empty!',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
-        if ($("#due-date2").val()) {
-        } else {
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Due date must not be empty!',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
-        if ($("#pdf-contract2").val()) {
-        } else {
-            Swal.fire({
-                title: 'Oops...',
-                text: 'Image contract must not be empty and is required.',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#2691d9',
-            });
-            return;
-        }
-        checkDate2({
-            started: $("#start-date2").val(),
-            deadline: $("#due-date2").val()
-        });
-        
-
+    $(document).on("click", "#updateApprove", function (e) {
+        updateContract();
     });
 
     $(document).on("click", "#turndown", function(e) {
         e.preventDefault();
         var $status = 2;
         var $id = $(e.currentTarget).attr('data-id');
-        updateCustomerTurdown($status, $id, "Turndown");
+        var $work_status = $("#turndown-status").attr('data');
+        updateCustomerTurdown($status, $id, "Turndown", $work_status);
     });
 
    
-   function updateCustomerTurdown($status, $id, $desc) {
+   function updateCustomerTurdown($status, $id, $desc, $work_status) {
         Swal.fire({
             title: 'Are you sure you want to turndown this item?',
             showCancelButton: true,
@@ -532,9 +508,10 @@
                     {
                         status: $status,
                         customer_id: $id,
+                        assignEmp: $work_status,
                     },
                     {
-                        url: dashboad_customer_update_api,
+                        url: dashboard_customer_turndown,
                         type: "POST",
                         headers: assignAuthHeader(),
                         dataType: "json",
@@ -644,8 +621,99 @@
                 }
             }
         );     
+        }
+        
+    function checkContract(data) {
+        ajaxRequest(data,
+            {
+                url: check_contract_date,
+                type: "GET",
+                headers: assignAuthHeader(),
+                dataType: "json",
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    Swal.fire({
+                        title: 'Are you sure you want to approve this item?',
+                        showCancelButton: true,
+                        confirmButtonText: 'Approve',
+                        confirmButtonColor: '#2691d9',
+                        icon: 'question'
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
+                            $('.modal').modal('hide');
+                            $('#choose_contacts_modal2').modal('show');
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: response_data.error,
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
+                            document.getElementById("upload-image-contract2").style.display = "block";
+                            document.getElementById("updateApprove").style.display = "block";
+                            document.getElementById("approve2").style.display = "none";
+                            document.getElementById("display-contract_date").style.display = "none";
+                        }
+                    });
+
+                }
+            }
+        );     
     }
-       
+    
+    function updateContract() {
+        let cust_start = document.getElementById("custStart2");
+        cust_start.value = $("#start-date2").val();
+        let cust_end = document.getElementById("custEnd2");
+        cust_end.value = $("#due-date2").val();
+        let cust_contract = document.getElementById("custContract2");
+        cust_contract.value = $("#pdf-contract2").val();
+        
+        if ($("#start-date2").val()) {
+        } else {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Start date must not be empty!',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+        if ($("#due-date2").val()) {
+        } else {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Due date must not be empty!',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+        if ($("#pdf-contract2").val()) {
+        } else {
+            Swal.fire({
+                title: 'Oops...',
+                text: 'Image contract must not be empty and is required.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            });
+            return;
+        }
+        checkDate2({
+            started: $("#start-date2").val(),
+            deadline: $("#due-date2").val()
+        });
+    }
+        
+
     $(document).on("click", "#sendSMS", function(e) { 
         
         var $selected = [];

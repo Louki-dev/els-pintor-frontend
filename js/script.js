@@ -129,13 +129,14 @@ function generateRequestTemplate($elemId, $elementValue,num)
                     '<i class="material-icons pending pe-3">assignment_ind</i>',
                     '<div class="d-flex gap-2 w-100 justify-content-between">',
                         '<a href="" class="text-decoration-none text-black" aria-current="true" data-bs-toggle="modal" data-info="'+$elementValue[el].customer_id+'" data-bs-target="#request_modal-'+num+'" id="dataTarget">',
-                                '<div class="endtext">',
-                                    '<h6 class="mb-0 fcapital " id="emp_name"><span class="hover">' + $elementValue[el].customer_last_name +'</span>',
-                                    (num == 0 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_created_at)))+'</small></h6>' : '' ),
-                                    (num == 1 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_updated_at)))+'</small></h6>' : '' ),
-                                    (num == 2 ? '<small class="opacity-50" id="updated_at">.' + (time_ago(new Date($elementValue[el].customer_updated_at))) + '</small></h6>' : ''),
-                                '</div>',
-                                '<p class="mb-0 opacity-75" id="request_details_in_list">'+textLimit($elementValue[el].customer_inquiry_details, 20)+'</p>',
+                            '<div class="endtext">',
+                                '<h6 class="mb-0 fcapital " id="emp_name"><span class="hover">' + $elementValue[el].customer_last_name +'</span>',
+                                (num == 0 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_created_at)))+'</small></h6>' : '' ),
+                                (num == 1 ? '<small class="opacity-50" id="updated_at">.'+(time_ago(new Date($elementValue[el].customer_updated_at)))+'</small></h6>' : '' ),
+                                (num == 2 ? '<small class="opacity-50" id="updated_at">.' + (time_ago(new Date($elementValue[el].customer_updated_at))) + '</small></h6>' : ''),
+                            '</div>',
+                            '<p class="mb-0 opacity-75" id="request_details_in_list">' + textLimit($elementValue[el].customer_inquiry_details, 20) + '</p>',
+                            '<p id="turndown-status" data="'+$elementValue[el].customer_employee+'"></p>',
                 '</a>',
                         (num == 1 ?'<button type="button" id="turndown" data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Turndown"><small class="text-muted hover text-nowrap"><span class="material-icons">thumb_down_off_alt</span></small></button>' : ''),
                         (num == 2 ? '<button type="button"  data-id="'+$elementValue[el].customer_id+'" class="btn hover" title="Approve" data-info="'+$elementValue[el].customer_id+'" data-bs-toggle="modal" data-bs-target="#request_modal-approve"><small class="text-muted hover text-nowrap"><span class="material-icons">thumb_up_off_alt</span></small></button>' : ''),
@@ -161,10 +162,17 @@ function generateModelTemplateDashboard($elemId, $content)
         $($elemId + " #dateCreated").html(humanReadableDate($content[el].customer_created_at, true));
         $($elemId + " #requestDetails").html($content[el].customer_inquiry_details);
         $($elemId + " #start-date").html(humanReadableDate($content[el].customer_start_date));
+        $($elemId + " #start-date").attr('data-id',humanReadableDate($content[el].customer_start_date));
         $($elemId + " #due-date").html(humanReadableDate($content[el].customer_due_date));
+        $($elemId + " #due-date").attr('data-id',humanReadableDate($content[el].customer_due_date));
         $($elemId + " #approved").attr('data-id',$content[el].customer_id);
         $($elemId + " #turndown").attr('data-id', $content[el].customer_id);
         $($elemId + " #deleteRequest").attr('data-id', $content[el].customer_id);
+
+        if ($content[el].customer_start_date == null &&  $content[el].customer_due_date == null) {
+            $($elemId + " #start-date").html("N/A"); 
+            $($elemId + " #due-date").html("N/A"); 
+        }
 
         var custID = $content[el].customer_id;
         var custname = $content[el].customer_first_name + " " + $content[el].customer_last_name;
@@ -185,12 +193,23 @@ function generateModelTemplateApprove($elemId, $content)
         $($elemId + " #email2").html($content[el].customer_email);
         $($elemId + " #address2").html( $content[el].customer_address);
         $($elemId + " #mobileNumber2").html($content[el].customer_mobile_number);
-        $($elemId + " #dateCreated2").html(humanReadableDate($content[el].customer_created_at, true));
+        $($elemId + " #dateCreated2").attr('data-id',$content[el].customer_start_date);
         $($elemId + " #requestDetails2").html($content[el].customer_inquiry_details);
         $($elemId + " #start-date2").html(humanReadableDate($content[el].customer_start_date, true));
+        $($elemId + " #start-date2").attr('data-id',humanReadableDate($content[el].customer_start_date));
         $($elemId + " #due-date2").html(humanReadableDate($content[el].customer_due_date, true));
-        $($elemId + " #approved2").attr('data-id',$content[el].customer_id);
+        $($elemId + " #due-date2").attr('data-id',humanReadableDate($content[el].customer_due_date));
+        $($elemId + " #startDate").html(humanReadableDate($content[el].customer_start_date, false));
+        $($elemId + " #startDate").attr('data-id',humanReadableDate($content[el].customer_start_date));
+        $($elemId + " #endDate").html(humanReadableDate($content[el].customer_due_date, false));
+        $($elemId + " #endDate").attr('data-id',humanReadableDate($content[el].customer_due_date));
+        $($elemId + " #approved2").attr('data-id', $content[el].customer_id);
+        $($elemId + " #updateApprove").attr('data-id',$content[el].customer_id);
 
+        if ($content[el].customer_start_date == null &&  $content[el].customer_due_date == null) {
+            $($elemId + " #startDate").html("N/A"); 
+            $($elemId + " #endDate").html("N/A"); 
+        }
 
         var custID = $content[el].customer_id;
         var custname = $content[el].customer_first_name + " " + $content[el].customer_last_name;
@@ -210,6 +229,9 @@ function copydetail(custID, custname, custnum, custemail, custadd, custinq)
     $(document).on('click', '#approve2', function (e) {
         customerDetails2(custID, custname, custnum, custemail, custadd, custinq);
     });
+    $(document).on('click', '#updateApprove', function (e) {
+        customerDetails3(custID, custname, custnum, custemail, custadd, custinq);
+    });
 }
 
 function customerDetails(custID, custname, custnum, custemail, custadd, custinq)
@@ -222,8 +244,8 @@ function customerDetails(custID, custname, custnum, custemail, custadd, custinq)
         'Mobile Number: ' + custnum + '\r\n' +
         'Email: ' + custemail + '\r\n' +
         'Address: ' + custadd + '\r\n' +
-        'Start Date: ' + $("#start-date").val() + '\r\n' +
-        'Due Date: ' + $("#due-date").val() + '\r\n\r\n' +
+        'Start Date: ' + $("#start-date").attr('data-id') + '\r\n' +
+        'Due Date: ' + $("#due-date").attr('data-id') + '\r\n\r\n' +
         "-- Project Details --" + '\r\n' +
         custinq + '\r\n\r\n' ;
 
@@ -249,8 +271,33 @@ function customerDetails2(custID, custname, custnum, custemail, custadd, custinq
         'Mobile Number: ' + custnum + '\r\n' +
         'Email: ' + custemail + '\r\n' +
         'Address: ' + custadd + '\r\n' +
-        'Start Date: ' + $("#start-date2").val() + '\r\n' +
-        'Due Date: ' + $("#due-date2").val() + '\r\n\r\n' +
+        'Start Date: ' +  $("#startDate").attr('data-id') + '\r\n' +
+        'Due Date: ' +  $("#endDate").attr('data-id') + '\r\n\r\n' +
+        "-- Project Details --" + '\r\n' +
+        custinq + '\r\n\r\n' ;
+
+    navigator.clipboard.writeText(text)
+
+    let textarea = document.getElementById("send_message2");
+    textarea.value = text;
+
+    let cust_id = document.getElementById("custID2");
+    cust_id.value = custID;
+    let cust_stat = document.getElementById("custStat2");
+    cust_stat.value = 1;
+    
+}
+
+function customerDetails3(custID, custname, custnum, custemail, custadd, custinq)
+{
+    var text = "[THIS IS AN AUTOMATED MESSAGE - PLEASE DO NOT REPLY DIRECTLY TO THIS TEXT]" + '\r\n\r\n' +
+        "-- Customer Information --" + '\r\n' +
+        'Full Name: ' + custname + '\r\n' +
+        'Mobile Number: ' + custnum + '\r\n' +
+        'Email: ' + custemail + '\r\n' +
+        'Address: ' + custadd + '\r\n' +
+        'Start Date: ' + $("#start-date2").attr('data-id') + '\r\n' +
+        'Due Date: ' + $("#due-date2").attr('data-id') + '\r\n\r\n' +
         "-- Project Details --" + '\r\n' +
         custinq + '\r\n\r\n' ;
 
@@ -645,7 +692,7 @@ function generateTemplateEmployee($elem, $content, $num)
                 '</td>',
                 '<td id="tnumber_'+$content[el].emp_id+'" data-label="Mobile Number" class="hid">0'+ $content[el].emp_mobile_number +'</td>',
                 '<td id="temail_'+$content[el].emp_id+'" data-label="Email Address" class="hid">'+$content[el].emp_email+'</td>',
-                '<td data-label="Status"><span class="'+ ($content[el].emp_work_status == 1 ? "offline": "approved" && ($content[el].emp_work_status == 2 ? "turndown" : "approved")) +'">'+ ($content[el].emp_work_status == 1 ? "Unavailable" : "Available" && ($content[el].emp_work_status == 2 ? "Removed" : "Available"))  +'</span></td>',
+                '<td data-label="Status"><span class="'+ ($content[el].emp_work_status == 1 ? "offline": "approved" && ($content[el].emp_work_status == 2 ? "turndown" : "approved" && ($content[el].emp_work_status == 4 ? "offline" : "approved"))) +'">'+ ($content[el].emp_work_status == 1 ? "Unavailable" : "Available" && ($content[el].emp_work_status == 2 ? "Removed" : "Available" && ($content[el].emp_work_status == 4 ? "Not Available" : "Available")))  +'</span></td>',
                 '<td data-label=""><button type="button" class="btn btn-outline-primary btn-sm me-2" data-bs-toggle="modal" data-info="'+$content[el].emp_id+'" data-bs-target="#edit_emp_modal">Edit</button><a type="button" class="btn btn-outline-primary btn-sm" id="task_'+$content[el].emp_id+'">Task</a></td>',
                 // '<td data-label="Status"><span class="'+ ($content[el].emp_status == 1 ? "approved": "offline" && ($content[el].emp_status == 3 ? "turndown" : "offline")) +'">'+ ($content[el].emp_status == 1 ? "Subscribed" : "Unsubscribed" && ($content[el].emp_status == 3 ? "Removed" : "Unsubscribed"))  +'</span></td>',
                 // '<td>',

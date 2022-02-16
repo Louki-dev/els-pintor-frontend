@@ -10,9 +10,9 @@
             <i class="fas fa-user-circle fs-4"></i>
             </a>
             <ul class="dropdown-menu text-small shadow">
-                <li><a class="dropdown-item" href="acc.php"><span class="material-icons fs-5">person_outline</span> Profile</a></li>
+                <li><a class="dropdown-item" href="acc.php"><i class="bi bi-person-lines-fill"></i> Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="" id="logout"><span class="material-icons fs-6">logout</span> Sign out</a></li>
+                <li><a class="dropdown-item" href="" id="logout"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
             </ul>
         </div>
 

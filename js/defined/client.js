@@ -335,7 +335,7 @@
                     '<p id="sdesc'+$content[el].service_id+'" class="fw-light">'+ $content[el].service_description+'</p>',
                 '<br>',
                 '<h2 id="sprice' + $content[el].service_id + '" class="fs-4">Price rate: Php ' + NumberComms.format($content[el].service_price) + '.00</h2>',
-                '<p id="sstatus'+$content[el].service_id+'" class="' + ($content[el].service_status == 1 ? "text-muted": "pending") + '">' + ($content[el].service_status == 1 ? "Not Available": "Available") + '</p>',
+                '<p id="sstatus'+$content[el].service_id+'" class="' + ($content[el].service_status == 1 ? "text-muted": "pending") + '">' + ($content[el].service_status == 1 ? "Unvailable": "Available") + '</p>',
                 // '<button type="button" id="copyService' + $content[el].service_id + '"class="btn1 text-white mt-3 fs-4 p-2"><small class="ms-2">Add to Inquiry</small><div class="fas fa-paint-roller fs-5 ms-2 me-2"></div></button>',
                 '<button type="button" id="copyService'+$content[el].service_id+'"class="btn1 text-white trans pt-1 fs-4 p-2 mt-3 ' + ($content[el].service_status == 1 ? "btn1-disabled": "") + '" ' + ($content[el].service_status == 1 ? "disabled": "") + '><small class="ms-2 me-2">View the Cart</small></button>',
                 '</div></form>'   

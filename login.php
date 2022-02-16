@@ -64,7 +64,7 @@
         <div class="txt_field2">
           <input type="text" id="vcode" required>
           <span></span>
-          <label>Enter verification code</label>
+          <label>Verification code</label>
         </div>
 
         <input type="button" id="verify" value="Log in">

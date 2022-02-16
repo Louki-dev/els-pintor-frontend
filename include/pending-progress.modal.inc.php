@@ -46,6 +46,8 @@
                             <input type="date" class="form-control" id="due-date">
                         </div>
                     </div>
+
+                    
                     <div class="mt-3"><label for="project-date" class="col-form-label">Upload Image Contract:</label>
                     <input type="file" class="form-control"  accept="image/jpeg, image/png" id="pdf-contract"></div>
                     <canvas id="pdf_contract_canvas" style="display: none;"></canvas>
@@ -54,6 +56,7 @@
                     
             </div>
                 <div class="container d-grid gap-2 mb-4 mt-2">
+                <hr>
                     <button type="button" class="btn btn-outline-primary" id="approved">Approve</button>
                     <button type="button" class="btn btn-outline-secondary" id="turndown">Turndown</button>
                 </div>

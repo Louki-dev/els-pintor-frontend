@@ -21,11 +21,17 @@
                         </p>
                     </div>
                     <div class="col">
-                        <p>Posted:
+                        <!-- <p>Posted:
                             <span class="opacity-75 ps-2" id="dateCreated"></span>
-                        </p>
+                        </p> -->
                         <p>Mobile Number: 
                             <span class="opacity-75 ps-2" id="mobileNumber"></span>
+                        </p>
+                        <p>Start Date: 
+                            <span class="opacity-75 ps-2" id="start-date"></span>
+                        </p>
+                        <p>Due Date: 
+                            <span class="opacity-75 ps-2" id="due-date"></span>
                         </p>
                     </div>
                 </div><hr>

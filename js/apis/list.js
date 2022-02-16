@@ -11,6 +11,7 @@ var dashboard_api = base1_url + "/api/v1/dashboard/dashboard";
 var dashboard_detail = base1_url + '/api/v1/dashboard/dashboard-detail';
 var dashboad_customer_del_api = base1_url + '/api/v1/dashboard/delete-customer';
 var dashboad_customer_update_api = base1_url + '/api/v1/dashboard/update-customer';
+var dashboard_customer_turndown = base1_url + '/api/v1/dashboard/turndown-customer';
 var dashboad_customer_update_dates = base1_url + '/api/v1/dashboard/update-customer-dates';
 var dashboard_message = base1_url + '/api/v1/dashboard/dashboard-message';
 var dashboard_active_employees = base1_url + '/api/v1/dashboard/get-active-employee-list-dashboard';
@@ -59,6 +60,7 @@ var change_passw = base1_url + '/api/v1/dashboard/change-pass';
 var check_admin = base1_url + '/api/v1/dashboard/check-admin';
 var check_pass = base1_url + '/api/v1/dashboard/check-pass';
 var check_date = base1_url + '/api/v1/dashboard/check-date';
+var check_contract_date = base1_url + '/api/v1/dashboard/contract-date';
 
 var redirect_login =  '/login.php';
 var redirect_dashboard =  '/dashboard.php';
