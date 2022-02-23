@@ -430,7 +430,7 @@
                 '<hr class="mt-5 mb-4"></hr>',
                 // '<div class="d-flex flex-nowrap mb-3 mt-4 gap-2 container pe-3">',
                 // '<input type="button" value="Cancel" data-bs-dismiss="modal" id="cancel_sqrMeter' + $content + '" class="btn btn-outline-secondary col-6 btn-lg">',
-                '<button type="button" class="btn btn-outline-primary col-6 btn-lg form-control mb-3" id="add_sqrMeter'+$content+'">SAVE</button>',
+                '<button type="button" class="btn btn-primary col-6 btn-lg form-control mb-3 m2_button" id="add_sqrMeter'+$content+'" disabled="false">SAVE</button>',
                 // '</div>',
             ];
             $($elem).append($html.join(""));
@@ -463,7 +463,7 @@
                 '<hr class="mt-5 mb-4"></hr>',
                 // '<div class="d-flex flex-nowrap mb-3 mt-4 gap-2 container pe-3">',
                 // '<input type="button" value="Cancel" data-bs-dismiss="modal" id="cancel_unit' + $content + '" class="btn btn-outline-secondary col-6 btn-lg">',
-                '<button type="button" class="btn btn-outline-primary col-6 btn-lg form-control mb-3" id="add_unit'+$content+'">SAVE</button>',
+                '<button type="button" class="btn btn-primary col-6 btn-lg form-control mb-3 pu_button" id="add_unit'+$content+'" disabled="false">SAVE</button>',
                 // '</div>',
             ];
             $($elem).append($html.join(""));
@@ -602,7 +602,13 @@
                         const height = document.getElementById('h-height'+servNo).value;
                         var calculate = serviceprice * (width * height);
                         document.getElementById("squareMeter"+servNo).innerHTML = NumberComms.format(calculate) + ".00";
-                        document.getElementById("total-squareMeter"+servNo).value = calculate;
+                        document.getElementById("total-squareMeter" + servNo).value = calculate;
+                        
+                        var button = document.querySelector(".m2_button");
+                        //check whether the element exists
+                        if (button != null && button != undefined) {
+                            button.disabled = false;
+                        }
                         return;
                     });
             
@@ -613,7 +619,13 @@
                         const unit = document.getElementById('unit-'+servNo).value;
                         var calculate = serviceprice * unit;
                         document.getElementById("unit"+servNo).innerHTML = NumberComms.format(calculate) + ".00";
-                        document.getElementById("total-unit"+servNo).value = calculate;
+                        document.getElementById("total-unit" + servNo).value = calculate;
+                        
+                        var button = document.querySelector(".pu_button");
+                        //check whether the element exists
+                        if (button != null && button != undefined) {
+                            button.disabled = false;
+                        }
                         return;
                     });
 

@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . "/include/index-header.inc.php";?>
 
 </head>
-    <body class="bg_color">
+    <body>
 
 <div id="loader"></div>
 <div id="content">
