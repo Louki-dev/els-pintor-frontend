@@ -533,10 +533,10 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Added to Cart!',
+                title: 'Success!',
                 text: '',
                 icon: 'success',
-                confirmButtonText: 'Go to Cart',
+                confirmButtonText: 'View Order',
                 confirmButtonColor: '#2691d9',
                 cancelButtonText: 'Add another Item',
                 showCancelButton: true,

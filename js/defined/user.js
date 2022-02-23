@@ -26,6 +26,17 @@
             }
             document.getElementById("email").focus();
         });
+
+        $(document).on("click","#edit_number", function(e) { 
+            var input = document.querySelector(".input_number");
+            var button = document.querySelector(".input_button");
+            //check whether the element exists
+            if (input != null && input != undefined && button != null && button != undefined) {
+                input.disabled = false;
+                button.disabled = false;
+            }
+            document.getElementById("mobile-number").focus();
+        });
     
         $(document).on("click","#edit_pass", function(e) { 
             var curt_pass = document.querySelector(".curt_pass");
@@ -46,6 +57,7 @@
                 user_ID: $('#id_user').val(),
                 user_username: $('#user').val(),
                 user_email: $('#email').val(),
+                user_number: $('#mobile-number').val(),
                 check_pass: $('#c-pass').val(),
                 pass_word: $('#retype_pass').val(),
                 new_pass: $('#new_pass').val()
@@ -59,6 +71,7 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
+                $(".modal").modal('hide');
                 return;
             }
             if (user_payload.user_email == '') {
@@ -69,6 +82,18 @@
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 });
+                $(".modal").modal('hide');
+                return;
+            }
+            if (user_payload.user_number == '') {
+                Swal.fire({
+                    title: 'Mobile number must not be empty!',
+                    text: '',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                $(".modal").modal('hide');
                 return;
             }
             if (user_payload.check_pass == '') {

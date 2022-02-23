@@ -359,7 +359,7 @@
                 '<h2 id="sprice' + $content[el].service_id + '" class="fs-4">Price rate: &#8369;' + NumberComms.format($content[el].service_price) + '.00</h2>',
                 '<p id="sstatus'+$content[el].service_id+'" class="' + ($content[el].service_status == 1 ? "text-muted": "pending") + '">' + ($content[el].service_status == 1 ? "Unvailable": "Available") + '</p>',
                 // '<button type="button" id="copyService' + $content[el].service_id + '"class="btn1 text-white mt-3 fs-4 p-2"><small class="ms-2">Add to Inquiry</small><div class="fas fa-paint-roller fs-5 ms-2 me-2"></div></button>',
-                '<button type="button" id="copyService'+$content[el].service_id+'" class="btn1 text-white trans pt-1 fs-4 p-2 mt-3 ' + ($content[el].service_status == 1 ? "btn1-disabled": "") + '" ' + ($content[el].service_status == 1 ? "disabled": "") + '><small class="ms-2 me-2">Add</small></button>',
+                '<button type="button" id="copyService'+$content[el].service_id+'" class="btn1 text-white trans pt-1 fs-4 p-2 mt-3 ' + ($content[el].service_status == 1 ? "btn1-disabled": "") + '" ' + ($content[el].service_status == 1 ? "disabled": "") + '><small class="bi bi-bag-plus ms-2 me-2"></small><small class="me-2">Select</small></button>',
                 '</div></form>'   
             ];
             $($elem).append($html.join(""));
@@ -388,7 +388,7 @@
                 '<p id="'+$content[el].product_id+'" class="' + ($content[el].product_status == 1 ? "turndown": "pending") + '">' + ($content[el].product_status == 1 ? "Out of Stock": "Available") + '</p>',
                 '<span id="pprice' + $content[el].product_id + '">&#8369;' + NumberComms.format($content[el].product_price) + '.00</span>',
                 '<p class="opacity-75 mt-3 ' + ($content[el].product_status == 1 ? "hid": "") + '"><input type="number" class="form-control" id="productPieces' + $content[el].product_id + '" placeholder="Quantity" value=""></p>',
-                '<button type="button" id="copyProduct' + $content[el].product_id + '" class="btn1 pending_header btn_product text-white pt-1 mt-3 fs-5 ' + ($content[el].product_status == 1 ? "hid": "") + '" style="padding-bottom: 7px;" ' + ($content[el].product_status == 1 ? "disabled": "") + '>Add</button>',
+                '<button type="button" id="copyProduct' + $content[el].product_id + '" class="btn1 pending_header btn_product text-white pt-1 mt-3 fs-5 ' + ($content[el].product_status == 1 ? "hid": "") + '" style="padding-bottom: 7px;" ' + ($content[el].product_status == 1 ? "disabled": "") + '><i class="bi bi-bag-plus me-2"></i>Save</button>',
                 '</div>',
                 '</div></form>'  
             ];
@@ -420,7 +420,7 @@
                         '<input type="text" class="form-control form-control-lg" id="h-height'+$content+'">',
                         '</div>',
                     '</div>',
-                    '<button type="button" class="btn btn-outline-primary mt-3 mb-3 form-control btn-lg" id="cal-sqrMeter' + $content + '">Calculate</button>',
+                    '<button type="button" class="btn btn-outline-primary mt-3 mb-3 form-control btn-lg" id="cal-sqrMeter' + $content + '">CALCULATE</button>',
                 '</div>',
 
                     '<span class="fw-bold opacity-75 mt-1">Total Cost:</span><br>',
@@ -430,7 +430,7 @@
                 '<hr class="mt-5 mb-4"></hr>',
                 // '<div class="d-flex flex-nowrap mb-3 mt-4 gap-2 container pe-3">',
                 // '<input type="button" value="Cancel" data-bs-dismiss="modal" id="cancel_sqrMeter' + $content + '" class="btn btn-outline-secondary col-6 btn-lg">',
-                '<button type="button" class="btn btn-outline-primary col-6 btn-lg form-control mb-3" id="add_sqrMeter'+$content+'">Add to Cart</button>',
+                '<button type="button" class="btn btn-outline-primary col-6 btn-lg form-control mb-3" id="add_sqrMeter'+$content+'">SAVE</button>',
                 // '</div>',
             ];
             $($elem).append($html.join(""));
@@ -453,7 +453,7 @@
                         '<input type="text" class="form-control form-control-lg" id="unit-'+$content+'">',
                         '</div>',
                     '</div>',
-                    '<button type="button" class="btn btn-outline-primary mt-3 mb-3 form-control btn-lg" id="cal-unit' + $content + '">Calculate</button>',
+                    '<button type="button" class="btn btn-outline-primary mt-3 mb-3 form-control btn-lg" id="cal-unit' + $content + '">CALCULATE</button>',
                 '</div>',
 
                     '<span class="fw-bold opacity-75 mt-1">Total Cost:</span><br>',
@@ -463,7 +463,7 @@
                 '<hr class="mt-5 mb-4"></hr>',
                 // '<div class="d-flex flex-nowrap mb-3 mt-4 gap-2 container pe-3">',
                 // '<input type="button" value="Cancel" data-bs-dismiss="modal" id="cancel_unit' + $content + '" class="btn btn-outline-secondary col-6 btn-lg">',
-                '<button type="button" class="btn btn-outline-primary col-6 btn-lg form-control mb-3" id="add_unit'+$content+'">Add to Cart</button>',
+                '<button type="button" class="btn btn-outline-primary col-6 btn-lg form-control mb-3" id="add_unit'+$content+'">SAVE</button>',
                 // '</div>',
             ];
             $($elem).append($html.join(""));
@@ -789,10 +789,10 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Added to Cart!',
+                title: 'Success!',
                 text: '',
                 icon: 'success',
-                confirmButtonText: 'Go to Cart',
+                confirmButtonText: 'View Order',
                 confirmButtonColor: '#2691d9',
                 cancelButtonText: 'Add another Item',
                 showCancelButton: true,
@@ -899,10 +899,10 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Added to Cart!',
+                title: 'Success!',
                 text: '',
                 icon: 'success',
-                confirmButtonText: 'Go to Cart',
+                confirmButtonText: 'View Order',
                 confirmButtonColor: '#2691d9',
                 cancelButtonText: 'Add another Item',
                 showCancelButton: true,

@@ -11,24 +11,24 @@
             <div class="mb-3">
                 <div class="row">
                     <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label fw-bold opacity-75" title="Required">First Name <span class="fw-normal">*</span></label>
-                    <input type="text" class="form-control" id="cfname" placeholder="John">
+                    <label for="exampleFormControlInput1" class="form-label fs-5 fw-bold opacity-75" title="Required">First Name <span class="fw-normal">*</span></label>
+                    <input type="text" class="form-control form-control-lg" id="cfname" placeholder="John">
                     </div>
 
                     <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label fw-bold opacity-75" title="Required">Last Name <span class="fw-normal">*</span></label>
-                    <input type="text" class="form-control" id="clname" placeholder="Wick">
+                    <label for="exampleFormControlInput1" class="form-label fs-5 fw-bold opacity-75" title="Required">Last Name <span class="fw-normal">*</span></label>
+                    <input type="text" class="form-control form-control-lg" id="clname" placeholder="Wick">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label fw-bold mt-3 opacity-75" title="Required">Mobile Number <span class="fw-normal">*</span></label>
-                    <input type="number" class="form-control number-arrows-hide" id="cnumber" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" placeholder="09XXXXXXXXX" title="Please enter a valid mobile number">
+                    <label for="exampleFormControlInput1" class="form-label fs-5 fw-bold mt-3 opacity-75" title="Required">Mobile Number <span class="fw-normal">*</span></label>
+                    <input type="number" class="form-control number-arrows-hide form-control-lg" id="cnumber" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" placeholder="09XXXXXXXXX" title="Please enter a valid mobile number">
                     </div>
 
                     <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label mt-3 fw-bold opacity-75" title="Required">Email <span class="fw-normal">*</span></label>
-                    <input type="email" class="form-control" id="cemail" placeholder="johnwick@email.com" title="Please enter a valid email">
+                    <label for="exampleFormControlInput1" class="form-label fs-5 mt-3 fw-bold opacity-75" title="Required">Email <span class="fw-normal">*</span></label>
+                    <input type="email" class="form-control form-control-lg" id="cemail" placeholder="johnwick@email.com" title="Please enter a valid email">
                     </div>
                 </div>
             </div>
@@ -39,12 +39,12 @@
             </div> -->
 
             <div class="mb-3">
-            <label class="form-label fw-bold opacity-75">Address  <span class="fw-normal">*</span></label>
-            <input type="text" class="form-control" id="caddress" placeholder="Street No. / City / Province">
+            <label class="form-label fw-bold opacity-75 fs-5">Address  <span class="fw-normal">*</span></label>
+            <input type="text" class="form-control form-control-lg" id="caddress" placeholder="Street No. / City / Province">
             </div>
 
             <div class="mb-3">
-            <label class="form-label fw-bold opacity-75">List of Items<span class="fw-normal">*</span></label>
+            <label class="form-label fw-bold opacity-75 fs-5">List of Items<span class="fw-normal">*</span></label>
                 <div class="list-group" id="todo_list">
                     <!-- <div  class="list-group-item list-group-item-action">
                         <div class="d-flex w-100 justify-content-between">
@@ -59,7 +59,7 @@
 
             <input type="text" id="items-subtotal" value="0" hidden>
 
-            <div class="d-flex w-100 justify-content-between fs-3">
+            <div class="d-flex w-100 justify-content-between fs-3 mt-5">
                 <span class="fw-bold opacity-75 mt-1">Subtotal:</span>
                 <span class="text-muted">&#8369;<span id="subtotals">0.00</span></span>
             </div>

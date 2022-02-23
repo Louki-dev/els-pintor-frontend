@@ -861,6 +861,7 @@ function generateTemplateService($elem, $content)
                 '</td>',
                 '<td id="sdesc'+$content[el].service_id+'" class="hid">'+ textLimit($content[el].service_description, 20)+'</td>',
             '<td>PHP <span id="sprice' + $content[el].service_id + '">' + $content[el].service_price + '</span></td>',
+            '<td class="hid"><span id="ssymbol'+$content[el].service_id+'">' + $content[el].service_symbol + '</span></td>',
             '<td><span id="sstatus'+$content[el].service_id+'" class="' + ($content[el].service_status == 1 ? "offline": "approved") + '">' + ($content[el].service_status == 1 ? "Not Available": "Available") + '</span></td>',
             '</tr>'
         ];
@@ -976,6 +977,11 @@ function generateUser($elem, $content, num)
                 '<div class="input-group">',
                     '<input type="text" class="form-control bg-white input_email pending" id="email" placeholder="" value="' + $content[el].user_email + '" disabled>',
                     '<span class="input-group-text pending_header text-white" id="edit_email" style="cursor:pointer;">Edit</span>',
+                '</div>',
+                '<label for="firstName" class="form-label mt-4 fw-bold">Mobile Number</label>',
+                '<div class="input-group">',
+                    '<input type="text" class="form-control bg-white input_number pending" id="mobile-number" placeholder="" value="0' + $content[el].user_number + '" disabled>',
+                    '<span class="input-group-text pending_header text-white" id="edit_number" style="cursor:pointer;">Edit</span>',
                 '</div>',
             '</form>'
         ];

@@ -28,7 +28,20 @@
                 <div class="mb-3">
                     <label for="serv_description" class="form-label">Description:</label> 
                     <textarea class="form-control _txtarea"  id="serv_description" rows="1"></textarea>
-                </div>     
+                </div>   
+            
+                <div class="mt-4">Symbol:
+                <div class="btn-group">
+                <button class="btn btn-sm dropdown-toggle b-active" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   <input type="text" id="serv_symbol" class="b-none" disabled>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><button class="dropdown-item" type="button" id="symbol-m2">Square Meter (m2)</button></li>
+                    <li><button class="dropdown-item" type="button" id="symbol-pu">Unit (pu)</button></li>
+                </ul>
+                </div></div>
+                <p id="add-symbol-service"></p>
+
             <div class=" d-grid gap-2 mb-3 mt-5">
                 <button type="button" class="btn btn-outline-primary" id="AddService">Submit</button>
                 <button type="button" class="btn btn-outline-secondary" id="resetService">Reset</button>

@@ -40,14 +40,35 @@
         imageLoader.addEventListener('change', handleImage1, false);
         var canvas = document.getElementById('serv_image_canvas');
         var ctx = canvas.getContext('2d');
-        
+
+        $(document).on('click','#symbol-m2',function (){
+            $('#serv_symbol').val("Square Meter (m2)"); 
+            stat = $("#serv_symbol").val();
+
+            if (stat == "Square Meter (m2)") {
+                var set = "m2";
+                $('#add-symbol-service').val(set);
+            }
+        });
+    
+        $(document).on('click','#symbol-pu',function (){
+            $('#serv_symbol').val("Unit (pu)");
+            stat = $("#serv_symbol").val();
+
+            if (stat == "Unit (pu)") {
+                var set = "pu";
+                $('#add-symbol-service').val(set);
+            }
+        });
+
         $(document).on('click', '#AddService', function (e) {     
             
             var data = {
                 serv_name : $('#serv_name').val(),
                 serv_price: $('#serv_price').val(),
                 serv_description: $('#serv_description').val(),
-                serv_image: document.getElementById('serv_image_canvas').toDataURL()     
+                serv_image: document.getElementById('serv_image_canvas').toDataURL(),
+                serv_symbol: $('#add-symbol-service').val()
             };
     
             if (data.serv_name == '') {
@@ -89,6 +110,16 @@
                 Swal.fire({
                     title: 'Oops...',
                     text: 'Description must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+            if (data.serv_symbol == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Please select at least 1 symbol.',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -164,7 +195,9 @@
             });
 
             var data = $(e.relatedTarget).attr('data-info');
-                $("#eserv_status").val($('#sstatus' + data).html());
+            $("#eserv_status").val($('#sstatus' + data).html());
+            $("#eserv_symbol").val($('#ssymbol' + data).html());
+            
         });
         
         function getServiceDetail(data)
@@ -203,6 +236,26 @@
 
         
         // UPDATE SECTION
+        $(document).on('click','#upd-symbol-m2',function (){
+            $('#eserv_symbol').val("Square Meter (m2)"); 
+            stat = $("#eserv_symbol").val();
+
+            if (stat == "Square Meter (m2)") {
+                var set = "m2";
+                $('#upd-symbol-service').val(set);
+            }
+        });
+    
+        $(document).on('click','#upd-symbol-pu',function (){
+            $('#eserv_symbol').val("Unit (pu)");
+            stat = $("#eserv_symbol").val();
+
+            if (stat == "Unit (pu)") {
+                var set = "pu";
+                $('#upd-symbol-service').val(set);
+            }
+        });
+
         $(document).on('click','#available',function (){
             // $('#eprod_status').val("Available");
             $('#eserv_status').val("Available"); 
@@ -236,10 +289,10 @@
                 servicePrice: $('#eserv_price').val(),
                 serviceStatus: $('#upd-stat-service').val(),
                 serviceDescription: $('#eserv_description').val(),
+                serviceSymbol: $('#upd-symbol-service').val()
             };
     
             if (payload.serviceName == '') {
-                // Swal.fire('Something went wrong', 'Service name must not be empty', 'error');
                 Swal.fire({
                     title: 'Oops...',
                     text: 'Service name must not be empty',
@@ -250,7 +303,6 @@
                 return;
             }
             if (payload.servicePrice == '') {
-                // Swal.fire('Something went wrong', 'Price rate must not be empty', 'error');
                 Swal.fire({
                     title: 'Oops...',
                     text: 'Price rate must not be empty',
@@ -261,10 +313,20 @@
                 return;
             }
             if (payload.serviceDescription == '') {
-                // Swal.fire('Something went wrong', 'Description must not be empty', 'error');
                 Swal.fire({
                     title: 'Oops...',
                     text: 'Description must not be empty',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+                return;
+            }
+
+            if (payload.serviceSymbol == '') {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Please select at least 1 symbol.',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',

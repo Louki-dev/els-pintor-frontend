@@ -13,7 +13,7 @@
     
     <div class="icons"><!-- 
     <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
-    <button class="btn btn-primary btn-lg trans mb-2 pt-1 cart" data-bs-toggle="modal" data-bs-target="#inq-modal">View Items<button>
+    <button class="btn btn-primary btn-lg trans mb-2 pt-1 cart" data-bs-toggle="modal" data-bs-target="#inq-modal">View Order<button>
         <!-- <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div> -->
         <div class="fas fa-bars trans" id="menu-btn" title="Menu"></div>
     </div>
@@ -196,7 +196,7 @@
 
                 <input class="mb-1 bg-white" type="text" disabled id="color_price" placeholder="Price" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
 
-                <button type="button" id="copyColor" class="btn1 p-1 pt-0 trans ddd" style="  border-radius: 6px; height: 40px; width: 100%;"  >Add</button>
+                <button type="button" id="copyColor" class="btn1 p-1 pt-0 trans ddd" style="  border-radius: 6px; height: 40px; width: 100%;"><i class="bi bi-bag-plus me-2"></i>Save</button>
                   
 </div>
 
