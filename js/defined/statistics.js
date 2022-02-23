@@ -403,7 +403,6 @@
         document.getElementById("upload-image-contract2").style.display = "none";
         document.getElementById("updateApprove").style.display = "none";
 
-        document.getElementById("display-contract_date").style.display = "block";
         document.getElementById("approve2").style.display = "block";
 
     });
@@ -472,10 +471,6 @@
     document.getElementById("upload-image-contract2").style.display = "none";
     document.getElementById("updateApprove").style.display = "none";
     
-    // $(document).on("click", "#display-contract_date", function (e) {
-    //     document.getElementById("upload-image-contract2").style.display = "block";
-    //     document.getElementById("display-contract_date").style.display = "none";
-    // });
     
     $(document).on("click", "#approve2", function (e) {
         var date_updated = $("#dateCreated2").attr('data-id');
@@ -657,7 +652,6 @@
                             document.getElementById("upload-image-contract2").style.display = "block";
                             document.getElementById("updateApprove").style.display = "block";
                             document.getElementById("approve2").style.display = "none";
-                            document.getElementById("display-contract_date").style.display = "none";
                         }
                     });
 

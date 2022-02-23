@@ -61,7 +61,6 @@
                     <canvas id="pdf_contract_canvas2" style="display: none;"></canvas>
                     </div>
                     
-                    <button type="button" class="btn float-end text-muted hover" title="" id="display-contract_date">Edit Contract Date</button>
                     
             </div>
                 <div class="container d-grid gap-2 mb-4 mt-2">
