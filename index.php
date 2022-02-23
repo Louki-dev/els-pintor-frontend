@@ -13,7 +13,7 @@
     
     <div class="icons"><!-- 
     <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
-    <button class="btn btn-primary btn-lg trans mb-2 pt-1 cart" data-bs-toggle="modal" data-bs-target="#inq-modal">View Cart<button>
+    <button class="btn btn-primary btn-lg trans mb-2 pt-1 cart" data-bs-toggle="modal" data-bs-target="#inq-modal">View Items<button>
         <!-- <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div> -->
         <div class="fas fa-bars trans" id="menu-btn" title="Menu"></div>
     </div>
@@ -109,7 +109,7 @@
     </div>
     <div class="box">
            <h3>Color Mixer<button type="reset" id="color_reset"class="btn1 float-end trans " style=" border-radius: 20px;height: 30px; width: 100px;" >Reset</button></h3>
-           <div><p class="fs-5 fw-bold opacity-75">Note: Price starts at PHP 850.00 per gallon.</p></div>
+           <div><p class="fs-5 fw-bold opacity-75">Note: Price starts at &#8369;850.00 per gallon.</p></div>
         <br>
         <div class="row">
             <div class="col">
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                      <select id="1stpick" style=" border-radius: 6px; width:100%; margin-top: 5px; height: 30px; display: flex; border: solid 2px #dddddd;">
-                        <option value="none">Choose Color 1</option>
+                        <option value=" ">Choose Color 1</option>
                         <option value="Red">Red</option>
                         <option value="Green">Green</option>
                         <option value="Blue">Blue</option>
@@ -139,7 +139,7 @@
                 </div>
 
                 <select id="2ndpick" style=" border-radius: 6px; width:100%; margin-top: 5px; height: 30px; display: flex;border: solid 2px #dddddd;">
-                    <option value="none">Choose Color 2</option>
+                    <option value=" ">Choose Color 2</option>
                     <option value="Red">Red</option>
                     <option value="Green">Green</option>
                     <option value="Blue">Blue</option>
@@ -159,7 +159,7 @@
                 </div>
 
                 <select id="3rdpick" style=" border-radius: 6px; width:100%; margin-top: 5px; height: 30px; display: flex;border: solid 2px #dddddd;">
-                    <option value="none">Choose Color 3</option>
+                    <option value=" ">Choose Color 3</option>
                     <option value="Red">Red</option>
                     <option value="Green">Green</option>
                     <option value="Blue">Blue</option>
@@ -196,7 +196,7 @@
 
                 <input class="mb-1 bg-white" type="text" disabled id="color_price" placeholder="Price" style="background: #eee; width: 100%; height: 40px; text-align: center; justify-content: center; border-radius: 6px; border: solid 2px #dddddd;">
 
-                <button type="button" id="copyColor" class="btn1 p-1 pt-0 trans ddd" style="  border-radius: 6px; height: 40px; width: 100%;"  >View the Cart</button>
+                <button type="button" id="copyColor" class="btn1 p-1 pt-0 trans ddd" style="  border-radius: 6px; height: 40px; width: 100%;"  >Add</button>
                   
 </div>
 
@@ -277,6 +277,8 @@
 
 <?php
 require_once __DIR__ . "/include/create-inquiry.modal.inc.php";
+require_once __DIR__ . "/include/client-wh.modal.inc.php";
+require_once __DIR__ . "/include/client-unit.modal.inc.php";
 ?>
 </body>
 </html>

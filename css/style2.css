@@ -769,8 +769,8 @@ background-color:#2691d9 !important;
 }
 
 /* Hide number(input type) arrows */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+.number-arrows-hide::-webkit-outer-spin-button,
+.number-arrows-hide::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -859,3 +859,8 @@ input::-webkit-inner-spin-button {
   .turndown_header{
     background-color:#F74545 !important;
   }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  

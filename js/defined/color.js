@@ -33,7 +33,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "PUMPKIN";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#FF7715";
@@ -62,7 +62,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "CORAL";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#FF7F50";
@@ -91,7 +91,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "GUILLIMAN BLUE";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#6495ED";
@@ -120,7 +120,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "CRIMSON";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#DC143C";
@@ -149,7 +149,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "GOLD";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#FFD700";
@@ -178,7 +178,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "INDIAN RED";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#CD5C5C";
@@ -207,7 +207,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "LIGHT SKY BLUE";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#87CEFA";
@@ -236,7 +236,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "MEDIUM SPRING GREEN";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#00FA9A";
@@ -265,7 +265,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "PEACH PUFF";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#FFDAB9";
@@ -295,7 +295,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "PLUM";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#DDA0DD";
@@ -325,7 +325,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "AMEIXA";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#6A5ACD";
@@ -355,7 +355,7 @@
             var price3 = 850;
             var total_price = price1 + price2 + price3;
             var result = "MISTY ROSE";
-            var price = 'PHP '+total_price+'';
+            var price = total_price;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#FFE4E1";
@@ -380,11 +380,13 @@
         });
     });
 
-
+    
 
     $(document).on('click', "#copyColor", function (e) {
-        var empty_result= document.getElementById("color_result").value;
+        var empty_result = document.getElementById("color_result").value.split(" ").join("");
         var empty_price = document.getElementById("color_price").value;
+        const colorPrice = parseInt(document.getElementById("color_price").value);
+        const check_color_item = document.getElementById('color-list-main' + empty_result);
 
         if (empty_result == "" && empty_price == "" ) {
             Swal.fire({
@@ -396,25 +398,136 @@
             });
             return;
         }
+        if (check_color_item == undefined) {
+            copyColor(colorPrice);
+            calculateColor(colorPrice);
+        }else {
+            Swal.fire({
+                title: 'Error!',
+                text: 'This item is already added!',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#2691d9',
+            }).then(function (result) {
+                Swal.fire({
+                    title: 'Would you like to replace the same item?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, replace it',
+                    confirmButtonColor: '#2691d9',
+                    cancelButtonText: 'No, thanks',
+                    icon: 'question',
+                }).then(function (result) {
+                    if (result.isConfirmed) {  
+                        calculateRemoveColor(empty_result);
+                        const item = document.getElementById('color-list-main'+empty_result);
+                        item.remove();
+                        copyColor(colorPrice);
+                        calculateColor(colorPrice);
+                    } 
+                });
+            });
+        
+        }
+        
+        $(document).on('click', '#color-remove-list' + empty_result + '', function (e) {   
+            calculateRemoveColor(empty_result);
+    
+            const item = document.getElementById('color-list-main'+empty_result);
+            item.remove();
+        });
 
-        copyColor();
+        function calculateColor(colorPrice) {
+            const substotal = parseInt($('#items-subtotal').val());
+            const cprice = parseInt(colorPrice);
+            var total = 0;
+            total = cprice + substotal;
+            document.getElementById("items-subtotal").value = total;
+            document.getElementById("subtotals").innerHTML = NumberComms.format(total)+".00";
+    
+        }
+    
+        function calculateRemoveColor(empty_result) {
+            const servPrice = parseInt(document.getElementById('colorPrice'+empty_result).value);
+            const substotal = parseInt($('#items-subtotal').val());
+            var total = 0;
+            total = substotal - servPrice;
+            document.getElementById("items-subtotal").value = total;
+            document.getElementById("subtotals").innerHTML = NumberComms.format(total)+".00";
+    
+        }
     });
 
+    
 
-    function copyColor()
+    function copyColor(colorPrice)
     {
         // var colorHex = String(document.getElementById("color_hexcode").value);
         var c1 =  String(document.getElementById("c1").value);
         var c2 =  String(document.getElementById("c2").value);
         var c3 =  String(document.getElementById("c3").value);
         var colorName = String(document.getElementById("color_result").value);
-        // var color_price = String(document.getElementById("color_price").value);
+        var cName = document.getElementById("color_result").value.split(" ").join("");
 
-        var text = 'Color Name: ' + colorName + '\r\n' +
-            'Color Mix: ' + c1 + ', ' + c2 + ', ' + c3 + '\r\n';
-        // 'Price: ' + color_price + '\r\n';
+        var text = '--- PAINT COLOR ---' + '\r\n' +
+            'Name: ' + colorName + '\r\n' +
+            'Mixture: ' + c1 + ' - ' + c2 + ' - ' + c3 + '\r\n' +
+            'Value: ' + NumberComms.format(colorPrice) + '.00'+'\n\n';
+        
+        const color_ul = document.querySelector(".list-group"); //ul 
+
+        const color_main = document.createElement("div"); //a
+        color_main.classList.add("list-group-item");
+        color_main.classList.add("list-group-item-action");
+        color_main.id = "color-list-main"+cName;
+        color_ul.appendChild(color_main);
+
+        const color_header = document.createElement("div");
+        color_header.classList.add("d-flex");
+        color_header.classList.add("w-100");
+        color_header.classList.add("justify-content-between");
+        color_main.appendChild(color_header);
+
+        const color_h6 = document.createElement("h6");
+        color_h6.innerText = colorName;
+        color_h6.classList.add("mb-1");
+        color_header.appendChild(color_h6);
+
+        const color_span = document.createElement("span");
+        color_span.innerHTML = '<i class="bi bi-x-circle"></i>';
+        color_span.id = "color-remove-list"+cName;
+        color_span.classList.add("cursor-pointer");
+        color_span.classList.add("turndown");
+        color_header.appendChild(color_span);
+     
+        const color_p = document.createElement("p");
+        color_p.innerHTML = "Mixture: "+c1+" - "+c2+" - "+c3;
+        color_p.classList.add("mb-1");
+        color_main.appendChild(color_p);
     
-        // console.log(colorName);
+        const color_header2 = document.createElement("div");
+        color_header2.classList.add("d-flex");
+        color_header2.classList.add("w-100");
+        color_header2.classList.add("justify-content-between");
+        color_main.appendChild(color_header2);
+
+        const color_small = document.createElement("small");
+        color_small.innerText = "Category: Paint Colors";
+        color_small.classList.add("text-muted");
+        color_header2.appendChild(color_small);
+
+        const color_p2 = document.createElement("p");
+        color_p2.innerHTML = "&#8369;" + NumberComms.format(colorPrice) + ".00";
+        color_p2.value = colorPrice;
+        color_p2.id = "colorPrice"+cName;
+        color_p2.classList.add("mb-1");
+        color_header2.appendChild(color_p2);
+
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.classList.add("final-list");
+        textarea.classList.add("hid");
+        color_main.appendChild(textarea);
+        
         
         navigator.clipboard.writeText(text)
         .then(function (){
@@ -428,8 +541,8 @@
                 cancelButtonText: 'Add another Item',
                 showCancelButton: true,
             }).then(function (result) {
-                let textarea = document.getElementById("cinq");
-                textarea.value += text;
+                // let textarea = document.getElementById("cinq");
+                // textarea.value += text;
                 if (result.isConfirmed) {  
                     $('#inq-modal').modal('show');
                 }
@@ -491,7 +604,7 @@
             var price3 = (third_number == "Blue"  ? 850.00 : 0);
             var totalPrice = price1 + price2 + price3;
             var result = "BLUE";
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#0000ff";
@@ -511,7 +624,7 @@
             var price3 = (third_number == "Green" ? 850.00 : 0);
             var result = "GREEN";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#008000";
@@ -531,7 +644,7 @@
             var price3 = (third_number == "Yellow" ? 850.00 : 0);
             var result = "YELLOW";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ffff00";
@@ -551,7 +664,7 @@
             var price3 = (third_number == "Red" ? 850.00 : 0);
             var result = "RED";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ff0000";
@@ -571,7 +684,7 @@
             var price3 = (third_number == "White" ? 850.00 : 0);
             var result = "WHITE";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#f8f8ff";
@@ -591,7 +704,7 @@
             var price3 = (third_number == "Black" ? 850.00 : 0);
             var result = "BLACK";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#000000";
@@ -616,7 +729,7 @@
             var price3 = (third_number == "Blue"  ? 850.00 : 0);
             var totalPrice = price1 + price2 + price3;
             var result = "BLUE";
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#0000ff";
@@ -644,7 +757,7 @@
             var price6 = (third_number == "Red" ? 850.00 : 0);
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
             var result = "PURPLE";
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#800080";
@@ -672,7 +785,7 @@
             var price6 = (third_number == "Yellow" ? 850.00 : 0);
             var result = "GREEN";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#008000";
@@ -700,7 +813,7 @@
             var price6 = (third_number == "White" ? 850.00 : 0);
             var result = "LIGHT BLUE";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#add8e6";
@@ -728,7 +841,7 @@
             var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "YVES KLEIN BLUE";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#00008b";
@@ -753,7 +866,7 @@
             var price3 = (third_number == "Green" ? 850.00 : 0);
             var result = "GREEN";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#008000";
@@ -782,7 +895,7 @@
             var price6 = (third_number == "Red" ? 850.00 : 0);
             var result = "YELLOW";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ffff00";
@@ -811,7 +924,7 @@
             var price6 = (third_number == "Blue" ? 850.00 : 0);
             var result = "AQUA";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#00ffff";
@@ -840,7 +953,7 @@
             var price6 = (third_number == "Yellow" ? 850.00 : 0);
             var result = "LUCKY LIME";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#9acd32";
@@ -869,7 +982,7 @@
             var price6 = (third_number == "White" ? 850.00 : 0);
             var result = "ULVA LACTUCA GREEN";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#90ee90";
@@ -898,7 +1011,7 @@
             var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "HUNTER GREEN";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#355749";
@@ -922,7 +1035,7 @@
             var price3 = (third_number == "Yellow" ? 850.00 : 0);
             var result = "YELLOW";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ffff00";
@@ -950,7 +1063,7 @@
             var price6 = (third_number == "Red" ? 850.00 : 0);
             var result = "ORANGE";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ffa500";
@@ -978,7 +1091,7 @@
             var price6 = (third_number == "White" ? 850.00 : 0);
             var result = "WINTER DUVET";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ffffe0";
@@ -1006,7 +1119,7 @@
             var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "HEART GOLD";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#808000";
@@ -1030,7 +1143,7 @@
             var price3 = (third_number == "Red" ? 850.00 : 0);
             var result = "RED";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ff0000";
@@ -1059,7 +1172,7 @@
             var price6 = (third_number == "White" ? 850.00 : 0);
             var result = "PINK";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ffc0cb";
@@ -1088,7 +1201,7 @@
             var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "SCAB RED";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#8b0000";
@@ -1112,7 +1225,7 @@
             var price3 = (third_number == "White" ? 850.00 : 0);
             var result = "WHITE";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#f8f8ff";
@@ -1140,7 +1253,7 @@
             var price6 = (third_number == "Black" ? 850.00 : 0);
             var result = "GREY";
             var totalPrice = price1 + price2 + price3 + price4 + price5 + price6;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#808080";
@@ -1164,7 +1277,7 @@
             var price3 = (third_number == "Black" ? 850.00 : 0);
             var result = "BLACK";
             var totalPrice = price1 + price2 + price3;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#000000";
@@ -1188,7 +1301,7 @@
 
             var result = "ROUGE";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa1839";
@@ -1209,7 +1322,7 @@
 
             var result = "TILLANDSIA PURPLE";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#552f72";
@@ -1231,7 +1344,7 @@
 
             var result = "MANDARIN PEEL";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ff9e00";
@@ -1252,7 +1365,7 @@
 
             var result = "AEROSPACE ORANGE";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ff4f00";
@@ -1273,7 +1386,7 @@
 
             var result = "AVOCADO";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#557900";
@@ -1294,7 +1407,7 @@
 
             var result = "PEPPERONI";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa3c00";
@@ -1315,7 +1428,7 @@
 
             var result = "FOND DE TEINT";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ffaaaa";
@@ -1336,7 +1449,7 @@
 
             var result = "FLUORESCENT RED";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ff5555";
@@ -1357,7 +1470,7 @@
 
             var result = "SOOOO BLOODY";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#550000";
@@ -1378,7 +1491,7 @@
 
             var result = "HEARTBEAT";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa0000";
@@ -1399,7 +1512,7 @@
 
             var result = "FLUORESCENT LIME";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#bfc42b";
@@ -1420,7 +1533,7 @@
 
             var result = "DULL TURQUOISE";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#557e72";
@@ -1441,7 +1554,7 @@
 
             var result = "PIXELATED GRASS";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#009039";
@@ -1462,7 +1575,7 @@
 
             var result = "TEAL MOTIF";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#006c72";
@@ -1483,7 +1596,7 @@
 
             var result = "ANGELA BAY";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aac2e3";
@@ -1504,7 +1617,7 @@
 
             var result = "ASTRO NAUTICO";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#5584c7";
@@ -1525,7 +1638,7 @@
 
             var result = "NAVAL NIGHT";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#001839";
@@ -1545,7 +1658,7 @@
         {
             var result = "KONJŌ BLUE";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#002f72";
@@ -1565,7 +1678,7 @@
         {
             var result = "SLIMER GREEN";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aada00";
@@ -1585,7 +1698,7 @@
         {
             var result = "SOUR APPLE RINGS";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#40c2550";
@@ -1605,7 +1718,7 @@
         {
             var result = "BOLLYWOOD GOLD";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#fff9aa";
@@ -1625,7 +1738,7 @@
         {
             var result = "XANTHE YELLOW";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#fff355";
@@ -1645,7 +1758,7 @@
         {
             var result = "SCORZONERA BROWN";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#554f00";
@@ -1665,7 +1778,7 @@
         {
             var result = "NUCLEAR FALLOUT";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa9e00";
@@ -1685,7 +1798,7 @@
         {
             var result = "LIME DREAM";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#bfedbf";
@@ -1705,7 +1818,7 @@
         {
             var result = "POISONOUS PESTICIDE";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#40c840";
@@ -1725,7 +1838,7 @@
         {
             var result = "DARK GREEN";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#003c00";
@@ -1745,7 +1858,7 @@
         {
             var result = "GREEN HILLS";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#007900";
@@ -1765,7 +1878,7 @@
         {
             var result = "STONE COLD GRAY";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#555555";
@@ -1785,7 +1898,7 @@
         {
             var result = "DHŪSAR GREY";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aaaaaa";
@@ -1810,7 +1923,7 @@
         {
             var result = "AVOCADO PEAR";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#555439";
@@ -1835,7 +1948,7 @@
         {
             var result = "CAMEL BROWN";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa6739";
@@ -1858,7 +1971,7 @@
         {
             var result = "LOW SATURATED SCARLET";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa6d8e";
@@ -1881,7 +1994,7 @@
         {
             var result = "VERY DARK SCARLET";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#551839";
@@ -1904,7 +2017,7 @@
         {
             var result = "BALLYHOO";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#55a339";
@@ -1927,7 +2040,7 @@
         {
             var result = "O'GRADY GREEN";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#55a98e";
@@ -1950,7 +2063,7 @@
         {
             var result = "PERMANENT GREEN";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#005439";
@@ -1973,7 +2086,7 @@
         {
             var result = "CHERVIL LEAVES";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aabc8e";
@@ -1996,7 +2109,7 @@
         {
             var result = "DAISY LEAF";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#556739";
@@ -2019,7 +2132,7 @@
         {
             var result = "KASHMIR BLUE";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#556d8e";
@@ -2042,7 +2155,7 @@
         {
             var result = "STRONG MUSTARD";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa8b00";
@@ -2065,7 +2178,7 @@
         {
             var result = "GATHERING FIELD";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa9155";
@@ -2088,7 +2201,7 @@
         {
             var result = "ROMAN BRONZE COIN";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#553c00";
@@ -2111,7 +2224,7 @@
         {
             var result = "ECHINOIDEA THORNS";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#ffa455";
@@ -2134,7 +2247,7 @@
         {
             var result = "TIJOLO";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa4f00";
@@ -2157,7 +2270,7 @@
         {
             var result = "BRETZEL BROWN";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aa5555";
@@ -2180,7 +2293,7 @@
         {
             var result = "INEFFABLE FOREST";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#559155";
@@ -2203,7 +2316,7 @@
         {
             var result = "CONIFER";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#aae055";
@@ -2226,7 +2339,7 @@
         {
             var result = "YELLOW SALMONBERRY";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#fff680";
@@ -2249,7 +2362,7 @@
         {
             var result = "TATZELWURM GREEN";
             var totalPrice = 2550;
-            var price = 'PHP '+totalPrice+'';
+            var price = totalPrice;
             document.getElementById("color_result").value = result;
             document.getElementById("color_price").value = price;
             document.getElementById("color_hexcode").value = "#558B00";
@@ -2317,5 +2430,8 @@
             });
             return;
         }
+
     }
+    
+    
 })();

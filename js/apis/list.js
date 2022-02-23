@@ -1,4 +1,4 @@
-var base1_url = "https://elspintor.com/backend";
+var base1_url = "http://localhost/backend";
 var login_api = base1_url + "/api/v1/auth/login";
 var get_user2 = base1_url + '/api/v1/auth/get-user';
 var check_email = base1_url + '/api/v1/auth/check-email';
