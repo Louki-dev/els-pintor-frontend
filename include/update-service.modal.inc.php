@@ -15,8 +15,8 @@
                    <input type="text" id="eserv_symbol" class="b-none" disabled>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><button class="dropdown-item" type="button" id="upd-symbol-m2">Square Meter (m2)</button></li>
-                    <li><button class="dropdown-item" type="button" id="upd-symbol-pu">Unit (pu)</button></li>
+                    <li><button class="dropdown-item" type="button" id="upd-symbol-m2">m2</button></li>
+                    <li><button class="dropdown-item" type="button" id="upd-symbol-pu">pu</button></li>
                 </ul>
                 </div></div>
                 <p id="upd-symbol-service"></p>

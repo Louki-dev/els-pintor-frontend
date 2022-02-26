@@ -34,7 +34,7 @@
                 <tr class="pending_header text-light ">
                     <th scope="col"></th>
                     <th scope="col">PRODUCTS</th>
-                    <th scope="col">QUANTITY</th>
+                    <th scope="col">PRICE</th>
                     <th scope="col">STATUS</th>
                 </tr>
             </thead>

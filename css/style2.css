@@ -39,6 +39,7 @@ html::-webkit-scrollbar-thumb{
 
 body{
     background-color: ghostwhite !important;
+    padding: 0% !important;
 }
 
 body.active{

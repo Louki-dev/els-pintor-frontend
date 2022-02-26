@@ -860,8 +860,9 @@ function generateTemplateService($elem, $content)
                     '<span id="stitle'+$content[el].service_id+'">'+$content[el].service_title +'</span> ', 
                 '</td>',
                 '<td id="sdesc'+$content[el].service_id+'" class="hid">'+ textLimit($content[el].service_description, 20)+'</td>',
-            '<td>PHP <span id="sprice' + $content[el].service_id + '">' + $content[el].service_price + '</span></td>',
-            '<td class="hid"><span id="ssymbol'+$content[el].service_id+'">' + $content[el].service_symbol + '</span></td>',
+            '<td class="hid"><span id="sprice' + $content[el].service_id + '">' + $content[el].service_price + '</span></td>',
+            '<td>&#8369; <span>' + NumberComms.format($content[el].service_price) + '</span></td>',
+            '<td class="hid"><span id="ssymbol' + $content[el].service_id + '">' + $content[el].service_symbol + '</span></td>',
             '<td><span id="sstatus'+$content[el].service_id+'" class="' + ($content[el].service_status == 1 ? "offline": "approved") + '">' + ($content[el].service_status == 1 ? "Not Available": "Available") + '</span></td>',
             '</tr>'
         ];
@@ -929,8 +930,9 @@ function generateTemplateProduct($elem, $content)
             '<td><span class="fcapital">',
                     '<span id="ptitle'+$content[el].product_id+'">'+$content[el].product_name+'</span> ', 
                 '</td>',
-            '<td class="hid">PHP <span id="pprice' + $content[el].product_id + '">' + $content[el].product_price + '</span></td>',
-            '<td><span id="pquant' + $content[el].product_id + '">' + $content[el].product_quantity + '</span></td>',
+            '<td class="hid"><span id="pprice' + $content[el].product_id + '">' + $content[el].product_price + '</span></td>',
+            '<td>&#8369; <span>' + NumberComms.format($content[el].product_price) + '</span></td>',
+            '<td class="hid"><span id="pquant' + $content[el].product_id + '">' + $content[el].product_quantity + '</span></td>',
             '<td><span id="pstatus'+$content[el].product_id+'" class="' + ($content[el].product_status == 1 ? "offline": "approved") + '">' + ($content[el].product_status == 1 ? "Out of Stock": "Available") + '</span></td>',
             '</tr>'
         ];

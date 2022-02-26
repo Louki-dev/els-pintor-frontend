@@ -42,6 +42,8 @@
     $(document).ready(function (e) {
         loadServices();
         loadProducts();
+
+        document.getElementById('customer-section2').style.display = "none";
     });
 
     $(document).ready(function (e) {
@@ -55,27 +57,57 @@
         //         $('#csubmit').attr('disabled', true); //disable input
         //     }
         // });
-        $(document).on("click", "#csubmit", function (e) { 
-            const ul = document.getElementById('todo_list');
-            const listItems = ul.getElementsByClassName('final-list');
-            const subtotal = document.getElementById('subtotals');
-                
+        $(document).on("click", "#cNext", function (e) {
+            const ul = document.getElementById('todo_list'); //ul of the items
+            const listItems = ul.getElementsByClassName('final-list'); //textarea
+            const subtotal = document.getElementById('subtotals'); //subtotal
+
+
             // Loop through the NodeList object.
+            // Text Area //
             for (let i = 0; i <= listItems.length - 1; i++) {
-                console.log(listItems[i]);
                 let textarea = document.getElementById("cinq");
                 textarea.value += listItems[i].value;
             }
-            let textarea2 = document.getElementById("cinq");
-            textarea2.value += 'Subtotal:  '+ subtotal.textContent;
+            const check_item = document.getElementById("cinq").value; 
+
+            if (check_item == '') {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: 'Please select at least 1 item.',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#2691d9',
+                });
+
+                $('#cinq').val("");
+                return;
+            } else {
+                document.getElementById('customer-section1').style.display = "none";
+                document.getElementById('customer-section2').style.display = "block";
+            }
             
+        });
+
+        $(document).on("click", "#customer-closeButton", function (e) {
+            document.getElementById('customer-section1').style.display = "block";
+            document.getElementById('customer-section2').style.display = "none";
+            $('#cinq').val("");
+        });
+
+
+        $(document).on("click", "#csubmit", function (e) { 
+            
+            // let textarea2 = document.getElementById("cinq");
+            // textarea2.value += 'Subtotal:  ' + subtotal.textContent;
+
             var data = {
                 customer_first_name : $('#cfname').val(),
                 customer_last_name : $('#clname').val(),
                 customer_mobile_number : $('#cnumber').val(),
                 customer_email : $('#cemail').val(),
                 customer_address : $('#caddress').val(),
-                customer_inquiry_details : $('#cinq').val()
+                customer_inquiry_details: $('#cinq').val(),
             };
             var int_number = data.customer_mobile_number;
             var int_length = ('' + int_number).length;
@@ -199,8 +231,8 @@
                 if (response_data.status == true) {
                     $('.modal').modal('hide');
                     Swal.fire({
-                        title: 'Inquiry sent!',
-                        text: 'We will contact you as soon as possible. Thank you',
+                        title: 'Success!',
+                        text: 'Your order has been received and is now beeing processed. Thank you',
                         icon: 'success',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',
@@ -211,6 +243,8 @@
                     // $('#cemail').val(''),
                     // $('#caddress').val(''),
                     // $('#cnumber').val(''),
+                    document.getElementById('customer-section1').style.display = "block";
+                    document.getElementById('customer-section2').style.display = "none";
                     $('#cinq').val('')
                     // let inputs = document.getElementById('flexCheckDefault');
                     // inputs.checked = false;
@@ -247,8 +281,8 @@
                     }
                     else {
                         $('#inq-modal').modal('hide');
-                        // let inputs = document.getElementById('flexCheckDefault');
-                        // inputs.checked = false;
+                        document.getElementById('customer-section1').style.display = "block";
+                        document.getElementById('customer-section2').style.display = "none";
                         $('#cinq').val("");
                     }
                 });
@@ -359,7 +393,7 @@
                 '<h2 id="sprice' + $content[el].service_id + '" class="fs-4">Price rate: &#8369;' + NumberComms.format($content[el].service_price) + '.00</h2>',
                 '<p id="sstatus'+$content[el].service_id+'" class="' + ($content[el].service_status == 1 ? "text-muted": "pending") + '">' + ($content[el].service_status == 1 ? "Unvailable": "Available") + '</p>',
                 // '<button type="button" id="copyService' + $content[el].service_id + '"class="btn1 text-white mt-3 fs-4 p-2"><small class="ms-2">Add to Inquiry</small><div class="fas fa-paint-roller fs-5 ms-2 me-2"></div></button>',
-                '<button type="button" id="copyService'+$content[el].service_id+'" class="btn1 text-white trans pt-1 fs-4 p-2 mt-3 ' + ($content[el].service_status == 1 ? "btn1-disabled": "") + '" ' + ($content[el].service_status == 1 ? "disabled": "") + '><small class="bi bi-bag-plus ms-2 me-2"></small><small class="me-2">Select</small></button>',
+                '<button type="button" id="copyService'+$content[el].service_id+'" class="btn1 text-white trans pt-1 fs-4 p-2 mt-3 ' + ($content[el].service_status == 1 ? "btn1-disabled": "") + '" ' + ($content[el].service_status == 1 ? "disabled": "") + '><small class="bi bi-bag me-2 ms-2"></small><small class="me-2">Select</small></button>',
                 '</div></form>'   
             ];
             $($elem).append($html.join(""));
@@ -380,7 +414,8 @@
 
             $html = [
                 '<form><input type="hidden" id="products-copy' + $content[el].product_id + '" value="' + $content[el].product_name + '">',
-                '<input type="hidden" id="products-price' + $content[el].product_id + '" value="' + $content[el].product_price +'">',
+                '<input type="hidden" id="products-price' + $content[el].product_id + '" value="' + $content[el].product_price + '">',
+                '<input type="hidden" id="products-quantity' + $content[el].product_id + '" value="' + $content[el].product_quantity + '">',
                 '<div class="box shadow">',
                 '<img id="pimage'+$content[el].product_id+'" src="'+display_image+$content[el].product_image +'" alt="">',
                 '<div class="content container">',
@@ -410,17 +445,18 @@
             $html = [
                 '<div class="mb-3">',
                     '<div class="row">',
+                        '<p class="text-muted fs-4 mb-4">Kindly input the required measurement for square meter and press the "Calculate" button. </p>',
                         '<div class="col">',
                         '<label for="exampleFormControlInput1" class="form-label fw-bold opacity-75">Width</label>',
-                        '<input type="text" class="form-control form-control-lg" id="w-width'+$content+'">',
+                        '<input type="number" class="form-control form-control-lg number-arrows-hide" id="w-width'+$content+'">',
                         '</div>',
 
                         '<div class="col">',
                         '<label for="exampleFormControlInput1" class="form-label fw-bold opacity-75">Height</label>',
-                        '<input type="text" class="form-control form-control-lg" id="h-height'+$content+'">',
+                        '<input type="number" class="form-control form-control-lg number-arrows-hide" id="h-height'+$content+'">',
                         '</div>',
                     '</div>',
-                    '<button type="button" class="btn btn-outline-primary mt-3 mb-3 form-control btn-lg" id="cal-sqrMeter' + $content + '">CALCULATE</button>',
+                    '<button type="button" class="btn btn-light mt-3 mb-3 form-control btn-lg" id="cal-sqrMeter' + $content + '">CALCULATE</button>',
                 '</div>',
 
                     '<span class="fw-bold opacity-75 mt-1">Total Cost:</span><br>',
@@ -430,7 +466,7 @@
                 '<hr class="mt-5 mb-4"></hr>',
                 // '<div class="d-flex flex-nowrap mb-3 mt-4 gap-2 container pe-3">',
                 // '<input type="button" value="Cancel" data-bs-dismiss="modal" id="cancel_sqrMeter' + $content + '" class="btn btn-outline-secondary col-6 btn-lg">',
-                '<button type="button" class="btn btn-primary col-6 btn-lg form-control mb-3 m2_button" id="add_sqrMeter'+$content+'" disabled="false">SAVE</button>',
+                '<button type="button" class="btn btn-primary col-6 btn-lg form-control mb-3 m2_button py-3" id="add_sqrMeter'+$content+'" disabled="false"><i class="bi bi-bag-plus me-2"></i>SAVE</button>',
                 // '</div>',
             ];
             $($elem).append($html.join(""));
@@ -449,11 +485,12 @@
                 '<div class="mb-3">',
                     '<div class="row">',
                         '<div class="col">',
-                        '<label for="exampleFormControlInput1" class="form-label fw-bold opacity-75">Units</label>',
-                        '<input type="text" class="form-control form-control-lg" id="unit-'+$content+'">',
+                        '<p class="text-muted fs-4 mb-4">Kindly input how many unit and press the "Calculate" button. </p>',
+                        '<label for="exampleFormControlInput1" class="form-label fw-bold opacity-75">Enter unit:</label>',
+                        '<input type="number" class="form-control form-control-lg number-arrows-hide" id="unit-'+$content+'">',
                         '</div>',
                     '</div>',
-                    '<button type="button" class="btn btn-outline-primary mt-3 mb-3 form-control btn-lg" id="cal-unit' + $content + '">CALCULATE</button>',
+                    '<button type="button" class="btn btn-light mt-3 mb-3 form-control btn-lg" id="cal-unit' + $content + '">CALCULATE</button>',
                 '</div>',
 
                     '<span class="fw-bold opacity-75 mt-1">Total Cost:</span><br>',
@@ -463,7 +500,7 @@
                 '<hr class="mt-5 mb-4"></hr>',
                 // '<div class="d-flex flex-nowrap mb-3 mt-4 gap-2 container pe-3">',
                 // '<input type="button" value="Cancel" data-bs-dismiss="modal" id="cancel_unit' + $content + '" class="btn btn-outline-secondary col-6 btn-lg">',
-                '<button type="button" class="btn btn-primary col-6 btn-lg form-control mb-3 pu_button" id="add_unit'+$content+'" disabled="false">SAVE</button>',
+                '<button type="button" class="btn btn-primary col-6 btn-lg form-control mb-3 pu_button py-3" id="add_unit'+$content+'" disabled="false"><i class="bi bi-bag-plus me-2"></i>SAVE</button>',
                 // '</div>',
             ];
             $($elem).append($html.join(""));
@@ -547,9 +584,9 @@
                     return;
                 }
                 Swal.fire({
-                    title: 'Error!',
-                    text: 'This item is already added!',
-                    icon: 'error',
+                    title: 'Warning!',
+                    text: 'This item has already been added!',
+                    icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 }).then(function (result) {
@@ -604,6 +641,27 @@
                         document.getElementById("squareMeter"+servNo).innerHTML = NumberComms.format(calculate) + ".00";
                         document.getElementById("total-squareMeter" + servNo).value = calculate;
                         
+                        const input_w = document.getElementById('w-width' + servNo).value;
+                        const input_h = document.getElementById('h-height' + servNo).value;
+
+                        if (input_w == '' || input_w == 0 || input_w < 0 || 
+                            input_h == '' || input_h == 0 || input_h < 0) {
+                            Swal.fire({
+                                title: 'Warning!',
+                                text: 'You have to make a calculation first before adding.',
+                                icon: 'warning',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#2691d9',
+                            });
+                            var button = document.querySelector(".m2_button");
+                            //check whether the element exists
+                            if (button != null && button != undefined) {
+                                button.disabled = true;
+                            }
+                            document.getElementById("total-squareMeter" + servNo).value = "0.00";
+                            document.getElementById("squareMeter" + servNo).innerHTML = "0.00";
+                            return;
+                        }
                         var button = document.querySelector(".m2_button");
                         //check whether the element exists
                         if (button != null && button != undefined) {
@@ -621,27 +679,46 @@
                         document.getElementById("unit"+servNo).innerHTML = NumberComms.format(calculate) + ".00";
                         document.getElementById("total-unit" + servNo).value = calculate;
                         
+                        const price = document.getElementById('unit-' + servNo).value;
+
+                        if (price == '' || price == 0 || price < 0) {
+                            Swal.fire({
+                                title: 'Warning!',
+                                text: 'You have to make a calculation first before adding.',
+                                icon: 'warning',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#2691d9',
+                            });
+                            var button = document.querySelector(".pu_button");
+                            //check whether the element exists
+                            if (button != null && button != undefined) {
+                                button.disabled = true;
+                            }
+                            document.getElementById("total-unit" + servNo).value = "0.00";
+                            document.getElementById("unit" + servNo).innerHTML = "0.00";
+                            return;
+                        }
                         var button = document.querySelector(".pu_button");
                         //check whether the element exists
                         if (button != null && button != undefined) {
                             button.disabled = false;
                         }
-                        return;
+                        
                     });
 
             } else {
                 Swal.fire({
-                    title: 'Error!',
-                    text: 'This service is already added!',
-                    icon: 'error',
+                    title: 'Warning!',
+                    text: 'This service has already been added!',
+                    icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 }).then(function (result) {
                     Swal.fire({
-                        title: 'Would you like to replace the same item?',
-                        text: 'This will remove the existing item.',
+                        title: 'Would you like to remove the existing service?',
+                        text: '',
                         showCancelButton: true,
-                        confirmButtonText: 'Yes, I insist',
+                        confirmButtonText: 'Yes, remove it',
                         confirmButtonColor: '#2691d9',
                         cancelButtonText: 'No, thanks',
                         icon: 'question',
@@ -673,17 +750,6 @@
             const height = document.getElementById('h-height' + servNo).value;
             const unit = document.getElementById('unit-' + servNo).value;
 
-            if (price == 0) {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: 'You have to make a calculation first before adding.',
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#2691d9',
-                });
-                return;
-            }
-
             copyService(servNo, price, width, height, unit);
             calculate(price);
             $('#inq-' + servSymbol + '').modal('hide');
@@ -691,25 +757,13 @@
             $('#h-height' + servNo).val("");  
             $('#total-squareMeter'+servNo).val("");    
             document.getElementById("squareMeter" + servNo).innerHTML = "0.00";
-            return;
         }); 
-
+        
         $(document).on('click', '#add_unit' + servNo, function (e) { 
             const price = parseInt(document.getElementById('total-unit' + servNo).value);
             const width = document.getElementById('w-width' + servNo).value;
             const height = document.getElementById('h-height' + servNo).value;
             const unit = document.getElementById('unit-' + servNo).value;
-
-            if (price == 0) {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: 'You have to make a calculation first before adding.',
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#2691d9',
-                });
-                return;
-            }
 
             copyService(servNo, price, width, height, unit);
             calculate(price);
@@ -717,7 +771,6 @@
             $('#unit-' + servNo).val("");
             $('#total-unit'+servNo).val("");    
             document.getElementById("unit" + servNo).innerHTML = "0.00";
-            return;
         }); 
         
 
@@ -735,6 +788,7 @@
     {
         
         const productname = String(document.getElementById('products-copy' + prodNo).value);
+
         const productprice = product_item_calculate;
         var text = '--- PRODUCT ---' + '\r\n' +
             'Name: ' + productname + '\r\n' +
@@ -801,7 +855,7 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Success!',
+                title: 'Item has been added!',
                 text: '',
                 icon: 'success',
                 confirmButtonText: 'View Order',
@@ -911,7 +965,7 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Success!',
+                title: 'Item has been added!',
                 text: '',
                 icon: 'success',
                 confirmButtonText: 'View Order',

@@ -197,7 +197,14 @@
             var data = $(e.relatedTarget).attr('data-info');
             $("#eserv_status").val($('#sstatus' + data).html());
             $("#eserv_symbol").val($('#ssymbol' + data).html());
-            
+            $('#upd-symbol-service').val($('#ssymbol' + data).html());
+            if ($('#sstatus' + data).html() == "Not Available") {
+                $('#upd-stat-service').val("1");
+            } 
+            if ($('#sstatus' + data).html() == "Available") {
+                $('#upd-stat-service').val("0");
+            }
+ 
         });
         
         function getServiceDetail(data)
@@ -237,20 +244,20 @@
         
         // UPDATE SECTION
         $(document).on('click','#upd-symbol-m2',function (){
-            $('#eserv_symbol').val("Square Meter (m2)"); 
-            stat = $("#eserv_symbol").val();
+            $('#eserv_symbol').val("m2"); 
+            var symbol = $("#eserv_symbol").val();
 
-            if (stat == "Square Meter (m2)") {
+            if (symbol == "m2") {
                 var set = "m2";
                 $('#upd-symbol-service').val(set);
             }
         });
     
         $(document).on('click','#upd-symbol-pu',function (){
-            $('#eserv_symbol').val("Unit (pu)");
-            stat = $("#eserv_symbol").val();
+            $('#eserv_symbol').val("pu");
+            var symbol = $("#eserv_symbol").val();
 
-            if (stat == "Unit (pu)") {
+            if (symbol == "pu") {
                 var set = "pu";
                 $('#upd-symbol-service').val(set);
             }
@@ -323,16 +330,6 @@
                 return;
             }
 
-            if (payload.serviceSymbol == '') {
-                Swal.fire({
-                    title: 'Oops...',
-                    text: 'Please select at least 1 symbol.',
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#2691d9',
-                });
-                return;
-            }
     
             Swal.fire({
                 title: 'Are you sure you want to update this service?',

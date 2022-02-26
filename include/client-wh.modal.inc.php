@@ -1,5 +1,5 @@
 <div class="modal fade" id="inq-m2" aria-hidden="true" data-bs-backdrop="static">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content rounded-6 shadow-lg" style="border: none;">
         <div class="modal-header pending_header2">
             <h5 class="modal-title text-white fw-bold p-2" id="confirm_inquiryModalLabel"></h5>

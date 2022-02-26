@@ -13,7 +13,7 @@
     
     <div class="icons"><!-- 
     <span class="" data-bs-toggle="modal" data-bs-target="#inq-modal" style="border-radius:0px; margin-bottom: 1px; padding-top: 15px; "><i style="margin-bottom: 1px;" class="fas fa-brush"></i></span> -->
-    <button class="btn btn-primary btn-lg trans mb-2 pt-1 cart" data-bs-toggle="modal" data-bs-target="#inq-modal">View Order<button>
+    <button class="btn btn-primary btn-lg trans mb-2 py-2 cart" data-bs-toggle="modal" data-bs-target="#inq-modal"><i class="bi bi-bag-check me-2"></i>View Order<button>
         <!-- <div class="fas fa-paint-roller" data-bs-toggle="modal" data-bs-target="#inq-modal"></div> -->
         <div class="fas fa-bars trans" id="menu-btn" title="Menu"></div>
     </div>

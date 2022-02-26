@@ -403,9 +403,9 @@
             calculateColor(colorPrice);
         }else {
             Swal.fire({
-                title: 'Error!',
-                text: 'This item is already added!',
-                icon: 'error',
+                title: 'Warning!',
+                text: 'This item has already been added!',
+                icon: 'warning',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
             }).then(function (result) {
@@ -533,7 +533,7 @@
         .then(function (){
             // Success!
             Swal.fire({
-                title: 'Success!',
+                title: 'Item has been added!',
                 text: '',
                 icon: 'success',
                 confirmButtonText: 'View Order',
