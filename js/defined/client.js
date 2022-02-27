@@ -74,7 +74,7 @@
             if (check_item == '') {
                 Swal.fire({
                     title: 'Warning!',
-                    text: 'Please select at least 1 item.',
+                    text: 'Please add at least 1 item.',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
@@ -445,7 +445,7 @@
             $html = [
                 '<div class="mb-3">',
                     '<div class="row">',
-                        '<p class="text-muted fs-4 mb-4">Kindly input the required measurement for square meter and press the "Calculate" button. </p>',
+                        '<p class="text-muted fs-4 mb-4">Please enter the required square meter measurement and press the "Calculate" button. </p>',
                         '<div class="col">',
                         '<label for="exampleFormControlInput1" class="form-label fw-bold opacity-75">Width</label>',
                         '<input type="number" class="form-control form-control-lg number-arrows-hide" id="w-width'+$content+'">',
@@ -485,7 +485,7 @@
                 '<div class="mb-3">',
                     '<div class="row">',
                         '<div class="col">',
-                        '<p class="text-muted fs-4 mb-4">Kindly input how many unit and press the "Calculate" button. </p>',
+                        '<p class="text-muted fs-4 mb-4">Please enter the number of units and press the "Calculate" button. </p>',
                         '<label for="exampleFormControlInput1" class="form-label fw-bold opacity-75">Enter unit:</label>',
                         '<input type="number" class="form-control form-control-lg number-arrows-hide" id="unit-'+$content+'">',
                         '</div>',
@@ -585,15 +585,15 @@
                 }
                 Swal.fire({
                     title: 'Warning!',
-                    text: 'This item has already been added!',
+                    text: 'This item is already being added to the list!',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 }).then(function (result) {
                     Swal.fire({
-                        title: 'Would you like to replace the existing item? ',
+                        title: 'Do you want to replace the current item? ',
                         showCancelButton: true,
-                        confirmButtonText: 'Yes, replace it',
+                        confirmButtonText: 'Yes, it should be replaced.',
                         confirmButtonColor: '#2691d9',
                         cancelButtonText: 'No, thanks',
                         icon: 'question',
@@ -648,7 +648,7 @@
                             input_h == '' || input_h == 0 || input_h < 0) {
                             Swal.fire({
                                 title: 'Warning!',
-                                text: 'You have to make a calculation first before adding.',
+                                text: 'Before you can add, you must make a computation.',
                                 icon: 'warning',
                                 confirmButtonText: 'OK',
                                 confirmButtonColor: '#2691d9',
@@ -684,7 +684,7 @@
                         if (price == '' || price == 0 || price < 0) {
                             Swal.fire({
                                 title: 'Warning!',
-                                text: 'You have to make a calculation first before adding.',
+                                text: 'Before you can add, you must make a computation.',
                                 icon: 'warning',
                                 confirmButtonText: 'OK',
                                 confirmButtonColor: '#2691d9',
@@ -709,16 +709,16 @@
             } else {
                 Swal.fire({
                     title: 'Warning!',
-                    text: 'This service has already been added!',
+                    text: 'This service is already being added to the list',
                     icon: 'warning',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#2691d9',
                 }).then(function (result) {
                     Swal.fire({
-                        title: 'Would you like to remove the existing service?',
-                        text: '',
+                        title: 'Do you want to remove the existing service?',
+                        text: "Note: You'll have to do the calculation again.",
                         showCancelButton: true,
-                        confirmButtonText: 'Yes, remove it',
+                        confirmButtonText: 'Yes, get rid of it',
                         confirmButtonColor: '#2691d9',
                         cancelButtonText: 'No, thanks',
                         icon: 'question',

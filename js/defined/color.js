@@ -404,7 +404,7 @@
         }else {
             Swal.fire({
                 title: 'Warning!',
-                text: 'This item has already been added!',
+                text: 'This item is already being added to the list!',
                 icon: 'warning',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
