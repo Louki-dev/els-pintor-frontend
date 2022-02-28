@@ -865,3 +865,7 @@ background-color:#2691d9 !important;
     cursor: pointer;
   }
   
+  .bd-callout{
+      border-left: solid 3px;
+      color:rgba(0, 0, 0, 0.2);
+  }

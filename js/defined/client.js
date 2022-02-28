@@ -232,7 +232,7 @@
                     $('.modal').modal('hide');
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Your order has been received and is now beeing processed. Thank you',
+                        text: 'Your order has been received and is now beeing processed. Thank you!',
                         icon: 'success',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',
@@ -443,9 +443,9 @@
         for (var el = 0; el<$content.length; el++) {
 
             $html = [
-                '<div class="mb-3">',
+                '<div class="mb-4">',
                     '<div class="row">',
-                        '<p class="text-muted fs-4 mb-4">Please enter the required square meter measurement and press the "Calculate" button. </p>',
+                        '<div class="bd-callout mb-4"><p class="text-muted fs-4">Please enter the required square meter measurement to determine the estimated cost.</p></div>',
                         '<div class="col">',
                         '<label for="exampleFormControlInput1" class="form-label fw-bold opacity-75">Width</label>',
                         '<input type="number" class="form-control form-control-lg number-arrows-hide" id="w-width'+$content+'">',
@@ -453,10 +453,10 @@
 
                         '<div class="col">',
                         '<label for="exampleFormControlInput1" class="form-label fw-bold opacity-75">Height</label>',
-                        '<input type="number" class="form-control form-control-lg number-arrows-hide" id="h-height'+$content+'">',
+                        '<input type="number" class="form-control form-control-lg number-arrows-hide height_dis" id="h-height'+$content+'" disabled="false">',
                         '</div>',
                     '</div>',
-                    '<button type="button" class="btn btn-light mt-3 mb-3 form-control btn-lg" id="cal-sqrMeter' + $content + '">CALCULATE</button>',
+                    // '<button type="button" class="btn btn-light mt-3 mb-3 form-control btn-lg" id="cal-sqrMeter' + $content + '">CALCULATE</button>',
                 '</div>',
 
                     '<span class="fw-bold opacity-75 mt-1">Total Cost:</span><br>',
@@ -482,15 +482,15 @@
         for (var el = 0; el<$content.length; el++) {
 
             $html = [
-                '<div class="mb-3">',
+                '<div class="mb-4">',
                     '<div class="row">',
+                        '<div class="bd-callout mb-4"><p class="text-muted fs-4 ">Please enter the number of units to determine the estimated cost.</p></div>',
                         '<div class="col">',
-                        '<p class="text-muted fs-4 mb-4">Please enter the number of units and press the "Calculate" button. </p>',
                         '<label for="exampleFormControlInput1" class="form-label fw-bold opacity-75">Enter unit:</label>',
                         '<input type="number" class="form-control form-control-lg number-arrows-hide" id="unit-'+$content+'">',
                         '</div>',
                     '</div>',
-                    '<button type="button" class="btn btn-light mt-3 mb-3 form-control btn-lg" id="cal-unit' + $content + '">CALCULATE</button>',
+                    // '<button type="button" class="btn btn-light mt-3 mb-3 form-control btn-lg" id="cal-unit' + $content + '">CALCULATE</button>',
                 '</div>',
 
                     '<span class="fw-bold opacity-75 mt-1">Total Cost:</span><br>',
@@ -631,28 +631,52 @@
             const serviceprice = parseInt(document.getElementById('services-price' + servNo).value); 
 
             if (check_service_item == undefined) {
-                    $('#inq-'+servSymbol+'').modal('show');
+                    $('#inq-' + servSymbol + '').modal('show');
+                
                     generateCalM2Service('#cal-sqrMeter-buttons', servNo);
-                    
-                    $(document).on('click', '#cal-sqrMeter'+servNo, function (e) {      
+                
+                    $(document).on('keyup', '#w-width' + servNo, function () {
                         const width = document.getElementById('w-width'+servNo).value;
-                        const height = document.getElementById('h-height'+servNo).value;
-                        var calculate = serviceprice * (width * height);
-                        document.getElementById("squareMeter"+servNo).innerHTML = NumberComms.format(calculate) + ".00";
-                        document.getElementById("total-squareMeter" + servNo).value = calculate;
                         
+                        if (width != '') {
+                            var hbutton = document.querySelector(".height_dis");
+                            if (hbutton != null && hbutton != undefined) {
+                                hbutton.disabled = false;
+                            }
+                        } else {
+                            var hbutton = document.querySelector(".height_dis");
+                            if (hbutton != null && hbutton != undefined) {
+                                hbutton.disabled = true;
+                            }
+                            document.getElementById("total-squareMeter" + servNo).value = "0.00";
+                            document.getElementById("squareMeter" + servNo).innerHTML = "0.00";
+                            document.getElementById('h-height' + servNo).value = "";
+                        }
+                        
+                    });
+                    $(document).on('keyup', '#h-height' + servNo, function () {
+                        const width = document.getElementById('w-width'+servNo).value;
+                        const height = document.getElementById('h-height' + servNo).value;
+                        if (width != '' || height != '') {
+                            var calculate = serviceprice * (width * height);
+                            document.getElementById("squareMeter"+servNo).innerHTML = NumberComms.format(calculate) + ".00";
+                            document.getElementById("total-squareMeter" + servNo).value = calculate;
+                        } else {
+                            document.getElementById("total-squareMeter" + servNo).value = "0.00";
+                            document.getElementById("squareMeter" + servNo).innerHTML = "0.00";
+                        }
                         const input_w = document.getElementById('w-width' + servNo).value;
                         const input_h = document.getElementById('h-height' + servNo).value;
 
                         if (input_w == '' || input_w == 0 || input_w < 0 || 
                             input_h == '' || input_h == 0 || input_h < 0) {
-                            Swal.fire({
-                                title: 'Warning!',
-                                text: 'Before you can add, you must make a computation.',
-                                icon: 'warning',
-                                confirmButtonText: 'OK',
-                                confirmButtonColor: '#2691d9',
-                            });
+                            // Swal.fire({
+                            //     title: 'Warning!',
+                            //     text: 'Before you can add, you must make a computation.',
+                            //     icon: 'warning',
+                            //     confirmButtonText: 'OK',
+                            //     confirmButtonColor: '#2691d9',
+                            // });
                             var button = document.querySelector(".m2_button");
                             //check whether the element exists
                             if (button != null && button != undefined) {
@@ -667,28 +691,33 @@
                         if (button != null && button != undefined) {
                             button.disabled = false;
                         }
-                        return;
+         
                     });
-            
+
                     
                     generateCalPuService('#cal-unit-buttons', servNo);
 
-                    $(document).on('click', '#cal-unit'+servNo, function (e) {      
-                        const unit = document.getElementById('unit-'+servNo).value;
-                        var calculate = serviceprice * unit;
-                        document.getElementById("unit"+servNo).innerHTML = NumberComms.format(calculate) + ".00";
-                        document.getElementById("total-unit" + servNo).value = calculate;
-                        
+                    $(document).on('keyup', '#unit-' + servNo,function (){
+                        const unit = document.getElementById('unit-' + servNo).value;
+                        if (unit != '') {
+                            var calculate = serviceprice * unit;
+                            document.getElementById("unit"+servNo).innerHTML = NumberComms.format(calculate) + ".00";
+                            document.getElementById("total-unit" + servNo).value = calculate;
+                        } else {
+                            document.getElementById("total-unit" + servNo).value = "0.00";
+                            document.getElementById("unit" + servNo).innerHTML = "0.00";
+                        }
+
                         const price = document.getElementById('unit-' + servNo).value;
 
                         if (price == '' || price == 0 || price < 0) {
-                            Swal.fire({
-                                title: 'Warning!',
-                                text: 'Before you can add, you must make a computation.',
-                                icon: 'warning',
-                                confirmButtonText: 'OK',
-                                confirmButtonColor: '#2691d9',
-                            });
+                            // Swal.fire({
+                            //     title: 'Warning!',
+                            //     text: 'Before you can add, you must make a computation.',
+                            //     icon: 'warning',
+                            //     confirmButtonText: 'OK',
+                            //     confirmButtonColor: '#2691d9',
+                            // });
                             var button = document.querySelector(".pu_button");
                             //check whether the element exists
                             if (button != null && button != undefined) {
@@ -706,6 +735,8 @@
                         
                     });
 
+
+
             } else {
                 Swal.fire({
                     title: 'Warning!',
@@ -716,7 +747,7 @@
                 }).then(function (result) {
                     Swal.fire({
                         title: 'Do you want to remove the existing service?',
-                        text: "Note: You'll have to do the calculation again.",
+                        text: "Note: The expected cost will reset",
                         showCancelButton: true,
                         confirmButtonText: 'Yes, get rid of it',
                         confirmButtonColor: '#2691d9',
