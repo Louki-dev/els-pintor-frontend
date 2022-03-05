@@ -1,28 +1,28 @@
 (function () {
     $(document).ready(function (e) {
         // prevents / disable ENTER key to reload page
-        $('form').on('submit', function(e){
+        $('form').on('submit', function (e) {
             e.preventDefault();
         });
 
         loadEmployee();
         loadSentMessage();
 
-        $('#view-message').on('show.bs.modal', function(e) { 
+        $('#view-message').on('show.bs.modal', function (e) {
             getSentMessageDetail({
                 sent_message_id: $(e.relatedTarget).attr("data-info")
             });
         });
- 
-        $(document).on("click", "#done-modal", function(e) { 
+
+        $(document).on("click", "#done-modal", function (e) {
             $('.modal').modal('hide');
         });
 
-        $(document).on("click", "#createMessage", function(e) { 
-            
+        $(document).on("click", "#createMessage", function (e) {
+
             var $selected = [];
 
-            $('#employee-contacts input:checked').each(function() {
+            $('#employee-contacts input:checked').each(function () {
                 $selected.push($(this).val());
             });
 
@@ -61,59 +61,59 @@
 
     });
 
-    var typingTimer;               
-    var doneTypingInterval = 1000;  
+    var typingTimer;
+    var doneTypingInterval = 1000;
 
-    $(document).on('keyup', '#search_m',function (){
-        $('#search_m').keyup(function(){
+    $(document).on('keyup', '#search_m', function () {
+        $('#search_m').keyup(function () {
             clearTimeout(typingTimer);
             if ($('#search_m').val()) {
                 typingTimer = setTimeout(doneTyping, doneTypingInterval);
-            }else{
+            } else {
                 loadSentMessage();
             }
         });
     });
 
-    function doneTyping () {
+    function doneTyping() {
         loadSentMessage();
     }
 
-    $(document).on("change", "#selectallContact", function(e) { 
-        $('#employee-contacts input:checkbox').each(function() {
+    $(document).on("change", "#selectallContact", function (e) {
+        $('#employee-contacts input:checkbox').each(function () {
             $(this).prop('checked', e.currentTarget.checked);
         });
     });
 
-    $(document).on("change", "#selectallSentMessage", function(e) { 
-        $('#sent-messages input:checkbox').each(function() {
+    $(document).on("change", "#selectallSentMessage", function (e) {
+        $('#sent-messages input:checkbox').each(function () {
             $(this).prop('checked', e.currentTarget.checked);
         });
     });
 
 
-    $(document).on("click", "#selectedSentMessage", function(e) { 
+    $(document).on("click", "#selectedSentMessage", function (e) {
 
         var selected = [];
-        $('#sent-messages input:checked').each(function() {
+        $('#sent-messages input:checked').each(function () {
             selected.push($(this).val());
         });
 
         if (selected.length > 0) {
 
             Swal.fire({
-                title: 'Are you sure you want to remove these Message(s) ('+selected.length+')?',
+                title: 'Are you sure you want to remove these Message(s) (' + selected.length + ')?',
                 showCancelButton: true,
                 confirmButtonText: 'Yes, remove it!',
                 confirmButtonColor: '#2691d9',
                 icon: "question",
             }).then(function (result) {
-                if (result.isConfirmed) { 
+                if (result.isConfirmed) {
                     $('#confirm-pass-admin').val("");
                     $('#confirm-admin-modal').modal('show');
                     var messageId = selected;
                     confirmAdmin(messageId);
-                } 
+                }
             });
         } else {
             Swal.fire({
@@ -126,8 +126,7 @@
         }
     });
 
-    function loadEmployee()
-    {
+    function loadEmployee() {
         generateEmptyTemplate('#employee-contacts');
         ajaxRequest(null,
             {
@@ -148,41 +147,39 @@
             });
     }
 
-    function loadSentMessage($offset = 0, $limit = 5, rowOffset=0)
-    {
+    function loadSentMessage($offset = 0, $limit = 5, rowOffset = 0) {
         generateEmptyTemplate('#sent-messages');
 
         ajaxRequest(
-        {
-            search: $("#search_m").val()
-        },
-        {
-            url: get_sent_message,
-            type: "GET",
-            headers: assignAuthHeader(),
-            dataType: "json"
-        },
-        function (response_data) {
-            if (response_data.status == true) {
-                if (response_data.content != null) {
-                    if (response_data.content.messages.length > 0) {
+            {
+                search: $("#search_m").val()
+            },
+            {
+                url: get_sent_message,
+                type: "GET",
+                headers: assignAuthHeader(),
+                dataType: "json"
+            },
+            function (response_data) {
+                if (response_data.status == true) {
+                    if (response_data.content != null) {
+                        if (response_data.content.messages.length > 0) {
 
-                        // renderPagination(response_data.content.count, "#message-paginate", 'message', rowOffset, $limit)
-                        $('#sent-message-paginate').pagination({
-                            dataSource: response_data.content.messages,
-                            callback: function(data, pagination) {
-                                generateTemplateSentMessage('#sent-messages', data);
-                            }
-                        })
+                            // renderPagination(response_data.content.count, "#message-paginate", 'message', rowOffset, $limit)
+                            $('#sent-message-paginate').pagination({
+                                dataSource: response_data.content.messages,
+                                callback: function (data, pagination) {
+                                    generateTemplateSentMessage('#sent-messages', data);
+                                }
+                            })
+                        }
                     }
                 }
-            }
-        });
+            });
     }
 
-    function confirmAdmin(messageId)
-    {
-        $(document).on("click","#confirm-pass-submit", function(e) {
+    function confirmAdmin(messageId) {
+        $(document).on("click", "#confirm-pass-submit", function (e) {
             var checkAdmin = {
                 check_pass: $('#confirm-pass-admin').val()
             };
@@ -213,7 +210,7 @@
                         $('.modal').modal('hide');
                         $('#confirm-pass-admin').val("");
                         deleteSentMessage(message_payload)
-                    }else {
+                    } else {
                         Swal.fire({
                             title: 'Oh no!',
                             text: response_data.error,
@@ -227,10 +224,9 @@
             );
         });
     }
-        
-    function deleteSentMessage(message_payload)
-    {
-     
+
+    function deleteSentMessage(message_payload) {
+
         ajaxRequest(message_payload,
             {
                 url: delete_sent_message,
@@ -250,9 +246,9 @@
                         confirmButtonColor: '#2691d9',
                     }).then(function (result) {
                         if (result.isConfirmed) {
-                            window.location.reload(true);     
+                            window.location.reload(true);
                         }
-                    }); 
+                    });
                 } else {
                     Swal.fire({
                         title: 'Oh no!',
@@ -266,8 +262,7 @@
 
     }
 
-    function getSentMessageDetail(data)
-    {
+    function getSentMessageDetail(data) {
 
         ajaxRequest(data,
             {
@@ -276,18 +271,17 @@
                 headers: assignAuthHeader(),
                 dataType: "json",
             },
-        function (response_data) {
-            if (response_data.status == true) {
-                if (response_data.content.length > 0) {
-                    generateTemplateMessageDetail("#view-message-detail-modal", response_data.content);
+            function (response_data) {
+                if (response_data.status == true) {
+                    if (response_data.content.length > 0) {
+                        generateTemplateMessageDetail("#view-message-detail-modal", response_data.content);
+                    }
                 }
-            }
-        });
+            });
     }
 
 
-    function createMessage(data)
-    {
+    function createMessage(data) {
         ajaxRequest(data,
             {
                 url: create_message_api,
@@ -295,46 +289,46 @@
                 headers: assignAuthHeader(),
                 dataType: "json",
             },
-        function (response_data) {
-            if (response_data.status == true) {
-                // loadSentMessage();
-                // loadEmployee();
-                $('.modal').modal('hide');
-                $('#messageArea').val("");
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Your message has been sent.',
-                    icon: 'success',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#2691d9',
-                }).then(function (result) {
-                    if (result.isConfirmed) {
-                        window.location.reload(true);     
-                    }
-                }); 
-            } else {
-                // Swal.fire('Somethin went wrong', 'Unable to complete process. Select another date', 'error');
-                Swal.fire({
-                    title: 'Oh no!',
-                    text: 'Something went wrong. ' + response_data.error.error,
-                    icon: 'error',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#2691d9',
-                });
-            }
-        });
+            function (response_data) {
+                if (response_data.status == true) {
+                    // loadSentMessage();
+                    // loadEmployee();
+                    $('.modal').modal('hide');
+                    $('#messageArea').val("");
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Your message has been sent.',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
+                            window.location.reload(true);
+                        }
+                    });
+                } else {
+                    // Swal.fire('Somethin went wrong', 'Unable to complete process. Select another date', 'error');
+                    Swal.fire({
+                        title: 'Oh no!',
+                        text: 'Something went wrong. ' + response_data.error.error,
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2691d9',
+                    });
+                }
+            });
     }
     $(document).ready(function () {
         // const tx = document.getElementsByTagName("textarea");
         const tx = document.getElementsByClassName("_txtarea2");
         for (let i = 0; i < tx.length; i++) {
-        tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
-        tx[i].addEventListener("input", OnInput, false);
+            tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+            tx[i].addEventListener("input", OnInput, false);
         }
-    
+
         function OnInput() {
-        this.style.height = "auto";
-        this.style.height = (this.scrollHeight) + "px";
+            this.style.height = "auto";
+            this.style.height = (this.scrollHeight) + "px";
         }
     });
 })()

@@ -33,14 +33,13 @@
                             </p>
                         </div>
                     </div><hr>
-                    <h6 class="mt-3 ">Inquiry Details:</h6>
+                    <h6 class="mt-3 ">Details:</h6>
                     <p class="float-end">
                         <div class="ms-2 mt-2">
                         <textarea class="opacity-75 form-control bg-white textarea"  id="requestDetails2" disabled></textarea>
                         </div>
                     </p>
 
-                    <!-- <input type="text" value="" id="date-trigger"> -->
                     
                     <div id="upload-image-contract2" class="animate__animated animate__fadeIn">
                         

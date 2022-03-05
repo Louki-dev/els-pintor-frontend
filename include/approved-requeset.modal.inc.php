@@ -36,7 +36,7 @@
                         </p>
                     </div>
                 </div><hr>
-                <h6 class="mt-3">Inquiry Details:</h6>
+                <h6 class="mt-3">Details:</h6>
                 <p class="float-end">
                     <div class="ms-2 mt-2">
                     <textarea class="opacity-75 form-control bg-white border-0"  rows="4" id="requestDetails" disabled></textarea>

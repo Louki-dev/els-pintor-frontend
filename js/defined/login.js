@@ -1,8 +1,8 @@
 (function () {
-    $(document).ready(function(e){
+    $(document).ready(function (e) {
         document.getElementById("login_v2").style.display = "none";
 
-        $(document).on("click", "#login", function(e) { 
+        $(document).on("click", "#login", function (e) {
 
             var data = {
                 username: $('#username').val(),
@@ -33,7 +33,7 @@
             }
             login(data);
 
-            $(document).on("click", "#resend", function(e) { 
+            $(document).on("click", "#resend", function (e) {
                 login(data);
                 var resend = document.getElementById("resend");
                 resend.style.color = "#aaa"
@@ -43,12 +43,12 @@
             });
         });
 
-        $(document).on("click", "#verify", function(e) { 
+        $(document).on("click", "#verify", function (e) {
 
             var vcode_data = {
                 vcode: $('#vcode').val(),
             };
-            
+
             if (vcode_data.vcode == '') {
                 Swal.fire({
                     title: 'Verification code is required!',
@@ -65,8 +65,7 @@
 
     });
 
-    function login(data)
-    {
+    function login(data) {
         ajaxRequest(data,
             {
                 url: login_api,
@@ -91,8 +90,7 @@
         );
     }
 
-    function checkVcode(vcode_data)
-    {
+    function checkVcode(vcode_data) {
         ajaxRequest(vcode_data,
             {
                 url: check_vcode,
@@ -117,8 +115,8 @@
         );
     }
 
-    $(document).on("click", '#logout', function() {
-        unsetLocalStorage(["user_id", "token"], function() {
+    $(document).on("click", '#logout', function () {
+        unsetLocalStorage(["user_id", "token"], function () {
             window.location.replace(redirect_login);
         });
     });

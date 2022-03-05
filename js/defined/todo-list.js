@@ -1,74 +1,73 @@
 (function () {
 
     $(document).on('click', '#createTodo', createTodoList);
-    $(document).ready(function ()
-    {
+    $(document).ready(function () {
         loadTodoList();
         loadCompletedList();
     });
 
-    $(document).on("click","#todo-done", function(e) { 
+    $(document).on("click", "#todo-done", function (e) {
         $('.modal').modal('hide');
     });
 
     $(document).on("click", "#todo-update", function (e) {
         updateProject({
-            todo_id :$(this).attr('data-info'),
+            todo_id: $(this).attr('data-info'),
             status: 4
         });
     });
 
-    var typingTimer;               
-    var doneTypingInterval = 1000;  
+    var typingTimer;
+    var doneTypingInterval = 1000;
 
-    $(document).on('keyup', '#search_t',function (){
-        $('#search_t').keyup(function(){
+    $(document).on('keyup', '#search_t', function () {
+        $('#search_t').keyup(function () {
             clearTimeout(typingTimer);
             if ($('#search_t').val()) {
                 typingTimer = setTimeout(doneTyping, doneTypingInterval);
-            }else{
+            } else {
                 loadTodoList();
                 loadCompletedList();
             }
         });
     });
 
-    function doneTyping () {
+    function doneTyping() {
         loadTodoList();
         loadCompletedList();
     }
 
     // selectall-inprogress
 
-    $(document).on("change","#selectall-inprogress", function(e) { 
-        $('#todoContent-0 input:checkbox').each(function() {
+    $(document).on("change", "#selectall-inprogress", function (e) {
+        $('#todoContent-0 input:checkbox').each(function () {
             $(this).prop('checked', e.currentTarget.checked);
         });
 
     });
 
-    $(document).on("change", "#selectall-completed", function(e) { 
-        $('#todoContent-1 input:checkbox').each(function() {
+    $(document).on("change", "#selectall-completed", function (e) {
+        $('#todoContent-1 input:checkbox').each(function () {
             $(this).prop('checked', e.currentTarget.checked);
         });
     });
 
-    $(document).on("click","#delete-todoList-inprogress", function(e) { 
+    $(document).on("click", "#delete-todoList-inprogress", function (e) {
 
         var selected = [];
-        $('#todoContent-0 input:checked').each(function() {
+        $('#todoContent-0 input:checked').each(function () {
             selected.push($(this).val());
         });
 
         if (selected.length > 0) {
 
             Swal.fire({
-                title: 'Are you sure you want to remove these item(s) ('+selected.length+')?',
+                title: 'Are you sure you want to remove these item(s) (' + selected.length + ')?',
                 showCancelButton: true,
                 confirmButtonText: 'Yes, remove it!',
                 confirmButtonColor: '#2691d9',
                 icon: "question",
-            }).then(function (result){
+            }).then(function (result) {
                 if (result.isConfirmed) {
                     $('#confirm-pass-admin').val("");
                     $('#confirm-admin-modal').modal('show');
@@ -81,9 +80,9 @@
                             items[i].checked = false;
                     }
                 }
-                
+
             });
-        }else {
+        } else {
             Swal.fire({
                 title: 'Oh no!',
                 text: 'Cannot remove the project. Select atleast 1 project',
@@ -91,27 +90,27 @@
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#2691d9',
             });
-            
+
         }
 
     });
 
-    $(document).on("click","#delete-todoList-completed", function(e) { 
+    $(document).on("click", "#delete-todoList-completed", function (e) {
 
         var selected = [];
-        $('#todoContent-1 input:checked').each(function() {
+        $('#todoContent-1 input:checked').each(function () {
             selected.push($(this).val());
         });
-    
+
         if (selected.length > 0) {
             Swal.fire({
-                title: 'Are you sure you want to remove these item(s) ('+selected.length+')?',
+                title: 'Are you sure you want to remove these item(s) (' + selected.length + ')?',
                 showCancelButton: true,
                 confirmButtonText: 'Yes, remove it!',
                 confirmButtonColor: '#2691d9',
                 icon: "question",
             }).then(function (result) {
-                if (result.isConfirmed) { 
+                if (result.isConfirmed) {
                     $('#confirm-pass-admin').val("");
                     $('#confirm-admin-modal').modal('show');
                     var todoId = selected;
@@ -123,9 +122,9 @@
                             items[i].checked = false;
                     }
                 }
-                
+
             });
-        }else {
+        } else {
             // Swal.fire('Cannot delete the project.', 'Please select atleast 1 project!', 'error');
             Swal.fire({
                 title: 'Oh no!',
@@ -138,8 +137,7 @@
 
     });
 
-    function loadTodoList()
-    {
+    function loadTodoList() {
         generateEmptyTemplate("#todoContent-0");
 
         ajaxRequest(null,
@@ -159,7 +157,7 @@
                         if (response_data.content[1]) {
                             $('#todoContent-paginate-0').pagination({
                                 dataSource: response_data.content[1],
-                                callback: function(data, pagination) {
+                                callback: function (data, pagination) {
                                     generateTodoTemplate('#todoContent-0', data, 1);
                                 }
                             });
@@ -170,8 +168,7 @@
         );
     }
 
-    function loadCompletedList()
-    {
+    function loadCompletedList() {
         generateEmptyTemplate("#todoContent-1");
 
         ajaxRequest(null,
@@ -191,7 +188,7 @@
                         if (response_data.content[4]) {
                             $('#todoContent-paginate-1').pagination({
                                 dataSource: response_data.content[4],
-                                callback: function(data, pagination) {
+                                callback: function (data, pagination) {
                                     generateTodoTemplate('#todoContent-1', data, 4);
                                 }
                             });
@@ -203,8 +200,7 @@
     }
 
 
-    function createTodoList()
-    {
+    function createTodoList() {
 
         var data = {
             title: $('#project-name').val(),
@@ -274,12 +270,12 @@
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#2691d9',
                     })
-                    .then(function (result) {
-                        $('#project-name').val("");
-                        $('#project-address').val("");
-                        $('#project-description').val("");
-                        $('#project-date').val("");
-                    });
+                        .then(function (result) {
+                            $('#project-name').val("");
+                            $('#project-address').val("");
+                            $('#project-description').val("");
+                            $('#project-date').val("");
+                        });
                 } else {
                     Swal.fire({
                         title: 'Oh no!',
@@ -293,16 +289,15 @@
         );
     }
 
-    $(document).on('show.bs.modal','#update_todo', function (e) {
+    $(document).on('show.bs.modal', '#update_todo', function (e) {
         fetchIndividualProject(
             {
-                todo_id:  $(e.relatedTarget).attr("data-info")
+                todo_id: $(e.relatedTarget).attr("data-info")
             }
         );
     });
 
-    function fetchIndividualProject(data)
-    {
+    function fetchIndividualProject(data) {
         ajaxRequest(
             data,
             {
@@ -321,15 +316,14 @@
         );
     }
 
-    function updateProject(data)
-    {
+    function updateProject(data) {
         Swal.fire({
             title: 'Are you sure this project is complete?',
             showCancelButton: true,
             confirmButtonText: 'Complete',
             confirmButtonColor: '#2691d9',
         }).then(function (result) {
-            if (result.isConfirmed) { 
+            if (result.isConfirmed) {
                 ajaxRequest(
                     data,
                     {
@@ -352,10 +346,10 @@
                                 confirmButtonColor: '#2691d9',
                             }).then(function (result) {
                                 if (result.isConfirmed) {
-                                    window.location.reload(true);     
+                                    window.location.reload(true);
                                 }
-                            }); 
-                        
+                            });
+
                         } else {
                             // Swal.fire('Somethin went wrong', 'Required input must not be empty', 'error');
                             Swal.fire({
@@ -367,14 +361,13 @@
                             });
                         }
                     }
-                ); 
-            } 
+                );
+            }
         });
     }
 
-    function confirmAdmin(todoId)
-    {
-        $(document).on("click","#confirm-pass-submit", function(e) {
+    function confirmAdmin(todoId) {
+        $(document).on("click", "#confirm-pass-submit", function (e) {
             var checkAdmin = {
                 check_pass: $('#confirm-pass-admin').val()
             };
@@ -405,7 +398,7 @@
                         $('.modal').modal('hide');
                         $('#confirm-pass-admin').val("");
                         deleteProject(todo_ongoing_delete)
-                    }else {
+                    } else {
                         Swal.fire({
                             title: 'Oh no!',
                             text: response_data.error,
@@ -419,9 +412,8 @@
         });
     }
 
-    function deleteProject(todo_ongoing_delete)
-    {
-     ajaxRequest(
+    function deleteProject(todo_ongoing_delete) {
+        ajaxRequest(
             todo_ongoing_delete,
             {
                 url: delete_todo_by_id,
@@ -442,10 +434,10 @@
                         confirmButtonColor: '#2691d9',
                     }).then(function (result) {
                         if (result.isConfirmed) {
-                            window.location.reload(true);     
+                            window.location.reload(true);
                         }
-                    }); 
-                    
+                    });
+
                 } else {
                     Swal.fire({
                         title: 'Oh no!',
@@ -459,12 +451,12 @@
         );
     }
 
-    $(document).on('click','#resetTodo',function (){
+    $(document).on('click', '#resetTodo', function () {
         $('#project-name').val("");
         $('#project-date').val("");
         $('#project-address').val("");
         $('#project-description').val("");
     });
 
-    
+
 })();

@@ -748,7 +748,7 @@ section{
     z-index: 1;
     overflow: visible;
     background: #FAFAFA url('../img/paintbrush.gif') no-repeat center center;
-  }
+}
 
 .pending {
 color:#2980b9 !important;
